@@ -1,0 +1,16 @@
+html {
+    background-color: aquamarine;
+    color:darkblue;
+    font-size: 25px;
+}
+
+ul {
+    background: darkkhaki;
+    padding: 10px;
+    margin: 50px auto;
+    border: 1px solid black;
+}
+
+li {
+    margin-left: 20px;
+}
