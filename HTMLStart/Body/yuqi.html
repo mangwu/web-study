@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="mangwu">
+        <meta name="description" content="重点强调的一些元素">
+        <link rel="shortcut icon" href="images/favicon1.png" type="image/x-icon">
+        <title>重点强调</title>
+    </head>
+    <body>
+        <h1>强调的一些元素</h1>
+        <h2>斜体风格</h2>
+        <p>&lt;em&gt;元素可以标志斜体，如，<em>斜体</em></p>
+        <h2>粗体风格</h2>
+        <p>&lt;strong&gt;元素表示强调，使内容变为粗体，如，<strong>粗体</strong></p>
+        <h2>强调的非语义元素（表象元素）</h2>
+        <p>CSS未被完全支持前，&lt;b&gt;,&lt;i&gt;,&lt;u&gt;这种元素不表征语义，只是表示粗体，斜线，下划线，都是表象元素</p>
+        <ul>
+            <li>&lt;b&gt;被用来传达传统上用斜体表达的意义：<i>外国文字，分类名称，技术术语，一种思想……</i></li>
+            <li>&lt;i&gt;被用来传达传统上用粗体表达的意义：<b>关键字，产品名称，引导句……</b></li>
+            <li>&lt;u&gt;被用来传达传统上用下划线表达的意义：<u>专有名词，拼写错误……</u></li>
+
+        </ul>
+        <p>例子</p>
+        <!-- 学名 -->
+        <p>
+            红喉北蜂鸟（学名：<i>Archilocus colubris</i>）
+            是北美东部最常见的蜂鸟品种。
+        </p>
+        
+        <!-- 舶来词 -->
+        <p>
+            菜单上有好多舶来词汇，比如 <i lang="uk-latn">vatrushka</i>（东欧乳酪面包）,
+            <i lang="id">nasi goreng</i>（印尼炒饭）以及<i lang="fr">soupe à l'oignon</i>（法式洋葱汤）。
+        </p>
+        
+        <!-- 已知的错误书写 -->
+        <p>
+            <!--修改u的样式以避免它和超链接的相同性-->
+            总有一天我会改掉写<u style="text-decoration-line: underline; text-decoration-style: wavy;">措字</u>的毛病。
+        </p>
+        
+        <!-- 在一组指令中突出显示关键字 -->
+        <ol>
+            <li>
+            <b>切</b>下两片<span style="text-decoration-line: underline; text-decoration-style: wavy;">的</span>面包，
+            </li>
+            <li>
+            在两片面包中间<b>夹入</b>一片西红柿和一片生菜叶。
+            </li>
+        </ol>
+            
+    </body>
+
+</html>

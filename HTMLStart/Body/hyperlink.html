@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="mangwu">
+        <meta name="description" content="超链接">
+        <link rel="shortcut icon" href="images/favicon1.png" type="image/x-icon">
+        <title>超链接</title>
+    </head>
+    <body>
+        <h1>&lt;a&gt;元素内的内容指向&lt;a&gt;中属性指向的链接</h1>
+        <p>我创建了一个指向<a href="https://www.baidu.com/" target="_blank" title="百度">百度</a>的超链接</p>
+        <p>href属性指明链接地址，title属性指明链接的提示信息，target表明打开链接的方式</p>
+        <hr/>
+        <p>块级链接,链接中的内容不是文字等其他内容，而是整一个元素块，如图片</p>
+        <a href="https://fluidcat.com/" target="_blank" title="关于猫的网站"><img src="../../structure/images/cat.gif"></a>
+        <hr/>
+        <p>超链接连接到文档特定部分（文档片段）</p>
+        <p>用法：使用元素的id作为锚定进行跳转，在href属性中后面加上 <strong>#id</strong> 即可</p>
+        <p>链接到list.html文档中介绍<a href="list.html#gbjd" title="宫保鸡丁" target="_blank">宫保鸡丁</a>的部分</p>
+        <hr/>
+        <p>下载链接</p>
+        <p>使用download属性指明下载名称</p>
+        <p><a href="../src/pdfs/程序员技术练级.pdf" download="程序员技术练级.pdf">程序员技术练级</a></p>
+        <hr>
+        <p>电之邮件链接</p>
+        <p>在href属性中使用"mailto:email,email?cc=mail&bcc=mail&subject=somethingsubject"</p>
+        <ul>
+            <li>mailto:后面接发送主体，可以是多个邮件名，用逗号隔开</li>
+            <li>主体后接?，问号后面可以接cc，bcc。cc表示抄送，bcc表示密令抄送</li>
+            <li>抄送和抄送以及主题(subject)之间用&amp;相隔开</li>
+        </ul>
+        <p><a href="mailto:1185956753@qq.com">向mangwu发邮件</a></p>
+        <a href="mailto:nowhere@mozilla.org?cc=name2@rapidtables.com&bcc=name3@rapidtables.com&subject=The%20subject%20of%20the%20email&body=The%20body%20of%20the%20email">
+            Send mail with cc, bcc, subject and body
+          </a>
+    </body>
+</html>
