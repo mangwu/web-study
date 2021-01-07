@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="mangwu">
+        <meta name="description" content="引用">
+        <link rel="shortcut icon" href="images/favicon1.png">
+        <title>引用</title>
+    </head>
+    <body>
+        <h1>引用</h1>
+        <h2>块引用</h2>
+        <p>一个块级内容（一段，多段，列表）被引用，使用&lt;blockquote&gt;元素引用，属性cite的值表示引用地址。</p>
+        <p>例如:</p>
+        <blockquote cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote"><p>The <strong>HTML <code>&lt;blockquote&gt;</code> Element</strong> (or <em>HTML Block
+            Quotation Element</em>) indicates that the enclosed text is an extended quotation.</p></blockquote>
+        <h2>行内引用</h2>
+        <p>使用&lt;q&gt;元素引用，浏览器将其作为普通文本放在""中</p>
+        <p>例如</p>
+        <p>The quote element — <code>&lt;q&gt;</code> — is <q cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q">intended
+            for short quotations that don't require paragraph breaks.</q></p>   
+        <h2>引文</h2>
+        <p>在&lt;blockquote&gt;和&lt;q&gt;元素中，属性cite的值不会显示，使用元素&lt;cite&gt;和超链接让其可显示</p>
+        <p>例如</p>
+        <p>根据<a href=""><cite>MDN引用讲解</cite></a></p>
+        <h2>缩略语</h2>
+        <p>&lt;abbr&gt;元素来包裹一个缩略语，并用title属性来解释其全称</p>
+        <p><abbr title="超文本标记语言">HTML</abbr>用来组织网页文档</p>
+        <h2>联系方式</h2>
+        <p>&lt;address&gt;元素来标志联系方式</p>
+        <address><p>湖北省，武汉市，武汉大学，Jack Wang</p></address>
+        <h2>上标和下标</h2>
+        <ul>
+            <li>上标： &lt;sup&gt;</li>
+            <li>下标：&lt;sub&gt;</li>
+        </ul>
+        <p>例子：x<sup>2</sup>=9;Cu<sub>2</sub>SO<sub>4</sub></p>
+        <h2>计算机代码</h2>
+        <ul>
+            <li>&lt;code&gt; 标记代码</li>
+            <li>&lt;pre&gt; 保留空白</li>
+            <li>&lt;var&gt; 标记具体变量名</li>
+            <li>&lt;kbd&gt; 电脑键盘的输入</li>
+            <li>&lt;samp&gt; 计算机程序输出</li>
+        </ul>
+        <p>例子：</p>
+        <pre><code>
+            const para = document.querySelector('p')
+
+            para.onclick = function()
+            {
+                alert("别点了＞﹏＜")
+            }        
+        </code></pre>
+        <p>上述javascripts示例中，<var>para</var>(用&lt;var&gt;标记)表示一个段落元素，整段使用&lt;pre&gt;和&lt;code&gt;标记</p>
+        <p>按住<kbd>Ctrl</kbd>+<kbd>A</kbd>(用&lt;kbd&gt;标记)选择全部内容</p>
+        <pre>$ <kbd>ping mozilla.org</kbd>
+            <samp>PING mozilla.org (63.245.215.20): 56 data bytes
+            64 bytes from 63.245.215.20: icmp_seq=0 ttl=40 time=158.233 ms</samp></pre>
+        <p>上面模拟ping指令，输出用&lt;samp&gt;标记</p>
+        <h2>标记时间</h2>
+        <p>使用&lt;time&gt;元素</p>
+        <time datetime="2021-01-06">2021年1月20日</time><br/>
+        <!-- 标准简单日期 -->
+        <time datetime="2016-01-20">20 January 2016</time><br/>
+        <!-- 只包含年份和月份-->
+        <time datetime="2016-01">January 2016</time><br/>
+        <!-- 只包含月份和日期 -->
+        <time datetime="01-20">20 January</time><br/>
+        <!-- 只包含时间，小时和分钟数 -->
+        <time datetime="19:30">19:30</time><br/>
+        <!-- 还可包含秒和毫秒 -->
+        <time datetime="19:30:01.856">19:30:01.856</time><br/>
+        <!-- 日期和时间 -->
+        <time datetime="2016-01-20T19:30">7.30pm, 20 January 2016</time><br/>
+        <!-- 含有时区偏移值的日期时间 -->
+        <time datetime="2016-01-20T19:30+01:00">7.30pm, 20 January 2016 is 8.30pm in France</time><br/>
+        <!-- 调用特定的周 -->
+        <time datetime="2016-W04">The fourth week of 2016</time><br/>
+    </body>
+</html>

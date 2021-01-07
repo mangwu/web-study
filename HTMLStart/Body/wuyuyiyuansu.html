@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" href="images/favicon1.png">
+        <title>无语义元素</title>
+    </head>
+    <bod>
+        <header>
+            <h1>无语义元素</h1>
+        </header>
+        <nav>
+            <ul>
+                <li>
+                    &lt;span&gt;是一个无语义内联元素
+                </li>
+                <li>
+                    &lt;div&gt;是一个块级无语义内联元素
+                </li>
+                <li>&lt;br&gt;和&lt;hr&gt;</li>
+            </ul>
+        </nav>
+        <main>
+            <article>
+                <h2>&lt;span&gt;</h2>
+                <p>内联，即inline，有些内容想要标记出来但是不想增加额外含义或无法找到好的语义元素包含，
+                    这时使用&lt;span&gt;是好的，例子：</p>
+                <p>国王喝得酩酊大醉，在凌晨 1 点时才回到自己的房间，踉跄地走过门口。<span class="editor-note">[编辑批注：此刻舞台灯光应变暗]</span>.</p>
+            </article>
+            <article>
+                <h2>&lt;div&gt;</h2>
+                <p>块级元素，即在找不到更好的块级元素包含内容或不想增加特定意义时使用div最好，例如</p>
+                <p>一个电子商务网站页面上有一个一直显示的购物车组件。即不与主内容（物品）没联系，也不是主内容一部分</p>
+                <div class="shopping-cart">
+                    <h2>购物车</h2>
+                    <ul>
+                      <li>
+                        <p><a href=""><strong>银耳环</strong></a>：$99.95.</p>
+                        <img src="../products/3333-0985/" alt="Silver earrings">
+                      </li>
+                      <li>
+                        ...
+                      </li>
+                    </ul>
+                    <p>售价：$237.89</p>
+                </div>
+            </article>
+            <article>
+                <h2>换行和水平分割线</h2>
+                <p>br可以在段落中换行，可以构造短行</p>
+            </article>
+        </main>
+    </bod>
+    
+    
+</html>
