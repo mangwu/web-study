@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="mangwu">
+        <meta name="description" content="图片">
+        <title>网页中的图片</title>
+        <style>
+            html {
+                display: block;
+                position: relative;
+            }
+            html::after{
+                content: "";
+                background-image: url(images/p0_86140128__无题_au绊.jpg);
+                opacity: 0.5;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                position: absolute;
+                z-index: -1; 
+                background-size: cover;   
+            }
+            .info {
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+                font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif;
+                font-style: normal;
+                margin: 0;
+                padding: 0;
+                border: 0;
+                vertical-align: baseline;
+                white-space: pre-line;
+                transition: all .3s;
+                font-size: 12px;
+                color: #212121;
+                letter-spacing: 0;
+                line-height: 18px;
+                width: 573px;
+                overflow: hidden;
+                height: auto;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <header>
+            <h1>&lt;img&gt;</h1>
+        </header>
+        <p>&ltimg&gt;被称为替换元素，这样的元素的内容和尺寸由外部资源（像是一个图片或视频文件）所定义，而不是元素自身。</p>
+        <dl>
+            <dt>1.src属性</dt>
+            <dd>src属性指明想要引入图片的地址，可以是相对地址，也可是绝对地址。一般使用相对地址
+                <ul>
+                    <li>相对地址：
+                        <img src="images/65123727.gif" width="70px" alt="使用相对地址的gif图" title="使用相对地址的gif图">
+                    </li>
+                    <li>绝对地址：
+                        <img src="http://localhost:8000/HTMLMultimedia/Figure/images/40563df221db1ad170fb5d5a89b170d8aefc7fe7.jpg"
+                         width="170px" title="使用绝对地址的jpg图">
+                    </li>
+                </ul>
+            </dd>
+            <dt>2.alt属性</dt>
+            <dd>alt属性是对图片的文字描述，用于图片无法显示时对用户的文字反馈
+                <ul>
+                    <li>例如上面的甘雨，地址打错时显示：
+                        <img src="images/40563df221db1ad170fb5d5a89b170d8aefc7fe.jpg" alt="甘雨">
+                    </li>
+                </ul>       
+            </dd>
+            <dt>3.宽度和高度属性</dt>
+            <dd>width 和 height 属性可以用来调整图片在网页上的显示大小和比例
+                <ul>
+                    <li>正常比例的图片：
+                        <img src="images/40563df221db1ad170fb5d5a89b170d8aefc7fe7.jpg" width="150" alt="甘雨">
+                    </li>
+                    <li>
+                        宽度高度比例不正常的图片：
+                        <img src="images/40563df221db1ad170fb5d5a89b170d8aefc7fe7.jpg" width="130" height="90">
+                    </li>
+                    <li>
+                        <strong>一般而言，width和height在CSS中描述。</strong>
+                    </li>
+                </ul>
+            </dd>
+            <dt>4.title属性</dt>
+            <dd>给图片添加标题
+                <ul>
+                    <li>
+                        鼠标悬停在图片上时，会显示图片标题:
+                        <a href="images/40563df221db1ad170fb5d5a89b170d8aefc7fe7.jpg">
+                            <img src="images/40563df221db1ad170fb5d5a89b170d8aefc7fe7.jpg" width="150" title="甘雨">
+                        </a>
+                    </li>
+                </ul>
+            </dd>
+            <dt>5.块化图片，图片说明</dt>
+            <dd>有些时候，图片需要在下方直接进行注释解说，而不是alt，title属性一样需要其余操作才能看到，这就需要块化图片，添加解说
+                <ul>
+                    <li>使用&lt;div&gt;块元素包裹图片和图片解说（文字用&lt;p&gt;元素或自定义&lt;div&gt;样式）：
+                        <div class="figure">
+                            <img src="images/40563df221db1ad170fb5d5a89b170d8aefc7fe7.jpg" width="150px">
+                            <div class="info open">
+                                源地址:
+                                    <a href="https://www.bilibili.com/video/BV1ho4y1o7yc" target="_blank">
+                                        BV1ho4y1o7yc
+                                    </a>
+                                简介：
+
+                                Model：
+                                miHoYo/Impmagik
+                                
+                                Motion:
+                                【Modtion】兰若_Ruo/予沉/Sano_
+                                【Camera】鬼瞳
+                                
+                                Stage：
+                                Viero月城
+                                DesmondChan
+                                Ai
+                                
+                                MME：
+                                Rui_cg/ikeno/そぼろ/化身バレッタ
+                        </div>
+                    </li>
+                    <li>
+                        使用HTML5的语义元素（推荐）&lt;figure&gt;和&lt;figcaption&gt;元素替代无语义&lt;div&gt;元素:
+                        <figure>
+                            <img src="images/40563df221db1ad170fb5d5a89b170d8aefc7fe7.jpg" width="150px">
+                            <figcaption class="info open">
+                                源地址:
+                                <a href="https://www.bilibili.com/video/BV1ho4y1o7yc" target="_blank">
+                                    BV1ho4y1o7yc
+                                </a>
+                            简介：
+
+                            Model：
+                            miHoYo/Impmagik
+                            
+                            Motion:
+                            【Modtion】兰若_Ruo/予沉/Sano_
+                            【Camera】鬼瞳
+                            
+                            Stage：
+                            Viero月城
+                            DesmondChan
+                            Ai
+                            
+                            MME：
+                            Rui_cg/ikeno/そぼろ/化身バレッタ
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>注意：
+                        <ul>
+                            <li>
+                                不同于&lt;div&gt;,可以看到&lt;figure&gt;元素是自带样式的
+                            </li>
+                            <li>
+                                &lt;figure&gt;可以是几张图片、一段代码、音视频、方程、表格或别的。
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                
+            </dd>
+            <dt>6.HTML背景图片与CSS背景图片</dt>
+            <dd>CSS中的<code>backgroud-image:url()</code>可以很好地提供背景
+                <ul>
+                    <li>CSS可以更好控制背景图片</li>
+                    <li>CSS可以为不同块或元素提供背景图</li>
+                    <li><strong>如果图像对您的内容里有意义，则应使用HTML图像。 如果图像纯粹是装饰，则应使用CSS背景图片。</strong></li>
+                </ul>
+            </dd>
+        </dl>
+    </body>
+</html>
