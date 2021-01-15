@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="mangwu">
+        <title>iframe元素:嵌入</title>
+    </head>
+    <body>
+        <header>
+            <h1>&lt;iframe&gt;</h1>
+        </header>
+        <main>
+            <section>
+                <h2>1.iframe允许其他网页内容嵌入到一个网页中</h2>
+                <p>例子：</p>
+                <iframe 
+                src="//player.bilibili.com/player.html?aid=80128837&bvid=BV1hJ41147EE&cid=137230470&page=1" 
+                scrolling="no" 
+                border="0" 
+                frameborder="0" 
+                framespacing="0" 
+                allowfullscreen="true"
+                width="500px"
+                height="300px"> 
+                </iframe>
+            </section>
+            <section>
+                <h2>2.iframe中的属性</h2>
+                <ul>
+                    <li>
+                        src属性：指明引入资源的地址。可以是上面的视频地址，也可以是下面的网页文档
+                    </li>
+                    <li>
+                        allowfullscreen属性：可以通过
+                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Fullscreen_API">
+                            全屏api
+                        </a>
+                        设置为全屏模式
+                    </li>
+                    <li>
+                        frameborder属性：嵌入内容的边框。0和no为没有，1是显示默认边框。不推荐使用，因为可以在CSS中实现
+                    </li>
+                    <li>
+                        height和width属性：指定宽度和高度
+                    </li>
+                    <li>
+                        sandbox属性：提高安全性
+                    </li>
+                    <li>
+                        scrolling属性：默认可以含有滚动条。设置为no，滚动条不显示，不能滚动，只能显示文档一部分。一般内容资源是固定的（如视频等），则设置为no
+                    </li>
+                </ul>
+                <iframe src="https://developer.mozilla.org/zh-CN/docs/Glossary"
+                width="50%" height="500" frameborder="1"  
+                allowfullscreen sandbox>
+                    <p> <a href="https://developer.mozilla.org/zh-CN/docs/Glossary">
+                        Fallback link for browsers that don't support iframes
+                    </a> </p>
+                </iframe>
+                
+                
+            </section>
+            <section>
+                <h2>3.sandbox属性</h2>
+                <p>
+                    一个允许包含在其里的代码以适当的方式执行或者用于测试，但不能对其他代码库（意外或恶意）造成任何损害的容器称为沙盒
+                </p>
+                <p>
+                    没有属性值的sandbox只能让沙盒内容执行包含在元素内的操作，而不能执行元素外的javascript
+                </p>
+                <p>
+                    其中重要的一点是，你永远不应该同时添加allow-scripts和allow-same-origin到你的sandbox属性中-在这种情况下，
+                    嵌入式内容可以绕过阻止站点执行脚本的同源安全策略，并使用JavaScript完全关闭沙盒。
+                </p>
+            </section>
+            
+        </main>
+    </body>
+</html>

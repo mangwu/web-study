@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zn-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="mangwu">
+        <title>&lt;embed&gt;和&lt;object&gt;</title>
+    </head>
+    <body>
+        <header>
+            <h1>&lt;embed&gt;&lt;object&gt;和元素</h1>
+        </header>
+        <main>
+            <dl>
+                <dt>1.用法</dt>
+                <dd>
+                    不同于&lt;iframe&gt;,它们是用于嵌入多种类型的外部内容的嵌入工具，例如：
+                    <ul>
+                        <li>java小程序</li>
+                        <li>flash</li>
+                        <li>PDF</li>
+                        <li>视频，svg，图像</li>
+                    </ul>
+                    <p>例子：svg矢量图</p>
+                    <p>使用&lt;embed&gt;元素</p>
+                    <embed src="images/1.svg" type="image/svg+xml" 
+                    width="550" height="400"
+                    quality="medium"
+                    >
+                    <p>使用&lt;object&gt;元素</p>
+                    <object data="images/1.svg" type="image/svg+xml"
+                    width="550" height="400">
+                    </object>
+                </dd>
+                <dt>2.属性</dt>
+                <dd>
+                    <ul>
+                        <li>embed标签指明资源地址的是src属性，而object标签是data属性</li>
+                        <li>二者都需要type属性来指明资源内容的格式，如svg的type="image/svg+xml"</li>
+                        <li>width和height对二者是通用的</li>
+                    </ul>
+                </dd>
+                
+            </dl>
+        </main>
+    </body>
+</html>
