@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="mangwu">
+        <link rel="shortcut icon" href="../../HTMLStart/Body/images/favicon1.png">
+        <title>音频</title>
+        <style>
+            .button1 {
+                margin-left: 20px;
+                border: 1px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>&lt;audio&gt;标签</h1>
+        </header>
+        <main>
+            <dl>
+                <dt>1.用法</dt>
+                <dd>
+                    <ul>
+                        <li>
+                            和&lt;video&gt;类似，只是显示边框不同
+                        </li>
+                        <li>
+                            没有width和height属性
+                        </li>
+                        <li>
+                            不支持poster
+                        </li>
+                        <li>
+                            除此之外，&lt;audio&gt;支持的属性和用法和&lt;video&gt;相同
+                        </li>
+                        <li>例子：<br>
+                            <audio id="audio1" controls preload="auto">
+                                <source src="media/好想爱这个世界啊(日语版).m4a" type="audio/mp4">
+                                <track src="media/好想爱这个世界啊.vtt" kind="captions">
+                                <p>你的浏览器不支持 HTML5 音频，可点击
+                                    <a href="https://www.bilibili.com/video/BV1hJ41147EE">BV1hJ41147EE</a>
+                                    收听。
+                                </p>
+                                
+                            </audio>
+                            <button class="button1" onclick="myFunction()">启动</button>
+                        </li>
+                    </ul>
+                </dd>
+                <dt>
+                    2.重新加载媒体
+                </dt>
+                <dd>
+                    在javascript中获取音频元素后，调用load()，重新加载媒体。
+                    <ul>
+                        <li>注意重新加载媒体会使音频处于初始打开网页时的状态</li>
+                        <li>上面“启动”按钮添加了一个点击事件，点击后重新加载左边的音频(并且添加了autopaly属性，所以点击后就可以播放）</li>
+                    </ul>
+                </dd>
+                <dt>
+                    3.监听音轨
+                </dt>
+                <dd>
+                    监控媒体元素中的音频轨道，当音轨被添加或删除时，可以通过监听相关事件来侦测到,及时对音轨的增加做出响应
+                    <p>
+                        <code><pre>
+                            mediaElem.audioTracks.onaddtrack = function(event) {
+                                audioTrackAdded(event.track);
+                            }
+                            </pre>
+                        </code>
+                    </p>
+                </dd>
+                <dt>4.显示音轨文本</dt> 
+                <dd>
+                    WebVTT 是一个格式，用来编写音轨文本文件，由许多时间段和字符串组成，这些字符串叫做cues。<br>
+                    根据需求显示不同样式：
+                    <ul>
+                        <li>subtitles:字幕</li>
+                        <li>captions:同步翻译对白</li>
+                        <li>timed descriptions:文字音频（听声读书）</li>
+                    </ul>
+                    <p>使用&lt;track&gt;标签链接.vtt文件：</p>
+                    <ul>
+                        <li>src属性指明文本资源</li>
+                        <li>kind属性指明WebVTT的样式</li>
+                        <li>srclang属性指明文本语言</li>
+                    </ul>
+                    <p>下面是一个例子：</p>
+                    <video width="700px" controls>
+                        <source src="media/80128837_1_0.mp4">
+                        <track src="media/好想爱这个世界啊.vtt" kind="subtitles" srclang="中日双语字幕">
+                    </video>
+
+                </dd>
+                
+            </dl>
+        </main>
+    </body>
+    <script>
+        const mediaElement = document.getElementById("audio1");
+        console.log(mediaElement);
+        function myFunction(){
+            mediaElement.setAttribute("autoplay","true")
+            mediaElement.load();
+        };
+    </script>
+</html>

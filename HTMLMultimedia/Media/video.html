@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="mangwu">
+        <title>视频</title>
+    </head>
+    <body>
+        <header>
+            <h1>&lt;video&gt;标签</h1>
+        </header>
+        <main>
+            <dl>
+                <dt>1.&lt;video&gt;元素</dt>
+                <dd>
+                    &lt;video&gt;元素支持网页中嵌入一个视频,它和img一样，是内联元素:例子：
+                    <video src="media/372785082_1_0.mp4" controls width="400px">
+                        <p>&lt;video&gt;是HTML5支持的元素，浏览器不支持HTML5则点击
+                            <a href="https://www.bilibili.com/video/av372785082">av372785082</a>
+                            观看视频
+                        </p>
+                    </video>
+                </dd>
+                <dt>2.src属性</dt>
+                <dd>同img标签中的src，指向嵌入网页的视频资源地址</dd>
+                <dt>3.controls属性</dt>
+                <dd>
+                    为用户提供视频的控制功能，如回放，暂停，调整音量等。controls控件默认由浏览器提供，也可使用javascriptsAPI创建视频页面
+                </dd>
+                <dt>4.后备内容</dt>
+                <dd>&lt;video&gt;不同于&lt;img&gt;，它有结束标签，当浏览器不支持video时，中间的内容会被显示</dd>
+                <dt>5.兼容性</dt>
+                <dd><strong>不同浏览器对不同视频容器格式有不同的支持</strong>
+                    <ul>
+                        <li>WebM格式：现代浏览器都支持这种格式，除了一些很老的版本的浏览器</li>
+                        <li>MP4格式：包括ACC,MP3音频和H.264视频,在所有现代浏览器中都支持，包括Internet Explorer</li>
+                        <li>Ogg格式：老式视频音频格式，被WebM取代，在火狐和谷歌浏览器中被支持</li>
+                    </ul>
+                    <p>点击
+                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Supported_media_formats#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%83%85%E5%86%B5" target="_blank">
+                            浏览器兼容情况
+                        </a>
+                        查看各种浏览器支持的音视频格式
+                    </p>
+                </dd>
+                <dt>6.&lt;source&gt;</dt>
+                <dd>在&lt;video&gt;标签中加入&lt;source&gt;元素，为浏览器提供多种视频格式地址
+                    <p>具体方法是把src属性放在多个&lt;source&gt;元素中，每个提供不同容器格式，解决浏览器兼容问题</p>
+                    <p>如，以下有两种格式的视频源（mp4和flv），谷歌浏览器不支持flv：</p>
+                    <video controls width="500px">
+                        <source src="media/372785082_1_0.mp4" type="video/mp4">
+                        <p>&lt;video&gt;是HTML5支持的元素，浏览器不支持HTML5则点击
+                            <a href="https://www.bilibili.com/video/av372785082">av372785082</a>
+                            观看视频
+                        </p>
+                    </video>
+                    <p>注：&lt;source&gt;标签中可用type属性标明视频的<abbr>MIME type</abbr>,方便浏览器快速选择可支持格式</p>
+                </dd>
+                <dt>7.尺寸</dt>
+                <dd>
+                    <ul>
+                        <li>使用width和height属性控制视频尺寸，用CSS控制更好。</li>
+                        <li>与&lt;img&gt;不同，视频的长宽比（纵横比）是固定的，设置的尺寸没有保持原始长宽比，会显示黑框（默认颜色）</li>
+                    </ul>
+                </dd>
+                <dt>8.autoplay属性</dt>
+                <dd>
+                    视频或音频在打开网页后自动播放（一般不使用）
+                </dd>
+                <dt>9.loop属性</dt>
+                <dd>
+                    循环播放
+                </dd>
+                <dt>10.muted属性</dt>
+                <dd>
+                    默认关闭声音，如：
+                    <video controls width="500px" muted autoplay>
+                        <source src="media/372785082_1_0.mp4" type="video/mp4">
+                        <p>&lt;video&gt;是HTML5支持的元素，浏览器不支持HTML5则点击
+                            <a href="https://www.bilibili.com/video/av372785082">av372785082</a>
+                            观看视频
+                        </p>
+                    </video>
+                </dd>
+                <dt>11.poster属性</dt>
+                <dd>在视频播放前显示（封面），用于粗略预览或广告，例如修改上面视频自带的封面<br>
+                    <video controls poster="cover.jpg" width="500px" preload="auto">
+                        <source src="media/372785082_1_0.mp4" type="video/mp4">
+                        <p>&lt;video&gt;是HTML5支持的元素，浏览器不支持HTML5则点击
+                            <a href="https://www.bilibili.com/video/av372785082">av372785082</a>
+                            观看视频
+                        </p>
+                    </video>
+                </dd>
+                <dt>12.preload属性</dt>
+                <dd>用来缓冲较大的文件，有三个值可选：
+                    <ul>
+                        <li>"none":不缓冲</li>
+                        <li>"auto":页面加载后缓存媒体文件</li>
+                        <li>"metadata":仅缓存文件的元数据</li>
+                    </ul>
+                    <p>autoplay属性和preload是冲突的，有autoplay属性，preload就无效了</p>
+                    <p>可查看<a href="http://gongfuma.com/front/tech/detail/id/357.html" target="_blank">preload属性详解</a>了解更多内容</p>
+                </dd>
+            </dl>
+        </main>
+    </body>
+</html>
