@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta author="mangwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <link rel="shortcut icon" href="../SVG/images/favicon1.svg">
+        <title>响应式图片</title>
+    </head>
+    <body>
+        <header>
+            <div>
+                <!-- <img src="Images/1920.jpg" alt="页眉图片"> -->
+                <span><b>自适应的图片</b></span>
+            </div>
+        </header>
+        <main>
+            <section>
+                <h3>1.响应式图片</h3>
+                <p>也称自适应图片，一种在不同屏幕尺寸上和分辨率设备上都能良好工作以及其他特性的图片</p>
+                <p>网页图片问题：</p>
+                <ul>
+                    <li>
+                        美术设计问题（art direction problem）:屏幕尺寸变化时，图片显示需要适配屏幕，要显示一个有重要细节的裁剪版
+                    </li>
+                    <li>
+                        分辨率切换问题（resolution switching problem）：小屏幕没必要显示大图片，而是根据设备提供不同分辨率和不同尺寸图片
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>2.CSS是比HTML更好的响应式设计的工具</h3>
+                <p>但网站页眉的图片仅是装饰性的，实际上应该要用CSS的背景图片来实现</p>
+            </section>
+            <section>
+                <h3>3.不同尺寸分辨率切换</h3>
+                <ul>
+                    <li>srcset属性：提供额外的资源图像，根据用户设备调整</li>
+                    <li>sizes属性：定义一组媒体条件，如屏幕宽度，在什么条件下显示那种尺寸图片</li>
+                    <li>
+                        所以，有了这些属性，浏览器会:
+                        <ol>
+                            <li>
+                                查看设备宽度
+                            </li>
+                            <li>
+                                检查sizes列表中哪个媒体条件是第一个为真
+                            </li>
+                            <Li>
+                                查看给予该媒体查询的槽大小
+                            </Li>
+                            <li>
+                                加载srcset列表中引用的最接近所选的槽大小的图像
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        注意：这一行代码 &lt;meta name="viewport" content="width=device-width"&gt;: 这行代码会强制地让手机浏览器采用它们真实可视窗口的宽度来加载网页
+                    </li>
+                </ul>
+                
+                <img srcset="Images/960.jpg 960w,
+                             Images/1280.jpg 1280w,
+                             Images/1920.jpg 1920w
+                            "
+                     sizes="(max-width: 960px) 440px,
+                            (max-width: 1280px) 760px, 
+                            1080px"
+                     alt="尺寸"
+                >
+            </section>
+            <section>
+                <h3>4.相同尺寸，不同分辨率</h3>
+                <p>图片显示的尺寸是相同的，但是图片分辨率不同</p>
+                <p>通常用CSS来固定尺寸（CSS像素），不需要sizes调整</p>
+            </section>
+            <section>
+                <h3>5.美术设计问题</h3>
+                <p></p>
+            </section>
+            
+        </main>
+
+    </body>
+</html>

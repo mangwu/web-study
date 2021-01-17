@@ -1,1 +1,170 @@
 <!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="mangwu">
+        <link rel="shortcut icon" href="images/favicon1.svg">
+        <title>矢量图</title>
+        <style>
+            html {
+                display: block;
+                position: relative;
+            }
+            html::after {
+                content: ""; 
+                /* 透明度 */ 
+                /* no-repeat:不重复 */
+                background: url("images/1.jpg") no-repeat; 
+                /* 如果不兼容svg就用jpg格式*/
+                background-image: url("images/1.svg");
+                opacity: 0.2;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                position: absolute;
+                z-index: -1; 
+                background-size: cover;
+            }  
+        </style>
+        
+    </head>
+    <body>
+        
+        <header>
+            <h1>矢量图</h1>
+        </header>
+        <main>
+            <dl>
+                <dt>1.名词解释</dt>
+                <dd>
+                    <ul>
+                        <li>
+                            位图：位图使用像素网格来定义 — 一个位图文件精确得包含了每个像素的位置和它的色彩信息。
+                            常见格式JPEG,PNG,BMP,GIF
+                        </li>
+                        <li>
+                            矢量图：使用算法实现，定义图形的路径，计算机根据定义实时绘制渲染。格式SVG。
+                        </li>
+                        <li>例子：
+                            <img src="../../HTMLStart/Body/images/favicon1.png" 
+                            width="100px" height="100px"
+                            alt="位图图标">
+                            <img src="images/favicon1.svg" 
+                            width="100px" height="100px"
+                            alt="矢量图图标">
+                        </li>
+                    </ul>
+                </dd>
+                <dt>2.SVG</dt>
+                <dd>
+                    <ul>
+                        <li>SVG是用于描述矢量图形的<abbr>XML</abbr>语言。XML同HTML一样是标记语言，它用来标记图形。</li>
+                        <li>HTML中有一些元素能够创建简单图形，如&lt;circle&gt;和&lt;rect&gt;</li>
+                        <li>更高级的SVG功能包括 <feColorMatrix>（使用变换矩阵转换颜色）<animate> （矢量图形的动画部分）和 <mask>（在图像顶部应用模板）</li>
+                    </ul>
+                    <p>使用svg和图形元素创造一些矢量图形：</p>
+                    <svg version="1.1"
+                         baseProfile="full"
+                         width="300" height="200"
+                         xmln="http://www.w3.org/2000/svg" 
+                    >   
+                        <rect  width="100%" height="100%" fill="#eeeeee"/>
+                        <circle  cx="150" cy="100" r="80"  fill="blue"/>
+                        <rect x="20" y="10" width="50%" height="50%" fill="#6ff29e"/>
+                        
+                    </svg>
+                    <p><i>上图中灰色部分为占据整个svg容留给图形的规定大小矩形。蓝色部分为圆形，青色部分是小矩形</i></p>
+                    <p>&lt;svg&gt;的使用</p>
+                    <ul>
+                        <li>svg元素有结束标签，其中内容为对图形的描述</li>
+                        <li>version属性：1.1,版本号</li>
+                        <li>baseProfile属性:用来供其他类型的验证识别SVG的版本</li>
+                        <li>xmlns属性:正确的绑定命名空间:"http://www.w3.org/2000/svg"</li>
+                        <li>width,height:容留svg图形的宽度和高度</li>
+                        <li>svg中的内容可以有：
+                            <ul>
+                                <li>&lt;rect&gt;元素，width和height属性表示矩形的长宽，fill属性表示填充的颜色,x，y属性表示矩形的左上角的坐标。</li>
+                                <li>&lt;circle&gt;,cx属性，cy属性表示圆心，r表示半径，fill表示填充颜色</li>
+                                <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/SVG/Element" target="_blank">
+                                点击</a>查看更多SVG元素</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </dd>
+                <dt>3.引用svg格式矢量图</dt>
+                <dd>
+                    <ul>
+                        <li>使用&lt;img&gt;,用法和位图一样。
+                            <p>不一样的地方在于，对于不兼容svg的浏览器，提供了srcset属性：</p>
+                            <p>&lt;img src="equilateral.png" alt="something" srcset="equilateral.svg"&gt;</p>
+                            <p><strong>支持svg则引用srcset属性指引的svg内容，不支持就内嵌src指向的png资源</strong></p>
+                            <P>优缺点：</P>
+                            <ul>
+                                <li>
+                                    快速
+                                </li>
+                                <li>
+                                    容易建成超链接
+                                </li>
+                                <li>
+                                    无法使用javascript操作图像
+                                </li>
+                                <li>
+                                    CSS无法控制依靠&lt;img&gt;嵌入的SVG
+                                </li>
+                                <li>
+                                    不能用CSS伪类来重设图像样式（如:focus）
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li>
+                            使用CSS引入
+                            <p>本篇的背景就是CSS代码引入的：和img一样，也有兼容性问题，使用backgroud表示位图地址，使用
+                                backgroud-image表示svg地址，优先选择backgroud-image地址，不支持svg再启用background
+                            </p>
+                            <p>使用 CSS 背景图像插入SVG 意味着它不能被 JavaScript 操作，并且也受到相同的 CSS 限制。</p>
+                        </li>
+                        <li>
+                            &lt;SVG&gt;元素内容引用    
+                            <p>使用阅读文本方式打开svg文件，复制svg代码到&lt;svg&gt;标签内。这种方法称为<strong>SVG内联</strong></p>
+                            <p>例子：打开favicon1.svg并复制到HTML文档内，以下</p>
+                            <svg width="32pt" height="32pt" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                <g id="#88d1f1ff">
+                                <path fill="#88d1f1" opacity="1.00" d=" M 0.00 0.00 L 32.00 0.00 L 32.00 32.00 L 0.00 32.00 L 0.00 0.00 M 4.32 13.84 C 5.58 13.84 6.84 13.85 8.10 13.86 C 7.50 14.50 6.29 15.78 5.68 16.42 C 6.71 16.38 8.76 16.31 9.79 16.28 C 9.00 17.16 8.22 18.05 7.44 18.95 C 8.22 18.91 9.78 18.83 10.55 18.79 C 10.31 19.57 9.82 21.12 9.58 21.89 C 12.00 23.91 14.68 25.65 17.71 26.59 C 17.80 24.43 17.63 22.22 18.21 20.11 C 19.99 16.27 24.87 20.01 27.70 17.41 C 27.80 15.80 27.85 14.18 27.90 12.56 C 25.24 11.87 22.69 10.68 21.36 8.13 C 19.05 7.35 16.47 7.27 14.05 6.77 C 9.70 7.13 7.12 10.99 4.32 13.84 Z" />
+                                </g>
+                                <g id="#000000ff">
+                                <path fill="#000000" opacity="1.00" d=" M 4.32 13.84 C 7.12 10.99 9.70 7.13 14.05 6.77 C 16.47 7.27 19.05 7.35 21.36 8.13 C 22.69 10.68 25.24 11.87 27.90 12.56 C 27.85 14.18 27.80 15.80 27.70 17.41 C 24.87 20.01 19.99 16.27 18.21 20.11 C 17.63 22.22 17.80 24.43 17.71 26.59 C 14.68 25.65 12.00 23.91 9.58 21.89 C 9.82 21.12 10.31 19.57 10.55 18.79 C 9.78 18.83 8.22 18.91 7.44 18.95 C 8.22 18.05 9.00 17.16 9.79 16.28 C 8.76 16.31 6.71 16.38 5.68 16.42 C 6.29 15.78 7.50 14.50 8.10 13.86 C 6.84 13.85 5.58 13.84 4.32 13.84 Z" />
+                                </g>
+                            </svg>
+                            <p><span style="font-size: 30px;">优点</span></p>
+                            <ul>
+                                <li>减少引入资源的HTTP请求，减少加载时间</li>
+                                <li>可以为SVG分配class和id，使用CSS修改样式</li>
+                                <li>内联SVG是唯一可以让您在SVG图像上使用CSS交互（如:focus）和CSS动画的方法（即使在常规样式表中）。</li>
+                                <li>可建立超链接</li>
+                            </ul>
+                            <p><span style="font-size: 30px;">缺点</span></p>
+                            <ul>
+                                <li>多次使用会导致资源密集型维护</li>
+                                <li>SVG代码增加HTML大小</li>
+                                <li>浏览器不能像缓存图片一样缓存内联SVG</li>
+                            </ul>
+                        </li>
+                        <li>
+                            &lt;iframe&gt;引入SVG
+                            <p>不是个好办法,缺点</p>
+                            <Ul>
+                                <li>&lt;iframe&gt;有回退机制，不支持iframe会显示iframe中间的内容（回退内容）</li>
+                                <li>除非 SVG 和您当前的网页具有相同的 origin，否则你不能在主页面上使用 JavaScript 来操纵 SVG。</li>
+                            </Ul>
+                        </li>
+                        
+                    </ul>
+                </dd>
+            </dl>
+        </main>
+    
+    </body>
+</html>
