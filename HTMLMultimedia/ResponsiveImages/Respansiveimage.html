@@ -6,6 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <link rel="shortcut icon" href="../SVG/images/favicon1.svg">
         <title>响应式图片</title>
+        <style>
+            .section4 {
+                width: 320px;
+            }
+            .section5 {
+                width: 620px;
+            }
+        </style>
     </head>
     <body>
         <header>
@@ -59,24 +67,46 @@
                     </li>
                 </ul>
                 
-                <img srcset="Images/960.jpg 960w,
-                             Images/1280.jpg 1280w,
-                             Images/1920.jpg 1920w
-                            "
-                     sizes="(max-width: 960px) 440px,
-                            (max-width: 1280px) 760px, 
-                            1080px"
-                     alt="尺寸"
+                <img srcset="Images/1_480.jpg 480w,
+                             Images/1_640.jpg 640w,
+                             Images/1_960.jpg 960w"
+                     sizes="(max-width: 480px) 400px,
+                            (max-width: 640px) 560px, 
+                            860px"
+                     src="Images/Origin.jpg"
+                     alt="天空"
                 >
+                <img srcset="Images/elva-fairy-480w.jpg 480w,
+                     Images/elva-fairy-800w.jpg 800w" sizes="(max-width: 600px) 480px,
+                    800px"  alt="Elva dressed as a fairy">
             </section>
             <section>
                 <h3>4.相同尺寸，不同分辨率</h3>
                 <p>图片显示的尺寸是相同的，但是图片分辨率不同</p>
                 <p>通常用CSS来固定尺寸（CSS像素），不需要sizes调整</p>
+                <img class="section4"
+                     srcset="Images/1_480.jpg,
+                             Images/1_640.jpg 1.33x,
+                             Images/1_960.jpg 2x"
+                     src="Images/1_960.jpg"
+                     alt="根据设备分辨率区分"
+                >    
             </section>
             <section>
                 <h3>5.美术设计问题</h3>
-                <p></p>
+                <p>涉及更改显示图像以适应不同图像显示尺寸</p>
+                <p>使用&lt;picture&gt;标签，和&lt;video&gt;一样，使用source元素,source元素属性：</p>
+                <ul>
+                    <li>media属性：包含一个媒体条件，就像img标签中的sizes属性，只不过它判断决定的是使用那张图片，而不是显示槽大小</li>
+                    <li>media属性的值：(max-width:xxpx)或(min-width:yypx),如果视窗宽度小于等于xxpx则使用这个source标签中的资源，同理，大于等于yy就使用这个</li>
+                    <li>srcset属性：每个&lt;source&gt元素的图片路径，可以有多个，用于变换分辨率或改变尺寸</li>
+                    <li>sizes属性，在source元素中也可使用sizes，用于改变尺寸和分辨率,当使用media属性时，不使用sizes属性</li>
+                </ul>
+                <picture class="section5">
+                    <source media="(min-width: 901px)" srcset="Images/1280.jpg" sizes="700px">
+                    <source media="(max-width: 900px)" srcset="Images/960.jpg" sizes="700px" >
+                    <img src="Images/1280.jpg" alt="浏览器不支持picture的后背内容"> 
+                </picture>
             </section>
             
         </main>
