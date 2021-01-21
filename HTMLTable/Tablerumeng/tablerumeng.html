@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="author" content="mangwu">
+        <link rel="shortcut icon" href="../../HTMLStart/Body/images/favicon1.png">
+        <link rel="stylesheet" href="../../HTMLMultimedia/lianxi/styles/style.css">
+        <link rel="stylesheet" href="styles/style.css">
+        <title>表格入门</title>
+    </head>
+    <body>
+        <header>
+            <h1>HTML表格入门</h1>
+        </header>
+        <main>
+            <article>
+                <h2>1.表格例子</h2>
+                <table>
+                    <tr>
+                        <th>姓名</th>
+                        <th>学号</th>
+                        <th>年龄</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            张三
+                        </td>
+                        <td>
+                            20001212
+                        </td>
+                        <td>
+                            23
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            李四
+                        </td>
+                        <td>
+                            20001213
+                        </td>
+                        <td>
+                            22
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            王五
+                        </td>
+                        <td>
+                            20001214
+                        </td>
+                        <td>
+                            21
+                        </td>
+                    </tr>
+                </table>
+            </article>
+            <article>
+                <h2>2.表格使用</h2>
+                <ul>
+                    <li>使用CSS来修饰表格</li>
+                    <li>不要使用表格来设计网页布局，而使用CSS layout</li>
+                    <li>表格用于展示数据信息等</li>
+                </ul>
+                <p>动手练习，书写一个表格：</p>
+                
+                <table>
+                    <tr>
+                        <td>第一个单元格</td>
+                        <td>第二个单元格</td>
+                        <td>第三个单元格</td>
+                        <td>第四个单元格</td>
+                    </tr>
+                    <tr>
+                        <td>第二行第一个</td>
+                        <td>单元格2</td>
+                        <td>单元格3</td>
+                        <td>单元格4</td>
+                    </tr>
+                </table>
+                <p>表格里的一些元素：</p>
+                <ul>
+                    <li>td元素：tabledata，表示一个单元格数据，默认按行排列</li>
+                    <li>tr元素：tablerow，表示一行数据（多个单元格），按列排序</li>
+                    <li>th元素：tableheader，表示表格标题，通常在第一行，时特殊的单元格</li>
+                </ul>
+                <p>下面是一个例子：</p>
+                <h3>Dogs Table</h3>
+
+                <table>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <th>Knocky</th>
+                    <th>Flor</th>
+                    <th>Ella</th>
+                    <th>Juan</th>
+                  </tr>
+                  <tr>
+                    <th>Breed</th>
+                    <td>Jack Russell</td>
+                    <td>Poodle</td>
+                    <td>Streetdog</td>
+                    <td>Cocker Spaniel</td>
+                  </tr>
+                  <tr>
+                    <th>Age</th>
+                    <td>16</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>5</td>
+                  </tr>
+                  <tr>
+                    <th>Owner</th>
+                    <td>Mother-in-law</td>
+                    <td>Me</td>
+                    <td>Me</td>
+                    <td>Sister-in-law</td>
+                  </tr>
+                  <tr>
+                    <th>Eating Habits</th>
+                    <td>Eats everyone's leftovers</td>
+                    <td>Nibbles at food</td>
+                    <td>Hearty eater</td>
+                    <td>Will eat till he explodes</td>
+                  </tr>
+                </table>
+                <p>注意，th元素可以和td元素混用，因为表格单元格信息标题可能在第一行，也可能在第一列</p>
+            </article>
+            <article>
+                <h2>3.表格单元格跨度（允许单元格跨越多行)</h2>
+                <p>标题和单元格元素（&lt;th&gt;和&lt;td&gt;）有设置行列宽的属性</p>
+                <ul>
+                    <li>colspan:设置单元格的列宽度</li>
+                    <li>rowspan：设置单元格的行宽度</li>
+                </ul>
+                <p>例子:</p>
+                <h3>动物</h3>
+                <table>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <th colspan="2">动物</th>
+                    </tr>
+                    <tr>
+                        <th>哺乳</th>
+                        <td>猪</td>
+                        <td>母</td>
+                    </tr>
+                    <tr>
+                        <th>两栖</th>
+                        <td colspan="2">青蛙</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">鸟类</th>
+                        <td>麻雀</td>
+                        <td>母</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">大雁</td>
+                        
+                    </tr>
+
+                </table>
+                <p>1.注意colspan和rowspan是单元格的属性而不是表格行（tr）的属性</p>
+                <p>2.在使用colspan时，注意第一行的某单元格就要被设定一定宽度的colspan（列宽）</p>
+                <p>3.在使用rowspan时，注意在包含th或tr的tr标签下面要添加相应的行数，以满足行宽需求</p>
+                <p>下面是一个更复杂的例子</p>
+                <table>
+                    <tr>
+                        <td colspan="3">&nbsp;</td>
+                        <th>Subject</th>
+                        <th>Object</th>
+                    </tr>
+                    <tr>
+                        <th rowspan="7" colspan="1">单数</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">第一人称</td>
+                        <td>I</td>
+                        <td>me</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">第二人称</td>
+                        <td>you</td>
+                        <td>you</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" rowspan="4">第三人称</td>
+                    </tr>
+                    <tr>
+                        <td>♂</td>
+                        <td>he</td>
+                        <td>him</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>♀</td>
+                        <td>she</td>
+                        <td>her</td>
+                    </tr>
+                    <tr>
+                        <td>o</td>
+                        <td>it</td>
+                        <td>it</td>
+                    </tr>
+                    
+                    <tr>
+                        <th rowspan="4">复数</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">第一人称</td>
+                        <td>we</td>
+                        <td>us</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">第二人称</td>
+                        <td>you</td>
+                        <td>you</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">第三人称</td>
+                        <td>they</td>
+                        <td>they</td>
+                    </tr>
+                </table>
+            </article>
+            <article>
+                <h2>4.为表格提供共同样式</h2>
+                <p>可以通过在每个单元格元素的标签内加上style属性为每个单元格添加样式，但是这样会很麻烦，因为表格一大就会增加很多重复代码</p>
+                <p>使用style一一为单元格添加样式的例子:</p>
+                <table>
+                    <tr>
+                        <th>数据1</th>
+                        <th style="background-color: orange;">数据二</th>
+                    </tr>
+                    <tr>
+                        <td>a<sub>21</sub></td>
+                        <td style="background-color: orange;">a<sub>22</sub></td>
+                    </tr>
+                    <tr>
+                        <td>a<sub>31</sub></td>
+                        <td style="background-color: orange;">a<sub>32</sub></td>
+                    </tr>
+                </table>
+                <p>可以看到上面表格第二列有相同的样式，但是是重复写入的</p>
+                <p>解决重写方法，引入&lt;colgroup&gt;和&lt;col&gt;标签，将表格抽象化，为需要的列添加相同样式,如下</p>
+                <pre>
+                    &lt;colgroup&gt;
+                      &lt;col&gt;
+                      &lt;col style="background-color:orange"&gt;
+                    &lt;colgroup&gt;
+                </pre>
+                <p>添加到table标签内容的上方</p>
+                <table>
+                   
+                    <colgroup>
+                        <col>
+                        <col style="background-color: orange;">
+                    </colgroup>
+                    <tr>
+                        <th>数据1</th>
+                        <th>数据2</th>
+                    </tr>
+                    <tr>
+                        <td>a<sub>21</sub></td>
+                        <td>a<sub>22</sub></td>
+                    </tr>
+                    <tr>
+                        <td>a<sub>31</sub></td>
+                        <td>a<sub>32</sub></td>
+                    </tr>
+                </table>
+                <p><i>由于使用来了外部引入的css来调整表格样式，故而这里没有显示出颜色，注释掉head元素中的css元数据即可显示</i></p>
+                <p>如果有连续多列需要相同样式，可以在col元素中添加span属性，值为连续的列数，以省略其他列</p>
+                <p>下面是一个复杂的例子：</p>
+                <table>
+                    <colgroup>
+                        <col span="2">
+                        <col style="background-color:palegreen;">
+                        <col style="width: 36px;">
+                        <col style="background-color:palegreen;">
+                        <col style="background-color:peru; border: 4px solid red;">
+                        <col style="width: 36px;" span="2">
+                        <tr>
+                            <td>&nbsp;</td>
+                            <th>Mon</th>
+                            <th>Tues</th>
+                            <th>Wed</th>
+                            <th>Thurs</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                            <th>Sun</th>
+                        </tr>
+                        <tr>
+                            <th>1st 学期</th>
+                            <td>英语</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>德语</td>
+                            <td>荷兰语</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th>2nd 学期</th>
+                            <td>英语</td>
+                            <td>英语</td>
+                            <td>&nbsp;</td>
+                            <td>德语</td>
+                            <td>荷兰语</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th>3rd 学期</th>
+                            <td>&nbsp;</td>
+                            <td>德语</td>
+                            <td>&nbsp;</td>
+                            <td>德语</td>
+                            <td>荷兰语</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th>4th 学期</th>
+                            <td>&nbsp;</td>
+                            <td>英语</td>
+                            <td>&nbsp;</td>
+                            <td>英语</td>
+                            <td>荷兰语</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        
+                    </colgroup>
+                </table>
+            </article>
+        </main>
+    </body>
+</html>
