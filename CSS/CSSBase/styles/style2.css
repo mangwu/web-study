@@ -1,0 +1,82 @@
+#p1 {
+    color:red;
+}
+
+#ul2 {
+    list-style-type: none;
+}
+
+#ul3 {
+    list-style-type: lower-greek;
+}
+
+#ul4 {
+    list-style-type: lower-latin;
+}
+
+#ul5 {
+    list-style-type: lower-roman;
+}
+
+#ul6 {
+    list-style-type: upper-alpha;
+}
+
+#ul7 {
+    list-style-type: upper-latin;
+}
+
+#ul8 {
+    list-style-type: square;
+}
+
+#ul9 {
+    list-style-type: circle;
+}
+
+#ul10 {
+    list-style-type: decimal;
+}
+
+#ul11 {
+    margin-left: 30px;
+    list-style-type: trad-chinese-informal;
+}
+
+#ul12 {
+    margin-left: 30px;
+    list-style-type: decimal-leading-zero;
+}
+
+#ul13 {
+    margin-left: 30px;
+    list-style-type: "😀";
+}
+p.li2 {
+    color:blue;
+    font-size: larger;
+}
+.li2 {
+    color: coral;
+    font-weight: bold;
+}
+li em {
+    color:blue;
+    font-weight: bold;
+}
+
+h4 + p {
+    color:darksalmon;
+}
+
+#a1:link {
+    color: pink;
+}
+#a1:visited {
+    color: green;
+}
+#a1:hover {
+    text-decoration: none;
+}
+
+

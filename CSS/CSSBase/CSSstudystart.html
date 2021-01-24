@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="author" content="mangwu">
+        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="stylesheet" href="styles/style2.css">
+        <title>开始学习CSS</title>
+        
+    </head>
+    <body>
+        <header>
+            <h1>
+                CSS学习开始
+            </h1>
+            
+        </header>
+        <main>
+            <article>
+                <h3>1.引入css文件</h3>
+                <p>在html文档的head元素中引入css，需要用link元数据来引用，引用方式如下</p>
+                <p>&lt;link rel="stylesheet" href="style.css"&gt;</p>
+                <ul>
+                    <li>rel属性：让浏览器解析html文档时知道引用了一个CSS类型的文件</li>
+                    <li>href属性；指明css文件路径</li>
+                </ul>
+                <p>现在在引入的css文件中加入一个规则（选择器和声明），使下面的p元素字体变红（color）</p>
+                <p id="p1">我是红色的</p>
+            </article>
+            <article>
+                <h3>2.样式化HTML元素</h3>
+                <p>元素选择器：选择要样式化的元素进行属性声明</p>
+                <ul>
+                    <li>使用选择器：<br>
+                    <code><pre>
+                        p {
+                            color: green;
+                        }
+                    </pre></code></li>
+                    <li>多选：<br>
+                    <code><pre>
+                        p, li {
+                            color: red;
+                        }
+                    </pre></code></li>
+                </ul>
+                <hr>
+                <p>改变元素的默认样式</p>
+                <p>有语义元素会有默认，样式，浏览器会渲染它们。如h1字号是有默认大小的。</p>
+                <p>下面是一个改变了默认无序表格有圆点的样式对比，使用了list-style-type属性(对ul，li都生效）</p>
+                <p>点击<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/list-style-type" target="_blank">
+                    这里
+                </a>查看list-style-type属性的值</p>
+                <ul id="ul1">默认（disc,实心原点）
+                    <li>1</li>
+                    <li>2</li>
+                </ul>
+                <ul id="ul2">改变1:none
+                    <li>1</li>
+                    <li>2</li>
+                </ul>
+                <ul id="ul3">改变2:lower-greek(小写希腊字母)
+                    <li>1</li>
+                    <li>2</li>
+                </ul>
+                <ul id="ul4">改变3:lower-latin（小写拉丁字母）
+                    <li>1</li>
+                    <li>2</li>
+                </ul>
+                <ul id="ul5">改变4:lower-roman(小写罗马字母)
+                    <li>1</li>
+                    <li>2</li>
+                </ul>
+                <ul id="ul6">改变5:upper-alpha(大写英文字母，英文字母和拉丁字母是同一类的不同叫法)
+                    <li>1</li>
+                    <li>2</li>
+                </ul>
+                <ul id="ul7">改变6:upper-latin(大写拉丁字母)
+                    <li>1</li>
+                    <li>2</li>
+                </ul>
+                <ul id="ul8">改变7:square（方形）
+                    <li>1</li>
+                    <li>2</li>
+                </ul>
+                <ul id="ul9">改变8:circle（空心圆）
+                    <li>1</li>
+                    <li>2</li>
+                </ul>
+                <ul id="ul10">改变9:decimal（十进制数）
+                    <li>1</li>
+                    <li>2</li>
+                </ul>
+                <ul id="ul11">改变10:trad-chinese-informal（汉字十进制数）
+                    <li>1</li>
+                    <li>2</li>
+                </ul>
+                <ul id="ul12">改变11:decimal-leading-zero（带0十进制数）
+                    <li>1</li>
+                    <li>2</li>
+                </ul>
+                <ul id="ul13">改变12:"😀"（自定义字符）
+                    <li>1</li>
+                    <li>2</li>
+                </ul>
+
+            </article>
+            <article>
+                <h3>3.类名选择器</h3>
+                <p>为元素添加类名（class）属性,给一类元素进行样式化</p>
+                <p>用法："." + 类名 {}</p>
+                <p>例子：下面列表中有两个有类名，只对它们进行样式化</p>
+                <ul>
+                    <li>li1</li>
+                    <li class="li2">li2</li>
+                    <li>li3</li>
+                    <li>这里包含一个和li2同类名的<span class="li2">&lt;span&gt;元素</span></li>
+                    <li>这里包含一个和li2同类名的<p class="li2">&lt;p&gt;元素</p></li>
+                </ul>
+                <p>在上述例子中，li元素和span元素是同一样式，使用了同一类名选择器（.classname{})</p>
+                <p>但是p元素却和它们不一样，因为p元素使用了元素+类名选择器的模式，单独拿出来渲染，
+                    它的意思是选中每个classname类的p元素（p.classname{})<br>
+                一般不会这样使用，因为class的出现本来就是为了渲染一些（类）元素，而非把注意力放在元素上</p>
+            </article>
+            <article>
+                <h3>4.包含选择器</h3>
+                <p>HTML文档中的元素有包含和被包含关系，当需求是只想要某类元素内的一种元素有一种样式，而<br>
+                不想要该元素外同一种元素有这种样式时，可以使用包含选择器。</p>
+                <p>例子：</p>
+                <p>我不想这个包含在&lt;p&gt;元素中的<em>&lt;em&gt;元素</em>有独特样式</p>
+                <p>我想让下面这个表格中的em元素有独特样式     
+                </p>
+                <ul>
+                    <li>项目1</li>
+                    <li>项目2</li>
+                    <li><em>项目3</em></li>
+                </ul>
+                <p>在表格中的em元素有了独特样式，而外面的em元素没有，使用的方法是：li em{}
+                    <br>
+                   使用空格表示二者元素之间的包含关系，这就是包含选择器。
+                   <br>"{}"作用的是后者，前者是为了让浏览器更快解析出需要渲染的元素
+                </p>
+                <p>为了让浏览器更快的找到需要被渲染的元素，使用 相邻选择符(+)也是一种好选择</p>
+                <p>例如，渲染&lt;h4&gt;元素后的一个p元素，可以用这种方式：h4 + p {}</p>
+                <h4>小标题</h4>
+                <p>blabla……</p>
+                <hr>
+                <p><strong>上述的类名选择器，包含选择器，相邻选择器，都是元素定位方法，这些都是基础的皮毛</strong></p>
+            </article>
+            <article>
+                <h3>5.根据标签状态确定样式</h3>
+                <p>元素有不同的状态，比如一个链接，有如下状态：</p>
+                <ul>
+                    <li>未访问的,link</li>
+                    <li>访问过的,visited</li>
+                    <li>被鼠标悬停的,hover</li>
+                    <li>被键盘定位的</li>
+                    <li>被点击当中的</li>
+                </ul>
+                <p>CSS可以对这些在不同状态下的元素进行修饰，
+                    <br>具体方法是，先定位元素，再使用":"（冒号），指明状态（visted等）,使用{}修饰</p>
+                <p>例如：未访问前为粉色，访问后为绿色,鼠标悬停是无下划线
+                    <code><pre>
+                    a:link {
+                        color: pink;
+                    }
+                        
+                    a:visited {
+                        color: green;
+                    }
+                    a:hover {
+                        text-decoration: none;
+                    }
+                    </pre></code>
+                    <a id="a1" target="_blank"
+                    href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/First_steps/%E5%BC%80%E5%A7%8B#%E6%A0%B9%E6%8D%AE%E7%8A%B6%E6%80%81%E7%A1%AE%E5%AE%9A%E6%A0%B7%E5%BC%8F"
+                    alt="状态确定样式">
+                        MDN开始#根据状态确定样式
+                    </a>
+                </p>
+            </article>
+            <article>
+                <h3>6.多种选择器可以结合使用</h3>
+                <p>包含选择器，相邻选择器，类名选择器等是可以一起混合使用的，只要能正确使用它们定位到所需元素即可</p>
+            </article>
+        </main>
+    </body>
+</html>

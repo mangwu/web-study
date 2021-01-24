@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="author" content="mangwu">
+        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="stylesheet" href="styles/style.css">
+        <title>
+            CSS第一步
+        </title>
+    </head>
+    <body>
+        <header>
+            <h1>CSS</h1>
+        </header>
+        <main>
+            <article>
+                <h3>1.CSS定义</h3>
+                <p>CSS:层叠样式表(Cascading Style Sheets)，用于设置和布局网页，例如更改内容的字体，颜色，大小，间距等.<br>
+                    将内容拆分为多个列，或添加动画和其他装饰功能。</p>
+                <p>从实用角度来说：</p> 
+                <ol>
+                    <li>浏览器会解析HTML标记语言</li>
+                    <li>浏览器对不同的语义标签有一套默认的显示样式（字体大小，间距等）</li>
+                    <li>网页需要更多样性的风格，不然会很枯燥</li>
+                    <li>CSS就是用来控制浏览器如何显示HTML元素的规则集，用于创造自己喜欢的样式</li>
+                </ol>
+            </article>
+            <article>
+                <h3>2.CSS基本语法</h3>
+                <p><img width="500px" src="../../images/css-declaration.png"></p>
+                <p>例如，在styles文件夹中添加类似上述图片中选择声明并引用，下面的文字就会变成红色：</p>
+                <p id="p1">我是红色的</p>
+                <hr>
+                <p>每个或每类元素都可以这样被CSS定义样式，但是其中的样式声明有很多属性和属性值<br>
+                    点击<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference" target="_blank">
+                    CSS参考</a>
+                    查看更多元素样式属性
+                </p>
+            </article>
+            <article>
+                <h3>3.CSS模块</h3>
+                <p>在2中，提到了CSS参考，这些属性对于元素添加样式是有必要的，但是太多了不好统计。<br>
+                那么，对这些属性分类就是一个很重要的事情了。这个“类”就是CSS的模块。<strong>CSS由一个个模块组成</strong></p>
+                <p>例如<a href="/zh-CN/docs/Web/CSS/CSS_Backgrounds_and_Borders">Backgrounds and Borders</a>模块。<br>
+                这个模块定义了一些相关背景和边界的属性，并且有一定特性，其中的元素有一定相关性。</p>
+                <p>例如下面一个无语义块级元素，使用模块中的background-color和border-color属性等，显示了一个有边界颜色的方块</p>
+                <div id="div1">
+
+                </div>
+            </article>
+            <article>
+                <h3>4.CSS规范</h3>
+                <p>
+                    一些组织和公司对CSS如何书写提出的标准规范。CSS标准会不断更新，但肯定会一直兼容旧内容。
+                </p>
+                <p>
+                    不同浏览器对CSS有不同兼容性。当一个浏览器支持 CSS 后，我们就可以用它来进行Web开发了。
+                    这意味着我们写在 CSS 文件中的代码可以被指令执行，展示到荧幕中。
+                    但是让所有的浏览器都同时支持一个 CSS 新特性是不现实的，通常都会一个空档期 — 
+                    一些浏览器已经支持而另一些仍未支持。
+                </p>
+            </article>
+        </main>
+    </body>
+</html>

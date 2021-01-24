@@ -1,0 +1,11 @@
+#p1 {
+    color:red;
+}
+
+#div1 {
+    width: 100px;
+    height: 100px;
+    background-color: sandybrown;
+    border: 2px solid;
+    border-color: black;
+}

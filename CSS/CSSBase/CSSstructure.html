@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="author" content="mangwu">
+        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="stylesheet" href="styles/style3.css">
+        <title>CSS构建</title>
+    </head>
+    <body>
+        <header>
+            <h1>CSS构建</h1>
+        </header>
+        <main>
+            <article>
+                <h2>1.引入CSS的方式</h2>
+                <ol>
+                    <li>外部引用，将CSS代码写入一个css文本文件中，在元数据中引用</li>
+                    <li>内部引用：<br>
+                        在&lt;head&gt;元素中添加&lt;style&gt;元素，在style元素中添加CSS样式
+                    </li>
+                    <li>内联引用：<br>
+                        每个元素都可以有一个style属性，在属性中给出属性值以添加样式，一般不会使用，因为很难维护
+                        <p>例子：<br>
+                            <span style="border: 1px solid blue;color: coral;">内联引用</span>
+                        </p>
+                    </li>
+                </ol>
+            </article>
+            <article>
+                <h2>2.CSS的专一性</h2>
+                <p>当有两个不同类型的选择器选择了同一元素，并给出了不同样式时，元素如何显示</p>
+                <p>例如，用元素选择器和类选择器选择了同一个元素，给出不同颜色声明：</p>
+                <h3 class="lizi">我是例子</h3>
+                <p>CSS语言有规则来控制在发生碰撞时哪条规则将获胜--这些规则称为<strong>级联规则和专用规则</strong></p>
+                <p>上面的例子显示的是使用类选择器时的绿色而非元素选择器的红色，说明<strong>类选择器强于元素选择器</strong></p>
+                <p>但是对于同一种选择器，后面声明的可以<strong>覆盖</strong>前面的，如下，先声明是绿色，再声明是红色</p>
+                <p class="lizi2">我是表明覆盖性的例子</p>
+                <p>下面是id选择器优先级大于类选择器的例子</p>
+                <p class="lizi3" id="liziid">我是显示id和class优先级的例子</p>
+
+            </article>
+            <article>
+                <h2>3.CSS代码结构</h2>
+                <ul>
+                    <li>CSS规则集：n个CSS规则</li>
+                    <li>CSS规则：选择器 + { + CSS声明块 + }</li>
+                    <li>声明块：n个CSS声明;</li>
+                    <li>CSS声明：属性: 属性值。（核心）</li>
+                </ul>
+                <p>CSS属性设置为特定属性值是CSS功能核心。属性和属性值区分大小写</p>
+                <p>几个级别属性：</p>
+                <ul>
+                    <li>font-size:适用所有元素;继承属性（inherit)<br>
+                        <ol style="list-style-type: trad-chinese-informal;">
+                            <li>绝对大小值：绝对大小关键字定义相对于用户的默认字体大小(medium)
+                                <ol>
+                                    <li>xx-small:<span id="span1">我是例子</span></li>
+                                    <li>x-small:<span id="span2">我是例子</span></li>
+                                    <li>small:<span id="span3">我是例子</span></li>
+                                    <li>medium:<span id="span4">我是例子</span>(这是初始值，默认值)</li>
+                                    <li>large:<span id="span5">我是例子</span></li>
+                                    <li>x-large:<span id="span6">我是例子</span></li>
+                                    <li>xx-large:<span id="span7">我是例子</span></li>
+                                </ol>
+                            </li>
+                            <li>相对值大小：比父元素的字体大或小(下面例子相对于li元素中默认字体大小），使用与绝对大小值的关键字的相近缩放比率。
+                                <ol>
+                                    <li>larger:<span id="rspan1">我是例子</span>(这种大小应该是large大小）</li>
+                                    <li>smaller:<span id="rspan2">我是例子</span>(这种大小应该是small大小）</li>
+                                </ol>
+
+                            </li>
+                            <li>长度值大小：单位px和em或ex
+                                <ol>
+                                    <li>
+                                    em：相对于父元素文字的大小。
+                                        <span id="lspan1">
+                                            0.5em就是当前元素的父元素的字体大小的一半
+                                        </span>
+                                    </li>
+                                    <li>
+                                        ex：ex 是指相对于父元素所用字体中小写 x 的高度，通常为字体高度的一半。
+                                        <span id="lspan2">
+                                            1.0ex就是当前元素的父元素的字体大小的一半
+                                        </span>
+                                    </li>
+                                    <li>
+                                        px:不会随屏幕分辨率改变的固定大小值。
+                                        <span id="lspan3">
+                                            我是字体大小为26px的例子
+                                        </span>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>父元素大小的百分比值
+                                <span id="pspan">50%父元素大小的例子</span>
+                            </li>
+                        </ol>
+                    </li>
+                </ul>
+            </article>
+        </main>
+    </body>
+    
+    
+</html>

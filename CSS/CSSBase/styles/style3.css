@@ -1,0 +1,69 @@
+/* 优先级，类选择器>元素选择器 */
+.lizi {
+    color: green;
+}
+
+h3 {
+    color: red;
+}
+
+/* 覆盖性 */
+.lizi2 {
+    color: green;
+}
+.lizi2 {
+    color:red;
+}
+
+/* 优先级，id选择器>类选择器 */
+#liziid {
+    color: blue;
+}
+.lizi3 {
+    color:red;
+}
+/* font-size例子 */
+#span1 {
+    font-size: xx-small;
+}
+#span2 {
+    font-size: x-small;
+}
+#span3 {
+    font-size: small;
+}
+#span4 {
+    font-size: medium;
+}
+#span5 {
+    font-size: large;
+}
+#span6 {
+    font-size: x-large;
+}
+#span7 {
+    font-size: xx-large;
+}
+
+#rspan1 {
+    font-size: larger;
+}
+#rspan2 {
+    font-size: smaller;
+}
+
+#lspan1 {
+    font-size: 0.5em;
+}   
+#lspan2 {
+    font-size: 1.0ex;
+}
+#lspan3 {
+    font-size: 26px;
+}
+
+#pspan {
+    font-size: 50%;
+}
+
+
