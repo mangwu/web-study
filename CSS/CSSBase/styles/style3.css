@@ -66,4 +66,49 @@ h3 {
     font-size: 50%;
 }
 
+/* width例子 */
+#wdiv1 {
+    box-sizing:content-box;
+    width: 26px;
+    border: 1px solid black;
+}
 
+#wdiv2 {
+    width: 2em;
+    border: 1px solid black;
+}
+
+#wdiv3 {
+    width: 13px;
+    border: 1px solid black;
+}
+
+#wdiv4 {
+    width: 500px;
+    border: 1px solid black;
+}
+#outdiv {
+    width: 15em;
+    height: 5em;
+    border: 1px solid black;
+
+}
+
+#wdiv5 {
+    width: 80%;
+    margin: auto;
+    border: 1px solid black;
+}
+
+#wdiv6 {
+    width: auto;
+    border: 1px solid black;
+}
+#wdiv7 {
+    width: max-content;
+    border: 1px solid black;
+}
+.wdiv8 {
+    width: min-content;
+    border: 1px solid black;
+}

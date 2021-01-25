@@ -94,8 +94,71 @@
                                     </li>
                                 </ol>
                             </li>
-                            <li>父元素大小的百分比值
+                            <li>父元素大小的百分比值（%）
                                 <span id="pspan">50%父元素大小的例子</span>
+                            </li>
+                            <li>推荐使用方式：<strong>使用相对值大小和长度值大小</strong>；理由如下:<br>
+                                1.由于设备的不同，绝对值大小（large等）会随着操作系统所认为的屏幕分辨率的大小（通常是不对的）改变而改变<br>
+                                2.最好使用用户默认字体大小的相对大小<br>
+                                3.em和ex是相对于默认字体大小的单位，推荐使用<br>
+                                4.px虽然是绝对值大小，但它的大小不会随屏幕分辨率大小而改变
+                            </li>
+                            <li>技巧：<br>
+                                一个流行的技巧是设置body元素的字体大小为62.5% (即默认大小16px的62.5%)，等于10px。
+                                <br>现在你可以通过计算基准大小10px的倍数，在任何元素上方便的使用em单位。
+                                <br>这样有6px = 0.6em, 8px = 0.8em, 12px = 1.2em, 14px = 1.4em, 16px = 1.6em。
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        width:用于设置元素宽度，默认设置内容区域的宽度，如果box-sizing属性设置为border-box就转而设置边框区域宽度
+                        <ol style="list-style-type: trad-chinese-informal;">
+                            <li>长度值em，px：绝对值定义宽度
+                                <div id="wdiv1">我是26px的例子</div>
+                                <div id="wdiv2">我是2em的例子</div>
+                                <div id="wdiv3">I am 13 px example</div>
+                                <div id="wdiv4">我是500px的例子</div>
+                                <p>可以看到。汉字字体默认大小26px，字母默认大小为13px。1em表示默认字体大小的一倍</p>
+                            </li>
+                            <li>百分比%:外层元素的容纳区块宽度的百分比定义宽度
+                                <div id="outdiv">
+                                    我是width=15和height=5em的外层
+                                    <div id="wdiv5">我是外层80%宽度的例子</div>
+                                </div>
+                            </li>
+                            <li>关键字宽度：
+                                <ol>
+                                    <li>auto:浏览器决定计算选择宽度
+                                        <div id="wdiv6">我是auto的宽度
+                                            <br>这里有一个换行元素
+                                            <br>左边是ol元素，所以从这里开始</div>
+                                    </li>
+                                    <li>max-content:元素内容固有的合适宽度
+                                        <div id="wdiv7">
+                                            我是max-content宽度<br>
+                                            换行
+                                        </div>
+
+                                    </li>
+                                    <li>min-content:元素内容固有的最小合适宽度
+                                        <div class="wdiv8">
+                                            我是min-content宽度<br>
+                                            连续字母数字字符宽度的最长宽度<br>
+                                            120.355ckkknh-14
+                                        </div>
+                                        <div class="wdiv8">
+                                            例子2：
+                                            120.355ckkknh&-14
+                                            在-前面加上+/等非字符符号不会阻断
+                                        </div>
+
+                                    </li>
+                                    <li>fit-content：min(max-content,max(min-content,&lt;lenth-percentage&gt;))
+                                        <br>合适宽度，取固有合适宽度
+
+                                    </li>
+                                </ol>
+
                             </li>
                         </ol>
                     </li>
