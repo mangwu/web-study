@@ -50,7 +50,7 @@
                     <li>CSS声明：属性: 属性值。（核心）</li>
                 </ul>
                 <p>CSS属性设置为特定属性值是CSS功能核心。属性和属性值区分大小写</p>
-                <p>几个级别属性：</p>
+                <p>几个基本属性：</p>
                 <ul>
                     <li>font-size:适用所有元素;继承属性（inherit)<br>
                         <ol style="list-style-type: trad-chinese-informal;">
@@ -111,7 +111,9 @@
                         </ol>
                     </li>
                     <li>
-                        width:用于设置元素宽度，默认设置内容区域的宽度，如果box-sizing属性设置为border-box就转而设置边框区域宽度
+                        width:用于设置元素宽度，默认设置内容区域的宽度。<br>
+                        如果box-sizing属性设置为border-box就转而设置边框区域宽度<br>
+                        不是继承属性
                         <ol style="list-style-type: trad-chinese-informal;">
                             <li>长度值em，px：绝对值定义宽度
                                 <div id="wdiv1">我是26px的例子</div>
@@ -140,27 +142,97 @@
                                         </div>
 
                                     </li>
-                                    <li>min-content:元素内容固有的最小合适宽度
+                                    <li>min-content:元素内容固有的最小合适宽度（空格和-）
                                         <div class="wdiv8">
-                                            我是min-content宽度<br>
-                                            连续字母数字字符宽度的最长宽度<br>
-                                            120.355ckkknh-14
+                                            我是min-content。。。。。。。。。。。。。。。。宽度<br>(换行)
+                                            连续字母数字字符宽度的最长宽度
+                                            不适用于汉字默认为两个字母宽度<br>
+                                            优先判断字符字母数字
                                         </div>
                                         <div class="wdiv8">
                                             例子2：
                                             120.355ckkknh&-14
                                             在-前面加上+/等非字符符号不会阻断
                                         </div>
+                                        <div class="wdiv8">
+                                            我是最小宽度（汉字默认一个字一个词，所以最大单词就是一个字的宽度,除非连<strong>一些</strong>非汉字字符，就像本例显示两个宽度)
+                                        </div>
 
                                     </li>
-                                    <li>fit-content：min(max-content,max(min-content,&lt;lenth-percentage&gt;))
-                                        <br>合适宽度，取固有合适宽度
+                                    <li>fit-content：min(max-content,max(min-content,&lt;length-percentage&gt;))
+                                        <br>length-percentage表示可用宽度，一般为父元素留给的最大宽度
+                                        <div id="outdiv2">
+                                            我是width=15和height=15em的外层
+                                            <div id="wdiv9">
+                                                我是fit-content宽度的例子一
+                                            </div>
+                                            max-content↑
+                                            <br><br>
+                                            <div id="wdiv10">
+                                                我是fit-content宽 度 的 例 子 二
+                                            </div>
+                                            length-percentage↑
+                                            <br><br>
+                                            <div id="wdiv11">
+                                                我是fit-content宽度的例子三3example(无换行)
+                                            </div>
+                                            length-percentage↑
+                                            <br><br>
+                                            <div id="wdiv12">
+                                                example4:I_am_the_example4_of_fit-content_width.
+                                            </div>
+                                            min-content↑
+                                        </div>
 
                                     </li>
                                 </ol>
 
                             </li>
                         </ol>
+                    </li>
+                    <li>background-color:设置元素背景色，默认值为transparent，不是继承元素。属性值如下
+                        <ol style="list-style-type: trad-chinese-informal;">
+                            <li>关键字：如red，green等
+                                <div id="bcdiv1">我的背景颜色是红色</div>
+                            </li>
+                            <li>16进制颜色，格式：#000000 - #ffffff
+                                <div id="bcdiv2">我的背景颜色是 #789abc</div>
+                            </li>
+                            <li>RGB颜色，格式：rgb(0-255, 0-255, 0-255,opacity) （最后一项为透明度）
+                                <div id="bcdiv3">我的背景颜色是(123, 231, 213,0.5)</div>
+                            </li>
+                            <li>HSLA颜色，<br>
+                                HSL色彩空间中，H（Hue）：代表色调，S（Saturation）：代表饱和度，L（Lightness）：代表亮度，（A（Alpha）：代表不透明度）。<br>
+                                H是色度，取值在0度~360度之间，0度是红色，120度是绿色，240度是蓝色。360度也是红色。<br>
+                                S是饱和度，是色彩的纯度，是一个百分比的值，取值在0%~100%，0%饱和度最低，100%饱和度最高<br>
+                                L是亮度，也是一个百分比值，取值在0%~100%，0%最暗，100%最亮。<br>
+                                A是不透明度，取值在0.0~1.0，0.0完全透明，1.0完全不透明。<br><br>
+                                亮度下降:
+                                <div id="bchdiv1">hsla(120, 100%, 80%, 0.5)</div>
+                                <div id="bchdiv2">hsla(120, 100%, 70%, 0.5)</div>
+                                <div id="bchdiv3">hsla(120, 100%, 60%, 0.5)</div>
+                                <div id="bchdiv4">hsla(120, 100%, 50%, 0.5)</div>
+                                <div id="bchdiv5">hsla(120, 100%, 40%, 0.5)</div>
+                                <br>透密度下降：
+                                <div id="bchdiv6">hsla(120, 100%, 60%, 1.0)</div>
+                                <div id="bchdiv7">hsla(120, 100%, 60%, 0.8)</div>
+                                <div id="bchdiv8">hsla(120, 100%, 60%, 0.6)</div>
+                                <div id="bchdiv9">hsla(120, 100%, 60%, 0.4)</div>
+                                <div id="bchdiv10">hsla(120, 100%, 60%, 0.2)</div>
+                            </li>
+                            <li>特色关键字：
+                                <br>transparent是全透明黑色(black)的速记法，即一个类似rgba(0,0,0,0)这样的值,背景透明。
+                                <div id="bcsdiv1">123</div> 
+                                <br>currentColor变量的值是当前元素的color值。
+                                <br>如果当前元素没有在CSS里显示地指定一个color值，那它的颜色值就遵从CSS规则，从父级元素继承而来。
+                                <br><br>color默认为黑色：
+                                <div id="bcsdiv2">123</div>
+                                <br>把color设置为某一颜色：
+                                <div id="bcsdiv3">123</div>
+                            </li>
+                        </ol>
+
+
                     </li>
                 </ul>
             </article>

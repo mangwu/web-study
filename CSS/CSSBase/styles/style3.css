@@ -112,3 +112,117 @@ h3 {
     width: min-content;
     border: 1px solid black;
 }
+#wdiv9 {
+    width: fit-content;
+    border: 1px solid black;
+}
+#outdiv2 {
+    width: 15em;
+    height: 20em;
+    border: 1px solid black;
+}
+#wdiv10 {
+    width: fit-content;
+    border: 1px solid black;
+}
+#wdiv11 {
+    width: fit-content;
+    border: 1px solid black;
+}
+#wdiv12 {
+    width: fit-content;
+    border: 1px solid black;
+}
+
+/* background-color例子 */
+#bcdiv1 {
+    width: fit-content;
+    background-color: red;
+}
+
+#bcdiv2 {
+    width: fit-content;
+    background-color: #789abc;
+}
+
+#bcdiv3 {
+    width: fit-content;
+    background-color: rgb(123, 231, 213, 0.5);
+}
+
+#bchdiv1 {
+    width: 20em;
+    height: 2em;
+    background-color: hsla(120, 100%, 80%, 0.5);
+}
+#bchdiv2 {
+    width: 20em;
+    height: 2em;
+    background-color: hsla(120, 100%, 70%, 0.5);
+}
+#bchdiv3 {
+    width: 20em;
+    height: 2em;
+    background-color: hsla(120, 100%, 60%, 0.5);
+}
+#bchdiv4 {
+    width: 20em;
+    height: 2em;
+    background-color: hsla(120, 100%, 50%, 0.5);
+}
+#bchdiv5{
+    width: 20em;
+    height: 2em;
+    background-color: hsla(120, 100%, 40%, 0.5);
+}
+
+#bchdiv6 {
+    width: 20em;
+    height: 2em;
+    background-color: hsla(120, 100%, 60%, 1.0);
+}
+#bchdiv7 {
+    width: 20em;
+    height: 2em;
+    background-color: hsla(120, 100%, 60%, 0.8);
+}
+#bchdiv8 {
+    width: 20em;
+    height: 2em;
+    background-color: hsla(120, 100%, 60%, 0.6);
+}
+#bchdiv9 {
+    width: 20em;
+    height: 2em;
+    background-color: hsla(120, 100%, 60%, 0.4);
+}
+#bchdiv10{
+    width: 20em;
+    height: 2em;
+    background-color: hsla(120, 100%, 60%, 0.2);
+}
+
+#bcsdiv1 {
+   
+    width: 20em;
+    height: 2em;
+    border: 1px solid hsla(120, 100%, 60%, 0.8);
+    background-color: transparent;
+}
+
+#bcsdiv2 {
+    width: 20em;
+    height: 2em;
+    background-color: currentColor;
+    border: 1px solid hsla(120, 100%, 60%, 0.8);
+}
+#bcsdiv3 {
+    width: 20em;
+    height: 2em;
+    color:hsla(120, 100%, 60%, 0.8);
+    background-color: currentColor;
+    border: 1px solid hsla(120, 100%, 60%, 0.8);
+}
+
+
+
