@@ -223,6 +223,89 @@ h3 {
     background-color: currentColor;
     border: 1px solid hsla(120, 100%, 60%, 0.8);
 }
+/* color例子 */
+#cdiv1 {
+    color:red;
+    width: fit-content;
+    border: solid 1px currentColor;
+    text-decoration: underline;
+}
+#cdiv2 {
+    color:#789abc;
+    width: fit-content;
+    border: solid 1px currentColor;
+    text-decoration: underline;
+}
+#cdiv3 {
+    color:rgb(123, 231, 213, 0.8);
+    width: fit-content;
+    border: solid 1px currentColor;
+    text-decoration: underline;
+}
+#cdiv4 {
+    color: hsla(120, 100%, 60%, 0.8);
+    width: fit-content;
+    border: solid 1px currentColor;
+    text-decoration: underline;
+}
+#cdiv5 {
+    color: hsl(120, 100%, 60%);
+    width: fit-content;
+    border: solid 1px currentColor;
+    text-decoration: underline;
+}
+
+/* border例子 */
+#bdiv1 {
+    width: 20em;
+    height: 10em;
+    border: 1em solid;
+}
+#bt1 {
+    border: 1px none black;
+    border-collapse: collapse;/*相邻边被合并*/
+}
+#bt1 td {
+    border: 1px solid blue;
+}
+#bt2 {
+    border: 1px hidden black;
+    border-collapse: collapse;/*相邻边被合并*/
+}
+#bt2 td {
+    border: 1px solid blue;
+}
+#bdiv2 {
+    border: blue 13px dotted;
+    width: fit-content;
+}
+#bdiv3 {
+    width: fit-content;
+    border: dashed 3px black; 
+}
+#bdiv4 {
+    width: fit-content;
+    border: double thick black; 
+}
+#bdiv5 {
+    width: fit-content;
+    border: groove 10px gray; 
+}
+#bdiv6 {
+    width: fit-content;
+    border: ridge 10px gray; 
+}
+#bdiv7 {
+    width: fit-content;
+    border: inset 5px; 
+}
+#bdiv8 {
+    width: fit-content;
+    border: outset 5px; 
+}
+
+
+
 
 
 

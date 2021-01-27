@@ -231,8 +231,137 @@
                                 <div id="bcsdiv3">123</div>
                             </li>
                         </ol>
+                    </li>
+                    <li>
+                        color:设置颜色值的前景色和文本装饰，并设置currentcolor值。currentcolor值可以作为其他属性的值。
+                        <br>color的值和background-color值格式一样,但color是继承属性
+                        <ol style="list-style-type: trad-chinese-informal;">
+                            <li>
+                                关键字(name)，如red等：
+                                <div id="cdiv1">
+                                    我是color设置的关键字颜色,边框(border),文本修饰(text-decoration)都设置为currentcolor
+                                </div>
+                                
+                            </li>
+                            <li>16进制颜色<br>
+                                格式：#000000-ffffff
+                                <div id="cdiv2">
+                                    我是color设置的#789abc颜色,边框(border),文本修饰(text-decoration)都设置为currentcolor
+                                </div>
+                            </li>
+                            <li>rgb颜色<br>
+                                格式：rgb(0-255,0-255,0-255,0-1)
+                                <div id="cdiv3">
+                                    我是color设置的rgb(123, 231, 213, 0.5)颜色,边框(border),文本修饰(text-decoration)都设置为currentcolor
+                                </div>
+                            </li>
+                            <li>hsl颜色<br>
+                                格式：hsl(0-360,0-100%,0-100%)或hsla(0-360,0-100%,0-100%,0-1)
+                                <div id="cdiv4">
+                                    我是color设置的hsla(120, 100%, 60%, 0.8)颜色,边框(border),文本修饰(text-decoration)都设置为currentcolor
+                                </div>
+                                <div id="cdiv5">
+                                    我是color设置的hsl(120, 100%, 60%)颜色,边框(border),文本修饰(text-decoration)都设置为currentcolor
+                                </div>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        border：设置各种单独边界属性的简写属性，border-width,border-style,border-color
+                        <br>border属性使用后会对border-image有影响，让其变为默认值(none)
+                        <ol>
+                            <li>border-width:在border中声明时只能给出一个值，上下左右边框用同一个值
+                                <div id="bdiv1">
+                                    1em的宽度，默认颜色(currentcolor)和样式(solid)
+                                </div>
+                            </li>
+                            <li>border-style:
+                                <ul>
+                                    <li>none:无样式，width会被重置为0，显示重叠的其他边框
+                                        <br>
+                                        <table id="bt1">
+                                            <tr>
+                                                <td>a<sub>1</sub></td>
+                                            </tr>
+                                            <tr>
+                                                <td>a<sub>2</sub></td>
+                                            </tr>
+                                            <tr>
+                                                <td>a<sub>3</sub></td>
+                                            </tr>
+                                        </table>
+                                    </li>
+                                    <li>hidden:无样式，width会被重置为0，不显示重叠的其他边框
+                                        <br>注意表格属性border-collapse: collapse;时才会有作用
+                                        
+                                        <table id="bt2">
+                                            <tr>
+                                                <td>a<sub>1</sub></td>
+                                            </tr>
+                                            <tr>
+                                                <td>a<sub>2</sub></td>
+                                            </tr>
+                                            <tr>
+                                                <td>a<sub>3</sub></td>
+                                            </tr>
+                                        </table>
+                                    
+                                       
+                                    </li>
+                                    <li>
+                                        dotted:圆点，圆点半径为border-width的一半，圆点间隔视不同实现而定
+                                        <div id="bdiv2">
+                                            圆点边框
+                                        </div>
+                                    </li>
+                                    <li> 
+                                        dashed:方形虚线，线段长度和间隔没有标准
+                                        <div id="bdiv3">
+                                            方形虚线
+                                        </div>
+                                    </li>
+                                    <li>
+                                        solid:实线
+                                        <div style="border: blue solid 1px;width: fit-content;">
+                                            实线
+                                        </div>
+                                    </li>
+                                    <li>
+                                        double:双实线，宽度为width
+                                        <div id="bdiv4">
+                                            双实线
+                                        </div>
+                                    </li>
+                                    <li>
+                                        groove:雕刻效果
+                                        <div id="bdiv5">
+                                            雕刻效果
+                                        </div>
+                                    </li>
+                                    <li>
+                                        ridge:雕刻效果，样式余groove相反
+                                        <div id="bdiv6">
+                                            雕刻效果
+                                        </div>
+                                    </li>
+                                    <li>
+                                        inset:陷入效果
+                                        <br>表格属性border-collapse: collapse;时，显示groove效果
+                                        <div id="bdiv7">
+                                            陷入效果
+                                        </div>
+                                    </li>
+                                    <li>
+                                        outset:突出效果
+                                        <br>表格属性border-collapse: collapse;时，显示ridge效果
+                                        <div id="bdiv8">
+                                            突出效果
+                                        </div>
+                                    </li>
+                                </ul>
 
-
+                            </li>
+                        </ol>
                     </li>
                 </ul>
             </article>
