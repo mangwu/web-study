@@ -365,6 +365,160 @@
                     </li>
                 </ul>
             </article>
+            <article>
+                <h2>4.CSS的函数</h2>
+                <p>CSS中大部分属性值都是关键字或数值，但是有些属性值可以是函数</p>
+                <ul>
+                    <li>calc()函数，用于简单计算，得到数值结果作为属性值
+                        <br>例如，在width属性值中使用这个函数，根据父元素width计算需要的属性值
+                        <div id="outdiv3"> 
+                            
+                            <div id="innerbox">width="calc(90%-30px)"</div>
+                        </div>
+                    </li>
+                    <li>transform属性：属性值用函数(transform-function)表示，属性用于对元素进行旋转，缩放，倾斜，平移
+                        <br>使用rotate()函数，对元素进行顺时针旋转，参数为0-1.0turn
+                        <div class="box">0.6turn</div>
+                        <br><br>
+                        <ol style="list-style-type: trad-chinese-informal;">transform属性值的表示方法（transform-function）：
+                            <br>对原图进行一些列转换：<img class="image1" src="images/65123727_1.gif" alt="转换图">
+                            <li>matrix()函数：
+                                <p>格式：matrix(a,b,c,d,tx,ty)，矩阵表示为：
+                                    <table class="matrix">
+                                        <tr>
+                                            <td>a</td>
+                                            <td>c</td>
+                                            <td>tx</td>
+                                        </tr>
+                                        <tr>
+                                            <td>b</td>
+                                            <td>d</td>
+                                            <td>ty</td>
+                                        </tr>
+                                        <tr>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                        </tr>
+                                    </table>
+                                    参考<a href="https://blog.csdn.net/weixin_42103959/article/details/81044389">
+                                        matrix()</a><br>
+                                    x<sup>'</sup> = ax + cy +tx<br>
+                                    y<sup>'</sup> = bx + dy +ty
+                                </p>
+                                <ol>
+                                    <li>平移只与tx，ty有关系。
+                                        <br>HTML默认左上角为坐标原点,x正轴水平向右，y正轴水平向下
+                                        <div id="imagebox1">
+                                            <img src="images/65123727_1.gif">
+                                            <div style="margin-left: 20em;">沿着x轴正方向平移30个单位(px)沿着y轴正方向平移40个单位(px)</div>
+                                            <div style="margin-left: 20em;">
+                                                transform:matrix(1, 0, 0, 1, 30, 40)
+                                            </div> 
+                                        </div>
+                                        
+                                    </li>
+                                    <li>缩放：根据式子，x<sup>'</sup>在x轴方向大小与a有关系
+                                        <br>而y<sup>'</sup>在y轴方向大小与d有关系，a,d代表在x或y轴的缩放倍数
+                                        <div id="imagebox2">
+                                            <img src="images/65123727_1.gif">
+                                            <div style="margin-left: 20em;">x轴方向放大1.3倍,y方向变为0.8倍
+                                                <br>transform:matrix(1.3, 0, 0, 0.8, 0, 0)
+                                            </div>
+                                            
+                                            
+                                        </div>
+                                    </li>
+                                    <li>旋转：按照旋转角度对a,b,c,d四个进行赋值:
+                                        <br>a=cosθ，b=sinθ,c=-sinθ,d=cosθ,默认旋转方向为顺时针
+                                        <table class="matrix">
+                                            <tr>
+                                                <td>cosθ</td>
+                                                <td>-sinθ</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>sinθ</td>
+                                                <td>cosθ</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>1</td>
+                                            </tr>
+                                        </table>
+                                        x<sup>'</sup>=xcosθ - ysinθ, y<sup>'</sup>=xsinθ + ycosθ
+                                        <div id="imagebox3">
+                                            <img src="images/65123727_1.gif">
+                                            <div style="margin-left: 20em;">θ=30°,顺时针旋转30°
+                                                <br>tx=223,左移223单位
+                                                <br>transform:matrix(cos30|0.866,sin30|0.5,-sin30|-0.5,cos30|0.866)
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>rotate()函数：旋转函数，指定旋转角度，正数为顺时针旋转，负数为逆时针旋转
+                                <ol>
+                                    <li>deg单位，使用角度制：60deg就是60度
+                                        <div id="imagebox4">
+                                            <img src="images/65123727_1.gif">
+                                            <div style="margin-left: 20em;">θ=30deg,顺时针旋转30deg
+                                                <br>tx=223,左移223单位
+                                                <br>transform: matrix(1, 0, 0, 1, 223, 0) rotate(30deg)
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>turn单位,turn表示圈，1turn等于360deg，60deg=60/360deg=1/6turn
+                                        <div id="imagebox5">
+                                            <img src="images/65123727_1.gif">
+                                            <div style="margin-left: 20em;">θ=30deg,顺时针旋转30deg,1/12turn
+                                                <br>tx=223,左移223单位
+                                                <br>transform: matrix(1, 0, 0, 1, 223, 0) rotate(0.083)
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ol>
+
+                            </li>
+                            <li>scale()函数：缩放函数，缩放由矢量定义，scale(sx,sy=sx)
+                                <div id="imagebox6">
+                                    <img src="images/65123727_1.gif">
+                                    <div style="margin-left: 20em;">sx=1.5 sy=0.9
+                                        <br>x轴方向放大1.5倍，y轴方向缩小置0.9倍
+                                        <br>只设置sx，sy默认等于sx
+                                        <br>参数为负数会进行沿轴对称处理
+                                        <br>transform: scale(1.5,0.9);
+                                    </div>
+                                </div>
+                            </li>
+                            <li>skew()函数：拉伸函数，skew(ax,ay),表示沿着坐标扭曲元素的角度
+                                <div id="imagebox7">
+                                    <img src="images/65123727_1.gif">
+                                    <div style="margin-left: 21em;">ax=10deg ay=10deg
+                                        <br>x轴正方向拉伸10°，y轴正方向拉伸置10°倍
+                                        <br>参数为负数会进行沿负方向轴拉伸处理，若ax=-ay，相当于旋转
+                                        <br>transform: skew(10deg,10deg)
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li>translate()函数:平移函数，tarnslate(tx,ty),tx,ty表示平移单位数
+                                <div id="imagebox8">
+                                    <img src="images/65123727_1.gif">
+                                    <div style="margin-left: 21em;">tx=80px ay=20%
+                                        <br>x轴正方向平移80px，y轴正方向平移自身宽度的20%
+                                        <br>参数为负数会进行沿负方向轴平移处理
+                                        <br>注意matrix中tx,ty平移没有单位，这个可以是多种不可省略单位(em,px,ex,%)
+                                        <br>transform: translate(80px,20%);
+                                    </div>
+                                </div>
+                            </li>
+                        </ol>
+                    </li>
+                </ul>
+            </article>
         </main>
     </body>
     
