@@ -517,7 +517,49 @@
                             </li>
                         </ol>
                     </li>
+                    <li>background-image属性值也用函数表明图片路径
+                        <br>图像绘制时，图像以 z 方向堆叠的方式进行
+                        <ol>
+                            <li>url("path")函数，表示背景图片路径
+                                <br>可以使用多个url，浏览器会组合图片形成背景
+                                <div id="bimagebox1">
+                                </div>
+                                <p>上面的就是一个筛子图片和一个gif组合成的背景</p>
+                            </li>
+                            <li>根据url()图片插入顺序不同，先插入的在最上层，依次往下
+                                <div id="bimagebox2">
+                                </div>
+                            </li>
+                            <li>背景颜色绘制在图像下面，边框绘制在图像上面
+                                <div id="bimagebox3">
+                                </div>
+                            </li>
+                            <li>linear-gradient()函数，线性渐变，用于手动绘制背景
+                                <br>格式:linear-gradient(direction,color-stop1,color-stop2,……)
+                                <br>direction,渐变方向，默认从上到下（to bottom）
+                                <br>rigth,left,botton,top可以两两自由组合确定渐变方向
+                                <br>可以使用deg来指明方向
+                                <br>可以在颜色后使用百分比表示渐变宽度
+                                <div id="bimagebox4">
+
+                                </div>
+                                CSS代码：background-image: url(../images/65123727_1.png), url(../images/骰子2.png),
+                                linear-gradient(to right, hsla(120,100%,80%,0.8),hsla(300,100%,80%,0.5));
+                            </li>
+                        </ol>
+
+                    </li>
                 </ul>
+            </article>
+            <article>
+                <h2>@rules规则</h2>
+                <p>CSS的特殊规则</p>
+                <ol>
+                    <li>@import:导入其他样式表
+                        <br>如果主样式表是style.css，则可以在其他样式表中这样导入：
+                        <br>@import 'style.css';
+                    </li>
+                </ol>
             </article>
         </main>
     </body>

@@ -422,6 +422,34 @@ h3 {
     transform: translate(80px,20%);
 }
 
+/* 背景图片 */
+#bimagebox1 {
+    width: 1335px;
+    height: 445px;
+    border: 3px solid black;
+    background-image: url(../images/骰子2.png),url(../images/65123727_1.gif);
+}
+#bimagebox2 {
+    width: 1335px;
+    height: 445px;
+    border: 3px solid black;
+    background-image: url(../images/65123727_1.png), url(../images/骰子2.png);
+}
+#bimagebox3 {
+    width: 1335px;
+    height: 445px;
+    border: 3px solid black;
+    background-image: url(../images/65123727_1.png), url(../images/骰子2.png);
+    background-color: coral;
+}
+
+#bimagebox4 {
+    width: 1335px;
+    height: 445px;
+    border: 3px solid black;
+    background-image: url(../images/65123727_1.png), url(../images/骰子2.png),
+        linear-gradient(to right, hsla(120,100%,80%,0.8),hsla(300,100%,80%,0.5));
+}
 
 
 
