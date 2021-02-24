@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="mangwu">
+        <meta name="description" content="CSS如何工作">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="styles/style4.css">
+        <link rel="shortcut icon" href="images/favicon.ico">
+        <title>CSS在浏览器中的工作</title>
+    </head>
+    <body>
+        <header>
+            <h1>CSS如何工作</h1>
+        </header>
+        <main>
+            <article>
+                <h2>1.浏览器加载网页</h2>
+                <ol style="list-style-type: trad-chinese-informal;margin-left: 20px;">
+                    <li>载入HTML文件</li>
+                    <li>将html文件转化成<abbr title="Document Object Model">DOM</abbr></li>
+                    <li>拉取文档相关资源，如视频，图片，CSS样式等；处理JavaScript</li>
+                    <li>解析CSS:
+                        <ol>
+                            <li>选择器分类放入不同“桶”中</li>
+                            <li>浏览器基于不同选择器，将不同规则应用在DOM的节点中</li>
+                            <li>添加DOM节点的依赖样式（渲染树）</li>
+                            <!-- <img id="saizi" src="images/骰子.svg"> -->
+                            
+                        </ol>
+                    </li>
+                    <li>渲染树依照结构布局</li>
+                    <li>网页显示(着色)</li>
+                </ol>
+            </article>
+            <article>
+                <h2>2.<abbr title="Document Object Model">DOM</abbr></h2>
+                <p>一个DOM有一个树形结构，标记语言中的每一个元素、属性以及每一段文字都对应着结构树中的一个节点
+                    （Node/DOM或DOM node）。
+                    节点由节点本身和其他DOM节点的关系定义，有些节点有父节点，有些节点有兄弟节点（同级节点）。</p>
+                例子：
+                <p class="notranslate">
+                    <code>
+                        &lt;p&gt;
+                        <br>&nbsp;第一段：
+                        <br>&nbsp;&lt;span&gt;1&lt;/span&gt;
+                        <br>&nbsp;&lt;span&gt;2&lt;/span&gt;
+                        <br>&nbsp;&lt;span&gt;3&lt;/spam&gt;
+                        <br>&lt;/p&gt;
+                    </code>
+                </p>
+                <p>下面是DOM节点树，&lt;p&gt;元素是父节点，子节点是一个text节点和三个&lt;span&gt;元素节点，
+                    span节点下又各有一个text节点
+                </p>
+                <pre class="notranslate">
+                    P
+                    ├─"第一段:"
+                    ├─ SPAN
+                    |    └─"1"
+                    ├─ SPAN
+                    |    └─"2"
+                    └─ SPAN
+                         └─"3"
+                </pre>
+                <p>
+                    第一段:
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                </p>
+            </article>
+            <article>
+                <h2>3.CSS解析</h2>
+                <p>浏览器解析HTML创建DOM树后，解析CSS然后添加规则，渲染元素。以下情况不会解析CSS</p>
+                <ol>
+                    <li>
+                        属性或值书写错误：忽略这一条顺位下一条
+                    </li>
+                    <li>
+                        浏览器不支持的CSS属性和值(浏览器版本老旧或者新形CSS规则)：忽略并顺位
+                    </li>
+                    <li>
+                        无法解析选择器：忽略整个选择器规则，解析下一个选择器
+                    </li>
+                </ol>
+                <p>“解析不了就顺位”有一些好处，可以为一个元素指定多个CSS样式，解决浏览器兼容问题：
+                    <br>例如，指定两个width，使用calc()和固定值（px），老式浏览器会忽略calc()，而新式会使用calc()覆盖px
+                </p>
+            </article>
+        </main>
+    </body>
+</html>

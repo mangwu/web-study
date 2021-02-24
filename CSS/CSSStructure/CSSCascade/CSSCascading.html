@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="shortcut icon" href="images/firefox-logo400.png">
+        <meta name="author" content="mangwu">
+        <title>层叠样式表</title>
+    </head>
+    <body>
+        <header>
+            <h1>CSS：层叠样式表</h1>
+            <article>
+
+                <h3>理解层叠(Cascading)的意思很重要</h3>
+                <P>
+                    &nbsp;将一些样式的效果作用于同一个元素，这种作用的方式就是层叠的（cascade）。
+                    <br>&nbsp;有时候因为样式效果冲突，会使得期望的效果没有显示，当发生冲突时，
+                    选择那条规则就是渲染样式效果的另外重要概念——specificity
+                    <br>&nbsp;与期望效果不同，还有另外一种可能，就是css属性的继承性，有些属性继承，有些不继承
+                    ，这会使得样式效果与预期不一样
+                </P>
+                
+            </article>
+
+        </header>
+        <main>
+            <article>
+                <h2>1.层叠</h2>
+                <div>
+                    <p>
+                        &nbsp;层叠：css规则的顺序很重要；当应用两条同级别的规则到一个元素时，写在后面的就是实际使用的规则
+                        这就是层叠的实用含义。
+                    </p>
+                    <div>
+                        <h3 id="lizi1">我是例子</h3>
+                        <p>
+                            上面例子先定义了color: blue; 规则，后定义了color: red。相同优先级，后定义的生效
+                        </p>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h2>2.优先级</h2>
+                <div>
+                    <p>&nbsp;优先级是决定当多个规则有不同选择器对应相同的元素的时候，需要使用那个规则。</p>
+                    <p>&nbsp;可以这样理解，对于同一元素，可以使用不同的选择器选择（即使该选择器选择了多个元素，这一元素只是其中
+                        之一），不同选择器中相同的属性会根据选择器的具体程度来决定谁被使用。
+                        具体规则如下：
+                        <ul>
+                            <li>一个元素选择器不是很具体-会选择页面上该类型的所有元素-优先级低</li>
+                            <li>一个元素选择器稍微具体一点-会选择页面中特定clas属性值或id值的元素-优先级高一些</li>
+                        </ul>
+                    </p>
+                    <div>
+                        <h3 id="lizi2">我是<span class="lizi2">例子2</span></h3>
+                        <p>
+                            例子二中“例子2”先使用class选择器选择，让其变为红色；
+                            <br>再用span元素选择器选择，定义color为蓝色；
+                            <br>结果显示class优先级高，即使span选择器后声明(层叠顺序默认规则被打破)
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h3>我是<span class="lizi3" id="lizi3">例子3</span></h3>
+                        例子二中“例子2”先使用id选择器选择，让其变为红色；
+                            <br>再用class选择器选择，定义color为蓝色；
+                            <br>结果显示id选择器优先级高，即使class选择器后声明(层叠顺序默认规则被打破)
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h2>3.继承</h2>
+                <div>
+                    <p>&nbsp;一些设置在父元素上的css属性是可以被子元素继承的，有些不可以</p>
+                    <p>&nbsp;例如font-family和color会被子元素继承，除非在子元素上在在声明其他属性值的同类属性</p>
+                    <div class="lizi4">
+                        <h3>我是<span id="lizi4">例子4</span></h3>
+                        
+                    </div>
+                    <p>例子4中&lt;h3&gt;元素继承了外部div元素的font-family和color元素;
+                        <br>变成了fangsong和蓝色。
+                        <br>但是“例子4”使用其他选择器再次声明为了红色，没有声明字体
+                    </p>
+                    <p>
+                        width等属性不能继承，例如width:50%那么子元素是50%宽度会难使用
+                    </p>
+                    <ol>
+                        <li>理解继承：
+                            <strong>有些属性可以继承，有些不可以继承</strong>
+                            <p>例子：
+                                <ul class="jicheng">
+                                    <li>第一条</li>
+                                    <li>第二条</li>
+                                    <li>第三条
+                                        <ul class="specialli">
+                                            <li>3.1</li>
+                                            <li>3.2
+                                                <ul>
+                                                    <Li>
+                                                        3.2.1
+                                                    </Li>
+                                                    <li>
+                                                        3.2.2
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                3.3
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </p>
+                            <p>
+                                color属性可以继承，直接应用在子元素&lt;li&gt;上
+                                <br>&nbsp;第二个嵌套列表中也添加了color元素，层叠覆盖了继承属性
+                                <br><br>
+                                width,margins,padding,borders属性不会被继承。
+                            </p>
+                        </li>
+                        <li>
+                            控制继承
+                            <p>
+                                CSS为每个属性提供了4个特殊的通用关于继承特性的属性值：
+                                <ol style="list-style-type: upper-roman;">
+                                    <li>
+                                        <span class="control">inherit</span>
+                                        设置该属性会使子元素属性和父元素相同。实际上，就是 "开启继承".
+                                        
+                                    </li>
+                                    <li>
+                                        <sapn class="control">initial</sapn>
+                                        该属性被设置为和浏览器默认样式的相同值。浏览器默认样式未设置且该属性是自然继承的，就会设置为inherit
+                                    </li>
+                                    <li>
+                                        <span class="control">unset</span>
+                                        将属性重置为自然值，自然继承就是inherit。否则就是initial
+                                    </li>
+                                </ol>
+                                例子：
+                                <ul class="ulcontrol">
+                                    <li>默认<a href="#">链接</a></li>
+                                    <li class="control-1">inherit<a href="#">链接</a></li>
+                                    <li class="control-2">initial<a href="#">链接</a></li>
+                                    <li class="control-3">unset<a href="#">链接</a></li>
+                                </ul>
+                                <p>
+                                    分析上述例子：
+                                    <ol style="list-style-type: upper-alpha;">
+                                        <li>ul列表使用color属性声明颜色为red，是整体颜色</li>
+                                        <Li>默认链接a元素没有添加额外样式，是a元素在浏览器中显示的color默认样式（蓝色）</Li>
+                                        <li>inherit链接选择a元素为color添加开启继承的属性值inherit，继承父元素颜色（red）</li>
+                                        <li>initial链接选择a元素为color添加属性值initial，使color和浏览器默认color属性值相同（balck）</li>
+                                        <li>unset链接选择a元素为color添加属性值unset，因为color属性是自然继承的，所以就是inherit(red)</li>
+                                    </ol>
+                                </p>
+                                <hr>
+
+                            </p>
+                            <p>
+                                <strong>全体控制</strong>
+                                <br>CSS中有一个属性可以代表其他所有属性表征它们的继承性。这个属性就是：
+                                <strong class="control">all
+                                </strong>
+                                <div>
+                                    简单的说：
+                                    <ul>
+                                        <li>all可以使用inherit，initial，unset，revert中的任意一个值</li> 
+                                        <li>all属性将这些值的继承特性应用到同一选择器中的所有属性</li>
+                                        <li>使用all属性可以重置（unset）或者说是撤销对元素的所有样式更改，便于回到已知起点</li>
+                                    </ul>
+                                    例子：
+                                    <blockquote><p>我是定义了额外样式的blockquote</p></blockquote>
+                                    <blockquote class="fixblock"><p>我是重置了样式的blockquote</p></blockquote>
+                                </div>
+                                
+                            </p>
+                        </li>
+
+                    </ol>
+                </div>
+            </article>
+            <article>
+                <h2>4.理解层叠</h2>
+                <div>
+                    <p>需要理解的一个重要问题：<br>
+                        <strong>如何定义层叠在不止一个元素的时候怎么应用到CSS规则上：</strong>
+                        <ol style="list-style-type: upper-latin;">
+                            <li>重要程度</li>
+                            <Li>优先级</Li>
+                            <li>资源顺序</li>
+
+                        </ol>
+                    </p>
+                </div>
+                <div>
+                    <h3>①资源顺序</h3>
+                    对于同种规则，层叠具有覆盖性，最后面的规则会被应用。
+                </div>
+                <div>
+                    <h3>②优先级</h3>
+                    id选择器>class选择器>element选择器
+                    <br>需要注意：优先级是对比相同属性的在不同选择器下的优先性，不会覆盖其他所有规则
+                    <br>利用这种优先级规则，可以<strong>避免重复CSS</strong>，例子：
+                    <br><br>
+                    <div class="uniformbox">
+                        我是一个类的通用样式。
+                    </div>
+                    <div class="uniformbox" id="small">
+                        我也有通用样式，但是还应用了自己独特样式。small
+                    </div>
+                    <div class="uniformbox" id="bright">
+                        我也有通用样式，但是还应用了自己独特样式。bright
+                    </div>
+                    <div class="uniformbox" id="big">
+                        我也有通用样式，但是还应用了自己独特样式。big
+                    </div>
+                    <p>
+                        优先级的计算：不同选择器有不同分值，分值相加得到选择器权重，就可以进行匹配
+                        <ol>
+                            <li>千位：内联样式，声明在元素属性style内的属性得1分，无选择器，总分1000分</li>
+                            <li>百位：选择器中包含ID选择器则得1分</li>
+                            <li>十位：选择器中包含类选择器，属性选择器，或者伪类选择器得一分</li>
+                            <li>个位：元素选择器，伪元素选择器得一分</li>
+                        </ol>
+                        <div class="notecard">
+                            注: 通用选择器 (*)，组合符 (+, >, ~, ' ')，和否定伪类 (:not) 不会影响优先级。
+                        </div>
+                        <div>
+                            例子：
+                            <div id="outerbox" class="container">
+                                <div id="innerbox" class="container">
+                                    <ul style="list-style-type: none;">
+                                        <li class="nav"><a href="#">One</a></li>
+                                        <li class="nav"><a href="#">Two</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </p>
+                </div>
+                <div>
+                    <h3>③重要程度</h3>
+                    <p>这个特殊的CSS可以覆盖上面所有css规则，用于修改特定属性的值</p>
+                    <span class="control">!important</span>
+                    <div class="importantbox">
+                        例子：
+                        <p class="better">我是有类名一段</p>
+                        <p class="better" id="winning">我不仅仅有类名，还有id</p>
+                    </div>
+                    <p>都没有边框，但是第二段是利用id选择器设置了边框的，因为在为第一段添加样式时有这样一句：
+                        <br>border:none !important; 所以覆盖了所有类，都没有边框
+                    </p>
+                    <p>使用顺序规则可以用另一个!important覆盖前面的，建议不要使用!important</p>
+                </div>
+            </article>
+        </main>
+    </body>
+</html>

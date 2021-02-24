@@ -1,0 +1,158 @@
+html {
+    background-color: #eeeeee;
+}
+body {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+}
+.article {
+    border: 1px solid black;
+    padding: 5px 1em;
+    margin-bottom: 0.5em;
+}
+.lizi {
+    width: 90%;
+    margin: 0 auto;
+    padding: 1em 1em 1em 1em;
+    border: 1px solid blue;
+}
+.lizi #borderbox {
+    color: black;
+    background-color: springgreen;
+}
+.lizi #borderbox:hover {
+    border: 4px solid slategrey;
+}
+.lizi #firstword::first-letter {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+.lizi #liziblock {
+    border: 2px solid lightseagreen;
+    padding: 0.5em;
+    text-align: center;
+    margin: 1em;
+}
+.lizi .liziinline {
+    display: inline;
+    background-color: lightseagreen;
+    border: 2px solid sienna;
+    margin-right: 1em;
+    margin-top: 1em;
+}
+.liziul {
+    display: flex;
+    border: aqua 3px solid;
+    list-style: none;
+    padding: 0.5em;
+}
+.lizili {
+    border: sandybrown 2px solid;
+    padding:0.5em;
+}
+.control {
+    width:fit-content;
+    background-color: #dddddd;
+    color: #0000ae;
+    font-weight: bold;
+    font-family: fangsong;
+}
+.strong {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.para {
+    text-indent: 1em;
+}
+.para-zhu {
+    text-indent: 1em;
+    font-style: italic;
+    font-family: fangsong;
+    font-size: 0.95em;
+}
+.notranslate {
+    color: #212121;
+    text-rendering: optimizeSpeed;
+    letter-spacing: -.0027777778rem;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    border-left: 6px solid #00458b;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.2;
+    margin: 5px 0 4px 0;
+    max-width: 100%;
+    overflow: auto;
+    padding: 24px;
+    width: 100%;
+    background-color: #ddd;
+}
+
+.lizibox, #lizih3 {
+    color: blue;
+}
+
+.para > img {
+    display: block;
+    margin: 0 auto;
+    margin-top: 1em;
+}
+
+.control2 {
+    display: block;
+    border: 2px solid aquamarine;
+    width: fit-content;
+    padding:0.5em;
+    margin-top: 1em;
+    background-color: #dddddd;
+    color: #0000ae;
+    font-weight: bold;
+    font-family: fangsong;
+}
+.standbox {
+    margin: 1em auto;
+    padding: 1em;
+    width: 4em;
+    height: 4em;
+    border: aquamarine 0.2em solid;
+    line-height: 1em;
+}
+.borderbox {
+    box-sizing: border-box;
+    margin: 1em auto;
+    padding:1em;
+    height:6.4em;
+    width: 6.4em;
+    border: aquamarine 0.2em solid;
+    line-height: 1em;
+}
+.box1 {
+    box-sizing: border-box;
+    width: fit-content;
+    height: fit-content;
+    border: aqua 2px solid;
+    padding: 1em;
+    margin: 1em auto;
+}
+
+.box2 {
+    box-sizing: border-box;
+    width: fit-content;
+    height: fit-content;
+    border: aqua 2px solid;
+    padding: 1em;
+    margin: 2em auto;
+}
+
+.box3 {
+    box-sizing: border-box;
+    text-align: center;
+    width: 20em;
+    height: 10em;
+    margin: 1em auto;
+    border-top:aquamarine 10px solid;
+    border-bottom: blueviolet 0.3em dotted;
+    border-right: sandybrown 1em double;
+    border-left: firebrick 20px groove;
+}

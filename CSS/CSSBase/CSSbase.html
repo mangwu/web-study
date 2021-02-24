@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="mangwu">
+    <link rel="stylesheet" href="styles/style6.css">
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+
+    <title>基础CSS属性</title>
+</head>
+
+<body>
+    <header>
+        <h1>基础CSS属性</h1>
+    </header>
+    <main>
+        <article>
+            <h2>1.font-family</h2>
+            <div>
+                <p>
+                    <h4>基本概念</h4>
+                    <ol style="list-style-type: upper-roman;">
+                        <li>
+                            属性值：字体名或者字体族名组成的列表，用逗号隔开
+                        </li>
+                        <li>
+                            定义：通过给出的有先后顺序的列表给元素设置字体
+                        </li>
+                    </ol>
+
+                </p>
+                <p>
+                    <h4>使用说明</h4>
+                    <ol>
+                        <li>
+                            浏览器渲染：浏览器会选择第一个计算机中有安装的字体，或者通过@font-face指定要下载的字体
+                        </li>
+                        <li>
+                            font属性：可以用缩写的font属性来表征font-size和其他字体相关的属性
+                        </li>
+                        <li>
+                            通用字体族名：至少要在属性值列表中添加一个通用族名，因为不能确保计算机安装的字体和能够下载字体
+                        </li>
+                        <li>
+                            优先级：可选字体列表优先级从高到低。字体选择是按字进行选择的，不是按照计算机已有字体选择的
+                            <br>例如，ABC⅛D，ABCD都可以用列表中的第一种，但是⅛不行，就会在列表中按顺序选择可用字体（与其他符号不冲突）
+                            <br>字体在font-style等属性下有效时，也会影响字符在font-family列表中的选择
+                        </li>
+                    </ol>
+                </p>
+                <p>
+                    <h4>属性值</h4>
+                    <ul>
+                        <li>
+                            &lt;family-name&gt;
+                            <br>字体族的名字，例如"Times" 和 "Helvetica",可包含空格，但要用引号包裹
+                            <br>下面是一个例子：
+                            <div class="fontbox">
+                                Liu Jian Mao Cao,谷歌上的一种汉字字体
+                            </div>
+                            <sub>font-family: 'Liu Jian Mao Cao',cursive;</sub>
+
+                        </li>
+                        <li>
+                            &lt;generic-name&gt;
+                            <br>通用字体族的名字，用于当指定的family-name不好用时的较好备选字体
+                            <br>属于关键字，不可以加引号，每个字体族列表至少有一个
+                            <br>下面是具体的字体关键字：
+                            <ol>
+                                <li>
+                                    serif:带衬线字体，笔画结尾有特殊装饰线
+                                    <div id="fontbox1">
+                                        <p>
+                                            默认字体
+                                            <span>serif字体</span>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    sans-serif:无衬线字体，笔画接吻平滑
+                                    <div id="fontbox2">
+                                        <p>
+                                            默认字体
+                                            <span>sans-serif字体</span>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    monospace:等宽字体,每个字宽度相同
+                                    <div id="fontbox3">
+                                        <p>
+                                            默认字体
+                                            <span>monospace ABdC字体</span>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    cursive:草书字体，连笔效果，有手写感觉
+                                    <div id="fontbox4">
+                                        <p>
+                                            默认字体
+                                            <span>cursive字体</span>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    fantasy:具有特殊艺术效果的字体
+                                    <div id="fontbox5">
+                                        <p>
+                                            默认字体
+                                            <span>fantasy字体</span>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    system-ui:从浏览器平台处获取默认用户界面字体，适合无法选入其他通用字体的字体族
+                                    <div id="fontbox6">
+                                        <p>
+                                            默认字体
+                                            <span>system-ui字体</span>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    math:针对数学相关字符的特殊样式问题而设计的字体
+                                    <div id="fontbox7">
+                                        <p>
+                                            默认字体
+                                            <span>∑100</span>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    emoji:呈现表情符号的字体
+                                    <div id="fontbox8">
+                                        <p>
+                                            默认字体
+                                            <span>😅</span>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    fangsong：仿宋，一种汉字字体，介于宋体和楷体之间。这种字体常用于某些政府文件。
+                                    <div id="fontbox9">
+                                        <p>
+                                            默认字体
+                                            <span>fangsong仿宋</span>
+                                        </p>
+                                    </div>
+                                </li>
+
+                            </ol>
+                        </li>
+                        <li>
+                            格式：[ &lt;family-name&gt; | &lt;generic-family&gt; ]#
+                            <br>family-name可以出现一次或多次，generic-family一般是一个（上述的关键字）
+                        </li>
+                    </ul>
+                </p>
+            </div>
+
+        </article>
+        <article>
+            <h2>2.border-bottom</h2>
+            <div>
+                <p>
+                    定义：是border-bottom-color,border-bottom-style,border-bottom-width的简写属性，用于描述元素的下边框
+
+                </p>
+                <p>
+                    注意事项：
+                    <br>
+                    border-bottom会把未被显示定义的三个属性设置为默认值。
+                    <br>例如,在border-bottom声明之前的border-botton-style会因为border-botton而被覆盖或者被设置为默认
+                    <br>除非在border-bottom后再次声明
+                </p>
+                <div>
+                    例子：
+                    <div id="border-div">
+                        <span>border-bottom ↓</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article>
+            <h2>3.font-weight</h2>
+            <div>
+                <p>
+                    定义：指定字体粗细程度，一些字体只提供两种粗细:normal和bold
+                </p>
+                <ol>
+                    属性值
+                    <li>
+                        关键字：normal和bold
+                        <br>normal=400,正常粗细；bold=700，加粗
+                        <br><br>
+                        <div id="weightbox">
+                            <span class="span1">我是normal粗细例子</span>
+
+                            <span class="span2">我是bold粗细例子</span>
+                        </div>
+                    </li>
+                    <li>
+                        关键字:lighter和bolder
+                        <br>lighter：比从父元素继承来的值更细
+                        <br>bolder；比从父元素继承来的值更粗
+                        <br><br>
+                        <div id="weightbox2">
+                            <span>我是父元素，字体粗细值为500</span>
+                            <div class="span1">我是lighter例子</div>
+                            <div class="span2">我是bolder例子</div>
+                        </div>
+                        <p>可以看到上述例子中，lighter和500显示的是同一种粗细：
+                            <br>根本原因是字体只有两种粗细大小（normal和bold）
+                            <br>不同父元素字体粗细会让lighter和bolder的值变换（详见
+                            <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-weight#%E7%9B%B8%E5%AF%B9%E7%B2%97%E7%BB%86%E5%80%BC%E7%9A%84%E8%A7%A3%E6%9E%90" target="_blank">
+                                相对粗细值解析
+                            </a>
+                            ）
+                        </p>
+                    </li>
+                    <li>
+                        数值：介于[1,1000]的&lt;number&gt;类型值;字体粗细值为离散值为100的倍数,100-900
+                        <br>一些字体只有几种粗细，如上面例子的fangsong只有400和700
+                        <br>当指定的font-weight不是这两种时，就会使用<strong>回退机制</strong>选择可用的权重值
+                        <ul>
+                            <li>
+                                权重值∈[400, 500]:
+                                <ol>
+                                    <li>按照升序查找指定值与500之间的可用权重(在[x,500]中查找)</li>
+                                    <li>未找到，按照降序查找小于指定值的可用权重(在(x,100]查找)</li>
+                                    <li>还未找到，按照升序查找大于500指定值的可用权重(在(500,1000]查找</li>
+                                </ol>
+                            </li>
+                            <li>权重值∈[100,400):
+                                <br>按照降序查找小于指定值权重，找不到再升序查找大于指定值的权重
+                                <br>(先在[x,100]中找，再在[x,1000]中找)
+                            </li>
+                            <li>
+                                权重值∈(500,1000]:
+                                <br>按照升序查找大于指定值的权重，找不到再降序找小于指定值的权重
+                                <br>(先在(x,1000],再在(x,100]中找)
+                            </li>
+                        </ul>
+                        <p>
+                            当一个字体只有normal和bold时
+                            <br>指定的粗细值为[100-500]时会选择normal
+                            <br>指定的粗细值为[600-900]时会选择bold
+                        </p>
+                    </li>
+                    <li>
+                        数值与粗细值名称对应：
+                        <br>不是100倍数的数值会被四舍五入成为100倍数
+                        <ul>
+                            <li>100
+                                <br>Thin (Hairline)
+                            </li>
+                            <li>
+                                200
+                                <br>extra light(ultra light)
+                            </li>
+                            <li>
+                                300
+                                <br>light
+                            </li>
+                            <li>
+                                400
+                                <br>normal
+                            </li>
+                            <li>
+                                500
+                                <br>medium
+                            </li>
+                            <li>
+                                600
+                                <br>semi bold(dimi bold)
+                            </li>
+                            <li>
+                                700
+                                <br>bold
+                            </li>
+                            <li>
+                                800
+                                <br>extra bold
+                            </li>
+                            <li>
+                                900
+                                <br>black(heavy)
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </article>
+    </main>
+</body>
+
+</html>

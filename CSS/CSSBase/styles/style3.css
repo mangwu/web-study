@@ -450,6 +450,28 @@ h3 {
     background-image: url(../images/65123727_1.png), url(../images/骰子2.png),
         linear-gradient(to right, hsla(120,100%,80%,0.8),hsla(300,100%,80%,0.5));
 }
+#mediabox {
+    width: 20em;
+    height: 20em;
+    background-color: hsla(120, 100%, 60%, 0.8);
+}
+#mediabox #width1 {
+    display: none;
+}
+@media (min-width: 30em) {
+    #mediabox {
+        background-color: hsla(340,100%,70%,0.9);
+    }
+    #mediabox #width1 {
+        display: block;
+    }
+    #mediabox #width2 {
+        display: none;
+        
+    }
+}
+
+
 
 
 

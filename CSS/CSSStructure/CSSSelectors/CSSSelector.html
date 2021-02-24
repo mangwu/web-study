@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="mangwu">
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="CSS选择器">
+        <link rel="shortcut icon" href="../CSSCascade/images/firefox-logo400.png">
+        <link rel="stylesheet" href="styles/style.css">
+        <title>选择器</title>
+    </head>
+    <body>
+        <header>
+            <h1>CSS的选择器</h1>
+        </header>
+        <main>
+            <article class="article">
+                <h2>1.选择器定义</h2>
+                <p class="para">
+                    选择器是CSS规则的第一部分。<span class="strong">它是元素和其他部分组合起来告诉浏览器哪个HTML元素被选择,</span>
+                    并且该元素被应用选择器后大括号中的CSS规则。选择器所选择的元素，叫做<span class="strong">选择器的对象</span>
+                </p>
+            </article>
+            <article class="article">
+                <h2>2.选择器列表</h2>
+                <p class="para">
+                    对于样式相同的元素，可以将它们的选择器合并，即<span class="strong">用逗号隔开多个选择器</span>，这就
+                    形成了一个选择器列表，这个列表中的所有选择器对应的元素使用列表括号后的相同样式。例子如下：
+                    <div class="lizi">
+                        <div class="lizibox">
+                            我是lizibox（class），我需要使用蓝色
+                        </div>
+                        <h3 id="lizih3">
+                            我是lizih3（id），我也需要使用蓝色
+                        </h3>
+                    </div>
+                    
+                </p>
+                <p class="para">
+                    上述例子使用.lizibox, #lizih3{}列表来进行相同样式处理,实际使用时可以在逗号后换行，这样更能分辨列表中选择器数量
+                </p>
+                <p class="para-zhu"><span style="all:initial">注意:</span>如果列表中有一个选择器出现错误，整个列表都会失效，其他选择器也会被忽略</p>
+            </article>
+            <article class="article">
+                <h2>3.选择器种类</h2>
+                <h3>类型、类和ID选择器</h3>
+                <p class="para">
+                    即常见的三种选择器：
+                    <ul>
+                        <li>元素选择器</li>
+                        <li>类选择器(class)</li>
+                        <li>id选择器(id)</li>
+                    </ul>
+                </p>
+                <hr>
+                <h3>标签属性选择器</h3>
+                <p class="para">
+                    <ul style="list-style-type: upper-alpha;">
+                        <li>
+                            根据一个元素上的标签属性是否存在以选择：
+                            <div class="notranslate">
+                                a[title] { }
+                            </div>
+                            <div class="notranslate">
+                                img[alt] { }
+                            </div>
+                        </li>
+                        <li>
+                            根据一个元素上的标签属性是否有特定值来选择：
+                            <div class="notranslate">
+                                a[href="https://www.example.com"] { }
+                            </div>
+                        </li>
+                    </ul>
+                </p>
+                <hr>
+                <h3>伪类与伪元素选择器</h3>
+                <p class="para">
+                    <ul style="list-style-type: upper-alpha;">
+                        <li>
+                            伪类：元素的一个特定状态，选择元素后使用:status来表示元素在此状态下的样式，如：
+                            <br><br>
+                            <div class="notranslate">
+                                a:hover { } /* :hover伪类表示鼠标悬浮在选择的类上时的样式*/
+                            </div>
+                            <br>
+                            具体例子如下：
+                            <br><br>
+                            <div class="lizi">
+                                <div id="borderbox">
+                                    我是鼠标悬浮的例子
+                                </div>
+                            </div>
+                            <br>
+                        </li>
+                        <li>
+                            伪元素：选择元素的一部分而不是整个元素，选择元素后使用::part来表示元素的一部分，如：
+                            <br><br>
+                            <div class="notranslate">
+                                p::first-line { } /* ::first-line伪元素表示p元素的第一行 */
+                            </div>
+                            <br>
+                            具体例子如下：<br><br>
+                            <div class="lizi">
+                                <div id="firstword">
+                                    我是第一个字
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </p>
+                <hr>
+                <h3>关系选择器</h3>
+                <p class="para">
+                    通过运算符将各种选择器组合起来，形成关系选择器
+                    <ul style="list-style-type: upper-alpha;">
+                        <li>后代选择器：使用空格即可
+                            <div class="notranslate">
+                                article p { } &nbsp;/* 选择了article元素内的所有p元素 */
+                            </div>
+                        </li>
+                        <li>子代选择器：使用>
+                            <div class='notranslate'>
+                                article > p { } &nbsp;/* 选择article元素内的<span class="strong">初代子元素</span>
+                            </div>
+                        </li>
+                        <li>相邻兄弟选择器：使用+
+                            <div class="notranslate">
+                                #idname + p { } &nbsp; /* 选择idname元素紧跟的p元素
+                            </div>
+
+                        </li>
+                        <li>通用兄弟选择器：使用~
+                            <div class="notranslate">
+                                h1 ~ p {} &nbsp; /* 选择h1元素之后的所有p元素，只需同级不需紧跟
+                            </div>
+
+                        </li>
+                        <li>通配选择器：*，可以匹配任意类型HTML元素
+                            <div class="notranslate">
+                                *[title^=CSSSelector] {} &nbsp;/* 选择title不等于CSSSelector的元素
+                            </div>
+
+                        </li>
+                    </ul>
+                    <span class="para-zhu">注:不建议使用通配选择器</span>
+                </p>
+
+            </article>
+        </main>
+    </body>
+</html>

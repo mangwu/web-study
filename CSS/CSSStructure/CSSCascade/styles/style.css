@@ -1,0 +1,163 @@
+#lizi1 {
+    color: blue;
+}
+#lizi1 {
+    color:red;
+}
+
+.lizi2 {
+    color: red;
+}
+span {
+    color: blue;
+}
+
+#lizi3 {
+    color: red;
+}
+.lizi3 {
+    color:blue;
+}
+
+.lizi4 {
+    color: blue;
+    font-family: fangsong;
+}
+#lizi4 {
+    color: red;
+}
+
+.jicheng {
+    width: fit-content;
+    color:slateblue;
+    border: 2px solid lavender;
+    padding: 1em;
+}
+
+.specialli {
+    color:springgreen;
+    font-weight: bold;
+}
+.control {
+    display: block;
+    width:fit-content;
+    background-color: #eeeeee;
+    color: #0000ae;
+    font-weight: bold;
+    font-family: fangsong;
+}
+
+.ulcontrol {
+    color:red;
+    font-weight: bold;
+}
+.control-1 a {
+    color:inherit;
+}
+.control-2 a {
+    color: initial;
+}
+.control-3 a {
+    color:unset;
+}
+
+a {
+    color:sandybrown;
+}
+
+blockquote {
+    color:darkblue;
+    background-color: darkgray;
+    border: 2px solid gold;
+    width: fit-content;
+}
+.fixblock {
+    all:unset;
+}
+.uniformbox {
+    font-size: 2em;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#small {
+    font-size: 1em;
+}
+
+#bright {
+    color:plum;
+}
+
+#big {
+    font-size: 3em;
+    font-weight: bold;
+}
+.notecard{
+    color: #212121;
+    text-rendering: optimizeSpeed;
+    font-family: arial,x-locale-body,sans-serif;
+    letter-spacing: -.0027777778rem;
+    -webkit-font-smoothing: antialiased;
+    font-size: 100%;
+    line-height: 1.75;
+    box-sizing: border-box;
+    border-left: 6px solid #1e7f9d;
+    margin: 0 0 24px;
+    padding: 12px;
+    background-color: #dcf4ff;
+
+}
+
+/* (2,0,1) */
+/* 优先级更大 */
+#outerbox #innerbox a{
+    background-color: aqua;
+
+}
+/* (1, 0, 1) */
+#outerbox a{
+    background-color: skyblue;
+}
+/* (1,0,4) */
+#outerbox div ul li a {
+    color:white;
+}
+/* (1,1,3) */
+#outerbox div ul .nav a {
+    color:black;
+}
+/* (1,2,2) */
+#innerbox li:nth-child(2) a:hover {
+    border: 5px solid black;
+}
+/* (1,2,3) */
+#outerbox div li:nth-child(2) a:hover {
+    border: 5px dashed black;
+}
+a {
+    display: inline-block;
+    line-height: 40px;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    width: 200px;
+    margin-bottom: 10px;
+
+}
+
+.importantbox p {
+    padding: 5px;
+    color: blue;
+    background-color: chartreuse;
+    font-size: 1.5em;
+}
+
+.importantbox .better {
+    border: none !important;
+    background-color: gray;
+}
+
+.importantbox #winning {
+    border:1px solid black;
+    background-color: red;
+}

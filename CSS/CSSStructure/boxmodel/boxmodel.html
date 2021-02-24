@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="mangwu">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="../CSSCascade/images/firefox-logo400.png">
+        <link rel="stylesheet" href="../CSSSelectors/styles/style.css">
+        <title>盒模型</title>
+    </head>
+    <body>
+        <header>
+            <h1>盒模型</h1>
+        </header>
+        <main>
+            <article class="article">
+                <h2>1.盒子</h2>
+                <div>
+                    <h3>块级盒子与内联盒子</h3>
+                    <p class="para">
+                        元素在网页中的表现方式有两种：block box 和 inline box；
+                        两种盒子在<span class="strong">页面流</span>和<span class="strong">元素之间关系</span>表现不同行为：
+                        <ul>
+                            <li>块级盒子：block
+                                <ul>
+                                    <li>在内联方向上扩展并占据父容器在该方向上的所有可用空间，意味着盒子和父元素一样宽</li>
+                                    <li>盒子换行</li>
+                                    <li><span class="control">weight</span>和<span class="control">height</span>有作用</li>
+                                    <li>内边距padding和外边距margin和边框border会将其他元素从当前盒子周围“推开”</li>
+                                </ul>
+                            </li>
+                            <li>内联盒子：inline
+                                <ul>
+                                    <li>盒子不会换行</li>
+                                    <li><span class="control">weight</span>和<span class="control">height</span>不起作用</li>
+                                    <li>垂直方向上的padding，margin和边框会应用但不会挤压其他inline盒子</li>
+                                    <li>水平方向上的padding，margin和边框会应用会挤压其他inline盒子</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </p>
+                    <p class="para">
+                        下面是例子：
+                        <div class="lizi">
+                            padding:1em; 间距为3em,下面的块级盒子margin:1em,和一行字共3em
+                            <div id="liziblock">
+                                块级盒子
+                            </div>
+
+                        </div>
+                        <br><br>
+                        <div class="lizi">
+                            <div class="liziinline">
+                                内联盒子1
+                            </div>
+                            <div class="liziinline">
+                                内联盒子2
+                            </div>
+                            <div class="liziinline">
+                                内联盒子3
+                            </div>
+                            <div class="liziinline">
+                                内联盒子4
+                            </div>
+                            <div class="liziinline">
+                                内联盒子5
+                            </div>
+                            <div class="liziinline">
+                                内联盒子6
+                            </div>
+                            <div class="liziinline">
+                                内联盒子7
+                            </div>
+                            <div class="liziinline">
+                                内联盒子8 
+                            </div>
+                            
+                            <div>
+                                内联盒子水平方向margin有效，垂直方向无效
+                            </div>
+                        </div>
+                    </p>
+                </div>
+            </article>
+            <article class="article">
+                <h2>2.内部显示和外部显示类型</h2>
+                <p class="para">
+                    上述的inline和block是相对于外部其他元素自身的显示特性。对于盒模型内部的显示类型有默认的方式:
+                    <span class="strong">正常文档流</span>：意味着内部各个元素的显示类型如同inline，block一样。
+                </p>
+                <p class="para">
+                    可以对内部显示模型进行修改，如<span class="control">display</span>属性的flex属性值，
+                    它表明了一种新的显示类型：
+                    <p style="text-align: center;font-weight: bold;">
+                        对外是外部显示类型block，对内是内部显示类型flex
+                    </p>
+                    该盒子的所有直接子元素都会成为flex元素，会根据 弹性盒子（Flexbox）规则进行布局
+                </p>
+                <div class="lizi">
+                    <ul class="liziul">
+                        <li class="lizili">item1</li>
+                        <li class="lizili">item2</li>
+                        <li class="lizili">item3</li>
+                    </ul>
+                    上面例子中，ul的显示类型为flex，对外是block，对内是flex。
+                    每个列表是一个块级元素 —— 像段落一样 —— 会充满整个容器的宽度并且换行
+                </div>
+            </article>
+            <article class="article">
+                <h2>3.CSS盒模型</h2>
+                <p class="para">
+                    <span class="strong">完整的CSS盒模型应用于块级盒子，内联盒子只使用盒模型中定义的部分内容</span>
+                </p>
+                <p class="para">
+                    盒模型定义了盒的每个部分：
+                    <ul>
+                        <li><span class="control">margin box</span>
+                            <br>盒子最外面区域，是盒子和其他元素之间的空白区域
+                        </li>
+                        <li><span class="control">border box</span>
+                            <br>盒子的边界，边框盒包裹内容和内边距
+                        </li>
+                        <li><span class="control">padding box</span>
+                            <br>盒子内部，内容外部的区域
+                        </li>
+                        <li><span class="control">content box</span>
+                            <br>盒子内的内容区域，用于显示内容，用width和height设置大小
+                        </li>
+                    </ul>
+                </p>
+                <p class="para">
+                    下面是盒模型的形象图：
+                    <img alt="盒模型" title="盒模型" src="https://mdn.mozillademos.org/files/16558/box-model.png">
+                </p>
+                <div class="part">
+                    <h3>标准盒模型</h3>
+                    <p class="para">
+                        标准盒模型中，设置的width和height不是标准盒的大小，而是给content box设置的大小。
+                        实际大小为：
+                        <ul style="list-style-type: none;">
+                            <li class="control2">
+                                a-height = width + padding-top + padding-bottem + border-top + border-bottem
+                            </li>
+                            <li class="control2">
+                                a-width = height +padding-right + padding-left + border-left + border-right
+                            </li>
+                        </ul>
+
+                    </p>
+                    <p class="para-zhu">
+                        注：margin box不算入实际大小中，margin会影响盒子在页面占据的空间，但是这是盒子的外部空间
+                    </p>
+                </div>
+                <div class="part">
+                    <h3>替代盒模型</h3>
+                    <p class="para">
+                        替代盒模型中，设置的width和height就是不包括margin box的和大小，
+                        该模型宽度就是可见宽度，内容宽度需要减去padding和border宽度
+                    </p>
+                    <p class="para">
+                        浏览器默认使用标准模型，可以使用<span class="control">box-sizing:border-box</span>设置为替代盒模型
+                    </p>
+                    <div class="lizi">
+                        <div class="standbox">
+                            我是标准盒模型啊啊啊啊啊啊啊啊啊
+                        </div>
+                        标准盒模型中，内容box是4em×4em的面积，padding盒margin均为1em，边框为0.2em
+                        <div class="borderbox">
+                            我是替代盒模型啊啊啊啊啊啊啊啊啊
+                        </div>
+                        替代盒模型中，保持盒标准盒模型相同的面积，采用6.4em×6.4em的border比例
+                    </div>
+                    <p class="para-zhu">
+                        注：替代盒模型会很实用，建议在html元素中声明使用，然后其他元素继承
+                        <br>
+                        <div class="notranslate">
+                            html {<br>&nbsp;&nbsp;
+                                box-sizing: border-box;<br>
+                              }<br>
+                              *, &nbsp;*::before, &nbsp;*::after {<br>&nbsp;&nbsp;
+                                box-sizing: inherit;<br>
+                              }
+                        </div>
+                    </p>
+                </div>
+            </article>
+            <article class="article">
+                <h2>4.margin，padding，border</h2>
+                <p class="para">
+                    外边距，内边距，边框，属于简写，可以直接设置盒子的四个边。
+                </p>
+                <div class="part">
+                    <h3>外边距</h3>
+                    <p class="para">
+                        margin:盒子周围看不到的一圈空间，外边距不算在两种模型中的实际大小，外边距会影响和其他盒子的位置
+                        
+                    </p>
+                    <p class="para">
+                        margin属于简写属性，它可以一次控制盒子的4个边距，详细属性如下：
+                        <ul>
+                            <li><span class="control">margin-top</span></li>
+                            <li><span class="control">margin-right</span></li>
+                            <li><span class="control">margin-bottem</span></li>
+                            <li><span class="control">margin-left</span></li>
+                        </ul>
+                    </p>
+                    <h4>外边距折叠</h4>
+                    <p class="para">
+                        外边距折叠指得是多个盒子之间的外边距设置选择间距关系：即两个外边距相接的元素，
+                        这两个元素外边距会合成一个外边距，这个外边距大小为二者之间的大值。
+                        <br><br>&nbsp;并不是所有相邻元素的外边距都会折叠。下面是折叠的例子：
+                        <div class="lizi">
+                            <div class="box1">
+                                我是外边距为1em的盒子
+                            </div>
+                            <div class="box2">
+                                我是外边距为2em的盒子
+                            </div>
+                            <div style="text-align: center;">实际上下间距大小为2em</div>
+                        </div>
+                    </p>
+                </div>
+                <div class="part">
+                    <h3>边框</h3>
+                    <p class="para">
+                        边框和外边距一样，是简写属性，有四个边框即四个详细属性：
+                        <ul>
+                            <li><span class="control">border-top</span></li>
+                            <li><span class="control">border-right</span></li>
+                            <li><span class="control">border-bottem</span></li>
+                            <li><span class="control">border-left</span></li>
+                        </ul>
+                    </p>
+                    <p class="para">
+                        每个边框又可以设置三种样式：宽度，样式，颜色
+                        <ul>
+                            <li><span class="control">border-width</span></li>
+                            <li><span class="control">border-style</span></li>
+                            <li><span class="control">border-color</span></li>
+                        </ul>
+                    </p>
+                    <p class="para">
+                        可以对单个边框设置各个样式：宽度，样式，颜色
+                        <ul>
+                            <li><span class="control">border-top-width</span></li>
+                            <li><span class="control">border-top-style</span></li>
+                            <li><span class="control">border-top-color</span></li>
+                            <li>……</li>
+                        </ul>
+                    </p>
+                    <div class="lizi">
+                        <div class="box3">
+                            我是例子
+                        </div>
+                    </div>
+                </div>
+                <div class="part">
+                    <h3>内边距</h3>
+                    <p class="para">
+                        内容和边框之间的区域，必须是正值
+                    </p>
+                </div>
+            </article>
+        </main>
+    </body>
+</html>

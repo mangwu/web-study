@@ -552,14 +552,42 @@
                 </ul>
             </article>
             <article>
-                <h2>@rules规则</h2>
+                <h2>5.@rules规则</h2>
                 <p>CSS的特殊规则</p>
                 <ol>
                     <li>@import:导入其他样式表
                         <br>如果主样式表是style.css，则可以在其他样式表中这样导入：
                         <br>@import 'style.css';
                     </li>
+                    <li>
+                        @media:使用媒体查询来实现响应式CSS网页设计
+                        <p>下面是一个在不同viewport（视口）中，通过设置媒体条件来调整元素样式的例子</p>
+                        <div id="mediabox">
+                            <p id="width1">我是视口大于30em时的媒体块</p>
+                            <p id="width2">我是视口小于30em时的媒体块</p>
+                        </div>
+                        <p>在浏览器调式模式中调整视口可以改变颜色</p>
+                    </li>
                 </ol>
+            </article>
+            <article>
+                <h2>6.速记属性</h2>
+                <p>对于border，padding，background，margin这类属性，它们可以在一行中设置多个属性值，节省代码量
+                    <br>padding: 10px 15px 15px 5px;
+                    <br>padding-top: 10px;
+                    <br>padding-right: 15px;
+                    <br>padding-bottom: 15px;
+                    <br>padding-left: 5px;
+                </p>
+                
+            </article>
+            <article>
+                <h2>7.注释</h2>
+                /* */
+            </article>
+            <article>
+                <h2>空白</h2>
+                使用空格键和换行键格式化css文件，让代码可读性更强
             </article>
         </main>
     </body>
