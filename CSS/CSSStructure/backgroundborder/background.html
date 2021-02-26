@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="mangwu">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="shortcut icon" href="../CSSCascade/images/firefox-logo400.png">
+        <title>背景样式</title>
+    </head>
+    <body>
+        <header>
+            <h1>背景样式</h1>
+            <p>--CSS中的<span class="control">background</span>属性
+                <br>只是许多背景属性中的简写属性</p>
+        </header>
+        <main>
+            <article class="article">
+                <h2>1.背景颜色</h2>
+                <p class="para">
+                    <span class="control">background-color</span>属性定义了CSS中任何元素的背景颜色。
+                    属性值为任何有效<span class="control value">&lt;color&gt;</span>值。
+                    颜色覆盖在content box和padding box内
+                </p>
+                <div class="lizi">
+                    <div class="box1">
+                        我的背景是#5678
+                    </div>
+                    <div class="box2">
+                        触摸我后出现新背景颜色fuchsia
+                    </div>
+                </div>
+            </article>
+            <article class="article">
+                <h2>2.背景图片</h2>
+                <p class="para">
+                    <span class="control">background-image</span>属性定义了允许在元素背景中显示的图像
+                </p>
+                <p class="para">
+                    background-image属性的属性值使用url()函数指定图片地址。其默认的适应元素背景方式是：
+                    <ul>
+                        <li>从左上角到右下角开始平铺</li>
+                        <li>大图不会缩小，只能看到其左上角</li>
+                        <li>小图会平铺并且按照平铺方向填充整个背景</li>
+                    </ul>
+                </p>
+                <p class="para">
+                    例子：
+                    <div class="lizi">
+                        <div class="imagebox a">
+
+                        </div>
+                        <div class="imagebox b">
+
+                        </div>
+                    </div>
+                </p>
+                <p class="para">
+                    左边的图像过大，只显示了左上角，右边的图像很小，平铺在盒子中。
+                    <br>&nbsp;注意右边盒子背景颜色为另外加入的,<strong>图像将显示在颜色的顶部</strong>
+                </p>
+                <div class="part">
+                    <h3>控制背景平铺</h3>
+                    <p class="para">
+                        <span class="control">background-repeat</span>属性用于控制图像的背景平铺，属性值为：
+                        <ul>
+                            <li><span class="control value">no-repeat</span>——不重复</li>
+                            <li><span class="control value">repeat-x</span>——水平重复</li>
+                            <li><span class="control value">repeat-y</span>——垂直重复</li>
+                            <li><span class="control value">repeat</span>——在两个方向重复重复</li>
+                        </ul>
+                    </p>
+                    <div class="lizi">
+                        <div class="imagebox b no-repeat">
+
+                        </div>
+                        <div class="imagebox b repeat-x">
+
+                        </div>
+                        <div class="imagebox b repeat-y">
+
+                        </div>
+                        <div class="imagebox b repeat">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="part">
+                    <h3>调整背景图像大小</h3>
+                    <p class="para">
+                        <span class="control">background-size</span>属性可以控制背景图像大小，用于对过大图像进行裁剪。
+                    </p>
+                    <p class="para">
+                        它有如下属性值：
+                        <ul>
+                            <li><span class="control value">cover</span>保持图像宽高比，完全覆盖盒子区，有些图像可能跳出盒子外</li>
+                            <li><span class="control value">contain</span>仍然保持图像长宽比，当box长宽比不同于图像，是不会完全覆盖盒子的，会有间隙</li>
+                        </ul>
+                        <div class="lizi">
+                            <div class="imagebox a cover">
+
+                            </div>
+                            <div class="imagebox a contain">
+                                
+                            </div>
+                            <div class="imagebox a fixed">
+                                
+                            </div>
+                        </div>
+                    </p>
+                    <p class="para">
+                        左一：cover属性值，等比覆盖，直到没有空白间隙，切割跳出部分。
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;右一：contain属性值，等比覆盖，直到有一边达到边框，no-repeat,留出间隙
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;左二：给出了具体宽高，按照该宽高显示大小，然后从左上角开始覆盖，使用no-repeat，留出间隙
+                    </p>
+                    
+                </div>
+                <div class="part">
+                    <h3>背景图像定位</h3>
+                    <p class="para">
+                        <span class="control">background-position</span>属性允许选择背景图像显示应用到盒子上的位置。
+                    </p>
+                    <p class="para">
+                        默认位置为(0,0)，即盒子坐标系左上角
+                    </p>
+                    <p class="para">
+                        背景图像位置的属性值除了可以使用相对于坐标系的长度值和百分比值表示，还可以使用<span class="control value">top</span>等关键字表示：
+                        <ul>
+                            <li><span class="control value">top</span>:设置y=0，默认x为50%(center)</li>
+                            <li><span class="control value">left</span>：设置x=0,默认y为50%(center)</li>
+                            <li><span class="control value">bottem</span>:设置y=100%,默认x为50%(center)</li>
+                            <li><span class="control value">right</span>:设置x=100%,默认y为50%(center)</li>
+                            <li><span class="control value">center</span>:设置x=50%,y=50%</li>
+                        </ul>
+                    </p>
+                    <div class="lizi">
+                        <div class="imagebox b no-repeat top">
+                            <div>top</div>
+                        </div>
+                        <div class="imagebox b no-repeat left">
+                            <div class="leftspan">left</div>
+                        </div>
+                        <div class="imagebox b no-repeat bottem">
+                            <div class="bottemspan">bottem</div>
+                        </div>
+                        <div class="imagebox b no-repeat right">
+                            <div class="rightspan">right</div>
+                        </div>
+                        <div class="imagebox b no-repeat center">
+                            <div>center</div>
+                        </div>
+                        <div class="imagebox b no-repeat fix">
+                            <div>fix:2em</div>
+                        </div>
+                    </div>
+                    <p class="para">
+                        如上,对于属性值只有一个的情况，先设置x或y为给予值，另一个默认为center(50%)。
+                        对于两个属性值，x=first,y=second.
+                        <div class="lizi">
+                            <div class="imagebox b no-repeat top-right">
+                                <div>top-right</div>
+                            </div>
+                            <div class="imagebox b no-repeat percent">
+                                <div>30% 75%</div>
+                            </div>
+                            <div class="imagebox b no-repeat right-percent">
+                                <div>right 30%</div>
+                            </div>
+                        </div>
+                    </p>
+                    <p class="para">
+                        除此之外，<span class="control">background-position</span>的属性值还可以用4-value来指定原点位置和偏移量
+                        对于四个属性值：x=first,a_offset=secend,y=third,b_offset=fourth。注意偏移方向是x和y所指的反方向
+                        <div class="lizi">
+                            <div class="imagebox b no-repeat top-right-offset">
+                                <div>top 20px right 2em</div>
+                            </div>
+                            <div class="imagebox b no-repeat bottem-right-offset">
+                                <div>bottem right 2em</div>
+                            </div>
+                        </div>
+                        <i>若4-vaule中有一个偏移量为0，可以简写省略</i>
+                    </p>
+                </div>
+            </article>
+            <article class="article">
+                <h2>3.gradient渐变颜色</h2>
+                <p class="para">
+                    <span class="control">background-image</span>的属性值除了可以是url()函数指定的图片地址，
+                    也可以是gradient()函数定义的渐变颜色
+                </p>
+                <p class="para">
+                    线性渐变：linear-gradient(direct, color1, color2)
+                    <div class="lizi">
+                        <div class="imagebox no-repeat linear">
+                           
+                        </div>
+                        <div style="width: max-content;">
+                            linear-gradient(108deg,hsla(240,80%,60%,0.8),
+                            <br>hsla(140,80%,60%,0.8),
+                            <br>hsla(60,70%,80%,0.9))
+                        </div>
+                        
+                    </div>
+                </p>
+                <p class="para">
+                    径向渐变：radial-gradient(shape,start-color,……,last-color)
+                    <div class="lizi">
+                        <div class="imagebox no-repeat radial">
+                           
+                        </div>
+                        <div>
+                            radial-gradient(circle, hsla(150,80%,70%,0.5),hsla(290,70%,90%,0.7))
+                        </div>
+                    </div>
+                </p>
+            </article>
+            <article class="article">
+                <h2>4.多个背景图片</h2>
+                <p class="para">
+                    使用逗号为<span class='control'>background-image</span>指定多个背景图片，
+                    背景图片会互相重叠，任何以最后列出的背景图片在最底端而结束。
+                    同时，在<span class="control">background-repeat</span>
+                    <span class="control">background-position</span>中也可使用逗号分别为每张图片指定位置和覆盖方式
+                </p>
+                <div class="lizi">
+                    <div class="imagebox multiply">
+
+                    </div>
+                </div>
+                <p class="para">
+                    背景图片顺序：小星星(repeat-x)，大星星(repeat-y)，渐变颜色。
+                </p>
+            </article>
+            <article class="article">
+                <h2>5.背景附加</h2>
+                <p class="para">
+                    
+                </p>
+            </article>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,188 @@
+html {
+    box-sizing: border-box;
+    font-family: fangsong;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+body {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    background-color: khaki;
+}
+header {
+    background-color: #eeeeee;
+}
+header h1 {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    height: 1em;
+}
+header p {
+    display: inline-block;
+    width: 98%;
+    text-align: right;
+    
+}
+.control {
+    color: blue;
+    background-color: #dddddd;
+    font-weight: bold;
+}
+main {
+    background-color: white;
+    padding: 1em;
+    height: 100%;
+}
+main .article {
+    border-bottom: black solid 5px;
+}
+ul {
+    width: 80%;
+    margin: 0 auto;
+}
+.para {
+    text-indent: 2em;
+}
+.part {
+    border-top: 2px dashed gray;
+}
+.value {
+    color:red;
+}
+.lizi {
+    border: hotpink 2px solid;
+    width: 90%;
+    margin: 1em auto;
+    padding: 1em;
+}
+.lizi .box1 {
+    background-color: #5978;
+    width: fit-content;
+    margin: 1em auto;
+}
+.lizi .box2 {
+    width: fit-content;
+    margin: 1em auto;
+}
+.lizi .box2:hover {
+    background-color: fuchsia;
+}
+.lizi .imagebox {
+    display: inline-block;
+    width: 12em;
+    height: 7em;
+    border: 1px solid black;
+    padding: 1em;
+    margin: 1em 2em;
+}
+.a {
+    background-image: url("https://mdn.github.io/css-examples/learn/backgrounds-borders/balloons.jpg");
+}
+.b {
+    background-image: url("https://mdn.github.io/css-examples/learn/backgrounds-borders/star.png");
+    background-color: blue;
+}
+.no-repeat {
+    background-repeat: no-repeat;
+    background-color: unset;
+}
+.repeat-x {
+    background-repeat: repeat-x;
+    background-color: unset;
+}
+.repeat-y {
+    background-repeat: repeat-y;
+    background-color: unset;
+}
+.repeat {
+    background-repeat: repeat;
+    background-color: unset;
+}
+.cover {
+    background-size: cover;
+}
+.contain {
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.fixed {
+    background-size: 5em 5em;
+    background-repeat: no-repeat;
+}
+.top {
+    background-position: top;
+    text-align: center;
+}
+.left {
+    background-position: left;
+}
+.bottem {
+    background-position: bottom;
+}
+.right {
+    background-position: right;
+}
+.center {
+    background-position: center;
+}
+.leftspan {
+    display: block;
+    height: fit-content;
+    width: fit-content;
+    line-height: 5em;
+}
+.bottemspan {
+    display: block;
+    width: fit-content;
+    height: fit-content;
+    margin: 0 auto;
+    line-height: 1em;
+    margin-top: 4em;
+    
+}
+.rightspan {
+    display: block;
+
+    text-align: right;
+    line-height: 5em;
+}
+.fix {
+    background-position: 2em;
+}
+.top-right {
+    background-position: top right;
+}
+.percent {
+    background-position: 30% 75%;
+}
+.right-percent {
+    background-position: right 30%;
+}
+.top-right-offset {
+    background-position: top 20px right 2em;
+}
+.bottem-right-offset {
+    background-position: bottom right 2em;
+}
+.lizi + i {
+    display: block;
+    text-indent: 2em;
+}
+.linear {
+    background-image: linear-gradient(108deg,hsla(240,80%,60%,0.8),hsla(140,80%,60%,0.8),hsla(60,70%,80%,0.9));
+}
+.radial {
+    background-image: radial-gradient(circle, hsla(150,80%,70%,0.9),hsla(290,70%,90%,0.7));
+}
+.multiply {
+    background-image: url("https://mdn.github.io/css-examples/learn/backgrounds-borders/star.png"), 
+    url("https://mdn.github.io/css-examples/learn/backgrounds-borders/big-star.png"),
+    linear-gradient(108deg,#da384b,#cceedd);
+    background-repeat: repeat-x, repeat-y;
+    
+}
+
+

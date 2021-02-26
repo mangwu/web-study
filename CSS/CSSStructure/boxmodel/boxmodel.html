@@ -257,8 +257,62 @@
                 <div class="part">
                     <h3>内边距</h3>
                     <p class="para">
-                        内容和边框之间的区域，必须是正值
+                        内容和边框之间的区域，必须是正值。内边距通常将内容推理边框
                     </p>
+                    <p class="para">
+                        padding和margin一样也是简写属性，有如下详细属性：
+                        <ul>
+                            <li><span class="control">paddding-top</span></li>
+                            <li><span class="control">paddding-right</span></li>
+                            <li><span class="control">paddding-bottem</span></li>
+                            <li><span class="control">paddding-left</span></li>
+                        </ul>
+                    </p>
+                </div>
+            </article>
+            <article class="article">
+                <h2>5.盒子模型的适用</h2>
+                <p class="para">
+                    盒模型适用所有块级盒子，只有部分适用内联盒子
+                </p>
+                <div class="lizi">
+                    这里有一个<span class="inlinebox">&lt;span&gt;</span>元素
+                    <br>第二行，margin-bottom没有效果
+                </div>
+                <p class="para">
+                    对于span内联元素，在盒子模型中，只适用了边距(margin)，边框（border），内边距（padding），不适用
+                    宽度和高度。而且，外边距只能适用margin-left和margin-right,不适用margin-top和margin-bottom。
+                </p>
+            </article>
+            <article class="article">
+                <h2><a name="inline-block">6.inline-block</a></h2>
+                <p class="para">
+                    对于块级盒子，它们会有换行特性，display提供了一个位于inline和block的中间值：inline-block。
+                </p>
+                <p class="para">
+                    inline-block的特性是：不会自动切换到新行，也不会挤压其他到下一行，但是有宽度和高度属性，并且margin在竖直方向有效（避免重叠）
+                </p>
+                <div class="lizi">
+                    这里有一个<span class="inlinebox2">&lt;span&gt;</span>元素
+                    <br>第二行，margin-bottom有效果
+                    <br>注意上面的span元素和上个例子的样式除了display不同外，其他一样
+                </div>
+                <p class="para">
+                    inline-block是很有用的，对于&lt;a&gt;等内联元素，可以使用inline-block让其有一些块特性，
+                    然后添加padding和margin，让其有更大的命中区域
+                </p>
+                <p class="para">
+                    inline-block在导航栏中很实用
+                </p>
+                <div class="lizi">
+                    <nav>
+                        <ul class="link-list">
+                            <li><a href="#inline-block">首页</a></li>
+                            <li><a href="#inline-block">番剧</a></li>
+                            <li><a href="#inline-block">收藏</a></li>
+                            <li><a href="#inline-block">直播</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </article>
         </main>
