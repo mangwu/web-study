@@ -1,0 +1,169 @@
+html {
+    box-sizing: border-box;
+    font-family: fangsong;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+body {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    background: url(../images/pattern.png);
+}
+header {
+    background-color: #eeeeee;
+    text-align: center;
+    opacity: 0.7;
+}
+header h1 {
+    display: inline-block;
+}
+main {
+    display: inline-block;
+    background-color: #ffffff;
+    opacity: 0.95;
+    width: 100%;
+    height: max-content;
+}
+article {
+    display: block;
+    padding: 1em;
+    margin: 0 auto;
+    border-bottom: 5px solid black;
+}
+p {
+    text-indent: 1.5em;
+    width: 92%;
+    margin: 0 auto;
+}
+h3 {
+    text-indent: 1.3em;
+}
+ul {
+    width: 80%;
+    margin: 0 auto;
+}
+li {
+    margin: 0.5em auto;
+}
+.part {
+    border-top: 2px dashed slateblue;
+}
+.control {
+    background-color: #eeeeee;
+    color: blue;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.value {
+    color:red;
+}
+.lizi {
+    width: 90%;
+    margin: 1em auto;
+    border: 2px solid skyblue;
+    padding: 1em;
+}
+.box {
+    display: inline-block;
+    width: fit-content;
+    color: white;
+    background-color: black;
+    font-size: 1.3em;
+    margin: 1em;
+
+}
+.box2 {
+    display: inline-block;
+    width: 3em;
+    margin: 0 auto;
+    border: 1px solid seagreen;
+}
+.box3 {
+    display: inline-block;
+    inline-size: fit-content;
+    margin: 0 auto;
+    border: 1px solid seagreen;
+}
+.tb {
+    writing-mode: horizontal-tb;
+}
+.lr {
+    writing-mode: vertical-lr;
+}
+.rl {
+    writing-mode: vertical-rl;
+}
+.physical {
+    display: inline-block;
+    inline-size: 6em;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    margin-right: 2em;
+    writing-mode: horizontal-tb;
+    border-top: solid 0.8em slateblue;
+    border-left: dashed 0.3em sienna;
+    border-right: dotted 0.4em indigo;
+    border-bottom: double 0.5em forestgreen;
+    padding-left: 0.2em;
+    padding-bottom: 0.3em;
+}
+.physical h2 {
+    border-bottom: 0.2em solid black;
+}
+
+.logic {
+    display: inline-block;
+    inline-size: 6em;
+    writing-mode: vertical-lr;
+    margin-block-start: 1em;
+    margin-block-end: 2em;
+    margin-inline-end: 2em;
+    border-block-start: solid 0.8em slateblue;
+    border-inline-start: dashed 0.3em sienna;
+    border-inline-end: dotted 0.4em indigo;
+    border-block-end: double 0.5em forestgreen;
+    padding-inline-start: 0.2em;
+    padding-block-end: 0.3em; 
+}
+.logic h2 {
+    border-block-end: 0.2em solid black;
+}
+
+.logic2 {
+    display: inline-block;
+    inline-size: 6em;
+    writing-mode: vertical-lr;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    margin-right: 2em;
+    border-top: solid 0.8em slateblue;
+    border-left: dashed 0.3em sienna;
+    border-right: dotted 0.4em indigo;
+    border-bottom: double 0.5em forestgreen;
+    padding-left: 0.2em;
+    padding-bottom: 0.3em;
+}
+.logic2 h2 {
+    border-bottom: 0.2em solid black;
+}
+.imagebox {
+    inline-size: 10em;
+    block-size: 10em;
+    border: 1px solid black;
+    margin: 1em auto;
+}
+.physicalimage {
+    background-image: url("https://mdn.github.io/css-examples/learn/writing-modes/big-star.png");
+    background-position: center bottom 20px;
+    background-repeat: no-repeat;
+}
+.logicimage {
+    writing-mode: vertical-lr;
+    background-image: url("https://mdn.github.io/css-examples/learn/writing-modes/big-star.png");
+    background-repeat: no-repeat;
+    background-size: center block-end 20px;
+}
+
+
+

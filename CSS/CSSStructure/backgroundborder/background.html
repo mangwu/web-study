@@ -235,9 +235,47 @@
             <article class="article">
                 <h2>5.背景附加</h2>
                 <p class="para">
+                    <span class="control">background-attachment</span>属性控制背景的滚动和内容滚动：
+                    <ul>
+                        <li><span class="control value">scroll</span>使元素的背景在页面滚动时滚动
+                        。实际上背景被固定在页面的相同位置，所以会随页面滚动而滚动
+                        </li>
+                        <li><span class="control value">fixed</span>
+                            使元素的背景固定在视图端口上。页面滚动时不会滚动。始终保持在屏幕上的相同位置
+                        </li>
+                        <li><span class="control value">local</span>
+                            局部值将背景固定在设置的元素上
+                        </li>
+                    </ul>
+                    <iframe src="background-attachment.html"></iframe>
                     
                 </p>
+                <p class="para">
+                    点击<a href="background-attachment.html" target="_blank">背景附着例子</a>在新网页中查看
+                </p>
             </article>
+            <article class="article">
+                <h2>6.background简写</h2>
+                <p class="para">
+                    <span class="control">background</span>属性指定背景，允许一次设置所有不同属性。
+                </p>
+                <p class="para">
+                    如果要设置多个背景，使用逗号，分隔每个背景及其背景属性。
+                </p>
+                <p class="para">
+                    还有一些规则：
+                    <ul>
+                        <li><span class="control">background-color</span>只能在逗号之后指定</li>
+                        <li><span class="control">background-size</span>只能在背景位置之后，用"/"字符分隔</li>
+                    </ul>
+                </p>
+                <div class="lizi">
+                    <div class="imagebox simple">
+
+                    </div>
+                </div>
+            </article>
+            
         </main>
     </body>
 </html>

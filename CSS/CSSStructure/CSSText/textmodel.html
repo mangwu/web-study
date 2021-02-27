@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="mangwu">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="../CSSCascade/images/firefox-logo400.png">
+        <link rel="stylesheet" href="styles/style.css">
+        <title>处理文本</title>
+    </head>
+    <body>
+        <header>
+            <h1>处理文本（text）</h1>
+        </header>
+        <main>
+            <article>
+                <h2>1.书写模式</h2>
+                <p>
+                    书写模式指的是文本的排列方向是横向的还是纵向的。
+                    <span class="control">writting-mode</span>属性使得书写模式切换。其属性值有：
+                    <ul>
+                        <li><span class="control value">horizontal-tb</span>:块流从上到下，文本方向为横向</li>
+                        <li><span class="control value">vertical-rl</span>：块流从右到左，文本方向为纵向</li>
+                        <li><span class="control value">vertical-lr</span>：块流从左到右，文本方向为纵向</li>
+                    </ul>
+                    <div class="lizi">
+                        <div class="box tb">
+                            horizontal-tb
+                            <br>第二行
+                        </div>
+                        <div class="box lr">
+                            vertical-lr
+                            <br>第二行
+                        </div>
+                        <div class="box rl">
+                            vertical-rl
+                            <br>第二行
+                        </div>
+                    </div>
+                </p>
+                <p>
+                    <span class="control">writting-mode</span>决定了页面上块级元素的显示方向，这也决定了文本的方向
+                </p>
+            </article>
+            <article>
+                <h2>2.文本的书写模式与布局</h2>
+                <p>
+                    外部显示类型元素分为块级元素和内联元素，而这两种布局，块级显示和内联显示与文本的书写模式有密切关系。
+                </p>
+                <p>
+                    我们再看一下<span class="control">writting-mode</span>的属性值：
+                    <ul style="list-style-type: none;">
+                        <li><span class="control">horizontal</span>-<span class="control value">tb</span></li>
+                        <li><span class="control">vertical</span>-<span class="control value">lr</span></li>
+                        <li><span class="control">vertical</span>-<span class="control value">rl</span></li>
+                    </ul>
+                </p>
+                <p>
+                    蓝色的部分，horizontal和vertical，指的是文本方向，水平和竖直，这也是<strong>内联元素的显示方向</strong>。
+                    
+                </p>
+                <p>
+                    红色的部分，tb，lr,rl，是top-bottem，left-right，right-left的简写，指的是块流的方向，
+                    就是<strong>块级元素的显示流向</strong>
+                </p>
+                <p>
+                    这种书写模式的两种维度表示的是块级显示和内联显示的外部显示类型。
+                    关于块维度和内联维度则表示的是书写模式下的块显示方向和文本显示方向。
+                    这种显示方向的不同又可以称为快布局和内联布局的不同。
+                    一下是两种书写模式下两种维度（布局）
+                </p>
+                <div class="lizi">
+                    <img src="images/horizontal-tb-zh.png">
+                    <img src="images/vertical-zh.png">
+                </div>
+            </article>
+            <article>
+                <h2>3.逻辑属性和逻辑值</h2>
+                <div class="lizi">
+                    <div class="box2 tb" >
+                        <h2>heading</h2>
+                        <div>
+                        this is first paragraph 
+                        </div>
+                        <br>
+                        <div>
+                            this box is horizontal-tb and width is 3em 
+                        </div>
+                    </div>
+                    <div class="box2 lr" >
+                        <h2>heading</h2>
+                        <div>
+                            this is first paragraph 
+                        </div>
+                        <br>
+                        <div>
+                            this box is vertical-lr and width is 3em 
+                        </div>
+                    </div>
+                </div>  
+                <p>
+                    而可以看到，在上面例子中，盒子在vertical-lr纵向书写模式下时，由于宽度（width)是固定属性,
+                    所以直接"溢出"了到盒子外了
+                </p>            
+                <P>
+                    我们希望的是让宽度和高度随着书写模式变换而变换。因为纵向书写模式下，内联维度方向tb，
+                    这个时候宽度(width)属性表示的是lr方向上的块级维度方向，而块级维度方向应该随着块内容的增加而变长，
+                    所以使用width固定宽度是不行的。
+                </P>
+                <p>
+                    逻辑属性就是来解决这一问题的。这些属性用逻辑和相对变化代替width,height这样的物理属性。
+                    <ul>
+                        <li><span class="control">inline-size</span>:内联尺寸，内联维度的尺寸，对应横向书写模式下的width属性</li>
+                        <li><span class="control">block-size</span>:块级尺寸，块级维度的尺寸，对应横向书写模式下的height属性</li>
+                    </ul>
+                </p>
+                <div class="lizi">
+                    <div class="box3 tb" >
+                        <h2>heading</h2>
+                        <div>
+                        this is first paragraph 
+                        </div>
+                        <br>
+                        <div>
+                            this box is horizontal-tb and inline-size is 3em 
+                        </div>
+                    </div>
+                    <div class="box3 lr" >
+                        <h2>heading</h2>
+                        <div>
+                            this is first paragraph 
+                        </div>
+                        <br>
+                        <div>
+                            this box is vertical-lr and inline-size is 3em 
+                        </div>
+                    </div>
+                </div> 
+                <p>
+                    上面的例子将width改为逻辑属性line-size,并且附上属性值fit-content
+                </p> 
+                <div class="part">
+                    <h3>逻辑外边距、边框、和内边距</h3>
+                    <p>
+                        盒模型中的外边距，边框，内边距都是物理属性，其对应的逻辑属性为：
+                        <ul>
+                            <li><span class="control">margin-top</span>:
+                                <span class="control">margin-block-start</span>——
+                                总是指向块级维度开始处的外边距
+                            </li>
+                            <li><span class="control">padding-left</span>:
+                                <span class="control">padding-inline-start</span>——
+                                总是应用到内联开始方向上的内边距
+                            </li>
+                            <li><span class="control">border-bottom</span>:
+                                <span class="control">border-block-end</span>——
+                                总是应用到块级维度结尾处的边框
+                            </li>
+                        </ul>
+                    </p>
+                    <div class="lizi">
+                        <div class="physical">
+                            <h2>Physical Properities</h2>
+                            <div>
+                                a paragraph.
+                            </div>
+                            <div>
+                                Physical Properities in CSS.
+                            </div>
+                            
+                        </div> 
+                        <div class="logic">
+                            <h2>Logic Properities</h2>
+                            <div>
+                                a paragraph.
+                            </div>
+                            <div>
+                                Logic Properities in CSS.
+                            </div>
+                            
+                        </div> 
+                        <div class="logic2">
+                            <h2>Physical Properities</h2>
+                            <div>
+                                a paragraph.
+                            </div>
+                            <div>
+                                Physical Properities with lr writting-mode in CSS.
+                            </div>
+                            
+                        </div> 
+                    </div>
+                    <p>
+                        上图中，物理属性的边框样式和逻辑属性的边框样式除了writting-mode不一样外，其余都是一样的。
+                        因为右边使用了逻辑属性。而在改变writting-mode,还是要用物理属性，那么就会像第三个一眼混乱
+                    </p>
+                </div>
+                <div class="part">
+                    <h3>逻辑值</h3>
+                    <p>
+                        物理属性有一些值是以关键字来表示的：top，right等，这些值也有逻辑映射：
+                        <ul>
+                            <li><span class="control value">top</span>: <span class="control value">block-start</span></li>
+                            <li><span class="control value">bottom</span>: <span class="control value">block-end</span></li>
+                            <li><span class="control value">left</span>: <span class="control value">inline-start</span></li>
+                            <li><span class="control value">right</span>: <span class="control value">inline-end</span></li>
+
+                        </ul>
+                    </p>
+                    <div class="lizi">
+                        <div class="imagebox physicalimage">
+                            background-position: center bottom 20px;
+                        </div>
+                        <div class="imagebox logicimage">
+                            background-size: center block-end 20px;
+                        </div>
+                    </div>
+                    <p>
+                        谷歌浏览器不支持，火狐浏览器支持。
+                        逻辑属性是在物理属性之后出现的，因而最近才开始在浏览器中应用。
+                        如果并没有应用多种书写模式，那么现在可能更倾向于使用物理属性，因为这些在使用弹性布局和网格布局时非常有用。
+                    </p>
+                </div>
+            </article>
+        </main>
+    </body>
+</html>

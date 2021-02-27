@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="mangwu">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="../CSSCascade/images/firefox-logo400.png">
+        <link rel="stylesheet" href="styles/style2.css">
+        <title>背景附着例子</title>
+    </head>
+    <body>
+        <header>
+            <h1>
+                背景附着例子
+            </h1>
+        </header>
+        <main>
+            <article class="article scroll">
+                <p>
+                    背景附着属性值：scroll;
+                    元素背景固定在页面上，滚动外部滚轮，背景会动（相对滚动）；
+                    滚动元素内部滚轮，背景不会动。
+                </p>
+                <pre></pre>
+            </article>
+            <article class="article fixed">
+                <p>
+                    背景附着属性值：fixed;
+                    元素背景固定在视窗口上，滚动外部滚轮，背景不会动（背景框会动，导致显示的背景部分会变）；
+                    滚动内部滚轮，背景也不会动；
+                </p>
+                <pre></pre>
+            </article>
+            <article class="article local">
+                <p>
+                    背景附着属性值：local;
+                    元素背景固定在元素所在页面上，滚动外部滚轮，背景会动(相对滚动)；
+                    滚动元素内部滚轮，背景也会动（相对元素页面滚动）
+                </p>
+                <pre></pre>
+            </article>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+.h2 {
+    color: white;
+    border-bottom: 1em double chartreuse;
+    margin: 1em;
+    border-top: 5px dashed sandybrown;
+    padding-bottom: 0.5em;
+}
+.lizi {
+    background-color: rebeccapurple;
+}
+.lizi .h2 + div {
+    color:white;
+    border: violet 3px solid;
+    margin: 1em;
+}
+.lizi .box {
+    width: 10em;
+    height: 10em;
+    margin: 1em auto;
+    border: 1em solid skyblue;
+    border-radius: 1em;
+}
+.lizi .box2 {
+    width: 10em;
+    height: 10em;
+    margin: 1em auto;
+    border: 1em solid skyblue;
+    border-top-right-radius: 1em 15%;
+}

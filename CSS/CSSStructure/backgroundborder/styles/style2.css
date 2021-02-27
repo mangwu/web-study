@@ -1,0 +1,52 @@
+html {
+    box-sizing: border-box;
+    font-family: fangsong;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+    font-family: inherit;
+}
+body {
+    background-color: lawngreen;
+    width: 95%;
+    height: 2000px;
+    margin: 0 auto;
+}
+main {
+    display: flex;
+}
+pre {
+    height: 25em;
+}
+p {
+    color: ivory;
+    font-size: 0.9em;
+    background-color: rgba(255,255,255,0.3);
+}
+.article {
+    flex: 1;
+    border: 2px solid black;
+    height: 15em;
+    margin: 0 auto;
+    font-family: sans-serif;
+    padding:1%;
+    background-color: rgba(255,255,255,0.8);
+    overflow: auto;
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    background-image: url(../images/12.jpg);
+
+}
+.scroll {
+    background-attachment: scroll;
+    margin-right: 1%;
+}
+.fixed {
+    background-attachment: fixed;
+    background-size: 18em 20em;
+    margin-right: 1%;
+}
+.local {
+    background-attachment: local;
+    background-size: 16em 18em;
+}

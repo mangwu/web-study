@@ -43,6 +43,12 @@ ul {
     width: 80%;
     margin: 0 auto;
 }
+iframe {
+    display: block;
+    width: 85%;
+    height: 20em;
+    margin: 1em auto;
+}
 .para {
     text-indent: 2em;
 }
@@ -71,12 +77,12 @@ ul {
     background-color: fuchsia;
 }
 .lizi .imagebox {
-    display: inline-block;
+    display: block;
     width: 12em;
     height: 7em;
     border: 1px solid black;
     padding: 1em;
-    margin: 1em 2em;
+    margin: 1em auto;
 }
 .a {
     background-image: url("https://mdn.github.io/css-examples/learn/backgrounds-borders/balloons.jpg");
@@ -183,6 +189,11 @@ ul {
     linear-gradient(108deg,#da384b,#cceedd);
     background-repeat: repeat-x, repeat-y;
     
+}
+.simple {
+    background: url("https://mdn.github.io/css-examples/learn/backgrounds-borders/big-star.png") center / 2em 2em no-repeat,
+                linear-gradient(107deg, rgba(231,185,124, 0.4) 45%, rgba(105, 22, 240, 0.8) 95%) no-repeat,
+                url("https://mdn.github.io/css-examples/learn/backgrounds-borders/star.png") top right / 1em 1em;
 }
 
 
