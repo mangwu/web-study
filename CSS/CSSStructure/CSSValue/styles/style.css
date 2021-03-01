@@ -1,0 +1,182 @@
+html {
+    box-sizing: border-box;
+    font-family: fangsong;
+    font-size: 26px;
+}
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+body {
+    width: 80%;
+    background-color: black;
+    margin: 0 auto;
+}
+header {
+    display: inline-block;
+    width: 100%;
+    background-color: ivory;
+    text-align: center;
+    margin: 0 auto;
+}
+article {
+    display: inline-block;
+    width: 100%;
+    background-color: white;
+    margin: 0 auto;
+    padding: 1em;
+    border-bottom: 5px solid black;
+}
+h2 {
+    margin: 0.5em 0 0.5em 0.5em;
+}
+h3 {
+    margin: 0.7em;
+}
+p {
+    width: 94%;
+    margin: 0.5em auto;
+    text-indent: 1.3em;
+    
+}
+ul {
+    width: 85%;
+    margin: 0 auto;
+}
+ul li {
+    margin: 0.5em;
+    line-height: 1.5em;
+}
+.control {
+    display: inline;
+    width: fit-content;
+    background-color: #eeeeee;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: blue;
+}
+.value {
+    color: red;
+}
+.lizi {
+    width: 88%;
+    border: 2px solid indianred;
+    border-radius: 5px;
+    margin: 1em auto;
+    padding: 1em;
+}
+
+.box {
+    display: block;
+    width: 10em;
+    height: 10em;
+    border: 3px solid blueviolet;
+    margin: 1em auto;
+    padding: 0.5em;
+}
+.interger {
+    font-weight: 700;
+}
+.number {
+    color: white;
+    background-color: black;
+    opacity: 0.5;
+}
+.part {
+    border-top: 2px dashed grey;
+}
+.dimension {
+    line-height: 2em;
+}
+.percentage div {
+    height: 30%;
+    color: white;
+    background-color: gray;
+    opacity: 0.7;
+
+}
+.box1 {
+    width: 200px;
+    height: fit-content;
+    margin: 1em 1em 1em 2em;
+    padding: 1em;
+    border: 5px solid slateblue;
+}
+
+.box2 {
+    width: 5em;
+    height: fit-content;
+    margin: 1em 1em 1em 2em;
+    padding: 1em;
+    border: 5px solid slateblue;
+}
+.box3 {
+    width: 14vw;
+    height: fit-content;
+    margin: 1em 1em 1em 2em;
+    padding: 1em;
+    border: 5px solid slateblue;
+}
+.box4 {
+    width: 5em;
+    font-size: 39px;
+    height: fit-content;
+    margin: 1em 1em 1em 1.333em;
+    padding: 1em;
+    border: 5px solid slateblue;
+}
+.box5 {
+    width: 40%;
+    margin: 1em auto;
+    border:red 2px solid;
+    height: 200px;
+    padding: 1em;
+}
+.lizi > .box5 + div {
+    width: 80%;
+    margin: 0 auto;
+    height: fit-content;
+}
+.out {
+    font-size: 16px;
+}
+.ems {
+    border: 2px solid red;
+    margin-bottom: 2em;
+}
+.ems li{
+    font-size: 1.3em;
+    
+}
+.rems {
+    border: 2px solid red;
+    margin-bottom: 2rem;
+}
+.rems li{
+    font-size: 1.3rem;
+    
+}
+.colorbox {
+    width: 50%;
+    height: 300px;
+    color:white;
+    border: 1px solid red;
+    background-image: url("https://mdn.github.io/css-examples/learn/values-units/balloons.jpg");
+    background-size: cover;
+    margin: 1em auto;
+}
+.rgba div{
+    width: 80%;
+    margin: 1em auto;
+    padding: 1em;
+    border-radius: 10px;
+    border: 2px solid rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.3);
+}
+.opacity div{
+    width: 80%;
+    margin: 1em auto;
+    padding: 1em;
+    border-radius: 10px;
+    border: 2px solid rgba(0,0,0,0.3);
+    background-color: rgb(0,0,0);
+    opacity: 0.3;
+}

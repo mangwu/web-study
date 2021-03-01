@@ -1,0 +1,97 @@
+html {
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.9);
+    font-family: fangsong;
+}
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+
+body {
+    width: 80%;
+    margin: 0 auto;
+    
+}
+header {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    background-color: lavender;
+}
+main {
+    display: inline-block;
+    width: 100%;
+    background-color: white;
+}
+article {
+    padding: 2em;
+    margin: 0 auto;
+    border-bottom: 2px solid black;
+}
+p {
+    width: 92%;
+    text-indent: 1.5em;
+    margin: 1em auto;
+}
+ul {
+    width: 90%;
+    margin: 0 auto;
+}
+.part {
+    width: 98%;
+    margin: 0 auto;
+    border-top: 2px dashed gray;
+}
+.control {
+    width: fit-content;
+    background-color: #eeeeee;
+    font-family: Arial, Helvetica, sans-serif;
+    color: blue;
+}
+.value {
+    color: red;
+}
+.lizi {
+    width: 88%;
+    margin: 0.5em auto;
+    padding: 1em;
+    border: 2px solid firebrick;
+}
+
+.box1 {
+    display: block;
+    width: 3.1em;
+    height: 3.1em;
+    line-height: 1em;
+    padding: 0.5em;
+    border:1px solid aqua;
+    margin: 1em auto;
+}
+.overflow {
+    overflow: hidden;
+}
+.scroll {
+    overflow: scroll;
+}
+.overflow-x {
+    overflow-x: scroll;
+}
+.overflow-y {
+    overflow-y: scroll;
+}
+
+.box2 {
+    display: block;
+    width: 5.1em;
+    height: 8.1em;
+    line-height: 1em;
+    padding: 0.5em;
+    border:1px solid aqua;
+    margin: 1em auto;
+}
+.overflow2 {
+    overflow: hidden scroll;
+}
+.overflow3 {
+    overflow: auto;
+}

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="mangwu">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shrotcut icon" href="../CSSCascade/images/firefox-logo400.png">
+        <link rel="stylesheet" href="styles/style.css">
+        <title>CSS的值和单位</title>
+    </head>
+    <body>
+        <header>
+            <h1>值与单位</h1>
+        </header>
+        <main>
+            <article>
+                <h2>1.CSS的值</h2>
+                <p>
+                    CSS的值，value，用&lt;和&gt;包围，就像这样：
+                    <span class="control value">&lt;color&gt;</span>。
+                    这是一种定义允许子集集合的方法。如<span class="control value">&lt;color&gt;</span>
+                    是有效的，那么rgba(),十六进制，关键字，hsla()等都会支持。
+                </p>
+            </article>
+            <article>
+                <h2>2.数字，长度，百分比</h2>
+                <p>
+                    CSS中使用的各类数字归类为数值数据类型：
+                    <ul>
+                        <li>
+                            <span class="control value">&lt;integer&gt;</span>
+                            ：整数，诸如
+                            <span class="control">2</span>
+                            等
+                        </li>
+                        <li>
+                            <span class="control value">&lt;number&gt;</span>
+                            ：小数，有可能有，也可能没有小数点后面的小数，诸如
+                            <span class="control">2.3</span>
+                            <span class="control">128</span>
+                            等
+                        </li>
+                        <li>
+                            <span class="control value">&lt;dimension&gt;</span>
+                            ：有单位的number，有可能有，也可能没有小数点后面的小数，但一定有单位，包括
+                            <span class="control value">&lt;length&gt;</span>
+                            <span class="control value">&lt;angle&gt;</span>等。诸如
+                            <span class="control">45deg</span>
+                            <span class="control">1.5em</span>
+                            等
+                        </li>
+                        <li>
+                            <span class="control value">&lt;percentage&gt;</span>
+                            ：相对其他值的一部分，一般为相对父元素的百分比值，诸如
+                            <span class="control">50%</span>
+                            等
+                        </li>
+                    </ul>
+                </p>
+                <div class="lizi">
+                    <div class="box interger">
+                        我的font-weight是整数700
+                    </div>
+                    <div class="box number">
+                        我的背景颜色(black)透明度(opacity)为0.5
+                    </div>
+                    <div class="box dimension">
+                        我的line-height为2em
+                    </div>
+                    <div class="box percentage">
+                        <div>我的高度是30%</div>
+                    </div>
+                </div>
+                <div class="part">
+                    <h3>长度</h3>
+                    <p>
+                        最常见的是<span class="control value">length</span>，
+                        例如10px。CSS中有两种长度，相对长度和绝对长度
+                    </p>
+                    <ul><strong>绝对长度单位</strong>
+                        <li><span class="control value">cm</span>,厘米，1cm = 96px/2.54 ≈37.8px</li>
+                        <li><span class="control value">mm</span>,毫米，1mm = 1cm/10 </li>
+                        <li><span class="control value">Q</span>,四分之一毫米，1Q= 1cm/40</li>
+                        <li><div class="control value">in</div>, 英寸，1in = 2.54cm = 96px</li>
+                        <li><div class="control value">pc</div>, 十二点活字，1pc = 1in/16 = 6px</li>
+                        <li><div class="control value">pt</div>, 点，1pt = 1in/72 = 4/3 px</li>
+                        <li><div class="control value">px</div>,像素，1px = 1in/96 = 1 px</li>
+
+                    </ul>
+                    <p>
+                        这些值大部分用于打印，在屏幕显示上大部分只用px
+                    </p>
+                    <ul><strong>相对长度单位</strong>
+                        <li>
+                            <div class="control value">em</div>
+                            在 font-size 中使用是相对于父元素的字体大小，在其他属性中为相对于自身的字体大小的长度。
+                            汉字默认字体26px,1em = 26px
+                        </li>
+                        <li>
+                            <div class="control value">ex</div>
+                            字符x的高度，默认情况下，1ex = 1/2em = 13px
+                        </li>
+                        <li>
+                            <div class="control value">ch</div>
+                            字符0的宽度
+                        </li>
+                        <li>
+                            <div class="control value">rem</div>
+                            根元素的字体大小
+                        </li>
+                        <li>
+                            <div class="control value">lh</div>
+                            元素的line-height
+                        </li>
+                        <li>
+                            <div class="control value">vw</div>
+                            viewprort-width,视窗宽度的1%
+                        </li>
+                        <li>
+                            <div class="control value">vh</div>
+                            viewprort-height,视窗高度的1%
+                        </li>
+                        <li>
+                            <div class="control value">vmin</div>
+                            viewport-min,视窗小尺寸的1%
+                        </li>
+                        <li>
+                            <div class="control value">vmax</div>
+                            viewport-max,视窗大尺寸的1%
+                        </li>
+                    </ul>
+                    <div class="lizi">
+                        <div class='box1'>
+                            我的宽度有200px
+                        </div>
+                        <div class="box2">
+                            我的宽度有5em
+                        </div>
+                        <div class="box3">
+                            我的宽度有14vw
+                        </div>
+                        <div class="box4">
+                            我的宽度有5em
+                        </div>
+                    </div>
+                    <p>
+                        上示例子中：
+                        <ul>
+                            <li>第一个是固定宽度200px，不会变化</li>
+                            <li>第三个宽度是相对视口的宽度，14%的视口宽度，随着浏览器视口变换而变化</li>
+                            <li>第二个和第四个都是5em,但是第2个使用的是默认字体，而第4个字体大小为39px，宽度也就是第二个的1.5倍</li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="part">
+                    <h3>ems和rems</h3>
+                    <p>
+                        <span class="control value">em</span>和<span class="control value">rem</span>
+                        是调整大小时的重要相对长度
+                    </p>
+                    <div class="lizi">
+                        <div class="out">
+                            <ul class="ems">
+                                <li>
+                                    一
+                                </li>
+                                <li>
+                                    二
+                                </li>
+                                <Li>三
+                                    <ul>
+                                        <li>三A</li>
+                                        <li>三B</li>
+                                        <li>三C
+                                            <ul>
+                                                <li>三C1</li>
+                                                <li>三C2</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </Li>
+                            </ul>
+                        </div>
+                        <div class="out">
+                            <ul class="rems">
+                                <li>
+                                    一
+                                </li>
+                                <li>
+                                    二
+                                </li>
+                                <Li>三
+                                    <ul>
+                                        <li>三A</li>
+                                        <li>三B</li>
+                                        <li>三C
+                                            <ul>
+                                                <li>三C1</li>
+                                                <li>三C2</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </Li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p>
+                        两个列表对li元素的样式，除了单位不一样，其他一致。
+                        <ul>
+                            <li>第一个列表的父元素out设置的font-size为16px，&lt;li&gt;使用1.3em，
+                                每个列表是父元素的1.3倍，故而越来越大
+                            </li>
+                            <li>第二个列表的父元素out设置的也是16px，但是它们使用1.3rem，继承html设置的font-size,
+                                默认26px，所以大小固定且比第一个列表的第一列字体大
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="part">
+                    <h3>百分比</h3>
+                    <p>
+                        百分比表示的是相对于父元素的百分比大小。
+                    </p>
+                    <div class="lizi">
+                        <div class="box5">
+                            我是40%宽度
+                        </div>
+                        <div>
+                            <div class="box5">
+                                我是40%宽度
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        都是40%宽度，第一个比第二个宽，是因为第一个父元素是包裹它外围的框所在元素。
+                        第二个盒子外围设置了一个80%宽度的隐藏盒子
+                    </p>
+                </div>
+                <div class="part">
+                    <h3>数字</h3>
+                    <p>
+                        有些属性不接受有单位的数字，如<span class="control">opacity</span>等
+                    </p>
+                    <div class="lizi">
+                        <div class="box number">
+                            opacity接受0-1的小数值
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h2>3.颜色</h2>
+                <p>
+                    表示颜色的方法有很多：
+                    <ul>
+                        <li>颜色关键字，red等</li>
+                        <li>16机制，#25ed6f等</li>
+                        <li>rgb()和rgba()</li>
+                        <li>hsl()和hsla()</li>
+                    </ul>
+                </p>
+                <div class='part'>
+                    <h3>rgba()</h3>
+                    <p>
+                        rgba()表示颜色的4个通道，前三个是颜色通道，第四个是alpha通道：
+                        0-完全透明，1-完全不透明。
+                    </p>
+                    <p>
+                        alpha通道和opacity的区别是：alpha通道只对颜色有效，只改变颜色的不透明度，
+                        而opacity会改变元素和它里面的东西的不透明度
+                    </p>
+                    <div class="lizi">
+                        <div class="colorbox rgba">
+                            <div>
+                                使用rgba，不改变文字的透明度，文字部分会完全遮挡背景图片
+                            </div>
+                        </div>
+                        <div class="colorbox opacity">
+                            <div>
+                                使用opacity，改变文字的透明度，文字部分不会完全遮挡背景图片
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="part">
+                    <h3>hsla()</h3>
+                    <p>
+                        hsla()表示：
+                        <ul>
+                            <li>h:hue，色调，颜色底色，在0-360之间</li>
+                            <li>s:saturation,饱和度，0-100%，0为灰色，100%为全色饱和度</li>
+                            <li>l:lightness,亮度，0-100%，0表示没有光，100%表示全亮（白色）</li>
+                            <li>a：alpha通道值</li>
+                        </ul>
+                    </p>
+                </div>
+            </article>
+            
+        </main>
+    </body>
+</html>

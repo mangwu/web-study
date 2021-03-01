@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="mangwu">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="shortcut icon" href="../CSSCascade/images/firefox-logo400.png">
+        <title>溢出</title>
+    </head>
+    <body>
+        <header>
+            <h1>溢出</h1>
+        </header>
+        <main>
+            <article>
+                <h2>1.溢出</h2>
+                <p>
+                    CSS万物皆盒，content box内的"东西"过多时，就会溢出。下面是一个溢出的例子
+                </p>
+                <div class="lizi">
+                    <div class="box1">
+                        由于内容过多而溢出
+                    </div>
+                    <div style="text-align: center;">
+                        我是第二段
+                    </div>
+                    <div class="box1">
+                        Overflow
+                    </div>
+                </div>
+                <p>
+                    CSS对内容处理的规则：
+                    <ul>
+                        <li>
+                            即使溢出，CSS也不会隐藏内容，防止数据丢失
+                        </li>
+                        <li>
+                            CSS提供了一些控制尺寸的方式，减少溢出影响
+                        </li>
+                    </ul>
+                </p>
+            </article>
+            <article>
+                <h2>2.overflow属性</h2>
+                <p>
+                    <span class="control">overflow</span>属性能够控制元素的溢出，其默认值为：
+                    <span class="control value">
+                        visible
+                    </span>,表示在溢出时，溢出的内容可见
+                </p>
+                <p>
+                    如果内容溢出时，把溢出内容隐藏掉，可以使用<span class="control value">hidden</span>属性值隐藏溢出。
+                </p>
+                <div class="lizi">
+                    <div class="box1">
+                        Overflow
+                    </div>
+                    <div class="box1 overflow">
+                        Overflow
+                    </div>
+                </div>
+                <p>
+                    内容溢出时，不隐藏，也不溢出边框，使用
+                    <span class="control value">
+                        scroll
+                    </span>
+                    添加两个方向的滚动条
+                </p>
+                <div class="lizi">
+                    <div class="box1 scroll">
+                        Overflow
+                        <br>second paragraph
+                    </div>
+                </div>
+                <p>
+                    只有一个方向溢出时，可以使用
+                    <span class="control value">overflow-x</span>和
+                    <span class="control value">overflow-y</span>属性
+                    只在一个方向添加滚动条
+                </p>
+                <div class="lizi">
+                    <div class="box1 overflow-x">
+                        Overflow
+                    </div>
+                    <div class="box1 overflow-y">
+                        一
+                        <br>
+                        二
+                        <br>
+                        三
+                    </div>
+                </div>
+                <p>
+                    <span class="control">overflow</span>可以直接传入两个值，第一个对overflow-x生效，第二个对overflow-y生效
+                </p>
+                <div class="lizi">
+                    <div class="box2 overflow2">
+                        overflow
+                        <br>second paragraph
+                        <br>overflow-x: hidden
+                        <br>overflow-y: scroll
+                        <br>overflow:hidden scroll
+                    </div>
+                    <div>
+                        overflow:hidden scroll;x轴方向没有滚动条，且会隐藏溢出，y轴方向有滚动条
+                    </div>
+                </div>
+                <p>
+                    <span class="control">overflow</span>提供一个<span class="control value">auto</span>属性值，
+                    由浏览器决定是否显示滚动条
+                </p>
+                <div class="lizi">
+                    <div class="box2 overflow3">
+                        overflow
+                        <br>second paragraph
+                        <br>overflow: auto;
+                    </div>
+                    <div>
+                        overflow: auto;浏览器决定x轴，y轴是否显示滚动条
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h2>3.块级排版上下文</h2>
+                <p>
+                    CSS中有所谓的<abbr title="Block Formatting Context">BFC</abbr>,即<strong>块级排版上下文</strong>。
+                    再使用<span class="control value">scroll</span>和
+                    <span class="control value">auto</span>等属性值时，
+                    就建立了一个块级排版上下文：<strong>在容器之外的东西没法进入容器，没有东西可以突出盒子</strong>
+                </p>
+                <div class="part">
+                    <h3>网页设计不能有溢出</h3>
+                    <p>
+                        开发网页一直要把溢出问题挂在心上，增加内容测试，确保CSS能够协调，改变溢出属性的值，来隐藏内容或增加滚动条.
+                        滚动条是在少数情况下需要一个可滚石盒子时。
+                    </p>
+                </div>
+            </article>
+        </main>
+    </body>
+</html>

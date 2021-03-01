@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <HEAD>
+        <meta charset="utf-8">
+        <meta name="author" content="mangwu">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="../CSSCascade/images/firefox-logo400.png">
+        <link rel="stylesheet" href="styles/style.css">
+        <title>尺寸</title>
+
+    </HEAD>
+    <body>
+        <header>
+            <h1>CSS中的元素尺寸</h1>
+        </header>
+        <main>
+            <article>
+                <h2>1.原始尺寸，或固有尺寸</h2>
+                <p>
+                    HTML元素有其原始尺寸，或称固有尺寸。如图像，它的宽和高是由图像本身确定的，这个尺寸就是固有尺寸。
+                </p>
+                <p>
+                    而对于像div这样的块级元素，在不使用width等修饰，其内容决定的宽高，也是div元素的固有尺寸,
+                    下面的红色框就是固有尺寸
+                </p>
+                <div class="lizi">
+                    <div>
+                        固有尺寸
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h2>2.外部尺寸</h2>
+                <p>当给元素指定尺寸，那么这些尺寸就是外部尺寸。使用px等绝对长度尺寸值，可能发生溢出。</p>
+                <div class="lizi">
+                    <div class="overflow">
+                        我溢出了
+                    </div>
+                </div>
+                <div class="part">
+                    <h3>
+                        百分数尺寸
+                    </h3>
+                    <p>
+                        百分数尺寸一定要明白，它是谁的百分数。一般为父元素盒子的百分数。div盒子没有被指明width，
+                        默认为100%父元素宽度
+                    </p>
+                </div>
+                <div class="part">
+                    <h3>百分数边距</h3>
+                    <p>
+                        百分数边距使用的并不全是元素的宽度和高度。使用的是<strong>内联尺寸</strong>(<span>inline-size</span>)。
+                        当内外边距值为一个百分数时，其上下左右的边距值都是内联尺寸的一个百分比。
+                        也就是说，可以以这种方式让盒子周围的内外边距大小相同
+                    </p>
+                    <div class="lizi">
+                        <div>
+                            <div class="percentage">
+                                我的内外边距是宽度（300px)的百分之10
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h2>3.min-和max-尺寸</h2>
+                <p>
+                    当想要设置一个至少有的一个确定高度或宽度时，可以设置一个<span>min-width</span>或<span>min-height</span>。
+                    这样盒子会一直保持大于这个高度或宽度的最小宽度或高度，如果内容过多，盒子就会变大
+                </p>
+                <div class="lizi">
+                    <div class="wrapper">
+                        <div class="box">
+
+                        </div>
+                        <div class="box">
+                            最小高度100px,当内容过多时，会自动"扩容",就像这样
+                        </div>
+                    </div>
+                    
+                </div>
+                <p>
+                    <span>max-width</span>则和min表示的相反，表示盒子的最大宽度，不能超过这个最大宽度。
+                    常用于在图像过大时，给它一个最大宽度，让图像缩小，确保图像不会比最大宽度大
+                </p>
+                <div class="lizi">
+                    
+                    <div class="wrapper">
+                        <div>
+                            图片：132×126
+                        </div>
+                        <div class="box2">
+                            <img src="https://mdn.github.io/css-examples/learn/sizing/star.png" alt="star" class="max">
+                        </div>
+                        <div class="box2">
+                            <img src="https://mdn.github.io/css-examples/learn/sizing/star.png" alt="star" class="width">
+                        </div>
+                        <div class="min">
+                            <img src="https://mdn.github.io/css-examples/learn/sizing/star.png" alt="star" class="max">
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    上述例子：
+                    <ul>
+                        <Li>第一个box比图片大，图片width为原始宽度132px，但是设置了max-width:100%，不超过box宽度就不会改变</Li>
+                        <li>第二个设置了width:100%，图片拉伸到和box一样宽度</li>
+                        <li>第三个设置了max-width:100%,因为box宽度小于图片，对图片进行了缩小处理</li>
+                    </ul>
+                </p>
+                <p>
+                    这是<strong>可响应技术</strong>，用于在不同设备上合适的缩放
+                </p>
+            </article>
+            <article>
+                <h2>4.根据视口确定大小</h2>
+                <p>
+                    使用单位<span class="control">vw</span>和<span class="control">vh</span>来改变盒子大小和字体大小
+                </p>
+            </article>
+        </main>
+    </body>
+</html>
