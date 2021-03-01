@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="mangwu">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="../CSSCascade/images/firefox-logo400.png">
+        <link rel="stylesheet" href="styles/style.css">
+        <title>
+            CSS对媒体元素的处理
+        </title>
+
+    </head>
+    <body>
+        <header>
+            <h1>CSS对媒体元素的处理</h1>
+        </header>
+        <main>
+            <article>
+                <h2>
+                    1.替换元素
+                </h2>
+                <p>
+                    图像，图片，音频，都称为替换元素。CSS不能影响这些元素的内部布局，仅能影响它们在页面上之于其他元素的位置。
+                </p>
+                <p>
+                    可以通过width等一些属性，对图像等替换元素进行大小调整，使用max-width等元素可以处理图像溢出问题
+                </p>
+                <div class="lizi">
+                    <div class="wrapper">
+                        <div class="imagebox">
+                            <img src="https://mdn.github.io/css-examples/learn/images/balloons.jpg" 
+                                 alt="气球"
+                                 width="300px"
+                            >
+                        </div>
+                        <div class="imagebox">
+                            <img src="https://mdn.github.io/css-examples/learn/images/balloons.jpg" 
+                                 alt="气球"
+                                 class="max"
+                            >
+                        </div>
+
+                    </div>
+                </div>  
+                <p>
+                    可以使用<span>object-fit</span>属性，对在盒子中的图像进行调整：
+                    <ul>
+                        <li>使用cover值，缩小图像，维持图像比例，整齐铺满盒子，一部分被裁剪</li>
+                        <li>使用contain值，不会裁剪图像，但是会产生间隙</li>
+                        <li>使用fill值，填充整个盒子，但不会保持宽高比</li>
+                    </ul>
+                </p>
+                
+                <div class="lizi">
+                    <div class="limit">
+                        <div class="wrapper">
+                            <div class="imagebox cover">
+                                <img src="https://mdn.github.io/css-examples/learn/images/balloons.jpg" 
+                                    alt="气球"
+                                    class="cover"
+                                >
+                            </div>
+                            <div class="imagebox contain">
+                                <img src="https://mdn.github.io/css-examples/learn/images/balloons.jpg" 
+                                    alt="气球"
+                                    class="contain"
+                                >
+                            </div>
+                            <div class="imagebox">
+                                <img src="https://mdn.github.io/css-examples/learn/images/balloons.jpg" 
+                                    alt="气球"
+                                    class="fill"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    注意，<strong>要对img元素的宽高进行100%赋值才有效</strong>。
+                    因为在一个flex或grid布局中，元素默认会被拉伸到整块区域，但是图像等替换元素不会。
+                    由于替换元素的特殊性，替换元素在成为网格或者弹性布局的一部分时，有不同的默认行为。
+                    为了强制图像拉伸，所以必须将img元素进行宽高100%赋值
+                </p>
+                <div class="lizi">
+                    <div class="wrapper2">
+                        <img src="https://mdn.github.io/css-examples/learn/images/star.png" 
+                             alt='星星'
+                        >
+                        <div class="colorbox">
+
+                        </div>
+                        <div class="colorbox">
+
+                        </div>
+                        <img src="https://mdn.github.io/css-examples/learn/images/star.png" 
+                             alt='星星'
+                             class="cover2"
+                        >
+                    </div>
+                </div>
+                <p>
+                    第一个图像因为替换元素的特性，在网格布局中不能拉伸，后两个元素背景元素自动拉伸，
+                    最后一个为图像赋值宽高100%，并给与<span>object-fit:contain</span>样式，所以有这样的效果
+                </p>
+            </article>
+            <article>
+                <h2>2.form元素</h2>
+                <p>
+                    表单元素的样式化比较有技巧，表单实现基础有如下：
+                    <ul>
+                        <Li><span>&lt;input&gt;</span>元素，定义简单表格区域，如文字输入，颜色和日期撷取器等</Li>
+                        <li><span>&lt;textarea&gt;</span>元素，多行文本输入</li>
+                        <li>HTML5的新特性允许标示表单带填入的内容类型等</li>
+                    </ul>
+                </p>
+                <div class="part">
+                    <h3>文本输入元素</h3>
+                    <p>
+                        文本输入元素：<span>&lt;input type="text"&gt;</span>,其他的文本输入类型有
+                        <span>&lt;input type="email"&gt;</span>和<span>&lt;textarea&gt;</span>。
+                        这些元素比较容易样式化。
+                    </p>
+                    <div class="lizi">
+                        <form>
+                            <div class="login">
+                                登录
+                            </div>
+                            <div class="info">
+                                <div>
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name">
+                                </div>
+                                <div>
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email">
+                                </div>
+                                <div>
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password">
+                                </div>
+                                <div class="button">
+                                    <input type="submit" value="Submit">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </body>
+</html>

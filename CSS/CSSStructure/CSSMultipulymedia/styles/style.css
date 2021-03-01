@@ -1,0 +1,146 @@
+html {
+    box-sizing: border-box;
+    font-family: fangsong;
+    color: white;
+}
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+body {
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+}
+header {
+    width: 100%;
+    background: rgba(0,0,0,0.85);
+    padding: 1em;
+    text-align: center;
+}
+main {
+    width: 100%;
+    background: rgba(2,2,2,0.8);
+    padding: 1em;
+}
+article {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1em;
+    border-bottom: 5px solid black;
+}
+h2 {
+    color: black;
+    width: fit-content;
+    border-radius: 5px;
+    background: white;
+}
+ul {
+    width: 90%;
+    margin: 0 auto;
+}
+span {
+    background-color: #111111;
+    color: yellow;
+}
+p {
+    width: 98%;
+    margin: 1em auto;
+    text-indent: 1.2em;
+}
+.part {
+    width: 96%;
+    margin: 1em auto;  
+
+    border-top: 3px dashed white; 
+}
+.lizi {
+    width: 90%;
+    margin: 1em auto;
+    padding: 1em;
+    border: 5px solid sandybrown;
+    background-color: white;
+    border-radius: 10px;
+
+}
+.wrapper {
+    display: flex;
+    align-items: flex-start;
+}
+.imagebox {
+    width: 200px;
+    height: 200px;
+    margin: 2em;
+    border: 5px solid blanchedalmond;
+}
+.max {
+    max-width: 100%;
+}
+.limit img {
+    width: 100%;
+    height: 100%;
+}
+.cover {
+    object-fit: cover;
+}
+.contain {
+    object-fit: contain;
+}
+.fill {
+    object-fit: fill;
+}
+.wrapper2 {
+    display: grid;
+    width: 70%;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px 200px;
+    gap: 10px;
+}
+.wrapper2 > .colorbox {
+    background-color: violet;
+    border-radius: 8px;
+}
+.wrapper2 .cover2 {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+form {
+    color: black;
+    width: 70%;
+    padding: 1em;
+    border: 7px solid indigo;
+    border-radius: 10px;
+    margin: 1em auto;
+}
+form .login {
+    text-align: center;
+    font-weight: bold;
+    margin: 0.3em 0 1em 0;
+}
+.info {
+    width: 70%;
+    margin: 0 auto;
+}
+label {
+    display: inline-block;
+    color: inherit;
+    width: 170px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+input[type="text"], 
+input[type="email"],
+input[type="password"] {
+    border: 3px solid olivedrab;
+    border-radius: 5px;
+    margin: 0 0 1em 0;
+    padding: 0.5em;
+}
+.button {
+    text-align: center;
+}
+input[type="submit"] {
+    padding: 0.5em 1em;
+    background-color: #cc99ee;
+    
+}
