@@ -145,6 +145,17 @@
                             </div>
                         </form>
                     </div>
+                    <p>
+                        注意表单元素不会继承字体样式，使用父元素的字体，需要设置
+                        <span>font-family</span>和<span>font-size</span>为inherit以及100%
+                    </p>
+                </div>
+                <div class="part">
+                    <h3>form中子元素的样式统一</h3>
+                    <p>
+                        为了保证所有子元素高度宽度统一，可以对它们进行margin和padding初始化为0，并设置box-sizing为替代盒模型。
+                        并且为<span>textare</span>设置<span>overflow:auto</span>以合适处理滚动条。
+                    </p>
                 </div>
             </article>
         </main>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="mangwu">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="../CSSCascade/images/firefox-logo400.png">
+        <link rel="stylesheet" href="styles/style.css" type="text/css">
+        <title>样式化HTML表格</title>
+    </head>
+    <body>
+        <header>
+            <h1>样式化表格</h1>
+        </header>
+        <main>
+            <article>
+                <h2>1.间距和布局</h2>
+                <p>
+                    先看一个无任何样式化的表格
+                </p>
+                <div class="lizi">
+                    <table>
+                        <caption>punk bands</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">band</th>
+                                <th scope="col">year</th>
+                                <th scope="col">No of albums</th>
+                                <th scope="col">famous song</th>
+                                
+                            </tr>
+                            
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">buzzcocks</th>
+                                <td>1976</td>
+                                <td>9</td>
+                                <td>fallen in love</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">siouxisie and the banshees</th>
+                                <td>1975</td>
+                                <td>10</td>
+                                <td>smash it up in  uK with your mama</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">buzzcocks</th>
+                                <td>1976</td>
+                                <td>9</td>
+                                <td>fallen in love</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">siouxisie and the banshees</th>
+                                <td>1975</td>
+                                <td>10</td>
+                                <td>smash it up in  uK with your mama</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">buzzcocks</th>
+                                <td>1976</td>
+                                <td>9</td>
+                                <td>fallen in love</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">siouxisie and the banshees</th>
+                                <td>1975</td>
+                                <td>10</td>
+                                <td>smash it up in  uK with your mama</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">buzzcocks</th>
+                                <td>1976</td>
+                                <td>9</td>
+                                <td>fallen in love</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th scope="row" colspan="2">Total albums</th>
+                                <td>77</td>
+                                <td></td>
+                                
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <p>
+                    通过width调整布局；
+                    <span>table-layout</span>属性可以定义表格布局，行与列的算法：
+                    <ul>
+                        <li><span>auto</span>,采用自动表格布局算法,单元格宽度取决于内容</li>
+                        <li><span>fixed</span>,列与宽通过表格宽度来设置，列宽度由该列首行单元格决定</li>
+                    </ul>
+                    
+                    
+                </p>
+                <p>
+                    使用<span>border-collapse</span>属性决定重叠边框是否合并
+                    <ul>
+                        <Li><span>collapse</span>边框合并，相邻单元格共享边框</Li>
+                        <li><span>separate</span>,边框分离</li>
+                    </ul>
+                </p>
+                <p>
+                    通过<span>th:nth-child(x)</span>设置各个列标题的宽度
+                </p>
+                <div class="lizi">
+                    <table class="table1">
+                        <caption>punk bands</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">band</th>
+                                <th scope="col">year</th>
+                                <th scope="col">No of albums</th>
+                                <th scope="col">famous song</th>
+                                
+                            </tr>
+                            
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">buzzcocks</th>
+                                <td>1976</td>
+                                <td>9</td>
+                                <td>fallen in love</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">siouxisie and the banshees</th>
+                                <td>1975</td>
+                                <td>10</td>
+                                <td>smash it up in  uK with your mama</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">buzzcocks</th>
+                                <td>1976</td>
+                                <td>9</td>
+                                <td>fallen in love</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">siouxisie and the banshees</th>
+                                <td>1975</td>
+                                <td>10</td>
+                                <td>smash it up in  uK with your mama</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">buzzcocks</th>
+                                <td>1976</td>
+                                <td>9</td>
+                                <td>fallen in love</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">siouxisie and the banshees</th>
+                                <td>1975</td>
+                                <td>10</td>
+                                <td>smash it up in  uK with your mama</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">buzzcocks</th>
+                                <td>1976</td>
+                                <td>9</td>
+                                <td>fallen in love</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th scope="row" colspan="2">Total albums</th>
+                                <td colspan="2">66</td>
+                                
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <p>
+                    通过padding，letter-space,text-align调整字体间距，对齐方式
+                </p>
+            </article>
+            <article>
+                <h2>2.图形和颜色</h2>
+                <p>
+                    使用<span>background</span>修饰表格,可以使用图片，也可以使用颜色
+                </p>
+                <div class="lizi">
+                    <table class="table1 table2">
+                        <caption>punk bands</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">band</th>
+                                <th scope="col">year</th>
+                                <th scope="col">No of albums</th>
+                                <th scope="col">famous song</th>
+                                
+                            </tr>
+                            
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">buzzcocks</th>
+                                <td>1976</td>
+                                <td>9</td>
+                                <td>fallen in love</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">siouxisie and the banshees</th>
+                                <td>1975</td>
+                                <td>10</td>
+                                <td>smash it up in  uK with your mama</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">buzzcocks</th>
+                                <td>1976</td>
+                                <td>9</td>
+                                <td>fallen in love</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">siouxisie and the banshees</th>
+                                <td>1975</td>
+                                <td>10</td>
+                                <td>smash it up in  uK with your mama</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">buzzcocks</th>
+                                <td>1976</td>
+                                <td>9</td>
+                                <td>fallen in love</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">siouxisie and the banshees</th>
+                                <td>1975</td>
+                                <td>10</td>
+                                <td>smash it up in  uK with your mama</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">buzzcocks</th>
+                                <td>1976</td>
+                                <td>9</td>
+                                <td>fallen in love</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th scope="row" colspan="2">Total albums</th>
+                                <td colspan="2">66</td>
+                                
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <p>
+                    使用<span>tr:nth-child(odd\even)</span>设置斑马背景色,
+                    <span>background</span>设置背景颜色和图片。
+                </p>
+                <div class="part"> 
+                    <h3>样式化标题</h3>
+                    <p>
+                        使用<span>caption-side</span>设置标题位置
+                    </p>
+                    <div class="lizi">
+                        <table class="table1 table2 table3">
+                            <caption>punk bands</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">band</th>
+                                    <th scope="col">year</th>
+                                    <th scope="col">No of albums</th>
+                                    <th scope="col">famous song</th>
+                                    
+                                </tr>
+                                
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">buzzcocks</th>
+                                    <td>1976</td>
+                                    <td>9</td>
+                                    <td>fallen in love</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">siouxisie and the banshees</th>
+                                    <td>1975</td>
+                                    <td>10</td>
+                                    <td>smash it up in  uK with your mama</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">buzzcocks</th>
+                                    <td>1976</td>
+                                    <td>9</td>
+                                    <td>fallen in love</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">siouxisie and the banshees</th>
+                                    <td>1975</td>
+                                    <td>10</td>
+                                    <td>smash it up in  uK with your mama</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">buzzcocks</th>
+                                    <td>1976</td>
+                                    <td>9</td>
+                                    <td>fallen in love</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">siouxisie and the banshees</th>
+                                    <td>1975</td>
+                                    <td>10</td>
+                                    <td>smash it up in  uK with your mama</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">buzzcocks</th>
+                                    <td>1976</td>
+                                    <td>9</td>
+                                    <td>fallen in love</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th scope="row" colspan="2">Total albums</th>
+                                    <td colspan="2">66</td>
+                                    
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </article>
+            
+        </main>
+    </body>
+</html>

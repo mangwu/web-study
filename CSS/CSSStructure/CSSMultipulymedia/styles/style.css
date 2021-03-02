@@ -141,6 +141,11 @@ input[type="password"] {
 }
 input[type="submit"] {
     padding: 0.5em 1em;
-    background-color: #cc99ee;
+    background-color: #c075f1;
+    border-radius: 8px;
+    color:white;
+}
+input[type="submit"]:hover {
+    background-color: blueviolet;
     
 }

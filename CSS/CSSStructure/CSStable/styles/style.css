@@ -1,0 +1,147 @@
+html {
+    box-sizing: border-box;
+    font-size: fangsong;
+}
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+body {
+    background: black;
+    width: 84%;
+    margin: 0 auto;
+}
+header {
+    display: inline-block;
+    width: 100%;
+    background: ivory;
+    margin: 0 auto;
+    padding: 0.5em;
+}
+h1 {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0.5em;
+    text-align: center;
+}
+main {
+    display: inline-block;
+    width: 100%;
+    background: white;
+}
+article {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1em;
+    border-bottom: 10px black solid;
+}
+h2 {
+    background: black;
+    color:white;
+    width: fit-content;
+    padding: 0.1em;
+    border-radius: 5px;
+    margin-left: 1.5em;
+}
+p {
+    width: 92%;
+    margin: 1em auto;
+    text-indent: 1.2em;
+}
+span {
+    background: #eeeeee;
+    color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ul {
+    width: 88%;
+    margin: 0 auto;
+
+}
+h3 {
+    margin-left: 0.4em;
+}
+.lizi {
+    width: 90%;
+    margin: 1em auto;
+    border: 6px solid burlywood;
+    padding: 1em;
+}
+.part {
+    width: 100%;
+    margin: 0.5em auto;
+    border-top: dashed 4px gray;
+    
+}
+.table1 {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid seagreen;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.table1 thead th:nth-child(1) {
+    width: 35%;
+}
+.table1 thead th:nth-child(2) {
+    width: 15%;
+}
+.table1 thead th:nth-child(3) {
+    width: 20%;
+}
+.table1 thead th:nth-child(4) {
+    width: 35%;
+}
+.table1 thead th{
+    line-height: 3.5em;
+}
+.table1 tbody th, .table1 tbody td {
+    text-align: center;
+    padding: 0.5em;
+}
+.table1 th {
+    letter-spacing: 2px;
+}
+.table1 td {
+    letter-spacing: 1px;
+}
+.table1 tfoot th{
+    text-align: right;
+    padding: 1.3em;
+    font-size: 1.2em;
+}
+.table1 tfoot td {
+    text-align: center;
+    font-size: 1.2em;
+}
+.table2 thead, .table2 tfoot {
+    background-image: url(../image/5fb28e2d43988a46fc3e2a4376f93dcbad056244.jpg@1920w_350h.webp);
+    background-size: cover;
+    text-shadow: 1px 1px 1px black;
+}
+.table2 thead tr, .table2 tfoot tr {
+    color: white;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(25,25,25, 0.6));
+}
+.table2 thead th, .table2 tfoot th, .table2 tfoot td {
+    border: 3px solid turquoise;
+    border-radius: 3px;
+}
+.table2 tbody tr:nth-child(odd) {
+    background-color:rgba(0, 191, 255, 0.7);
+
+}
+.table2 tbody tr:nth-child(even) {
+    background-color: rgba(30, 144, 255,0.7);
+}
+.table2 tbody {
+    border:3px solid turquoise;
+}
+.table3 caption {
+    font-size: 30px;
+    padding:1em;
+    color:mediumblue;
+    font-style: italic;
+    letter-spacing: 2px;
+    caption-side: bottom;
+
+}
