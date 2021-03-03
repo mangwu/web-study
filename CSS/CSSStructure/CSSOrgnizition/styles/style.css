@@ -1,0 +1,141 @@
+html {
+  box-sizing: border-box;
+  font-family: fangsong;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* || GENERAL STYLES 通用样式 */
+
+body {
+  width: 88%;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+article {
+  width:100%;
+  padding: 1.5em;
+  border-bottom: rgba(0, 0, 0, 1.0) solid 3px;
+}
+
+p {
+  text-indent: 1.2em;
+}
+
+ul {
+  width: 92%;
+  margin: 0 auto;
+}
+
+li {
+  margin: 0.5em auto;  
+}
+
+span {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #eeeeee;
+}
+
+/* || UTILITIES 实用类 */
+
+.nobullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* || SITWIDE 基础布局 */
+
+header {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  background-color: rgba(240, 240, 240, 0.8);
+}
+
+main {
+  width: 100%;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.part {
+  border-top: dashed 2px forestgreen;
+}
+
+/* || STORE PAGES 特定类 */
+
+.code {
+  color: #212121;
+  font-family: Arial, Helvetica, sans-serif;
+  text-rendering: optimizeSpeed;
+  letter-spacing: -.0027777778rem;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  border-left: 6px solid #00458b;
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 0 0 24px;
+  max-width: 100%;
+  overflow: auto;
+  padding: 24px;
+  width: 100%;
+  background-color: #eee;
+}
+
+.lizi {
+  width: 94%;
+  margin: 1em auto;
+  padding: 0.5em;
+  border: 5px solid goldenrod;
+  background-color: white;
+}
+
+.comment {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  width: 25%;
+  margin: 0 auto;
+}
+
+.comment img {
+  display: block;
+  width: 80px;
+  border: 1px solid turquoise;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.comment .content {
+  font-size: .8rem;
+  margin-left: 0.5em;
+  border-bottom: 1px solid gray;
+}
+.comment .name {
+  color: red;
+  margin-bottom: 0.4em;
+}
+
+.list-item {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+
+  width: 25%;
+  margin: 0 auto;
+}
+
+.list-item img {
+  width: 100px;
+  object-fit: cover;
+}
+
+.list-item .content {
+  font-size: .8rem;
+  margin-left: 0em;
+}
+
+
+

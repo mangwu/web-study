@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+  <html lang="zh-CN">
+    <head>
+      <meta charset="utf-8">
+      <meta name="author" content="mangwu">
+      <meta name="viewport" content="width=device-width">
+      <link rel="shrotcut icon" href="../CSSCascade/images/firefox-logo400.png">
+      <link rel="stylesheet" href="styles/style.css">
+      <title>CSS组织</title>
+    </head>
+    <body>
+      <header>
+        <h1>CSS代码组织</h1>
+      </header>
+      <main>
+        <article>
+          <h2>1.代码整洁</h2>
+          <p>
+            代码整洁对维护大型CSS代码很重要,保持代码整洁的方法：
+            <ul>
+              <li>
+                代码风格统一：<strong>统一使用两个空格缩进</strong>;统一命名方式;统一使用一种颜色描述方式
+              </li>
+              <li>
+                代码可读性强：<strong>每个属性值新一行</strong>;每个选择器新一行;每个规则集隔一行
+              </li>
+              <li>
+                添加合适注释：使用/* 注释 */添加注释
+              </li>
+            </ul>
+          </p>
+          <p>
+            下面是一个很好的代码整洁的例子
+          </p>
+          <pre class="code">
+            .box {
+              background-color: #567895; /* fallback for older browsers that don't support gradients */
+              background-image: linear-gradient(to right, #ff0000, #aa0000);
+            }
+
+            p,
+            article {
+              font-size: 28px;
+              color: white;
+            }
+          </pre>
+          
+        </article>
+        <article>
+          <h2>2.逻辑结构</h2>
+          <p>
+            给HTML中的一般元素加上样式是一个很好的做法，一般来说这就是第一段逻辑段落，给这些元素加上规则：
+            <ul>
+              <li><span>body</span></li>
+              <li><span>p</span></li>
+              <li>
+                <span>h1</span>
+                <span>h2</span>
+                <span>h3</span>
+                <span>h4</span>
+                <span>h5</span>
+              </li>
+              <li>
+                <span>ul</span>
+                <span>ol</span>
+              </li>
+              <li><span>table</span></li>
+              <li><span>a</span>(链接)</li>
+            </ul>
+          </p>
+          <p>
+            下面是一个很好的第一段逻辑段落的样板：
+            <pre class="code">
+              /* || GENERAL STYLES */
+              body {
+                ……
+              }
+
+              h1,
+              h2,
+              h3 {
+                ……
+              }
+
+              ul {
+                ……
+              }
+
+              blockquote {
+                ……
+              }
+            </pre>
+          </p>
+          <div class="part">
+            <h3>第二段逻辑段落</h3>
+            <p>
+              如果要移除默认样式，需要一些实用类，这些是在很多不同元素运用的样式
+            </p>
+            <pre class="code">
+              /* || UTILITIES 实用类 */
+              
+              .nobullets {
+                list-style: none
+                margin: 0;
+                padding: 0;
+              }
+
+              ……
+            </pre>
+          </div>
+          <div class="part">
+            <h3>第三段逻辑段落</h3>
+            <p>
+              整个网站都会用的东西：基础布局、抬头、或者导航页
+            </p>
+            <pre class="code">
+              /* || SITEWIDE */
+
+              .mai-nav {
+
+              }
+
+              .logo {
+
+              }
+            </pre>
+          </div>
+          <div class="part">
+            <h3>最后逻辑段</h3>
+            <p>
+              特指的东西，分为上下文，页面，组件等
+            </p>
+            <pre class="code">
+              /* || STORE PAGES */
+
+              .product-listing {
+
+              }
+
+              .product-box {
+
+              }
+            </pre>
+          </div>
+        </article>
+        <article>
+          <h2>3.样式表分装</h2>
+          <p>
+            样式表过大不好维护，可以将它分成小样式表。可以分出一个普世样式表，需要特定规则的样式表等。
+          </p>
+          <p>
+            一个页面可以链接多个样式表，考前的样式表规则比后面的更有优先级
+          </p>
+        </article>
+        <article>
+          <h2>4.OOCSS</h2>
+          <p>
+            样式表没有统一性的组织和规则。而<abbr>OOCSS</abbr>是一种面向对象的CSS概念，让CSS分解成可复用对象
+          </p>
+          <div class="lizi">
+            
+            <div class="comment">
+              <img src="images/65123727_3.webp">
+              <div class="content">
+                <div class="name">user</div>
+                还是很好
+              </div>
+              <img src="images/65123727_3.webp">
+              <div class="content">
+                <div class="name">名称</div>
+                我觉得不行
+              </div>
+              
+            </div>
+            
+          </div>
+          <div class="lizi">
+            <div class="list-item">
+              <img src="images/1.svg">
+              <div class="content">
+                介绍
+                <br>关于OOCSS的一些东西，……
+              </div>
+            </div>
+          </div>
+          <p>
+            上面两个例子一个表示的是comment，常见的评论，一个表示的是列表文章简介list-item。
+            这两个东西用了同一种布局，grid，所以对于它们具有复用性。
+          </p>
+          <p>
+            在OOCSS中可以建立一个叫做media的排布，里面包含两种排布中共有的CSS,这样就创造了一个基础类，
+            这就是OOCSS的核心思想。
+          </p>
+          <p>
+            在使用基础类时，只需要用这种方式:&lt;div class="media comment"&gt;即可
+          </p>
+        </article>
+        <article>
+          <h2>4.CSS的构建体系</h2>
+          <p>
+            程式化编写CSS，可以使用预处理和后处理工具。
+            预处理工具就是以一种编程语言进行网页设计，然后经过编译转发为正常的CSS样式表。
+          </p>
+          <p>
+            最流行的预处理工具是：<a href='https://sass-lang.com/' target="_blank">Sass</a>。
+          </p>
+          <p>
+            在Sass中，它能
+            <ul>
+              <li>定义变量</li>
+              <li>编译组件样式表</li>
+              <li>后处理优化</li>
+            </ul>
+          </p>
+          <div class="part">
+            <h3>定义变量</h3>
+            <p>
+              CSS原生功能可以自定义属性，使用Sass可以设置一个变量重复使用，修改时只需修改变量即可
+            </p>
+            <pre class="code">
+              $base-color: #123456;
+
+              .alert {
+                border: 1px solid $base-color;
+              }
+            </pre>
+            <p>
+              编译完成之后，得到如下CSS：
+            </p>
+            <pre class="code">
+              .alert {
+                border:1 px solid #123456;
+              }
+            </pre>
+          </div>
+          <div class="part">
+            <h3>编译组件样式表</h3>
+            <p>
+              我在上面提到了，一种组织CSS的方式是将样式表分成小的样式表。
+              在使用Sass时，你可以在另一个层次上理解，然后得到许多小样式表——甚至到了每个组件都有一个独立样式表的地步。
+              使用Sass中的include功能，这些都可以被编译为一个、或者少数几个真正链接到你的网站的样式表。
+            </p>
+          </div>
+        </article>
+      </main>
+    </body>
+  </html>
