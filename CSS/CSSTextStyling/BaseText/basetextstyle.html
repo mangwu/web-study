@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="mangwu">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="https://github.githubassets.com/pinned-octocat.svg"> 
+    <link rel="stylesheet" href='styles/style.css'>
+    <title>基本文本和字体样式</title>
+  </head>
+  <body>
+    <header>
+      <h1>文本和字体的基本样式</h1>
+    </header>
+    <main>
+      <article>
+        <h2>
+          1.CSS中的文本样式
+        </h2>
+        <p>
+          用于样式文本的CSS属性分为两类:
+          <ul>
+            <li>
+              <strong>字体样式</strong>：
+              那种字体；字体大小；字体粗细；字体斜体等
+            </li>
+            <li>
+              <strong>文本布局风格</strong>：
+              作用于文本间距和其他布局功能，如，行字间距，文本对齐方式等
+            </li>
+          </ul>
+        </p>
+      </article>
+      <article>
+        <h2>
+          2.字体
+        </h2>
+        <p>
+          使用如下例子展示字体一系列属性：
+        </p>
+        <div class="lizi">
+          <h1>Tommy the cat</h1>
+
+          <p>
+            I remember as if it were a meal ago...
+          </p>
+
+          <p>
+            Said Tommy the Cat as he reeled back to clear whatever foreign matter
+          may have nestled its way into his mighty throat. Many a fat alley rat
+          had met its demise while staring point blank down the cavernous barrel of
+          this awesome prowling machine. Truly a wonder of nature this urban
+          predator — Tommy the cat had many a story to tell. But it was a rare
+          occasion such as this that he did.
+          </p>
+        </div>
+        <div class="part">
+          <h3>颜色</h3>
+          <p>
+            <span>color</span>,前景内容的颜色，通常为文本，包含<span>text-decoration</span>
+          </p>
+          <div class="lizi color">
+            <h1>Tommy the cat</h1>
+
+            <p>
+              I remember as if it were a meal ago...
+            </p>
+
+            <p>
+              Said Tommy the Cat as he reeled back to clear whatever foreign matter
+            may have nestled its way into his mighty throat. Many a fat alley rat
+            had met its demise while staring point blank down the cavernous barrel of
+            this awesome prowling machine. Truly a wonder of nature this urban
+            predator — Tommy the cat had many a story to tell. But it was a rare
+            occasion such as this that he did.
+            </p>
+          </div>
+        </div>
+        <div class="part">
+          <h3>字体种类</h3>
+          <p>
+            使用<span>font-famliy</span>指定字体或字体列表；浏览器把当前机器可用字体应用到访问网站上。
+            下面例子采用arial字体，一种任何电脑上都有的字体
+          </p>
+          <div class="lizi color font">
+            <h1>Tommy the cat</h1>
+
+            <p>
+              I remember as if it were a meal ago...
+            </p>
+
+            <p>
+              Said Tommy the Cat as he reeled back to clear whatever foreign matter
+            may have nestled its way into his mighty throat. Many a fat alley rat
+            had met its demise while staring point blank down the cavernous barrel of
+            this awesome prowling machine. Truly a wonder of nature this urban
+            predator — Tommy the cat had many a story to tell. But it was a rare
+            occasion such as this that he did.
+            </p>
+          </div>
+          <p>
+            查看<a href="https://www.cssfontstack.com/">cssfontstack</a>,知道可用的网络安全字体（基本上所有电脑都有）:
+            <ul class="font-famliy">
+              <li>
+                Arial：无衬线字体（sans-serif）,首选Helvetica作为首选替代
+              </li>
+              <li>
+                Courier New: 等宽字体（mono space），老版本叫Courier，使用Courier New作为首选替代
+              </li>
+              <li>
+                Georgia: 衬线字体(serif)
+              </li>
+              <li>
+                Times New Roman: serif, Times作为首选替代，二者也可作为Georgia替代
+              </li>
+              <li>
+                Trebuchet MS: sans-serif, 移动端不广泛
+              </li>
+              <li>
+                Verdana: sans-serif
+              </li>
+            </ul>
+          
+          </p>
+
+        </div>
+        <div class="part">
+          <h3>
+            字体泛型
+          </h3>
+          <p>
+            CSS中有五种字体泛型，用于在每个字体后对字体进行分类定义。字体如何被渲染取决于浏览器,它们分别是：
+            <ul class="font-famliy2">
+              <li>
+                <span>serif</span>,衬线字体。serif
+              </li>
+              <li>
+                <span>sans-serif</span>,无衬线字体.sans-serif
+              </li>
+              <li>
+                <span>monospace</span>,等宽字体.monospace
+              </li>
+              <li>
+                <span>cursive</span>,草书，流线字体，具有笔迹.cursive
+              </li>
+              <li>
+                <span>fantasy</span>,装饰用艺术字体.fantasy
+              </li>
+            </ul>
+          </p>
+          <p>
+            可以看到衬线字体和无衬线字体因为浏览器渲染原因是一样的，编写时不建议只使用字体泛型，而是
+            使用<strong>字体栈</strong>，让浏览器有多个选择，最后加入一个泛型以备用
+          </p>
+        </div>
+      </article>
+      <article>
+        <h2>3.字体大小</h2>
+        <p>
+          <span>font-size</span>设置字体大小，常用单位：
+          <ul>
+            <li>
+              px,绝对单位
+            </li>
+            <li>
+              em,相对于父元素字体大小
+            </li>
+            <li>
+              rem,相对于根元素字体大小
+            </li>
+          </ul>
+        </p>
+        <p>
+          根元素html的标准字体值为16px，h1有一个2em的默认值，使用rem可能会更好，因为根元素字体值是可以设置并确定的
+        </p>
+        <p>
+          如果需要设置17，18，23等字体值，根元素标准值16可能不好使用，将它设置为10px，这样1.7rem,1.8rem便可以简单得出
+        </p>
+        <div class="lizi color font size">
+          <h1>Tommy the cat</h1>
+
+          <p>
+            I remember as if it were a meal ago...
+          </p>
+
+          <p>
+            Said Tommy the Cat as he reeled back to clear whatever foreign matter
+          may have nestled its way into his mighty throat. Many a fat alley rat
+          had met its demise while staring point blank down the cavernous barrel of
+          this awesome prowling machine. Truly a wonder of nature this urban
+          predator — Tommy the cat had many a story to tell. But it was a rare
+          occasion such as this that he did.
+          </p>
+        </div>
+      </article>
+      <article>
+        <h2>4.字体样式，字体粗细，文本转换，文本装饰</h2>
+        <p>
+          四种属性来改变文本：
+          <ul>
+            <li>
+              <span>font-style</span>:一个重要作用是将斜体状态文字关闭斜体
+              <ul>
+                <li>
+                  normal:正常字体，（斜体关闭）
+                </li>
+                <li>
+                  italic:斜体，如果字体无斜体版本可用，会利用oblique状态模拟
+                </li>
+                <li>
+                  oblique:斜体字体的模拟版本
+                </li>
+              </ul>
+            </li>
+            <li>
+              <span>
+                font-weight:
+              </span>
+              字体粗细，一般使用normal和bold
+              <ul>
+                <li>
+                  noraml, bold:普通，加粗
+                </li>
+                <li>
+                  lighter,bolder:比父元素细，比父元素粗
+                </li>
+              </ul>
+            </li>
+            <li>
+              <span>
+                text-transform:
+              </span>
+                允许设置要转换字体
+              <ul>
+                <li>
+                  none:无转型
+                </li>
+                <li>
+                  uppercase:转为大写
+                </li>
+                <li>
+                  lowercase:转为小写
+                </li>
+                <li>
+                  capitalize:首字母大写
+                </li>
+                <li>
+                  full-width:类似等宽字体，全角，固定宽度正方形
+                </li>
+              </ul>
+            </li>
+            <li>
+              <span>
+                text-decoration:
+              </span>
+              取消或设置字体文本装饰,可接受多个装饰值
+              <ul>
+                <li>
+                  none:取消
+                </li>
+                <li>
+                  underline:下划线
+                </li>
+                <li>
+                  overline:文本上划线
+                </li>
+                <li>
+                  line-through:穿过文本的线
+                </li>
+                <li>
+                  text-decoration有style,line,和color等具体样式
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </p>
+        <div class="lizi">
+          <div class="grid">
+            <div class="font-style">
+              <div>normal</div>
+              <div class="italic">italic</div>
+              <div class="oblique">oblique</div>
+            </div>
+            <div class="font-weight">
+              <div>normal</div>
+              <div class="bold">bold</div>
+            </div>
+            <div class="text-transform">
+              <div class="uppercase">
+                uppercase
+                <input type="text">
+              </div>
+              <div class="lowercase">
+                LOWERCASE
+                <input type="text">
+              </div>  
+              <div class="capitalize">
+                capitalize
+                <input type="text">
+              </div>
+            </div>
+            <div class="text-decoration">
+              <div class="underline">
+                underline aqua wavy
+              </div>
+              <div class="line-through">
+                line-through forestgreen dashed
+              </div>
+              <div class="mix">
+                mix underline overline double
+              </div>
+            </div>
+          </div>
+        </div>
+        <p>
+          现在对tommy and cat 添加字体样式，字体粗细，文本装饰，文本转换
+        </p>
+        <div class="lizi color font size decoration">
+          <h1>Tommy the cat</h1>
+
+          <p>
+            I remember as if it were a meal ago...
+          </p>
+
+          <p>
+            Said Tommy the Cat as he reeled back to clear whatever foreign matter
+          may have nestled its way into his mighty throat. Many a fat alley rat
+          had met its demise while staring point blank down the cavernous barrel of
+          this awesome prowling machine. Truly a wonder of nature this urban
+          predator — Tommy the cat had many a story to tell. But it was a rare
+          occasion such as this that he did.
+          </p>
+        </div>
+      </article>
+      <article>
+        <h2>5.文字阴影</h2>
+        <p>
+          使用<span>text-shadow</span>属性：
+          <ul>
+            <li>
+              属性值一：水平偏移量，必须指定。正值阴影向右，负值向左
+            </li>
+            <li>
+              属性值二：垂直偏移，必须指定。正值阴影向下，负值向上
+            </li>
+            <li>
+              属性值三：模糊半径，表示阴影分散的广泛程度,默认为0
+            </li>
+            <li>
+              属性值四：颜色，默认黑色
+            </li>
+          </ul>
+        </p>
+        <p>
+          还可以使用逗号，为文本添加多种阴影
+        </p>
+        <div class="lizi color font size decoration shadow">
+          <h1>Tommy the cat</h1>
+
+          <p>
+            I remember as if it were a meal ago...
+          </p>
+
+          <p>
+            Said Tommy the Cat as he reeled back to clear whatever foreign matter
+          may have nestled its way into his mighty throat. Many a fat alley rat
+          had met its demise while staring point blank down the cavernous barrel of
+          this awesome prowling machine. Truly a wonder of nature this urban
+          predator — Tommy the cat had many a story to tell. But it was a rare
+          occasion such as this that he did.
+          </p>
+        </div>
+      </article>
+      <article>
+        <h2>6.文本布局</h2>
+        <p>
+          <span>text-align</span>:盒子中内容的对齐方式
+          <ul>
+            <li>left:左对齐文本</li>
+            <li>right:右对齐文本</li>
+            <li>center:居中对齐文本</li>
+            <li>justify：使文本展开，文本行宽相同</li>
+          </ul>
+        </p>
+        <div class="lizi color font size decoration shadow align">
+          <h1>Tommy the cat</h1>
+
+          <p>
+            I remember as if it were a meal ago...
+          </p>
+
+          <p>
+            Said Tommy the Cat as he reeled back to clear whatever foreign matter
+          may have nestled its way into his mighty throat. Many a fat alley rat
+          had met its demise while staring point blank down the cavernous barrel of
+          this awesome prowling machine. Truly a wonder of nature this urban
+          predator — Tommy the cat had many a story to tell. But it was a rare
+          occasion such as this that he did.
+          </p>
+        </div>
+        <div class="part">
+          <h3>行高</h3>
+          <p>
+            <span>line-height</span>
+            可有单位，可无单位。无单位的值乘以<span>font-size</span>决定行高，推荐行高1.5-2.0
+          </p>
+          <div class="lizi color font size decoration shadow align line-height">
+            <h1>Tommy the cat</h1>
+  
+            <p>
+              I remember as if it were a meal ago...
+            </p>
+  
+            <p>
+              Said Tommy the Cat as he reeled back to clear whatever foreign matter
+            may have nestled its way into his mighty throat. Many a fat alley rat
+            had met its demise while staring point blank down the cavernous barrel of
+            this awesome prowling machine. Truly a wonder of nature this urban
+            predator — Tommy the cat had many a story to tell. But it was a rare
+            occasion such as this that he did.
+            </p>
+          </div>
+        </div>
+        <div class="part">
+          <h3>字母和单词间距</h3>
+          <p>
+            <span>letter-spacing</span> 和
+            <span>word-spacing</span>
+            允许你设置文本中的字母和字母间距，单词与单词的间距
+          </p>
+          <div class="lizi color font size decoration shadow align line-height spacing">
+            <h1>Tommy the cat</h1>
+  
+            <p>
+              I remember as if it were a meal ago...
+            </p>
+  
+            <p>
+              Said Tommy the Cat as he reeled back to clear whatever foreign matter
+            may have nestled its way into his mighty throat. Many a fat alley rat
+            had met its demise while staring point blank down the cavernous barrel of
+            this awesome prowling machine. Truly a wonder of nature this urban
+            predator — Tommy the cat had many a story to tell. But it was a rare
+            occasion such as this that he did.
+            </p>
+          </div>
+          <p>
+            对于中文，word-spacing是无效的，letter-spacing是有效的
+          </p>
+          <div class="lizi">
+            <div class="word">
+              这是一段中文word spacing 
+            </div>
+            <div class="letter">
+              这是一段中文letter-spacing
+            </div>
+            
+          </div>
+        </div>
+        <div class="part">
+          <h3>
+            点击
+            <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Styling_text/Fundamentals#%E5%85%B6%E4%BB%96%E4%B8%80%E4%BA%9B%E5%80%BC%E5%BE%97%E7%9C%8B%E4%B8%80%E4%B8%8B%E7%9A%84%E5%B1%9E%E6%80%A7">
+              font属性值
+            </a>查看更多
+          </h3>
+        </div>
+        
+      </article>
+    </main>
+  </body>
+</html>

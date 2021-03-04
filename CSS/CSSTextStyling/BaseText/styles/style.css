@@ -1,0 +1,292 @@
+/* 基本设置 || */
+
+html {
+  box-sizing: border-box;
+  font-family: fangsong;
+  font-size: 10px;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+/* GENERAL STYLES || */
+
+body {
+  background-color: white;
+  width: 88%;
+  margin: 0 auto;
+  font-size: 2.6rem;
+}
+
+p {
+  width: 88%;
+  text-indent: 1.3em;
+  margin: 1em auto;
+}
+
+article {
+  width: 100%;
+  padding: 2em;
+}
+
+ul {
+  width: 84%;
+  margin: 0 auto;
+}
+li {
+  line-height: 2.0em;
+}
+
+span {
+  background-color: #eeeeee;
+  color:blue;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* UTILETIES 实用类 || */
+
+
+/* SITWIDE 基础布局 || */
+
+header {
+  display: inline-block;
+  width: 100%;
+  border: black 2px solid;
+  border-radius: 10px;
+  box-shadow: 4px 4px 3px black;
+  text-shadow: 4px 4px 5px aqua;
+  margin: 0.2em auto;
+  text-align: center;
+}
+
+main {
+  display: inline-block;
+  width: 100%;
+  border: rgb(37, 37, 37) 2px solid;
+  border-radius: 10px;
+  box-shadow: 4px 4px 3px black;
+  margin: 0.5em auto;
+}
+
+/* STROE PAGES || */
+
+.lizi {
+  width: 88%;
+  margin: 1em auto;
+  border: 2px solid aqua;
+  padding: 1.5em;
+}
+
+.part {
+  border-top: dashed gray 2px;
+  margin-top: 1em;
+}
+
+.lizi p {
+  all: unset;
+  display: block;
+  margin: 1rem auto;
+}
+
+.lizi.color p {
+  color: red;
+}
+
+.lizi.font p {
+  font-family: arial;
+}
+
+.font-famliy li:nth-child(1) {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-famliy li:nth-child(2) {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.font-famliy li:nth-child(3) {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.font-famliy li:nth-child(4) {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.font-famliy li:nth-child(5) {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.font-famliy li:nth-child(6) {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.font-famliy2 li:nth-child(1) {
+  font-family: serif;
+}
+
+.font-famliy2 li:nth-child(2) {
+  font-family: sans-serif;
+}
+
+.font-famliy2 li:nth-child(3) {
+  font-family: monospace;
+}
+
+.font-famliy2 li:nth-child(4) {
+  font-family: cursive;
+}
+
+.font-famliy2 li:nth-child(5) {
+  font-family: fantasy;
+}
+
+.lizi.size h1 {
+  font-size: 2.6rem;
+}
+
+.lizi.size p {
+  font-size: 1.4rem;
+}
+
+.lizi .grid {
+  display: grid;
+  margin: 1em auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 200px 200px;
+}
+
+.lizi .grid .font-style {
+  border: 1px solid forestgreen;
+  padding: 1em;
+  line-height: 1.5em;
+  color: red;
+  margin: 0.5em;
+  border-radius: 0.5em;
+}
+
+.lizi .grid .font-weight {
+  border: 1px solid forestgreen;
+  padding: 1em;
+  line-height: 1.5em;
+  color: red;
+  margin: 0.5em;
+  border-radius: 0.5em;
+}
+
+.lizi .grid .text-transform {
+  border: 1px solid forestgreen;
+  padding: 1em;
+  line-height: 1.5em;
+  color: red;
+  margin: 0.5em;
+  border-radius: 0.5em;
+}
+
+.lizi .grid .text-decoration {
+  border: 1px solid forestgreen;
+  padding: 1em;
+  line-height: 1.5em;
+  color: red;
+  margin: 0.5em;
+  border-radius: 0.5em;
+}
+
+
+.lizi .grid .font-style .italic {
+  font-style: italic;
+}
+
+.lizi .grid .font-style .oblique {
+  font-style: oblique;
+}
+
+.lizi .grid .font-weight .bold {
+  font-weight: bold;
+}
+
+.lizi .grid .text-transform .uppercase {
+  text-transform: uppercase;
+}
+
+.lizi .grid .text-transform .lowercase {
+  text-transform: lowercase;
+}
+
+.lizi .grid .text-transform .capitalize {
+  text-transform: capitalize;
+}
+
+.uppercase input {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  border: 2px solid aqua;
+  padding: 0.2em;
+  border-radius: 0.3em;
+}
+
+.lowercase input {
+  text-transform: lowercase;
+  font-size: 0.7em;
+  border: 2px solid aqua;
+  padding: 0.2em;
+  border-radius: 0.3em;
+}
+
+.capitalize input {
+  text-transform: capitalize;
+  font-size: 0.7em;
+  border: 2px solid aqua;
+  padding: 0.2em;
+  border-radius: 0.3em;
+}
+
+.text-decoration .underline {
+  text-decoration: aqua underline wavy;
+}
+
+.text-decoration .line-through {
+  text-decoration: line-through forestgreen dashed;
+}
+
+.text-decoration .mix { 
+  text-decoration: underline overline palegreen double;
+}
+
+.lizi.decoration h1 {
+  text-transform: capitalize;
+}
+
+.lizi.decoration h1 + p {
+  font-weight: bold;
+  text-decoration: solid underline aqua;
+}
+
+.lizi.shadow h1 {
+  text-shadow: 2px -3px 3px chartreuse ;
+}
+
+.lizi.align h1{
+  text-align: center;
+}
+
+.lizi.line-height p {
+  line-height: 1.5;
+}
+
+.lizi.spacing h1 + p::first-line {
+  word-spacing: 0.5em;
+  letter-spacing: 0.1em;
+}
+
+.lizi .word {
+  word-spacing: 1em;
+  margin: 1em auto;
+}
+
+.lizi .letter {
+  letter-spacing: 1em;
+  margin: 1em auto;
+}
+
+
