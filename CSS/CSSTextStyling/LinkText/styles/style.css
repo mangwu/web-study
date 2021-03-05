@@ -1,0 +1,240 @@
+html {
+  box-sizing: border-box;
+  font-family: fangsong;
+  font-size: 10px;
+  cursor: url(../images/32.cur), pointer;
+  
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+/* 基本样式 || */
+
+body {
+  width: 88%;
+  margin: 0 auto;
+  font-size: 2.6rem;
+}
+
+p {
+  text-indent: 1.3em;
+
+  
+}
+
+ul, ol {
+  width: 88%;
+  margin: 0 auto;
+}
+
+li {
+  line-height: 1.5;
+}
+
+
+h1 {
+  text-shadow: 2px 2px 3px sandybrown;
+}
+
+span {
+  color: blue;
+  background: #eeeeee;
+}
+
+article {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1em;
+  border-bottom: 3px solid black;
+}
+
+/* 实用类 || */
+
+/* 基本布局 || */
+
+header {
+  width: 100%;
+  margin: 1em auto;
+  text-align: center;
+  padding: 0.4em;
+  border: 3px solid black;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px gray;
+}
+
+main {
+  width: 100%;
+  margin: 1em auto;
+  border: 3px solid black;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px gray;
+  border-radius: 10px;
+  padding: 2em;
+}
+
+/* 特定类 || */
+
+.lizi {
+  width: 90%;
+  padding: 1em;
+  margin: 1em auto;
+  border: 2px solid aqua;
+  border-radius: 10px;
+}
+
+.part {
+  width: 98%;
+  margin: 1em auto;
+  border-top: 3px dashed forestgreen;
+}
+
+.lizi .outline {
+  display: inline-block;
+  width: 100px;
+  padding: 0.5em;
+  outline: forestgreen solid 0.5em;
+  margin: 1em 1em;
+  /* border: forestgreen solid 0.5em; */
+}
+
+.lizi .border {
+  display: inline-block;
+  width: 100px;
+  padding: 0.5em;
+  margin: 1em 1em;
+  /* outline: forestgreen solid 0.5em; */
+  border: forestgreen solid 0.5em;
+}
+
+.lizi .cursor {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.5em;
+  margin: 1em 1em;
+  border: lightgreen solid 0.3em;
+  cursor: wait;
+}
+
+.lizi .a_style a {
+  outline: none;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5em;
+  letter-spacing: 0.1em;
+  padding: 0.2em;
+}
+
+.a_style a:link {
+  color:rgb(44, 135, 138);
+}
+
+.a_style a:visited {
+  color:rgb(0, 152, 253);
+  font-weight: bold;
+}
+
+.a_style a:focus {
+  text-decoration: underline;
+  background-color: aqua;
+  border-radius: 10px;
+}
+
+.a_style a:hover {
+  background-color: aquamarine;
+  border-radius: 10px;
+  text-decoration: underline;
+}
+
+.a_style a:active {
+  background: rgb(216, 255, 242);
+  text-decoration: none;
+}
+
+.image a {
+  font-size: 1.5em;
+  line-height: 1.4;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.image a:link {
+  color: teal;
+}
+
+.image a:visited {
+  color: #007060;
+}
+
+.image a:focus {
+  border-bottom: 1px solid cyan;
+}
+
+.image a:hover {
+  background: cyan;
+  text-decoration: underline 1px cadetblue;
+}
+
+.image a:active {
+  color: black;
+  background: cyan;
+}
+
+.image a[href*="style"] {
+  background-image: url(../images/icons8-external-link.svg);
+  background-position: right 0;
+  background-size: 0.7em 0.7em;
+  background-repeat: no-repeat;
+  padding-right: 1.0em;
+  
+}
+
+.lizi .nav {
+  padding: 0;
+  width: 94%;
+  margin: 0 auto;
+  list-style-type: none;
+}
+
+.lizi .nav li {
+  display: inline;
+  padding: 0;
+}
+
+.lizi .nav li a {
+  display: inline-block;
+  width: 18.5%;
+  margin: 0 auto;
+  padding: 0.5em;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: #eeccdd;
+  border-radius: 10px;
+  border-bottom: 3px solid black;
+}
+
+
+.nav li a:link {
+  color: green;
+}
+
+.nav li a:visited {
+  color: black;
+}
+
+.nav li a:focus {
+  outline: none;
+  border-radius: 10px;
+  border-bottom: 3px solid gold;
+}
+
+.nav li a:hover {
+  background-color: #ffeedd;
+  border-bottom: 3px solid gold;
+}
+
+.nav li a:active {
+  color:white;
+}

@@ -1,0 +1,148 @@
+/* General setup */
+
+html {
+    font-size: 10px;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  min-width: 1000px;
+  max-width: 1400px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+/* Layout */
+
+section {
+  float: left;
+  width: 50%;
+}
+
+aside {
+  float: left;
+  width: 30%;
+}
+
+nav {
+  float: left;
+  width: 20%;
+}
+
+footer {
+  clear: both;
+}
+
+header, section, aside, nav, footer {
+  padding: 20px;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+}
+
+/* header and footer */
+
+header, footer {
+  border-top: 5px solid #a66;
+  border-bottom: 5px solid #a66;
+}
+
+/* WRITE YOUR CODE BELOW HERE */
+
+
+h1, h2 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+section p {
+  text-indent: 20px;
+}
+
+section ol {
+  list-style-type: lower-alpha;
+}
+
+section ul, aside ul {
+  list-style-type: square;
+}
+
+section ol li a:link,
+aside ul li a:link,
+aside ul + p a:link {
+  color: #a66;
+}
+
+section > h2 + p a:link {
+  color: #a66;
+  padding-right: 19px;
+  background-image: url(../../images/icons8-external-link.svg);
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  background-position: 100% 0;
+}
+
+section a:visited, aside a:visited {
+ color: #722;
+}
+
+section a:hover, aside a:hover {
+  background-color: blanchedalmond;
+}
+section a:active, aside a:active {
+  background-color: burlywood;
+  color: aliceblue;
+}
+
+section > h2 + p a:active {
+  background-color: burlywood;
+  color: aliceblue;
+}
+
+nav ul {
+  padding: 0;
+  width: 100%;
+  margin: 0 auto;
+}
+
+nav ul li {
+  list-style-type: none;
+}
+
+nav ul li a {
+  margin-bottom: 0.2em;
+  font-size: 2.2rem;
+  text-decoration: none;
+  color: #a66;
+}
+
+nav ul li a:link {
+  display: inline-block;
+  border: 2px solid #a66;
+  border-radius: 10px;
+  width: 90%;
+  text-align: center;
+  margin: 0.5em auto;
+  padding: 0.5em;
+}
+
+nav ul li a:visited {
+  color: #722;
+  border: 2px solid #722;
+}
+
+nav ul li a:hover {
+  background-color: #eaa;
+}
+nav ul li a:active {
+  background-color: #f88;
+  color: white;
+}

@@ -23,8 +23,13 @@ p {
 article {
   width: 96%;
   margin: 1em auto;
+  border-bottom: 5px solid black;
 }
 
+span {
+  background-color: #eeeeee;
+  color: blue;
+}
 /* UTILETIES 实用类 || */
 
 /* SITWIDE 布局 || */
@@ -49,6 +54,10 @@ main {
 
 /* STROE PAGES 特定类 || */
 
+.part {
+  margin-top: 1em;
+  border-top: 3px dashed gold;
+}
 .lizi {
   width: 88%;
   margin: 1em auto;
@@ -81,5 +90,27 @@ main {
   margin-bottom: 1em;
 }
 
+.style-type ol {
+  list-style-type: upper-roman;
+}
 
+.style-image ul {
+  list-style-type: none;
+}
 
+.style-image ul li {
+  list-style-image: url(../images/star.svg);
+  padding-left: 2rem;
+}
+
+.background ul {
+  list-style-type: none;
+}
+
+.background ul li {
+  background-image: url(../images/star.svg);
+  background-position: 0 0;
+  background-size: 1.6rem 1.6rem;
+  background-repeat: no-repeat;
+  padding-left: 2rem;
+}

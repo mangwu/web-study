@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="mangwu">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="styles/style.css" type="text/css">
+    <link rel="shortcut icon" href="images/pinned-octocat.svg" type="icon/svg">
+    <title>
+      链接文本样式
+    </title>
+  </head>
+  <body>
+    <header>
+      <h1>
+        链接文本样式
+      </h1>
+    </header>
+    <main>
+      <article>
+        <h2>
+          <a name="基本样式">1.链接的基本样式</a>
+        </h2>
+        <p>
+          链接有很多默认的样式，如链接颜色，链接状态等
+        </p>
+        <div class="part">
+          <h3>
+            链接状态
+          </h3>
+          <p>
+            链接的每个状态可以是用选择器的伪类选择器进行选择
+            <ul>
+              <li>
+                <strong>link</strong>:未访问过的，链接默认状态，用伪类<span>:link</span>来应用样式
+              </li>
+              <li>
+                <strong>visited</strong>:链接已被访问的状态，存在与浏览器历史纪录中，使用<span>:visited</span>伪类来应用样式
+              </li>
+              <li>
+                <strong>hover</strong>:鼠标停留在链接上，使用<span>:hover</span>伪类来应用样式
+              </li>
+              <li>
+                <strong>focus</strong>:链接被选中（如用tab键移动到链接）或者使用js的<span>HTMLElement.focus()</span>选中时，
+                可以使用<span>:focus</span>伪类来应用样式。（不是指鼠标点击时的状态）
+              </li>
+              <li>
+                <strong>active</strong>:链接被激活时（如被点击时候），使用<span>:active</span>伪类来应用样式
+              </li>
+            </ul>
+          </p>
+          <p>
+            默认的链接样式如下：
+          </p>
+          <div class="lizi">
+            <div style="font-size: 2em; width: 80%; margin: 1em auto;">
+              <a href="linktext.html#基本样式">链接的基本样式 </a>
+            </div>
+          </div>
+          <p>
+            <ul>
+              <li>具有下划线</li>
+              <li>
+                未访问过的<span>:link</span>是蓝色的
+              </li>
+              <li>
+                访问过的<span>:visited</span>是紫色的
+              </li>
+              <li>
+                鼠标悬停时<span>:hover</span>光标变成小手
+              </li>
+              <li>
+                选择链接时<span>:focus</span>链接周围有一个轮廓
+              </li>
+              <li>
+                激活链接时（点击时）<span>:active</span>，链接会变成红色
+              </li>
+            </ul>
+          </p>
+          <p>
+            可以使用诸如<span>color</span>,<span>text-decoration</span>,<span>outline</span>,<span>cursor</span>
+            的属性样式化链接。其中:
+            <ul>
+              <li>
+                <span>outline</span>,表示文字的轮廓，与border不同的是它不占用盒模型空间，它只是设置在背景图片顶部
+              </li>
+              <li>
+                <span>cursor</span>,表示鼠标光标的样式，可以使用关键字，也可以使用url指定
+              </li>
+            </ul>
+            <div class="lizi">
+              <div class='outline'>
+                outline
+              </div>
+              <div class="border">
+                borderx
+              </div>
+              <div class="cursor">
+                cursor wait
+              </div>
+            </div>
+          </p>
+          <p>
+            可以看到，通过设置相同的width，outline不占用盒模型，而border占用所以溢出严重；
+            图标在cursor wait处会出现wait鼠标样式
+          </p>   
+        </div>
+        <div class="part">
+          <h3>链接伪类的写法顺序</h3>
+          <p>
+            编写链接样式需要对链接元素进行选择，应该依次如下选择:
+            <ol>
+              <li>
+                <span>a { }</span>
+              </li>
+              <li>
+                <span>a:link { }</span>
+              </li>
+              <li>
+                <span>a:visited { }</span>
+              </li>
+              <li>
+                <span>a:focus { }</span>
+              </li>
+              <li>
+                <span>a:hover { }</span>
+              </li>
+              <li>
+                <span>a:active { }</span>
+              </li>
+            </ol>
+          </p>
+          <p>
+            这样的顺序是有意义的，第一位是a{}显然是对的；
+            然后的样式化状态应该是未访问前后访问后的静态状态。
+            至于为什么active状态在最后，因为一个链接被激活时，它已经被鼠标覆盖和选中，所以需要提前编写hover状态
+          </p>
+          <div class="lizi">
+            <div class="a_style">
+              <a href='#基本样式'>链接的基本样式</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article>
+        <h2>
+          2.在链接中加入图片
+        </h2>
+        <p>
+          在使用链接时，可能需要一个图片进行装饰，使用background就可以
+        </p>
+        <div class="lizi">
+          <div class="image">
+            <a href="styles/style.css">本文档的style</a>
+          </div>
+        </div>
+        <p>
+          注意设置<span>background-position</span>为100% 0,使其在右上，而设置<span>padding-right:1em</span>，预留右边间距给图像
+        </p>
+      </article>
+      <article>
+        <h2>3.样式化链接为按钮</h2>
+        <p>
+          通过设置display的值，把链接和列表结合起来，形成导航按钮
+        </p>
+        <div class="lizi">
+          <ul class="nav">
+            <li>
+              <a href="#">首页</a>
+            </li>
+            <li>
+              <a href="#">nav2</a>
+            </li>
+            <li>
+              <a href="#">nav3</a>
+            </li>
+            <li>
+              <a href="#">nav4</a>
+            </li>
+            <li>
+              <a href="#">nav5</a>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </main>
+  </body>
+  
+  
+</html>
