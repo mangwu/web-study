@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="mangwu">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="shortcut icon" href="../../CSSTextStyling/LinkText/images/pinned-octocat.svg">
+    <title>
+      布局
+    </title>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        CSS布局
+      </h1>
+    </header>
+    <main>
+      <article>
+        <h2>
+          <a name="1">1.CSS页面布局技术</a>
+        </h2>
+        <p>
+          CSS的页面布局技术可以用来拾取网页元素，控制它们的<strong>相对正常布局流</strong>，
+          <strong>周边元素</strong>，<strong>父容器或主视口/窗口</strong>位置。页面布局技术有：
+          <ul>
+            <li>
+              正常布局流
+            </li>
+            <li>
+              <span>display</span>属性
+            </li>
+            <li>
+              弹性盒子
+            </li>
+            <li>
+              网格
+            </li>
+            <li>
+              浮动<span>float</span>
+            </li>
+            <li>
+              定位<span>position</span>
+            </li>
+            <li>
+              CSS表格布局
+            </li>
+            <li>
+              多列布局
+            </li>
+          </ul>
+        </p>
+      </article>
+      <article>
+        <h2>
+          <a name="2">2.正常布局流</a>
+        </h2>
+        <p>
+          不对页面进行布局控制，浏览器默认的HTML布局方式：
+          <ul>
+            <li>
+              块元素从上到下换行排列
+            </li>
+            <li>
+              内联元素从左到右横向排列，位置不够换行
+            </li>
+          </ul>
+        </p>
+        <p>
+          默认的块方向是从上到下，内联方向是从左到右。可以通过<span>writting-mode</span>属性更改块方向和内联方向，
+          因为书写模式的文本方向和内联维度有密切关系
+        </p>
+        <p>
+          一旦使用了以下布局技术，默认的正常布局流就被覆盖了：
+          <ul>
+            <li>
+              <span>display</span>属性，标准的属性值<span>block,inline,inline-block</span>在正常布局流中有不同表现形式；
+              全新的属性值：<span>grid,flexbox</span>会覆盖正常布局流成为全新的布局方式
+            </li>
+            <li>
+              <strong>浮动</strong>，<span>float</span>,属性值<span>left</span>等能让块级元素互相并列成一行,而不是上下关系
+            </li>
+            <li>
+              <span>position</span>属性，可以用来设置盒子中盒子的位置，正常布局流其属性值为<span>static</span>,
+              使用其他值会改变元素的布局方式，例如将元素固定在浏览器视口左上角
+            </li>
+            <li>
+              <strong>表格布局</strong>，使用<span>display: table</span>等相关属性在非表格元素上使用
+            </li>
+            <li>
+              <strong>多列布局</strong>,<span>mult-column layout</span>属性让块按列布局
+            </li>
+          </ul>
+        </p>
+      </article>
+      <article>
+        <h2>
+          <a name="3">3.display属性</a>
+          
+        </h2>
+        <p>
+          设定<span>display</span>属性是实现页面布局的主要方式。改变内联元素为<span>display: block</span>可以让它们具有上下关系，
+          而不是在一行中。改变块元素<span>display: inline</span>，可以让块元素在空间容许的情况下不换行。
+          下面是一个<span>inline-block</span>的例子：
+          <div class="lizi">
+            <div class="wrapper">
+              <div>
+                <div>
+                  inline-block
+                </div>
+                <div>
+                  具有block的一些属性
+                </div>
+                <div>
+                  但是会向inline元素一样不轻易换行
+                </div>
+                <div>
+                  除非内容过多
+                </div>
+              </div>
+            </div>
+          </div>
+        </p>
+        <p>
+          <span>display</span>的属性值还有一些全新的布局方式：<span>display: grid</span>和
+          <span>display: flex</span>,下面学习。
+        </p>
+      </article>
+      <article>
+        <h2>
+          <a name="4">4.flexbox,弹性盒子</a>
+        </h2>
+        <p>
+          <abbr title="Flexible Box Layout">flexbox</abbr>是CSS弹性盒子布局模块的缩写,它用来
+          <strong>创建横向或者纵向的一维页面布局</strong>,要使用弹性盒子布局，需要在进行flex布局的元素们的父元素
+          应用<span>display: flex</span>，这样，<strong>直接子元素</strong>都会按照flex进行布局。
+        </p>
+        <div class="lizi">
+          <div class="flexbox">
+            <div>
+              box1
+            </div>
+            <div>
+              box2 height:2em;
+            </div>
+            <div>
+              box3
+            </div>
+            <div>
+              box4
+            </div>
+          </div>
+        </div>
+        <p>
+          上面的例子中，4个盒子外有一个flexbox设置为<span>display: flex</span>,根据父元素flex布局，直接子元素成为
+          <strong>flex item</strong>(flex 项)，flex的默认布局初值有:
+          <ul>
+            <li>  
+              <span>flex-direction: row</span>，横向排列,无间距（例子中设置了margin-right)
+            </li>
+            <li>
+              <span>align-items: stretch</span>,子元素（flex item）被拉伸到同一高度（和最高元素高度相同）
+            </li>
+            <li>
+              <span>
+                所有项目(flex item)从开始位置开始排列，在尾部留下空白
+              </span>
+            </li>
+          </ul>
+        </p>
+        <p>
+          flexbox容器下的flex item项目可以有很多有关弹性盒子的属性被应用，这些属性可以改变flex项在flexbox布局中的占用的宽高方式。
+          如，<span>flex: 1;</span>，使<strong>所有子元素等宽伸展并扩充到容器</strong>，不在尾部留白。
+        </p>
+        <div class="lizi">
+          <div class="flexbox flex">
+            <div>
+              box1
+            </div>
+            <div>
+              box2 height:2em;
+            </div>
+            <div>
+              box3
+            </div>
+            <div>
+              box4
+            </div>
+          </div>
+        </div>
+      </article>
+      <article>
+        <h2>
+          <a name="5">5.gird布局</a>
+        </h2>
+        <p>
+          flexbox用于设计横向或纵向布局，而grid布局设计同时在两个维度上把元素按行和列排列整齐。
+          指定父元素<span>display: grid;</span>来覆盖正常布局流，
+          使用<span>grid-template-rows</span>定义行数和行高，属性值指定具体值，如100px 100px
+          使用<span>grid-template-columns</span>定义列数和列宽,属性值使用fr，如1fr 1fr 2fr （三个列）
+        </p>
+        <div class="lizi">
+          <div class="grid">
+            <div>box1</div>
+            <div>box2</div>
+            <div>box3</div>
+            <div>box4</div>
+            <div>box5</div>
+            <div>box6</div>
+          </div>
+        </div>
+        <P>
+          在上面的例子中，gird布局中的元素是依靠浏览器顺序排列的，并且使用<span>grid-gap</span>属性设置每个行列格子的间距；
+          也可以通过<span>grid-row</span>和<span>grid-column</span>来为子元素指定从那行开始，到那行结束，使元素能在多个行列中展开
+        </P>
+        <div class="lizi">
+          <div class="grid grid-layout">
+            <div>box1</div>
+            <div>box2</div>
+            <div>box3</div>
+          </div>
+        </div>
+        <p>
+          选择多行或多列时，grid-行或列的值表示方式为：x / x+n;  x为从第几行开始，n为选择的行数或列数
+        </p>
+      </article>
+      <article>
+        <h2>
+          <a name="6">6.浮动</a>
+          
+        </h2>
+        <p>
+          浮动不是主要的布局方式。<span>float</span>，把一个元素浮动起来，会改变元素在正常布局流(normal flow)中跟随它的其他元素的行为。
+          元素被设置到左侧或右测，被移除出正常布局流，其他内容就会在该元素周围环绕。float属性值：
+          <ul>
+            <li>
+              <span>left</span>，元素浮动到左侧
+            </li>
+            <li>
+              <span>right</span>,元素浮动到右侧
+            </li>
+            <li>
+              <span>none</span>,不浮动
+            </li>
+            <li>
+              <span>inherit</span>,继承父元素的浮动属性
+            </li>
+          </ul>
+          <div class="lizi">
+            <div class="float">
+              <h2>float例子</h2>
+              <div>
+                float_div
+              </div>
+              <div>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate. 
+                Duis felis orci, pulvinar id metus ut, rutrum luctus orci. 
+                Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet.
+                Sed auctor cursus massa at porta. 
+                Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.
+                Curabitur vehicula tellus neque, ac ornare ex malesuada et.
+              </div>
+              <div>
+                float_div
+              </div>
+            </div>
+          </div>
+        </p>
+        <p>
+          可以看到，对于处于float状态下的元素，会影响它周围的同级元素和父元素的同级元素，
+          而对父元素而言，它已经不是正常布局流，父元素的高宽不会考虑浮动元素
+        </p>
+      </article>
+      <article>
+        <h2>
+          <a name="7">7.定位技术</a>
+          
+        </h2>
+        <p>
+          positioning能够把一个元素从原本的正常布局流位置移动到另一个位置，定位不是用来做主要的页面布局的，
+          而是用来管理微调页面中的特殊项的位置的。
+        </p>
+        <p>
+          <span>position</span>属性对布局会有帮助，其重要的属性值有（定位类型）：
+          <ul>
+            <li>
+              <strong>静态定位，static positioning</strong>，元素的默认属性，元素位置在布局默认位置
+            </li>
+            <li>
+              <strong>相对定位，relative positioning</strong>，相对于元素在正常文档流中的位置移动，包括叠放元素。
+              对于微调和精准设计有用
+            </li>
+            <li>
+              <strong>绝对定位，aabsolute positioning</strong>，把元素完全从页面正常布局流中移除，类似于将其放在一个单独图层中。
+              将元素相对于页面的<span>html</span>元素，或者该元素的<abbr>最近被定位祖先元素</abbr>边缘固定。
+              绝对定位在创建复杂布局效果时非常有用，例如通过标签显示和隐藏的内容面板或者通过按钮控制滑动到屏幕中的信息面板。
+            </li>
+            <li>
+              <strong>固定定位，fixed positioning</strong>,和绝对定位类似，但是是将一个元素相对于浏览器视口固定，而不是另一个元素。
+              这在创建类似在整个页面滚动过程中总是处于屏幕的某个位置的导航菜单时非常有用。
+            </li>
+            <li>
+              <strong>粘性定位，sticky positioning</strong>，新型定位方式，让元素先保持和静态定位一样的定位，
+              当它的相对视口位置(offset from the viewport)达到某一个预设值时，他就会像position: fixed一样定位。
+            </li>
+          </ul>
+
+        </p>
+        <p>
+          现在使用如下例子进行不同的定位：
+          <div class="lizi">
+            <div class="positioning">
+              <h2>Positioning</h2>
+              <div>
+                我是位于正常文档流中的静态定位盒子
+              </div>
+              <div>
+                我是位于正常文档流中的静态定位盒子
+              </div>
+              <div>
+                我是位于正常文档流中的静态定位盒子
+              </div>
+            </div>
+          </div>
+        </p>
+        <div class="part">
+          <h3>
+            相对定位
+          </h3>
+          <p>
+            relative，将一个元素从正常布局流中的位置按坐标进行，移动。使用<span>top,left</span>等属性向下或向右移动
+            <div class="lizi">
+              <div class="positioning relative">
+                <h2>Positioning</h2>
+                <div>
+                  我是位于正常文档流中的静态定位盒子
+                </div>
+                <div>
+                  我是相对于正常文档流中静态位置的相对定位盒子
+                </div>
+                <div>
+                  我是位于正常文档流中的静态定位盒子
+                </div>
+              </div>
+            </div>
+          </p>
+        </div>
+        <div class="part">
+          <h3>
+            绝对定位
+          </h3>
+          <p>
+            absolute,将元素从正常布局流中移除，以坐标形式相对于它的容器定位到web页面的任何位置
+            <div class="lizi">
+              <div class="positioning absolute">
+                <h2>Positioning</h2>
+                <div>
+                  我是位于正常文档流中的静态定位盒子
+                </div>
+                <div>
+                  我是相对于html容器可以被定位到web页面任何位置的绝对定位盒子
+                </div>
+                <div>
+                  我是位于正常文档流中的静态定位盒子
+                </div>
+              </div>
+            </div>
+          </p>
+          <p>
+            可以看到，盒子被移除正常布局流后，上下的两个盒子间距忽略了中间的盒子；
+            不仅如此，绝对位置的盒子跑到了最上方离html左下角不远的位置。因为<span>top</span>
+            和<span>left</span>属性对绝对位置的影响是相对于HTML容器的，
+            确切地说，是<span>&lt;html&gt;</span>元素的距离；而这个相对html元素是可以改变成父元素的
+          </p>
+        </div>
+        <div class="part">
+          <h3>
+            固定定位
+          </h3>
+          <p>
+            fixed，固定定位和绝对定位一样，将元素从文档流中移出，但是定位的坐标不是html或其他容器元素，
+            而是应用于视口（viewport）边框。利用这一特性，可以弄出一个固定位置的菜单，不受页面滚动影响
+          </p>
+          <div class="lizi">
+            <div class="positioning fixed">
+              <h2>Positioning</h2>
+              <div>
+                我是位于正常文档流中的静态定位盒子
+              </div>
+              <div class="flex">
+                <div>
+                  <a href="#1">页面布局技术</a>
+                </div>
+                <div>
+                  <a href="#2">正常布局流</a>
+                </div>
+                <div>
+                  <a href="#3">display属性</a>
+                </div>
+                <div>
+                  <a href="#4">弹性盒子</a>
+                </div>
+                <div>
+                  <a href="#5">grid布局</a>
+                </div>
+                <div>
+                  <a href="#6">浮动</a>
+                </div>
+                <div>
+                  <a href="#7">定位技术</a>
+                </div>
+                <div>
+                  <a href="#8">表格布局</a>
+                </div>
+                <div>
+                  <a href="#9">多列布局</a>
+                </div>
+              </div>
+              <div>
+                我是位于正常文档流中的静态定位盒子
+              </div>
+            </div>
+          </div>
+          <p>
+            可以看到，通过固定定位，将中间元素移到了右边，其中，其属性有<span>  top: 10%;
+              left: 90%;</span>，相对于视口到了右导航栏
+          </p>
+        </div>
+        <div class="part">
+          <h3>
+            粘性定位
+          </h3>
+          <p>
+            sticky，把静态定位和固定定位相混合；
+            <div class="lizi">
+              <div class="positioning sticky">
+                <h2>Positioning</h2>
+                <div>
+                  我是位于正常文档流中的静态定位盒子
+                </div>
+                <div class="stickydiv">
+                  我是相对于html容器可以被定位到web页面任何位置的绝对定位盒子
+                </div>
+                <div>
+                  我是位于正常文档流中的静态定位盒子
+                </div>
+                <div>
+                  我是位于正常文档流中的静态定位盒子
+                </div>
+                <div>
+                  我是位于正常文档流中的静态定位盒子
+                </div>
+                <div>
+                  我是位于正常文档流中的静态定位盒子
+                </div>
+                <div>
+                  我是位于正常文档流中的静态定位盒子
+                </div>
+              </div>
+            </div>
+          </p>
+          <p>
+            可以看到，它是正常在布局流中滚动，直到它出现在设定的相对于容器的位置，就会停止随滚轮移动，就像fixed一样
+          </p>
+        </div>
+      </article>
+      <article>
+        <h2>
+          <a name="8">8.表格布局</a>
+        </h2>
+        <p>
+          老旧的网页布局。使用<span>display</span>属性，声明使用表格布局的元素属性值为<span>table</span>;
+          然后依据表格的布局给予子元素<span>table-row</span>,<span>table-cell</span>和<span>table-caption</span>的属性值
+          <div class="lizi">
+            <form class="table">
+              <p>
+                这是一个表格布局，这是标题，应该赋予table-caption
+              </p>
+              <div>
+                <label for="frow">firstrow:</label>
+                <input type="text" id="frow" placeholder="first-table-row">
+              </div>
+              <div>
+                <label for="srow">secondrow:</label>
+                <input type="text" id="srow" placeholder="second-table-row">
+              </div>
+              <div>
+                <label for="trow">secondrow:</label>
+                <input type="text" id="trow" placeholder="third-table-row">
+              </div>
+            </form>
+          </div>
+        </p>
+
+      </article>
+      <article>
+        <h2>
+          <a name="9">9.多列布局</a>
+        </h2>
+        <p>
+          多列布局模组可以把一个块转变成多列容器(mulyicol container),使用<span>column-count</span>属性声明列数，
+          使用<span>column-width</span>属性以某个宽度尽可能多的列填充容器
+          <div class="lizi container">
+            <h1>multi-column layout</h1>
+            <p>
+              tristique sit amet orci vel, viverra egestas ligula.
+               Curabitur vehicula tellus neque, ac ornare ex malesuada 
+               eget malesuada ultrices. Phasellus turpis est, 
+               posuere sit amet dapibus ut, facilisis sed est.
+                Nam id risus quis 
+            </p>
+          </div>
+        </p>
+      </article>
+    </main>
+  </body>
+
+</html>

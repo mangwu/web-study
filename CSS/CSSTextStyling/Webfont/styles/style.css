@@ -1,0 +1,83 @@
+/* 基础设置 || */
+
+@font-face {
+  font-family: "my-font";
+  src: url(../fonts/FZZhaoMFXSJF.TTF);
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+  font-family: "my-font", Arial, Helvetica, sans-serif;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+/* 大局样式 || */
+
+body {
+  width: 88%;
+  margin: 0 auto;
+  font-size: 2.6rem;
+}
+
+p {
+  text-indent: 1.2em;
+}
+
+ul {
+  width: 80%;
+  margin: 1em auto;
+}
+
+span {
+  color: blue;
+  background-color: #eeeeee;
+}
+
+/* 实用类 || */
+
+/* 布局 || */
+
+header {
+  width: 100%;
+  text-align: center;
+  border: 2px solid black;
+  box-shadow: 3px 3px 4px gray;
+  margin: 1em auto;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+main {
+  width: 100%;
+  margin: 1em auto;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 3px 3px 4px gray;
+}
+
+article {
+  width: 90%;
+  margin: 1em auto;
+  padding: 1em;
+  border-bottom: black solid 2px;
+}
+
+
+/* 特定类 ||*/
+
+.lizi {
+  width: 93%;
+  margin: 1em auto;
+  border: 2px solid aqua;
+  padding: 1em;
+}
+
+.part {
+  width: 99%;
+  margin: 1em auto;
+  border-top: 1em dashed gray;
+}
