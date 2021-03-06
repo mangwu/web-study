@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="mangwu">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="../../CSSTextStyling/LinkText/images/pinned-octocat.svg">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>弹性盒子</title>
+  </head>
+  <body>
+    <header>
+      <h1>
+        弹性盒子
+      </h1>
+    </header>
+    <nav>
+      <div>
+        <a href="#index">弹性盒子</a>
+      </div>
+      <div>
+        <a href="#1">一个例子</a>
+      </div>
+      <div>
+        <a href="#3">flex模型</a>
+      </div>
+    </nav>
+    <main>
+
+      <article>
+        <h2>
+          <a name="1">
+            1.弹性盒子作用
+          </a>
+        </h2>
+        <p>
+          CSS布局中长期跨浏览器兼容的布局技术是float和positioning；但是它们有一些局限性：
+          <ul>
+            <li>
+              在父内容里垂直居中一个块内容
+            </li>
+            <li>
+              使容器的所有子项占用等量的可用宽度/高度
+            </li>
+            <li>
+              使多列布局中所有列采取相同高度，即使包含的内容量不同
+            </li>
+          </ul>
+        </p>
+      </article>
+      <article>
+        <h2>
+          <a name="2">
+            2.一个例子
+          </a>
+        </h2>
+        <p>
+          使用<span>display:flex</span>可以指定元素布局为flexible
+        </p>
+        <div class="lizi">
+          <section>
+            <div>
+              <h3>First article</h3>
+      
+              <p>Tacos actually microdosing, normcore hashtag polaroid single-origin coffee cold-pressed. PBR&B tattooed trust fund twee,  goth gastropub hammock.</p>
+            </div>
+      
+            <div>
+              <h3>Second article</h3>
+      
+              <p>Tacos actually microdosing, pour-over semiotics banjo cgastropub hammock.</p>
+            </div>
+      
+            <div>
+              <h3>Third article</h3>
+      
+              <p> PBR&B tattooed trust fund twee, leggings stropub hammock.</p>
+      
+              <p>Cray food truck brunch, ch paleo 8-biparty.</p>
+            </div>
+          </section>
+        </div>
+      </article>
+      <article>
+        <h2>
+          <a name="3">3.flex模型说明</a>
+        </h2>
+        <p>
+          flex模型沿两个轴来布局：
+          <ul>
+            <li>
+              <strong>主轴</strong>main axis,flex项放置方向
+            </li>
+          </ul>
+        </p>
+      </article>
+    </main>
+  </body>
+</html>

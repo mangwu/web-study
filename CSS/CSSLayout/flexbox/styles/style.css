@@ -1,0 +1,129 @@
+/* 基础设置 || */
+
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+/* 大体样式 || */ 
+
+body {
+  font-size: 2.6rem;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 auto;
+  background-image: url(../images/background.bc725153.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+}
+
+p {
+  line-height: 1.4;
+  text-indent: 1.4em;
+}
+
+ul,
+ol {
+  line-height: 1.4;
+  width: 92%;
+  margin: 0 auto;
+}
+
+span {
+  color: blue;
+  background-color: #eeeeee;
+}
+
+/* 实用类 || */
+
+
+/* 基本布局 || */
+
+header h1 {
+  text-indent: 3em;
+  color: white;
+  background-image: url(../images/edaa5977e1e9d1807b4b608074dac3076bc07ca1.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.5em;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+  
+}
+
+article {
+  flex: 480px;
+  padding: 1em;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 20%;
+  left: 95%;
+  font-size: 1.5rem;
+  border: gray 1px solid;
+  border-radius: 4px;
+  background-color: white;
+}
+
+nav div {
+  display: inline-block;
+  padding: 2px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+nav div a {
+  text-decoration: none;
+}
+
+nav div a:link {
+  background-color: white;
+  padding: 2px;
+  border-radius: 4px; 
+}
+
+nav div a:hover {
+  background-color: wheat;
+}
+
+nav div a:focus {
+  background-color: violet;
+}
+
+nav div a:active {
+  background-color: yellow;
+}
+
+/* 特定类 || */
+
+.lizi {
+  width: 96%;
+  margin: 1em auto;
+  border: aqua 2px solid;
+  border-radius: 5px;
+}
+
+.lizi section {
+  display: flex;
+  font-size: 1.6rem;
+  padding: 1rem;
+}
+
+
