@@ -11,7 +11,8 @@
   <body>
     <header>
       <h1>
-        弹性盒子
+        <a name="index">弹性盒子</a>
+        
       </h1>
     </header>
     <nav>
@@ -19,10 +20,34 @@
         <a href="#index">弹性盒子</a>
       </div>
       <div>
-        <a href="#1">一个例子</a>
+        <a href="#2">一个例子</a>
       </div>
       <div>
         <a href="#3">flex模型</a>
+      </div>
+      <div>
+        <a href="#4">主轴方向</a>
+      </div>
+      <div>
+        <a href="#5">换行</a>
+      </div>
+      <div>
+        <a href="#6">flex-flow</a>
+      </div>
+      <div>
+        <a href="#7">flex尺寸</a>
+      </div>
+      <div>
+        <a href="#8">flex属性值</a>
+      </div>
+      <div>
+        <a href="#9">对齐</a>
+      </div>
+      <div>
+        <a href="#10">flex项排序</a>
+      </div>
+      <div>
+        <a href="#11">flex嵌套</a>
       </div>
     </nav>
     <main>
@@ -89,9 +114,374 @@
           flex模型沿两个轴来布局：
           <ul>
             <li>
-              <strong>主轴</strong>main axis,flex项放置方向
+              <strong>主轴</strong>main axis, flex项的放置方向, 主轴的开始和借宿被称为main start, main end
+            </li>
+            <li>
+              <strong>交叉轴</strong> cross axis, 垂直于flex元素放置的轴, 交叉轴开始和结束被称为cross start 和cross end
+            </li>
+            <li>
+              <span>display: flex</span>的父元素被称为flex容器(container)
+            </li>
+            <li>
+              flex容器中的直接子元素被称为<strong>flex项</strong>(flex item)
             </li>
           </ul>
+          <img src="../flexbox/images/flex_terms.png" alt="flex模型" class="flex">
+        </p>
+      </article>
+      <article>
+        <h2>
+          <a name="4">4.主轴方向</a>
+        </h2>
+        <p>
+          flexbox提供了属性<span>flex-drection</span>指明主轴方向，默认值为<span>row</span>按照语言方向排列。
+          除此之外还有如下值:
+          <ul>
+            <li>
+              <span>column</span>,列布局，从上到下排列
+            </li>
+            <li>
+              <span>row-reverse</span>,行布局，排列方向与语言方向相反
+            </li>
+            <li>
+              <span>column-reverse</span>,列布局，排列方向从下到上.如下
+            </li>
+          </ul>
+          
+          <div class="lizi">
+            <section class="column">
+              <div>
+                <h3>First article</h3>
+        
+                <p>Tacos actually microdosing, normcore hashtag polaroid single-origin coffee cold-pressed. PBR&B tattooed trust fund twee,  goth gastropub hammock.</p>
+              </div>
+        
+              <div>
+                <h3>Second article</h3>
+        
+                <p>Tacos actually microdosing, pour-over semiotics banjo cgastropub hammock.</p>
+              </div>
+        
+              <div>
+                <h3>Third article</h3>
+        
+                <p> PBR&B tattooed trust fund twee, leggings stropub hammock.</p>
+        
+                <p>Cray food truck brunch, ch paleo 8-biparty.</p>
+              </div>
+            </section>
+          </div>
+          
+        </p>
+      </article>
+      <article>
+        <h2>
+          <a name="5">5.换行</a> 
+        </h2>
+        <p>
+          如果flex项过多，不仅会占据满整行，而且会溢出导致超出容器，增加横向滚动条。
+          当flex项过多时，可以使用<span>flex-wrap: wrap</span>定义容器，让其直接子元素在溢出时自动换行。
+          同时可以对直接子元素使用<span>flex: 300px;</span>等对子元素宽度做出限制，意味着其宽度至少为300px；
+        </p>
+        <p>
+          本html文档页面布局使用了上述的属性，只是<span>flex: 480px</span>有所不同。
+        </p>
+      </article>
+      <article>
+        <h2>
+          <a name="6">
+            6.flex-flow缩写
+          </a>
+        </h2>
+        <p>
+          应当知道<span>flex-direction</span>和<span>flex-wrap</span>有缩写<span>flex-flow</span>，表示弹性盒子文档流的基本属性。
+          横向流还是纵向流，自动换行或列还是不换行和列。一般而言是这样的：<span>flex-flow: row wrap;</span>
+        </p>
+      </article>
+      <article>
+        <h2>
+          <a name="7">
+            7.flex项的动态尺寸
+          </a>
+        </h2>
+        <p>
+          <span>flex</span>的属性值可以对flex项的尺寸进行动态调整。
+          当<span>flex: 1;</span>时表示每个flex项同宽，占用在设置<span>padding</span>,
+          和<span>margin</span>后的剩余空间，如下，即使设置了<span>flex-wrap: wrap</span>,
+          它也会尽量在不换行的情况下保持等宽，除非内容过多。
+          <div class="lizi">
+            <section class="flex1">
+              <div>
+                <h3>First article</h3>
+        
+                <p>Tacos actually microdosing, normcore hashtag polaroid single-origin coffee cold-pressed. PBR&B tattooed trust fund twee,  goth gastropub hammock.</p>
+              </div>
+        
+              <div>
+                <h3>Second article</h3>
+        
+                <p>Tacos actually microdosing, pour-over semiotics banjo cgastropub hammock.</p>
+              </div>
+        
+              <div>
+                <h3>Third article</h3>
+        
+                <p> PBR&B tattooed trust fund twee, leggings stropub hammock.</p>
+        
+                <p>Cray food truck brunch, ch paleo 8-biparty.</p>
+              </div>
+              <div>
+                <h3>Third article</h3>
+        
+                <p> PBR&B tattooed trust fund twee, leggings stropub hammock.</p>
+        
+                <p>Cray food truck brunch, ch paleo 8-biparty.</p>
+              </div>
+              <div>
+                <h3>Third article</h3>
+        
+                <p> PBR&B tattooed trust fund twee, leggings stropub hammock.</p>
+        
+                <p>Cray food truck brunch, ch paleo 8-biparty.</p>
+              </div>
+            </section>
+          </div>
+        </p>
+        <p>
+          可以单独给几个子元素设置<span>display: 2;</span>，这样这个元素就相当于其他元素的两倍宽度，
+          其他元素仍然等宽。如下：
+          <div class="lizi">
+            <section class="flex2">
+              <div>
+                <h3>First article</h3>
+        
+                <p>Tacos actually microdosing, normcore hashtag polaroid single-origin coffee cold-pressed. PBR&B tattooed trust fund twee,  goth gastropub hammock.</p>
+              </div>
+        
+              <div>
+                <h3>Second article</h3>
+        
+                <p>Tacos actually microdosing, pour-over semiotics banjo cgastropub hammock.</p>
+              </div>
+        
+              <div>
+                <h3>Third article</h3>
+        
+                <p> PBR&B tattooed trust fund twee, leggings stropub hammock.</p>
+        
+                <p>Cray food truck brunch, ch paleo 8-biparty.</p>
+              </div>
+              <div>
+                <h3>Third article</h3>
+        
+                <p> PBR&B tattooed trust fund twee, leggings stropub hammock.</p>
+        
+                <p>Cray food truck brunch, ch paleo 8-biparty.</p>
+              </div>
+            </section>
+          </div>
+        </p>
+      </article>
+      <article>
+        <h2>
+          <a name="8">8.flex属性值</a>
+        </h2>
+        <p>
+          上述中flex的属性值有宽度最小值，无单位比例值等，它们是可以一起赋予flex使用的，如<span>flex:2 840px</span>;
+          flex属性值有三项，可以简写：
+          <ul>
+            <li>
+              无单位比例，可以使用<span>flex-grow</span>单独指定
+            </li>
+            <li>
+              <span>flex-shrink</span>，也是无单位比例，用于溢出容器的flex项,取出一定溢出量防止溢出。高级弹性盒子，少用
+            </li>
+            <li>
+              <span>flex-basis</span>，宽度最小值。三个值一般不分开写，用<span>flex</span>已经足够了
+            </li>
+          </ul>
+        </p>
+      </article>
+      <article>
+        <h2>
+          <a name="9">9.对齐</a>
+        </h2>
+        <p>
+          上面所有例子中的flex项因为内容多，占据整个宽度，所以不需要特定布局。但是对于宽度大于内容宽度时，
+          就需要对flex项进行对齐处理。以下是一个未对齐例子:
+          <div class="lizi">
+            <div class="align">
+              <button>one</button>
+              <button>two</button>
+              <button>three</button>
+              <button>four</button>
+            </div>
+          </div>
+        </p>
+        <p>
+          使用<span>align-items</span>对flex项在交叉轴上对齐：
+          <ul>
+            <li>
+              <span>stretch</span>,默认值，如上例子中所示，它会使flex项沿着交叉轴的方向拉伸以填充父元素，
+              如果父元素没有固定高度，就拉伸到同样的高度（与最高的flex项保持一致）
+            </li>
+            <li>
+              <span>center</span>,保持原有高度，但是会在交叉轴居中，设置按钮垂直居中很有用
+            </li>
+            <li>
+              <span>flex-start,flex-end</span>,使flex项在交叉轴的开始或结束位置对齐
+            </li>
+          </ul>
+          <div class="lizi">
+            <div class="align center">
+              <button>one</button>
+              <button>two</button>
+              <button>three</button>
+              <button>four</button>
+              <button>center</button>
+            </div>
+            <div class="align flex-end">
+              <button>one</button>
+              <button>two</button>
+              <button>three</button>
+              <button>four</button>
+              <button>flex-end</button>
+            </div>
+          </div>
+        </p>
+        <p>
+          <span>align-self</span>属性可以对单个flex项使用，覆盖父元素的<span>align-item</span>属性，
+          其属性值和<span>align-item</span>一样。
+          <div class="lizi">
+            <div class="align self">
+              <button>one</button>
+              <button>two</button>
+              <button>three</button>
+              <button>four</button>
+              <button>flex-start</button>
+            </div>
+          </div>
+        </p>
+        <p>
+          控制flex项在主轴位置的属性是<span>justify-content</span>，其属性值有:
+          <ul>
+            <li>
+              <span>flex-start</span>,默认值，从主轴开始处排列
+            </li>
+            <li>
+              <span>flex-end</span>,让flex项右对齐（结尾处）
+            </li>
+            <li>
+              <span>center</span>,在主轴居中
+            </li>
+            <li>
+              <span>space-around</span>，沿主轴均匀分布，很有用
+            </li>
+            <li>
+              <span>space-between</span>,不在两端留下空间的均匀分布
+            </li>
+          </ul>
+         
+          <div class="lizi">
+            <div class="align center justify-center">
+              <button>one</button>
+              <button>two</button>
+              <button>three</button>
+              <button>four</button>
+              <button>center center</button>
+            </div>
+            <div class="align center justify-space-around">
+              <button>one</button>
+              <button>two</button>
+              <button>three</button>
+              <button>four</button>
+              <button>center space-around</button>
+            </div>
+            <div class="align center justify-between-around">
+              <button>one</button>
+              <button>two</button>
+              <button>three</button>
+              <button>four</button>
+              <button>center between-around</button>
+            </div>
+            <div class="align center margin">
+              <button>one</button>
+              <button>two</button>
+              <button>three</button>
+              <button>four</button>
+              <button>center margin:0 auto</button>
+            </div>
+          </div>
+          
+        </p>
+        <p>
+          上面的例子中,最后一个显示的和space-around一样，但是盒子模型不一样，<span>margin:0 auto;</span>
+          是直接对flex项进行的样式，盒子模型中的左右间距是中间的空白横向距离。而对容器使用<span>justify-content: space-around</span>
+          不会使容器的直接子元素的margin改变，而是会让容器处理其直接子元素的对齐方式
+        </p>
+
+      </article>
+      <article>
+        <h2>
+          <a name="10">10.flex项排序</a>
+          
+        </h2>
+        <p>
+          flexbox中有<span>order</span>属性可以改变flex项的布局顺序，但是不会影响到源顺序(dom树中的顺序)；
+          所有flex项的<span>order</span>属性默认值为0，其实现布局排序细节如下：
+          <ul>
+            <li>
+              <span>order</span>值大的flex项显示顺序靠后
+            </li>
+            <li>
+              <span>order</span>值相同的flex项按照源顺序显示
+            </li>
+            <li>
+              <span>order</span>值可以是负数，让它比值为0的元素排列的靠前
+            </li>
+          </ul>
+          <div class="lizi">
+            <div class="align center justify-space-around order">
+              <button>one 0</button>
+              <button>two 1</button>
+              <button>three -1</button>
+              <button>four 0</button>
+              <button>center space-around 0</button>
+            </div>
+          </div>
+        </p>
+      </article>
+      <article>
+        <h2>
+          <a name="11">11.flex嵌套</a>
+        </h2>
+        <p>
+          flexbox里的flex项仍然可以设置<span>display: flex;</span>作为flexbox容器装下自己的flex直接子项，
+          并且有自己的flex属性。
+          <div class="lizi">
+            <section class="flex2">
+              <div>
+                <h3>First article</h3>
+        
+                <p>Tacos actually microdosing, normcore hashtag polaroid single-origin coffee cold-pressed. PBR&B tattooed trust fund twee,  goth gastropub hammock.</p>
+              </div>
+        
+              <div>
+                <h3>Second article</h3>
+        
+                <p>Tacos actually microdosing, pour-over semiotics banjo cgastropub hammock.</p>
+              </div>
+        
+              <div class="complex">
+                <h3>Third article</h3>
+        
+                <div class="align center justify-space-around">
+                  <button>one</button>
+                  <button>center space-around</button>
+                </div>
+              </div>
+            </section>
+          </div>
         </p>
       </article>
     </main>

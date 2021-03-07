@@ -16,7 +16,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0 auto;
   background-image: url(../images/background.bc725153.png);
-  background-repeat: no-repeat;
   background-attachment: fixed;
   
 }
@@ -63,11 +62,22 @@ main {
 }
 
 article {
-  flex: 480px;
+  flex: 1 40%;
   padding: 1em;
   margin: 10px;
   border-radius: 10px;
   background-color: white;
+}
+
+main article:nth-child(7) {
+  flex: 2 70%;
+}
+main article:nth-child(8) {
+  flex: 1 25%;
+}
+
+main article:nth-child(9) {
+  flex: 2 90%;
 }
 
 nav {
@@ -118,6 +128,7 @@ nav div a:active {
   margin: 1em auto;
   border: aqua 2px solid;
   border-radius: 5px;
+  padding: 0.5em;
 }
 
 .lizi section {
@@ -126,4 +137,100 @@ nav div a:active {
   padding: 1rem;
 }
 
+img.flex {
+  display: inline-block;
+  width: 70%;
+  margin: 1em auto;
+  margin-left: 15%;
+}
 
+.lizi .column {
+  flex-direction: column-reverse;
+}
+
+.lizi .flex1 {
+  flex-flow: row wrap;
+}
+.lizi .flex1 div{
+  flex: 1;
+}
+
+.lizi .flex2 {
+  flex-flow: row wrap;
+}
+.lizi .flex2 div {
+  flex: 1;
+}
+.lizi .flex2 div:nth-of-type(3) {
+  flex: 2;
+}
+
+.lizi .align {
+  display: flex;
+  height: 80px;
+  border: 1px solid gray;
+}
+.lizi .align button {
+  width: 15%;
+  margin: 2px;
+}
+
+.lizi .align.center {
+  align-items: center;
+}
+
+.lizi .align.flex-end {
+  align-items: flex-end;
+}
+
+.lizi .align.self {
+  align-items: center;
+}
+
+.lizi .align.self button:nth-child(5){
+  align-self: flex-start;
+}
+
+.lizi .align.justify-center {
+  justify-content: center;
+}
+
+.lizi .align.justify-space-around {
+  justify-content: space-around;
+}
+
+.lizi .align.justify-between-around {
+  justify-content: space-between;
+}
+
+.lizi .align.center.margin button{
+  margin: 0 auto;
+}
+
+.lizi .align.justify-space-around.order button:nth-child(3) {
+  order: -1;
+}
+.lizi .align.justify-space-around.order button:nth-child(2) {
+  order: 1;
+}
+
+.lizi .flex2 .complex {
+  display: flex;
+  flex-flow: column-reverse wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.lizi .flex2 .complex .align {
+  all: unset;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 30%;
+  width: 80%;
+}
+
+.lizi .flex2 .complex .align button:nth-child(2) {
+  width: 50%;
+}
