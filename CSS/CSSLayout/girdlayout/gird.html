@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="mangwu">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="shortcut icon" href="../../CSSTextStyling/LinkText/images/pinned-octocat.svg" type="icon/svg">
+    <title>
+      网格布局
+    </title>
+  </head>
+  <body>
+    <header>
+      <h1>
+        网格布局
+      </h1>
+    </header>
+    <nav>
+      <div>
+        <a href="#1">网格布局</a>
+      </div>
+      <div>
+        <a href="#2">创建网格</a>
+      </div>
+      <div>
+        <a href="#3">fr单位</a>
+      </div>
+      <div>
+        <a href="#4">网格间隙</a>
+      </div>
+      <div>
+        <a href="#5">repeat()</a>
+      </div>
+      <div>
+        <a href="#6">隐式网格</a>
+      </div>
+      <div>
+        <a href="#7">minmax()</a>
+      </div>
+      <div>
+        <a href="#8">多列填充</a>
+      </div>
+      <div>
+        <a href="#9">元素放置</a>
+      </div>
+      <div>
+        <a href="#10">gridarea</a>
+      </div>
+      <div>
+        <a href="#11">网络排版</a>
+      </div>
+    </nav>
+    <main>
+      <article>
+        <h2>
+          <a name="1">1.网格布局</a>
+        </h2>
+        <p>
+          网格由一系列水平和垂直的线构成的布局模式，网格布局模式：
+          <ul>
+            <li>
+              <span>row</span>,<span>column</span>,网格的行和列，重合区域为一个格子
+            </li>
+            <li>
+              沟槽，gutter，行与行，列与列之间的间隙
+            </li>
+          </ul>
+        </p>
+      </article>
+      <article>
+        <h2>
+          2.创建网格
+        </h2>
+        <p>
+          使用<span>display: grid;</span>设置一个容器布局方式为网格布局，其直接子元素都会变为网格项。
+          与flexbox不同，只声明grid不会有变化，因为grid布局默认只声明一列表格，子项会像正常布局流一样上下布局。
+          可以通过属性<span>grid-template-columns</span>定位列数和列宽
+        </p>
+        <div class="lizi">
+          <div class="wrapper">
+            <div>
+              one
+            </div>
+            <div>
+              two
+            </div>
+            <div>
+              three
+            </div>
+            <div>
+              four
+            </div>
+          </div>
+        </div>
+      </article>
+      <article>
+        <h2>
+          <a name="3">
+            3.fr单位
+          </a>
+        </h2>
+        <p>
+          对于<span>grid-template-columns/rows</span>的属性值，其除了可以使用<span>200px 200px</span>或者
+          <span>32% 32% 32%</span>之类的绝对值宽度和百分比宽度外，还可以使用fr抽象单位,表示网格列之间的宽度比例。
+          例如<span>1fr 1fr 1fr</span>就是3个等比例宽度的网格列，fr单位可以和绝对长度单位公用，如<span>300px 1fr 2fr</span>,
+          表示第一列为300px，剩下两列按照1 : 2比例分配容器剩余空间
+          <div class="lizi">
+            <div class="wrapper fr">
+              <div>
+                one 50%
+              </div>
+              <div>
+                two 3fr
+              </div>
+              <div>
+                three 2fr
+              </div>
+              <div>
+                four
+              </div>
+            </div>
+          </div>
+        </p>
+      </article>
+      <article>
+        <h2>
+          <a name="4">4.网格间隙</a>
+        </h2>
+        <p>
+          <span>grid-column-gap</span>定义列间距，<span>grid-row-gap</span>定义行间距，间距可以用任何单位和百分比，不能用fr
+          可以使用<span>grid-gap</span>定义相同行列间距
+          <div class="lizi">
+            <div class="wrapper gap">
+              <div>
+                one row-gap: 3px
+              </div>
+              <div>
+                two
+              </div>
+              <div>
+                three
+              </div>
+              <div>
+                four column-gap: 3px
+              </div>
+            </div>
+          </div>
+        </p>
+      </article>
+      <article>
+        <h2>
+          <a name="5">5.行列构建简写</a>
+        </h2>
+        <p>
+          使用<span>repeat</span>来重复列的宽度配置，如<span>grid-template-columns: repeat(3, 1fr);</span>,
+          其含义和<span>1fr 1fr 1fr</span>相同,表示创建3个相同宽度的列。
+        </p>
+        <p>
+          repeat(n , y);n表示后续列宽配置重复多少次，y表示要重复的构建配置。如<span>repeat(2, 1fr 2fr);</span>,
+          表示构建合并两次1fr 2fr，即1fr 2fr 1fr 2fr;
+        </p>
+      </article>
+      <article>
+        <h2>
+          <a name="6">6.隐式网格</a>
+        </h2>
+        <p>
+          使用<span>grid-template-columns/rows</span>创建的网格都是显示的，之前的例子都是使用<span>grid-template-columns</span>
+          ,没有设定rows，rows的大小是根据放入的内容自动调整的，可以使用<span>grid-auto-rows/columns</span>手动设定隐式网格大小：
+          <div class="lizi">
+            <div class="wrapper auto-rows">
+              <div>
+                one 40px
+              </div>
+              <div>
+                two
+              </div>
+              <div>
+                three
+              </div>
+              <div>
+                four 60px
+              </div>
+            </div>
+          </div>
+        </p>
+      </article>
+      <article>
+        <h2>
+          <a name="7">
+            7.minmax()函数
+          </a>
+        </h2>
+        <p>
+          <span>minmax()</span>函数设置尺寸取值范围,如minmax(30px, 60px),那么长度范围在30-60px之间。默认使用最大值60px
+          可以使用auto对最大值或最下值不做限制。如下，对<span>grid-auto-rows</span>使用<span>minmax()</span>函数。
+          <div class="lizi">
+            <div class="wrapper minmax">
+              <div>
+              </div>
+              <div>
+                min-height: 30px;
+                max-height:100px;
+                <br>minmax(50px, 120px)
+              </div>
+            </div>
+          </div>
+        </p>
+      </article>
+      <article>
+        <h2>
+          <a name="8">
+            8.多列填充
+          </a>
+        </h2>
+        <p>
+          使用<span>repeat()</span>和<span>minmax()</span>函数实现自动多列填充。
+          <span>grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));</span>
+          auto-fill:用来替换确定的重复次数，只要有容器有足够就会重复填充。
+          minmax(200px, 1fr)，每列宽至少200px，最大1fr。直到填充满列，宽度都大于200px，且宽度相等。
+          <div class="lizi">
+            <div class="wrapper auto-fill">
+              <div>
+                one
+              </div>
+              <div>
+                two
+              </div>
+              <div>
+                three
+              </div>
+              <div>
+                four
+              </div>
+              <div>
+                five
+              </div>
+              <div>
+                six
+              </div>
+              <div>
+                seven
+              </div>
+              <div>
+                eight
+              </div>
+            </div>
+          </div>
+        </p>
+        <p>
+          上面的例子minmax(110px, 1fr),检查源可以看到其宽度为123px，符合在等宽且宽度大于100px情况下自动多列填充
+        </p>
+      </article>
+      <article>
+        <h2>
+          <a name="9">9.元素放置</a>
+        </h2>
+        <p>
+          每个网格格子用分隔线分隔第一条列分隔线在最左边，第一条行分隔线在网格最上面，根据分隔线放置元素。
+          例如想要把元素放置在一行的第二个和第三个格子中，那么是从列分隔线的第二条开始，到列分隔线的第四条结束，即
+          <strong>2 / 4</strong>。指示开始结束的属性为:
+          <ul>  
+            <li>
+              <span>
+                grid-column-start
+              </span>
+              列分割线开始
+            </li>
+            <li>
+              <span>
+                grid-column-end
+              </span>
+              列分隔线结束
+            </li>
+            <li>
+              <span>
+                grid-row-start
+              </span>
+              行分割线开始
+            </li>
+            <li>
+              <span>
+                grid-row-end
+              </span>
+              行分隔线结束
+            </li>
+          </ul>
+          可以使用它们的缩写:<span>grid-column</span>和<span>grid-row</span>，属性值为 开始序号 / 结束序号
+          <div class="lizi">
+            <div class="wrapper place">
+              <div>
+                one
+              </div>
+              <div>
+                two
+              </div>
+              <div>
+                three
+              </div>
+              <div>
+                four
+              </div>
+              <div>
+                five
+              </div>
+            </div>
+          </div>
+        </p>
+        <p>
+          序号值可以为负数，表示从下到上，或从右到左数的分隔线。如-1就是最后一行的分隔线或者最右边的一列的分隔线
+        </p>
+      </article>
+      <article>
+        <h2>
+          <a name="10">
+            10.grid-template-areas
+          </a>
+        </h2>
+        <p>
+          除了使用分隔线放置元素外，还可以使用<span>grid-template-areas</span>属性设置元素位置。
+          其用法通过在容器选择器中设置每个网格的行列名称，然后再使用<span>grid-area</span>属性对grid网格元素
+          进行赋值（设置的行列名称）以指定放置的网格位置。如:<span>grid-template-areas: "a a" "b c" "f f";
+            grid-template-columns: 1fr 3fr;
+          </span>将容器分为6个网格，a占用一行4fr，b占用第二行的1fr，c占用第二行的3fr，f占用最后一行的4fr。
+          <div class="lizi">
+            <div class="areas">
+              <div>
+                one
+              </div>
+              <div>
+                two
+              </div>
+              <div>
+                three
+              </div>
+              <div>
+                four
+              </div>
+            </div>
+          </div>
+          </div>
+        </p>
+        <p>
+          注意在对容器的直接子元素使用<span>grid-area</span>属性指定位置时，不要使用引号，如例子中的three:
+          <span>grid-area: content;</span>；需要一个空白格子时，使用"."符号
+        </p>
+      </article>
+      <article>
+        <h2>
+          <a name="11">11.网络排版架构</a>
+        </h2>
+        <p>
+          网络排版框架一般由12到16的网格构成，然后根据元素放置位置进行布局。通常header元素，放在第一行，
+          aside元素放在第二行的前几列，main元素放在第二行后几列，最后一行放置footer元素
+        </p>
+        <div class="lizi">
+          <div class="container">
+            <header>This is my lovely blog</header>
+            <div class="content">
+                    <h1>My article</h1>
+                    <p>Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.</p>
+    
+                    <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            </div>
+            <aside><h2>Other things</h2>
+                <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est.</p></aside>
+            <footer>Contact me@mysite.com</footer>
+        </div>
+        </div>
+      </article>
+    </main>
+  </body>
+
+</html>

@@ -1,0 +1,291 @@
+/* 基础设置 || */
+
+@font-face {
+  font-family: "kaiti";
+  src: url(../fonts/全字库正楷体.ttf)
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+  font-family: "kaiti",Arial, Helvetica, sans-serif;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+/* 大体样式 || */
+
+body {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 1.9rem;
+  line-height: 1.4;
+  
+}
+
+p {
+  width: 96%;
+  margin: 1em auto;
+  text-indent: 1.4em;
+}
+
+ul {
+  width: 90%;
+  margin: 1em auto;
+  line-height: 1.5;
+}
+
+span {
+  color: blue;
+  background-color: #eeeeee;
+}
+
+/* 实用类 || */
+
+
+/* 布局 || */
+
+header {
+  padding: 1em;
+  width: 100%;
+  min-height: 165px;
+  height: 8.775vw;
+  margin: 0 auto;
+  background-image: url(../images/edaa5977e1e9d1807b4b608074dac3076bc07ca1.png);
+  background-position: center 0;
+  background-size: cover;
+  background-color: rgba(240, 240, 240, 0.2);
+  background-repeat: no-repeat;
+}
+
+header h1 {
+  color: aliceblue;
+  font-size: 2.4em;
+  width: 80%;
+  margin:0 auto;
+  margin-top: 5%;
+}
+
+nav {
+  position: fixed;
+  top:30%;
+  left: 92%;
+  display: flex;
+  flex-flow: wrap column;
+  justify-content: center;
+  align-items: center;
+  background-color: #dddddd;
+  border-radius: 5px;
+}
+
+nav div {
+  
+  display: inline-block;
+  width: 4.45em;
+  text-align: center;
+}
+
+nav div a {
+  text-decoration: none;
+  background-color: #dddddd;
+  color: chocolate;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+nav div a:visited {
+  color:red;
+}
+
+nav div a:hover {
+  background-color: sandybrown;
+}
+
+nav div a:active {
+  color: aliceblue;
+}
+
+main {
+  width: 84%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 1%;
+  grid-row-gap: 1%;
+}
+
+main article {
+  border: 1px solid rgb(127, 125, 248);
+  border-radius: 15px;
+  padding: 0.3em;
+}
+
+main article:nth-child(2) {
+  grid-column: 2 / 4;
+}
+
+main article:nth-child(3) {
+  grid-column: 1 / 3;
+}
+
+main article:nth-child(8) {
+  grid-column: 1 / 3;
+}
+
+main article:nth-child(9) {
+  grid-row: 5;
+  grid-column: 1 / 3;
+}
+
+main article:nth-child(10) {
+  grid-row: 4 / 6;
+  grid-column: 3;
+}
+
+main article:nth-child(11) {
+  grid-column: 1 / 4;
+}
+
+/* 特定类 || */
+
+.lizi {
+  width: 97%;
+  min-height: 50px;
+  margin: 0.5em auto;
+  padding: 0.3em;
+  border-radius: 5px;
+  border: 1px solid aquamarine;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 32% 32% 32%;
+  margin: 0 auto;
+  grid-gap: 1%;
+  column-gap: 1%;
+  row-gap: 3%;
+  text-align: center;
+}
+
+.wrapper div {
+  background-color: rgb(133, 233, 200);
+  border: 2px solid rgb(11, 216, 148);
+  border-radius: 5px;
+}
+
+.wrapper.fr {
+  grid-template-columns: 50% 3fr 2fr;
+}
+
+.gap {
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3px;
+  row-gap: 3px;
+}
+
+.wrapper.auto-rows {
+  grid-auto-rows: 40px 60px;
+  justify-content: center;
+
+}
+
+.wrapper.minmax {
+  grid-auto-rows: minmax(50px, 120px);
+}
+
+.wrapper.auto-fill {
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+}
+
+.wrapper.place div:nth-child(3) {
+  grid-column: 2;
+  grid-row: 1 / 3;
+}
+
+.wrapper.place div:nth-child(2) {
+  grid-row: 3;
+  grid-column: 2 / 4;
+}
+
+.wrapper.place div:nth-child(4) {
+  grid-row: 1 / 3;
+  grid-column: 3;
+}
+
+.areas {
+  display: grid;
+  grid-template-areas: 
+      "header header"
+      "sidebar content"
+      "sidebar content"
+      "footer footer";
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  border-radius: 5px;
+}
+
+.areas div {
+  background-color: rgb(133, 233, 200);
+  border: 2px solid rgb(11, 216, 148);
+}
+
+.areas div:nth-child(1) {
+  grid-area: header
+}
+
+.areas div:nth-child(2) {
+  grid-area: sidebar;
+}
+
+.areas div:nth-child(3) {
+  grid-area: content;
+}
+
+.areas div:nth-child(4) {
+  grid-area: footer;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-gap: 10px;
+}
+
+.container header,
+.container footer {
+  all:unset;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: rgb(207,232,220);
+  border: 2px solid rgb(79,185,227);
+}
+
+.container aside {
+  border-right: 1px solid #999;
+  width: 97%;
+  margin: 0 auto;
+
+}
+
+.container header {
+  grid-column: 1 / 13;
+  grid-row: 1;
+}
+
+.container .content {
+  grid-column: 5 / 13;
+  grid-row: 2;
+}
+
+.container aside {
+  grid-column: 1 / 5;
+  grid-row: 2;
+}
+
+.container footer {
+  grid-row: 3;
+  grid-column: 1 / 13;
+}
