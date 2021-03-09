@@ -1,0 +1,59 @@
+/* 特定类 || */
+
+.lizi {
+  width: 90%;
+  margin: 1em auto;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: 1px solid aqua;
+}
+
+.lizi .web, .web2 {
+  text-indent: 0;
+  display: inline-block;
+  width: max-content;
+  border: 2px solid rgb(30, 247, 10);
+  background-color: rgb(176, 253, 169);
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 3px 10px;
+  text-align: center;
+  letter-spacing: 1px;
+  box-shadow: 2px 2px 2px rgba(0, 200, 0, 0.4);
+  cursor: pointer;
+}
+
+span {
+  background-color: #eeeeee;
+}
+
+span.value {
+  color:red;
+}
+
+span.variable {
+  color: rebeccapurple;
+} 
+
+span.property {
+  color: blue;
+}
+
+main article:nth-of-type(3) img {
+  display: block;
+  width: 80%;
+  margin: 1em auto;
+}
+
+button.inlinejs,
+button.internaljs,
+button.outjs {
+  width: 20%;
+  margin: 1em auto;
+  padding: 0.5em;
+  background-color: rgb(209, 255, 139);
+  border: 2px solid rgb(153, 255, 0);
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}

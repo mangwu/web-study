@@ -3,7 +3,7 @@
   <head>  
     <meta charset="utf-8">
     <meta name="author" content="mangwu">
-    <meta name="viewport" content="width-device-width">
+    <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="../../src/styles/base-style.css">
     <link rel="shortcut icon" href="../../src/images/pinned-octocat.svg">
@@ -23,13 +23,16 @@
               <a href="#1">广义定义</a>
             </li>
             <li>
-              <a href="#1">介绍</a>
+              <a href="#2">作用</a>
             </li>
             <li>
-              <a href="#1">介绍</a>
+              <a href="#3">代码运行</a>
             </li>
             <li>
-              <a href="#1">介绍</a>
+              <a href="#4">引入</a>
+            </li>
+            <li>
+              <a href="#5">注释</a>
             </li>
           </ul>
         </nav>
@@ -61,24 +64,365 @@
             交互性更强。<strong>JavaScript是Web技术蛋糕的第三层。</strong>Web技术蛋糕的三层是:
             <ul>
               <li>
-                <abbr title="超文本标记语言">HTML</abbr>是一种标记语言，用来结构化网页内容并赋予含义
-              
+                <abbr title="超文本标记语言">HTML</abbr>是一种标记语言，用来结构化网页内容并赋予含义。
+                例如段落，标题，页面中的图片，视频等。
+              </li>
+              <li>
+                <abbr title="层叠样式表">CSS</abbr>是一种样式规则语言，用来样式化网页元素，为网页构建布局。
+              </li>
+              <li>
+                <abbr title="JavaScript">JavaScript</abbr>使一种脚本语言，可以用来创建动态更新内容，控制多媒体等。
+              </li>
+            </ul>
+          </p>
+          <p>
+            web技术的三层作用示例：
+          </p>
+          <p>
+            1.对一个文本标签，首先使用HTML赋予结构和目的（&lt;p&gt;元素）
+            <div class="lizi">
+              <p>玩家1：小明</p>
+            </div>
+          </p>
+          <p>
+            2.加入CSS,样式化文本元素，使其更好看
+            <div class="lizi">
+              <p class="web">玩家1:小明</p>
+            </div>
+          </p>
+          <p>
+            3.加上一些JavaScript实现动态行为
+            <div class="lizi">
+              <p class="web2">玩家1:小明</p>
+              <script>
+                const para = document.querySelector("p.web2");
+  
+                para.addEventListener('click', updateName);
+  
+                function updateName() {
+                  let name = prompt('输入一个新的名字：');
+                  para.textContent = '玩家1：' + name;
+                }
+              </script>
+            </div>
+            
+          </p>
+        </article>
+        <article>
+          <h3>
+            <a name="2">2.JS可以做什么</a>
+          </h3>
+          <p>
+            客户端(client-side)JavaScript语言的核心包含普遍的编程特性，它可以做如下事情:
+            <ul>
+              <li>
+                声明变量，存储有用的值
+              </li>
+              <li>
+                操作HTML中的文本("string"字符串)。上面的例子中就是获取了HTML的&lt;p&gt;元素文本，结合
+                <span class="variable">name</span>变量,创造文本标签。
+              </li>
+              <li>
+                响应网页发生的特定事件。上面使用<span class="property">click</span>事件来检测按钮被点击。
+              </li>
+              <li>
+                more
+              </li>
+            </ul>
+          </p>
+          <p>
+            在核心之上，JavaScript构建的功能更为强大，<strong>应用程序接口(Application Programming Interfaces)</strong>
+            为JS代码提供额外的超能力
+          </p>
+          <p>
+            API是已经建立好的一套代码组件，JavaScript可以使用许多现成的接口用来实现复杂的功能。API分为两种：
+            <ul>
+              <li>
+                <strong>浏览器API</strong>:内建于web浏览器，将数据从计算机环境中筛选出来，做实用的复杂工作。
+                <ul>
+                  <li>
+                    <span class="property">文档对象模型API (DOM(Document Object Model) API)</span>
+                    用于创建、移除、修改HTML,为页面应用新样式等手段操作HTML和CSS。弹窗等新内容就是DOM运行的
+                  </li>
+                  <li>
+                    <span class="property">地理位置API (Geoloction API)</span>用于获取地理信息。
+                  </li>
+                  <li>
+                    <span class="property">画布 (Canvas)</span>和<span class="property">WebGL API</span>
+                    可以创造生动的2D, 3D图像。见<a href="http://webglsamples.org/" target="_blank">webglsamples</a>
+                  </li>
+                  <li>
+                    <span class="property">HTMLMediaElement</span>和<span class="property">WebRTC</span>
+                    等影音类API，可以利用多媒体做一些有趣的事。例如获取录像，截图等。
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>第三方API</strong>:没有默认嵌入浏览器，需要按照插件等取得代码信息
               </li>
             </ul>
           </p>
         </article>
         <article>
           <h3>
-            <a name="1"> 2.</a>
+            <a name="3">3.JavaScript在页面上做了什么</a>
           </h3>
+          <p>
+            浏览器读取一个网页时，前端代码(HTML,CSS,JavaScript)将在一个运行环境（浏览器标签页）得到执行。
+            关于CSS和HTML的渲染如下：
+            <img src="../../src/images/rendering.svg">
+          </p>
+          <p>
+            在HTML和CSS集装成网页后，浏览器的JavaScript引擎执行JS代码。保证JavaScript开始运行前，网页结构和样式就已经到位。
+            运行时，JavaScript通过DOM API 动态修改HTML和CSS来更新用户界面。具体执行JS代码需要做到什么，如下：
+          </p>
+          <div class="part">
+            <h4>
+              浏览器安全
+            </h4>
+            <p>
+              浏览器标签页中的JS代码只能运行在本容器中(或称"运行环境"),大多数情况下，标签页代码独立运行，互不影响，
+              否则黑客就可以利用JS代码从其他网站盗取信息。
+            </p>
+          </div>
+          <div class="part">
+            <h4>
+              JavaScript的运行次序
+            </h4>
+            <p>
+              通常JS代码会按照顺序从下到上执行，需要注意代码的书写顺序。比如对第一个JS代码进行分析
+              <div class="pre">
+                <code>
+                const para = document.querySelector("p.web2");
+                <br>
+                para.addEventListener('click', updateName);
+                <br>
+                function updateName() {<br>
+                  let name = prompt('输入一个新的名字：');
+                  para.textContent = '玩家1：' + name;
+                <br> }
+                </code>
+              </div class="pre">
+            </p>
+            <p> 
+              第一步，利用选择器选择p.web2元素；第二步，附上点击(click)事件监听器和被点击是运行的函数；
+              第三步，编写函数updateName()。第一步和第二步代码顺序不能交换，因为先选择元素后才能对齐进行操作，其有内在的逻辑顺序。
+            </p>
+          </div>
+          <div class="part">
+            <h4>JS代码执行方式</h4>
+            <p>
+              JS是 <strong>轻量级解释型语言</strong>，不想CSS java等需要编译的语言。浏览器接受JS代码，
+              以代码自身的格式运行，所有JavaScript转换器都运用了即时编译(just-in-time compiling)技术：
+              JS源代码执行，编译成二进制格式，代码运行速度快。代码边编译边运行，所以仍然称为解释型语言。
+            </p>
+          </div>
+          <div class="part">
+            <h4>客户端代码和服务器端代码</h4>
+            <p>
+              客户端代码是指在用户电脑上运行的代码，浏览器运行时，客户端代码会被下载并由浏览器运行。这就是<strong>客户端JavaScript</strong>。
+            </p>
+            <p>
+              服务器端代码是指在服务器上运行，<strong>运行结果由浏览器下载并展示运用</strong>。浏览器端web语言包括:PHP,
+              Python,Ruby,ASP.NET以及JavaScript。JavaScipt也可以做为服务器端语言，如Node.js环境。
+            </p>
+          </div>
+          <div class="part">
+            <h4>
+              动态代码
+            </h4>
+            <p>
+              无论是服务器端JS还是客户端JS，都是动态代码。<strong>"动态"</strong>是指生成新的内容来更新web页面/应用，
+              使得不同环境显示不同内容。
+            </p>
+            <p>
+              服务器端JS代码在服务器端动态生成新内容，由客户端浏览器下载更新。而客户端JS代码也可以在用户浏览器中动态生成新内容，
+              如创建一个HTML表格请求服务器数据填充，然后展示。
+            </p>
+            <p>
+              只使用CSS，HTML写的页面不会有新内容，叫做"静态页面"。
+            </p>
+          </div>
+        </article>
+        <article>
+          <h3>
+            <a name="4">4.添加JS代码</a>
+          </h3>
+          <p>
+            CSS可以通过<span class="property">&lt;link&gt;</span>元素链接外部样式表，使用
+            <span class="property">&lt;style&gt;</span>元素嵌入内部样式表。JavaScript，需要使用元素
+            <span class="property">&lt;script&gt;</span>。
+          </p>
+          <div class="part">
+            <h4>
+              内部JavaScript
+            </h4>
+            <p>
+              在/body标签结束前在<span class="property">&lt;script&gt;</span>元素内添加js代码，就像这样：
+              <div class="pre">
+                <code>
+                  <span class="property">&lt;script&gt;</span>
+                    //编写 JavaScript 代码
+                  <span class="property">&lt;/script&gt;</span>
+                </code>
+              </div class="pre">
+              <div class="lizi">
+                <button class="internaljs">
+                  点击我
+                </button>
+                <script>
+                  document.addEventListener("DOMContentLoaded", function() {
+                    function createParagraph() {
+                      let para = document.createElement('p');
+                      para.textContent = '你点击了这个按钮！';
+                      const p = document.querySelector('body main article:nth-child(4) .lizi')
+                      p.appendChild(para);
+                    }
+
+                    const buttons = document.querySelectorAll('body main article:nth-child(4) .lizi button.internaljs');
+
+                    for(let i = 0; i < buttons.length ; i++) {
+                      buttons[i].addEventListener('click', createParagraph);
+                    }
+                  });
+                </script>
+              </div>
+            </p>
+          </div>
+          <div class="part">
+            <h4>
+              外部JavaScript
+            </h4>
+            <p>
+              在html文档同级目录下创建scripts/script.js文件。
+              然后将<span class="property">&lt;script&gt;</span>元素替换为:
+              <div class="pre">
+                <code>
+                  <span class="property">&lt;script src="scripts/script.js" async&gt;</span><span class="property">&lt;/script&gt;</span>
+                </code>
+              </div class="pre">
+              <div class="lizi">
+                <div class="outjsdiv">
+                  <button class="outjs">
+                    点击我
+                  </button>
+                  <script src="scripts/script.js" async></script>
+                </div>
+                
+              </div>
+            </p>
+          </div>
+          <div class="part">
+            <h4>
+              内联JavaScript处理器
+            </h4>
+            <p>
+              内联与内部的区别在于，在元素上添加点击事件处理器<span class="property">onclick</span>，属性值是点击后的对HTML操作的js方法。
+            </p>
+            <p>
+              不要这么使用，这会使得<strong>JavaScript污染HTML而且效率低下</strong>，对于每个应用JS的按钮，你都得手动添加
+              <span class="value">onclick="function()"</span>属性。 
+            </p>
+            <div class="lizi">
+
+              <div class="inlinejsdiv">
+                <button class="inlinejs" onclick="createParagraph2()">
+                  点击我
+                </button>
+              </div>
+              
+              <script>
+                function createParagraph2() {
+                      let para = document.createElement('p');
+                      para.textContent = '你点击了这个按钮！';
+                      const p = document.querySelector('body main article:nth-child(4) .lizi .inlinejsdiv')
+                      p.appendChild(para);
+                    }
+              </script>
+            </div>
+          </div>
+          <div class="part">
+            <h4>
+              脚本调用策略
+            </h4>
+            <p>
+              让JS代码脚本调用HTML元素的时机要符合预期。最常见的要符合预期的时机是：
+              浏览器解析渲染HTML元素是按照次序调用的，使用JavaScript调用DOM API来管理页面上的元素，
+              <strong>不能让JS代码加载于欲操作的HTML元素之前</strong>。    
+            </p>
+            <p>
+              ①内部示例中使用了如下JS代码
+              <div class="pre">
+                <code>
+                  document.addEventListener("DOMContentLoaded", function(){
+                    ……
+                  });
+                </code>
+              </div class="pre">
+              这是一个事件监听器，监听浏览器的<span>"DOMContentLoaded"</span>事件,
+              即HTML文档加载、解释完毕事件。事件触发后（解析完毕），调用……处的代码。这就保证了JS代码加载于欲操作HTML元素之前
+            </p>
+            <p>
+              ②外部示例删除了上面的<span>"DOMContentLoaded"</span>事件监听，直接在js文件中添加按钮监听代码：
+              <div class="pre">
+                <code>
+                const buttons = document.querySelectorAll(<br>
+                  'body main article:nth-child(4) .lizi .outjsdiv button.outjs'<br>
+                );
+                  <br>
+                for(let i = 0; i < buttons.length ; i++) {<br>
+                  buttons[i].addEventListener('click', createParagraph);<br>
+                }
+                </code>
+              </div class="pre">
+              但是在使用<span class="property">&lt;script&gt;</span>引用时，使用了<span class="variable">async</span>"异步"属性。
+              这一属性告诉浏览器在遇到<span class="property">&lt;script&gt;</span>元素时，不要中断后续的HTML内容加载。
+              这个时候，脚本JS代码和HTML一并加载。注意<span class="variable">async</span>只适用于外部调用，不适用"内部"示例
+            </p>
+            <p>
+              以前没有<span class="variable">async</span>属性时，通常将要调用的js文件放在HTML文档底端。这种方法以及
+              <span>DOMContentLoaded</span>方法都有一个问题：<strong>只有在所有HTML DOM加载完毕后才能进行脚本加载</strong>，
+              这对于有大量JS代码的网站性能消耗大。
+            </p>
+          </div>
+          <div class="part">
+            <h4>
+              <span>async</span>和<span>defer</span>
+            </h4>
+            <p>
+              上述脚本阻塞问题有两种解决方案：<span>async</span>和<span>defer</span>。
+              <ul>
+                <li>
+                  <span>async</span>:使脚本和页面代码（HTML和CSS）不冲突，脚本和页面代码可以配合的很好。但是对于多个脚本，
+                  它们的运行次序会无法控制。当页面之间脚本独立，不依赖其他任何脚本，那么<span>async</span>最合适
+                </li>
+                <li>
+                  <span>defer</span>:<span>defer</span>属性和页面代码不是一并解析的，需要等待页面解析。但是，它对于多个脚本，
+                  可以通过脚本的引入顺序控制运行顺序。如果脚本之间不是相互独立的，需要依赖其他脚本，那么应该使用<span>defer</span>,
+                  并且按照合理顺序置于HTML中。
+                </li>
+              </ul>
+            </p>
+          </div>
+        </article>
+        <article>
+          <h3>
+            5.注释
+          </h3>
+          <p>
+            双斜杠，单行注释；<span>/*</span>和<span>*/</span>添加多行注释
+          </p>
         </article>
       </main>
     </div>
     
     <footer>
-
+      <div>© 2021 mangwu, Inc.
+        <a href="https://github.com/mangwu">
+          <img src="../../src/images/pinned-octocat.svg" alt="链接" width="20px" height="20px"></a>
+      </div>
     </footer>
-
+    
   </body>
 
 

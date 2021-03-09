@@ -1,0 +1,67 @@
+.game {
+  border-bottom: aqua 3px solid;
+  border-top: aqua 3px solid;
+  width: 90%;
+  margin: 0 auto;
+  font-size: 1.8rem;
+}
+
+.lizi {
+  border: 2px solid turquoise;
+  width: 95%;
+  margin: 1em auto;
+  border-radius: 5px;
+  padding: 1em;
+}
+
+.lizi .start .form  {
+  text-align: center;
+}
+
+.lizi .start .form label, .guessField, .guessSubmit {
+  font-size: 1.2em;
+}
+
+.lizi .start .form .guessField {
+  border-radius: 5px;
+  border: rgb(139, 3, 3) 2px solid;
+  box-shadow: 2px 2px 1px rgb(255, 144, 144);
+}
+
+.lizi .start .form .guessField:focus {
+  border-radius: 5px;
+  outline: none;
+  border: rgb(3, 139, 60) 2px solid;
+  box-shadow: 2px 2px 1px rgb(144, 255, 168);
+}
+
+.lizi .start .form .guessSubmit {
+  margin-left: 2%;
+  border: rgb(162, 165, 4) 2px solid;
+  background-color: rgb(248, 252, 55);
+  border-radius: 5px;
+}
+
+.lizi .start .form .guessSubmit:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.lizi .start .form .guessSubmit:focus {
+  outline: none;
+  border-radius: 5px;
+  border: 2px solid rgb(130, 133, 3);
+}
+
+.lizi .start .resultParas {
+  width: 62%;
+  margin: 1em auto;
+}
+
+.lizi .start .resultParas .restart button {
+  margin-top: 0.3em;
+  border: rgb(202, 206, 0) 2px solid;
+  background-color: rgb(248, 252, 55);
+  border-radius: 5px;
+  padding: 0.5em;
+}
