@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <HEAD>
+    <meta charset="utf-8">
+    <meta name="author" content="mangwu">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../../src/styles/base-style.css">
+    <link rel="shortcut icon" href="../../src/images/pinned-octocat.svg">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src='scripts/main.js' async></script>
+    <title>JS中的变量</title>
+  </HEAD>
+  <body>
+    <header>
+      <div>
+        <h2>
+          存储重要信息——变量
+        </h2>
+        <nav>
+          <ul>
+            <li>
+              <a href="1">变量</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="content">
+      <aside>
+        <div>
+          <img src="../../src/images/65123727_3.webp" alt="头像">
+        </div>
+        <div>
+          Author:mangwu
+        </div>
+        <div>
+          Introduce:变量是什么
+        </div>
+      </aside>
+      <main>
+        <article>
+          <h3>
+            1.变量
+          </h3>
+          <p>
+            变量就是一个<strong>存储数值的容器</strong>。
+            这个容器可能是一个用于累加的计算的数字，或者一个句子中的字符串。
+            变量最重要的特性就是：
+            <div class="centerBox">存放的数值是可以改变的</div>
+          </p>
+          <p>
+            下面是一个在JS代码中使用变量存放用户输入的例子
+            <div class="lizi">
+              <div class="buttondiv">
+                <button>
+                  点我进行交互
+                </button>
+              </div>
+            </div>
+          </p>
+          <p>
+            上面的按钮，点击后会触发JS代码中的点击函数<span class="value">button.onclick() = function(){}</span>，
+            会要求你输入一个名字，该名字会被存储在一个变量中，所以它用这个变量记住了名字然后向你打招呼
+          </p>
+          <p>
+            变量另外一个特性就是：
+            <div class="centerBox">
+              可以存储任何东西，甚至是函数
+            </div>
+          </p>
+          <p class="specialp">
+            除此之外，需要理解的是变量不是数值本身，而是一个存储数值的容器。相当于一个盒子。
+          </p>
+        </article>
+        <article>
+          <h3>
+            <a name="2">
+              2.变量声明
+            </a>
+          </h3>
+          <p>
+            声明变量即创建变量，声明是更准确的说法。使用<span>var</span>和<span>let</span>关键字后加上变量名和分号:
+            <div class="pre">
+              <code>
+                let myVariable1;
+                <br>var myVariable2;
+              </code>
+            </div>
+          </p>
+          <p>
+            在浏览器console窗口输入变量名，会返回<span>undefined</span>的返回值。
+            因为变量还没有被赋值。
+          </p>
+          <div class="part">
+            <h4>
+              初始化变量
+            </h4>
+            初始化变量语句结构如下:
+            <ul>
+              <li>
+                （如果变量未声明)var or let
+              </li>
+              <li>
+                空格
+              </li>
+              <li>
+                变量名
+              </li>
+              <li>
+                空格
+              </li>
+              <li>
+                =
+              </li>
+              <li>
+                空格
+              </li>
+              <li>
+                值
+              </li>
+              <li>
+                ;
+              </li>
+            </ul>
+            <div class="pre">
+              <code>
+                var myVariable = 'value';
+              </code>
+            </div>
+          </div>
+          <div class="part">
+            <h4>var和let的区别</h4>
+            <p>
+              最初的JS只有<span>var</span>，因为<span>var</span>有一些局限性，
+              就创建了一个新关键字<span>let</span>，用来创建一些不适合作为<span>var</span>变量的
+              或者说一个工作方式不同的变量。
+            </p>
+            <p>
+              <ul>
+                <li>
+                  <span>var</span>有<strong>变量提升</strong>特性而<span>let</span>没有;
+                  可以先使用变量赋值，后对变量进行声明
+                  <div class="pre">
+                    <code>
+                      myVariable = 'value';
+                      <br>var myVariable
+                    </code>
+                  </div>
+                </li>
+                <li>
+                  <span>var</span>可以对相同名称的变量进行多次声明，但是<span>let</span>不行，以下结果会报错
+                  <div class="pre">
+                    <code>
+                      let myVariable = 'value';<br>
+                      let myVariable = 'value'; /* 报错行，使用var不会报错 */
+                    </code>
+                  </div>
+                </li>
+                <li>
+                  <span>var</span>声明的变量的作用域是全局的，而<span>let</span>声明的变量只在声明的块或子块中可以使用
+                  <div class="pre">
+                    <code>
+                      {<br>
+                        &nbsp;var x = 1;<br>
+                        &nbsp;{<br>
+                          &nbsp;&nbsp;var x = 2; //同样的变量<br>
+                          &nbsp;&nbsp;console.log(x); //output 2 <br>
+                        &nbsp;} <br>
+                        &nbsp;console.log(x); //output 2 <br>
+
+                        &nbsp;let y = 1; <br>
+                        &nbsp;{<br>
+                          &nbsp;&nbsp;let y = 2; //不同的变量<br>
+                          &nbsp;&nbsp;console.log(y); //output 2<br>
+                        &nbsp;}<br>
+                        &nbsp;console.log(y); //output 1<br>
+                      }
+                    </code>
+                  </div>
+                </li>
+                <li>
+                  使用<span>let</span>而非<span>var</span>
+                </li>
+              </ul>
+            </p>
+          </div>
+          <div class="part">
+            <h4>
+              变量命名规则
+            </h4>
+            <p>
+              <ul>
+                <li>
+                  使用0-9，a-Z和下划线
+                </li>
+                <li>
+                  变量名不要以下划线和数字开头，最好以小写字母开头(数字开头是错误的，下划线开头的含有特殊意义)
+                </li>
+                <li>
+                  小写驼峰命名法：
+                  如<span class='value'>lookLikeThis</span>
+                </li>
+                <li>
+                  大小写敏感
+                </li>
+                <li>
+                  避免使用保留字
+                </li>
+              </ul>
+            </p>
+          </div>
+        </article>
+        <article>
+          <h3>
+            <a name="3">
+              3.变量类型
+            </a>
+
+          </h3>
+          <p>
+            <ul>
+              <li>
+                <strong>Number</strong>:
+                <br>包含整数，浮点数。不用声明类型，直接赋值即可:
+                <div class="pre">
+                  <code>
+                    let myAge = 21;
+                  </code>
+                </div>
+              </li>
+              <li>  
+                <strong>String</strong>
+                <br>字符串，用单引号或双引号包起来
+                <div class="pre">
+                  <code>
+                    let myAge = '21';
+                  </code>
+                </div>
+              </li>
+              <li>
+                <strong>Boolean</strong>
+                <br>布尔值，true 或者 false
+                <div class="pre">
+                  <code>
+                    let isAlive = true;<br>
+                    let test = 6 &lt; 3;
+                  </code>
+                </div>
+              </li>
+              <li>
+                <strong>Array</strong>
+                <br>数组，包含很多值，用方括号包围，用逗号隔开
+                <div class="pre">
+                  <code>
+                    let arr = ['alice', 'async', 'defer'];
+                    arr[1]; // 访问数组，返回值'async'
+                  </code>
+                </div>
+              </li>
+              <li>
+                <strong>Object</strong>
+                <br>对象，和python中的字典很象,但是访问方法不同，使用句点访问法，且键就是实体
+                <div class="pre">
+                  <code>
+                    let dog = [name:'xiaohu', weight:'23', action:'sitting'];
+                    <br>dog.name; //返回'xiaohu'
+                  </code>
+                </div>
+              </li>
+            </ul>
+            
+          </p>
+
+        </article>
+        <article>
+          <h3>
+            <a name="4">
+              4.动态类型语言
+            </a>
+            
+          </h3>
+          <p>
+            JavaScript是动态类型语言，不需要指定数据类型（python也是这样）
+          </p>
+          <p>
+            使用<span class="property">typeof</span>查看变量存储的数据的类型。
+            <div class="pre">
+              <code>
+                let myNumber = 5.166;
+                <br>typeof myNumber;
+              </code>
+            </div>
+          </p>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>

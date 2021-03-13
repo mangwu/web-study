@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="mangwu">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../../src/styles/base-style.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="shortcut icon" href="../../src/images/pinned-octocat.svg">
+    <title>JavaScripts代码出错检测</title>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h2>JS出错检测</h2>
+
+        <nav>
+          <ul>
+            <li>
+              <a href="#1">错误类型</a>
+            </li>
+            <li>
+              <a href="#2">修复语法错误</a>
+            </li>
+            <li>
+              <a href="#3">逻辑错误</a>
+            </li>
+            <li>
+              <a href="#4">常见错误</a>
+            </li>
+          </ul>
+        </nav>
+
+      </div>
+    </header>
+    <div class="content">
+      <aside>
+        <div>
+          <img src="../../src/images/65123727_3.webp" alt="">
+        </div>
+        <div>
+          Author:mangwu
+        </div>
+        <div>
+          Introduce:JS的错误检测
+        </div>
+      </aside>
+      <main>
+        <article>
+          <h3>
+            <a name="1">1.错误类型</a>
+          </h3>
+          <p>
+            代码错误分为两种：
+            <ul>
+              <li>
+                <strong>语法错误</strong>：存在拼写错误
+              </li>
+              <li>
+                <strong>
+                逻辑错误
+                </strong>：执行结果与预期相悖，存在逻辑错误
+              </li>
+            </ul>
+          </p>
+        </article>
+        <article>
+          <h3>
+            <a name="2">
+              2.修复语法错误
+            </a>
+          </h3>
+          <p>
+            <strong>检查错误：</strong>
+            <ol>
+              <li>
+                打开<strong>开发工具JavaScript控制台</strong>(shift + ctrl + i)，
+                在"Console"界面会直接返回一些浏览器检查到的错误
+              </li>
+              <li>
+                浏览器检查到的错误是很容易跟踪的：
+                <ul>
+                  <li>
+                    在火狐浏览器中红色的<span style="color:red;font-weight: bold;">!</span>表示一个错误;<br>
+                    在谷歌浏览器中则是红色的<span style="color:red;font-weight: bold;">╳</span>
+                  </li>
+                  <li>
+                    <span class='value'>TypeError</span>表示问题出现在哪儿
+                  </li>
+                  <li>
+                    JavaScript 文件名，点击将跳转到开发者工具的“调试器”标签页。 如果你按照这个链接，你会看到错误突出显示的确切行。
+                  </li>
+                  <li>
+                    出错的行，以及导致错误的首个字符号。会在右边提示
+                  </li>
+                  <li>
+                    找到行号后检查语法是否有错误，编写是否正确
+                  </li>
+                </ul>
+              </li>
+              <li>
+                定向错误后，在修改JS源代码，再次用浏览器开发者工具检查
+              </li>
+            </ol>
+          </p>
+        </article>
+        <article>
+          <h3>
+            <a name="3">
+              3.逻辑错误
+            </a>
+          </h3>
+          <p>
+            逻辑错误和你要实现的功能有关，需要通过实际实现的功能，检查发现逻辑错误
+          </p>
+        </article>
+        <article>
+          <h3>
+            <a name="4">
+              4.其他常见错误
+            </a>
+          </h3>
+          <p> 
+            对于漏写等疏忽的错误，有一些很常见的错误提示：
+            <ul>
+              <li>
+                <h4 class="value">SyntaxError: missing;before statement</h4>
+                语法错误：语句缺少分号。
+              </li>
+              <li>
+                <h4>SyntaxError: missing ) after argument list</h4>
+                语法错误: 参数末尾缺少括号。通常为函数/方法调用后结束括号没了
+              </li>
+              <li>
+                <h4>SyntaxError: expected expression, got 'string'</h4>
+                语法错误：得到一个"string"而非表达式。字符串两端漏写了
+              </li>
+            </ul>
+          </p>
+        </article>
+      </main>
+      
+    </div>
+    <footer>
+      <div>© 2021 mangwu, Inc. 
+        <a href="https://github.com/mangwu">
+          <img src="../../src/images/pinned-octocat.svg" alt="链接" width="20px" height="20px"></a>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+.centerBox {
+  width: 90%;
+  margin: 1em auto;
+  text-align: center;
+  font-weight: bold;
+}
+
+.specialp {
+  text-decoration: underline red;
+  font-weight: bold;
+}
+
+.lizi {
+  width: 90%;
+  border: 2px solid aquamarine;
+  padding: 1em;
+  margin: 0.5em auto;
+  border-radius: 5px;
+}
+
+.lizi .buttondiv {
+  text-align: center;
+}
+
+.lizi .buttondiv button {
+  background-color: rgb(255, 144, 140);
+  border: 2px solid rgb(197, 10, 3);
+  border-radius: 5px;
+  padding: 0.3em;
+  cursor: pointer;
+}
+
+.lizi .buttondiv button:hover {
+  background-color: rgb(252, 106, 101);
+}
+
