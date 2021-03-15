@@ -201,3 +201,65 @@ function draw() {
 }
 draw()
 btn.addEventListener('click', draw);
+
+// 分隔字符串
+
+const splitText = document.querySelector('.lizi .stringfor input[type="text"');
+const ulLog = document.querySelector('.lizi .stringfor ul');
+const splitBtn = document.querySelector('.lizi .stringfor input[type="submit"]');
+
+splitBtn.addEventListener('click', splitString);
+
+function splitString() {
+  if (splitText.value == '') {
+    alert('请输入字符串！');
+  } else {
+    console.log(typeof splitText.value);
+    var splitList = splitText.value.split('');
+    splitText.value = '';
+    splitText.focus();
+    ulLog.innerHTML = '';
+    for (var i = 0; i < splitList.length; i++) {
+      var ulItem = document.createElement('li');
+      ulItem.textContent = splitList[i];
+      ulLog.appendChild(ulItem);
+    }
+  }
+}
+
+// 联系人
+const contractData = ['奥斯卡:123456', '艾萨克简单:23543', 'mangwu:13451142805','差是:1354658','sxa:3546541'];
+const searchName = document.querySelector('.search input[type="text"]');
+const searchSubmit = document.querySelector('.search input[type="submit"]');
+const searchResult = document.querySelector('.search p');
+
+searchSubmit.addEventListener('click', function(){
+  var searchname = searchName.value;
+  searchName.value = '';
+  searchName.focus();
+  for (var i = 0; i < contractData.length; i++) {
+    var Dataslice = contractData[i].split(':');
+    if (searchname == Dataslice[0]) {
+      searchResult.textContent = Dataslice.join(':');
+      break;
+    } else {
+      searchResult.textContent = "不存在联系人";
+    }
+  } 
+})
+
+// 输出整数平方
+const maxNumber = document.querySelector('.lizi .intsquare input[type="text"]');
+const maxSubmit = document.querySelector('.lizi .intsquare input[type="submit"');
+const intoutput = document.querySelector('.intsquare p');
+
+maxSubmit.onclick = function() {
+  var maxnum = maxNumber.value;
+  for (var i = 1; i < maxnum; i++) {
+    var sqRoot = Math.sqrt(i);
+    if (Math.floor(sqRoot) !== sqRoot) {
+      continue;
+    }
+    intoutput.textContent += i + ' ';
+  }
+}

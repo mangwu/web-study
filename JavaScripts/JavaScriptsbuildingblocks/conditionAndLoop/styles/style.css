@@ -56,3 +56,64 @@
 .lizi .canvasfor {
   text-align: center;
 }
+
+.lizi .stringfor ul {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.lizi .stringfor ul li {
+  width: 24%;
+  padding: 0.3em;
+  text-align: center;
+  background-color: rgb(252, 238, 111);
+}
+
+.lizi .search {
+  text-align: center;
+  text-indent: none;
+}
+
+.search #name {
+  border: 2px solid rgb(252, 104, 50);
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px rgb(252, 196, 176);
+  padding: 5px;
+}
+.search #name:focus {
+  outline: none;
+  border: 2px solid rgb(219, 6, 105);
+}
+
+.search input[type='submit'] {
+  border-radius: 3px;
+  border: 2px solid rgb(252, 104, 50);
+  background-color: rgb(255, 208, 191);
+  padding: 5px;
+}
+
+.search p {
+  background-color: aquamarine;
+  line-height: 1.8;
+  margin-top: 0.2em;
+}
+
+.intsquare {
+
+  width: 57%;
+  margin: 1em auto;
+}
+.intsquare input {
+  padding: 0.3em;
+  border-radius: 5px;
+  background-color: azure;
+  margin-left: 1em;
+}
+.intsquare p {
+  text-indent: 0;
+  background-color: aquamarine;
+  margin-top: 0.3em;
+}

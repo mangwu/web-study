@@ -230,6 +230,74 @@
               
             </div>
           </p>
+          <div class="part">
+            <h3>
+              for循环
+            </h3>
+            <p>
+              for循环语法
+              <div class="pre">
+                <code>
+                  for (初始化器; 退出条件; 迭代器) {
+                    <br> &nbsp;code to run <br>
+                  }
+                </code>
+              </div>
+              <div class="lizi">
+                <div class="stringfor">
+                  <label for="split">分隔字符串：</label>
+                  <input type="text" placeholder="abc">
+                  <input type="submit" value="分隔">
+                  <ul>
+
+                  </ul>
+                </div>
+              </div>
+            </p>
+            <p>
+              上面是一个对字符串进行切割后，循环添加创造li元素并到ul元素的for循环应用
+            </p>
+          </div>
+          <div class="part">
+            <h3>
+              break语句
+            </h3>
+            <p>
+              break语句用于跳出循环，在switch语句中每个case都会使用；在for循环中在配合if语句使用，如果满足条件就调查循环；
+              <strong>常用于查找</strong>，例如在用for循环遍历一个数组时，如果找到了就可以直接跳出，避免资源浪费。
+              下面是一个在固定数组中查找联系人电话的搜索例子,找到就直接使用break退出
+              <div class="lizi">
+                <div class="search">
+                  <label for="name">通过联系人姓名搜索：</label>
+                  <input type="text" name='name' id='name'>
+                  <input type="submit" value="查找">
+                  <p>
+
+                  </p>
+                </div>
+              </div>
+            </p>
+          </div>
+          <div class="part">
+            <h3>
+              continue语句
+            </h3>
+            <p>
+              continue语句跳出当前循环继续下一个循环，用于当满足某一条件时，不执行循环语句后面的代码块。
+              下面一个例子是打印出小于用户输入的可开平方根的整数值；循环遍历[1,max],不可开方就跳出当前循环，
+              不执行打印语句，可开方就打印其值
+              <div class="lizi">
+                <div class="intsquare">
+                  <label for="number">输入整数值：</label>
+                  <input type="text" name="number">
+                  <input type="submit">
+                  <p>
+                    输出:
+                  </p>
+                </div>
+              </div>
+            </p>
+          </div>
         </article>
       </main>
     </div>
