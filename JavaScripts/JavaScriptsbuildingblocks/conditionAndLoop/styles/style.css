@@ -1,0 +1,58 @@
+.lizi {
+  border: 2px solid aquamarine;
+  border-radius: 5px;
+  width: 95%;
+  margin: 1em auto;
+  padding: 1em;
+}
+
+.lizi .outif {
+  text-align: center;
+}
+
+.lizi .outif p {
+  background-color: rgba(0, 255, 21,0.8);
+  text-indent: 0;
+  font-family: sans-serif;
+}
+
+.lizi .outelseif {
+  text-align: center;
+}
+
+.lizi .outelseif p {
+  text-indent: none;
+  font-weight: bold;
+}
+
+.lizi .outswitch {
+  text-align: center;
+}
+
+.lizi .outswitch p {
+  text-indent: none;
+  font-weight: bold;
+}
+
+.lizi .outthree {
+  text-align: center;
+}
+
+.lizi .rili ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.lizi .rili ul li {
+  list-style-type: none;
+  width: 24%;
+  text-align: center;
+  background-color: coral;
+  border-radius: 2px;
+  padding: 0.3em;
+}
+
+.lizi .canvasfor {
+  text-align: center;
+}

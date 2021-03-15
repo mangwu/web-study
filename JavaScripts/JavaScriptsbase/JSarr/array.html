@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <HEAD>
+    <meta charset="utf-8">
+    <meta name="author" content="mangwu">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../../src/styles/base-style.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="shortcut icon" href="../../src/images/pinned-octocat.svg">
+    <script src="scripts/main.js" async></script>
+    <title>
+      JS中的数组
+    </title>
+  </HEAD>
+  <body>
+    <header>
+      <div>
+        <h2>
+          JS中的数组
+        </h2>
+        <nav>
+          <ul>
+            <li>
+              <a href="#1">数组</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="content">
+      <aside>
+        <div>
+          <img src="../../src/images/65123727_3.webp" alt="头像">
+        </div>
+        <div>
+          作者：mangwu
+        </div>
+        <div>
+          介绍：数组的基本理解
+        </div>
+      </aside>
+      <main>
+        <article>
+          <h3>
+            <a name="1">1.数组</a>
+          </h3>
+          <p>
+            数组：<strong>像列表一样的对象</strong>。数组是包含多个值的对象，数组对象存储在变量中，
+            与普通变量的区别是可以通过方括号访问列表中的每个值。
+          </p>
+          <div class="part">
+            <h4>
+              数组声明
+            </h4>
+            <p>
+              数组由方括号构成，用逗号分隔元素列表;每个项可以是不同数据类型。
+              <div class="pre">
+                <code>
+                  let arr = [1, 2, 'acc', [2, 'asc', 5]];
+                </code>
+              </div>
+            </p>
+          </div>
+          <div class="part">
+            <h4>
+              修改数组元素
+            </h4>
+            <p>
+              使用方括号和索引访问修改数组项内容
+            </p>
+          </div>
+          <div class="part">
+            <h4>
+              获取数组长度
+            </h4>
+            <p>
+              通过<span>length</span>属性获取数组长度,通过数组长度可以遍历数组
+              <div class="pre">
+                <code>
+                  arr.length; 
+                </code>
+              </div>
+            </p>
+          </div>
+        </article>
+        <article>
+          <h3>
+            <a name="2">
+              数组方法
+            </a>
+          </h3>
+          <p>
+            数组方法一般使用句点调用法，可以对数组进行添加删除等，也有可以使字符串拆分为数组的方法
+          </p>
+          <div class="part">
+            <h4>
+              字符串和数组之间的转换
+            </h4>
+            <p>
+              <strong><span>split()</span></strong>方法：
+              字符串句点调用，参数为将字符串分隔的字符，返回子字符串，作为数组中的项
+              <div class="pre">
+                let mydata = '1 kk 254 asc as';<br>
+                let myarr = mydata.split(' ');// 以空格分隔，结果为['1','kk','254','asc','as']
+              </div>
+            </p>
+            <p>
+              <strong><span>join()</span></strong>方法：
+              数组句点调用，参数为要插入每个数组项之间的字符，合成返回一个字符串；
+              <strong>嵌套数组中的间隔仍然是逗号，不受join中参数的影响</strong>
+              <div class="pre">
+                <code>
+                  let mystring = myarr.join(','); //以逗号合并，结果为'1,kk,254,asc,aas'
+                </code>
+              </div>
+            </p>
+            <p>
+              <strong><span>toString()</span></strong>方法：
+              数组句点调用，无参数，自动使用逗号作为合并的分隔字符，返回合并字符串。
+              <strong>注意其对嵌套数组也有效，因为嵌套数组转换成字符串时，数组项之间间隔默认用逗号隔开</strong>  
+              <div class="pre">
+                <code>
+                  let mystring2 = myarr.toString(); //逗号合并，结果为'1,kk,254,asc,as'
+                </code>
+              </div>
+            </p>
+          </div>
+          <div class="part">
+            <h4>
+              添加或删除数组项
+            </h4>
+            <p>
+              数组是可变数据对象，可以用方法当场修改（字符串不行，使用方法只能返回修改后的字符串)
+            </p>
+            <p>
+              使用<span>push()</span>和<span>pop()</span>方法添加和删除数组项;
+              <span>push()</span>可以使用多个参数，添加多个数组项，并且返回修改后的数组长度；
+              <span>pop()</span>不需要参数，直接删除数组最后一个数组项，并返回被删除项
+              <div class="pre">
+                let newlength = myarr.push('123', 4); // myarr : ['1', 'kk','254','asc', 'as','123',4] <br>
+                newlength; // 7 <br>
+                let rmove = myarr.pop(); // rmove = 4; myarr.length == 6
+              </div>
+            </p>
+            <p>
+              使用<span>unshift()</span>和<span>shift()</span>添加和删除数组项，作用于数组开始而不是结尾
+              <div class="pre">
+                <code>
+                  newlength = myarr.unsift('4'); //myarr: ['4', '1', 'kk','254','asc','as','123'] <br>
+                  newlength; // 7
+                  rmov = myarr.shift(); //rmove = '4'; myarr.length == 6
+                </code>
+              </div>
+            </p>
+          </div>
+        </article>
+        <article>
+          <h3>
+            <a name="3">笑话生成器</a>
+          </h3>
+          <p>
+            <ul>
+              <li>
+                点击生成按钮，会随机生成一则笑话
+              </li>
+              <li>
+                在没有输入名称时，笑话中的人物名默认用李雷代替
+              </li>
+              <li>
+                通过点击国家名称单选按钮来确定界面的语言和温度，重量的制式
+              </li>
+            </ul>
+            
+          </p>
+          <div class="lizi">
+            <div class="out">
+              <div>
+                <label for="customname">输入自定义名字：</label>
+                <input id="customname" type="text" placeholder="张雷">
+              </div>
+              <div>
+                <label for="metric">公制</label><input id="metric" type="radio" name="measure" value="metric" checked>
+                <label for="american">美制</label><input id="american" type="radio" name="measure" value="american">
+              </div>
+              <div>
+                <button class="randomize">生成随机笑话</button>
+              </div>
+              <p class="story"></p>
+            </div>
+          </div>
+        </article>
+      </main>
+    </div>
+    <footer>
+      <div>© 2021 mangwu, Inc.
+        <a href="https://github.com/mangwu">
+          <img src="../../src/images/pinned-octocat.svg" alt="链接" width="20px" height="20px"></a>
+      </div>
+    </footer>
+  </body>
+
+</html>

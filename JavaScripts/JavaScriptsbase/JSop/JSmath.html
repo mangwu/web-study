@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="mangwu">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../../src/styles/base-style.css">
+    <link rel="shortcut icon" href="../../src/images/pinned-octocat.svg">
+    <link rel="stylesheet" href="styles/style.css">
+    <script async src='scripts/main.js'></script>
+    <title>
+      JS中的基础数学
+    </title>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h2>
+          数字和操作符
+        </h2>
+        <nav>
+          <ul>
+            <li>
+              <a href="#1">数字</a>
+            </li>
+            <li>
+              <a href="#2">运算符</a>
+            </li>
+            <li>
+              <a href="#3">逻辑运算符</a>
+            </li>
+            <li>
+              <a href="#4">其他运算符</a>
+            </li>
+          </ul>
+        </nav>
+        
+      </div>
+
+    </header>
+    <div class="content">
+      <aside>
+        <div>
+          <img src="../../src/images/65123727_3.webp" alt="头像">
+        </div>
+        <div>
+          Author: mangwu
+        </div>
+        <div>
+          Introduce: JavaScript中的数字和操作符
+        </div>
+      </aside>
+      <main>
+        <article>
+          <h3>
+            <a name="1">1.数字</a>
+          </h3>
+          <p>
+            <strong>数字类型</strong>
+            <ul>
+              <li>
+                十进制：
+                <ul>
+                  <li>
+                    <strong>整数</strong>，如10， -5
+                  </li>
+                  <li>
+                    <strong>浮点数</strong>，有小数点或小数位，如1.25，-1.0
+                  </li>
+                  <li>
+                    <strong>双精度</strong>，特定类型的浮点数，有更高的精度
+                  </li>
+                </ul>
+              </li>
+              <li>
+                二级制
+              </li>
+              <li>
+                八进制
+              </li>
+              <li>
+                十六进制：在CSS中可以在颜色值时使用
+              </li>
+            </ul>
+          </p>
+          <p>
+            JS只用<span>Number</span>类型表示数字类型（interger和decimals）。
+          </p>
+          <div class="part">
+            <h4>JS中的全部数字</h4>
+            <p>
+              定义变量存储数字，用typeof查看数字类型，验证JS数字都用一<span>Number</span>类型
+              <div class="pre">
+                <code>
+                  let myInt = 5;<br>
+                  let myFloat = 6.61;<br>
+                  typeof myInt;<br>
+                  typeod myFloat;<br>
+                </code>
+              </div>
+            </p>
+          </div>
+        </article>
+        <article>
+          <h3>
+            <a name="2">
+              2.运算符
+            </a>
+          </h3>
+          <p>
+            运算符包括<strong>算式运算符、自增减运算符、赋值运算符、比较运算符</strong>
+          </p>
+          <div class="part">
+            <h4>
+              算式运算符
+            </h4>
+            <p>
+              <ul>
+                <li>
+                  + - * / 加减乘除
+                </li>
+                <li>
+                  % 取模，8 % 3 = 2 
+                </li>
+                <li>
+                  ** 幂, 2**3 = 8
+                  <br>Math.pow()方法也可以完成指数运算，如Math.pow(2,3) == 2**3
+                </li>
+              </ul>
+            </p>
+            <p>
+              <strong>
+                优先级
+              </strong><br>
+              ** > % == * == / > + == -
+            </p>
+          </div>
+          <div class="part">
+            <h4>
+              自增自减运算符
+            </h4>
+            <p>
+              <ul>
+                <li>
+                  ++ 变量值自增1；放在变量后，返回变量值再自增；放在变量前，自增再返回变量值；
+                  不能运用于数值
+                </li>
+                <li>
+                  -- 变量值自减1；放在变量后，返回变量值再自减；放在变量前，自增再返回变量值；
+                  不能运用于数值
+                </li>
+              </ul>
+              <div class="pre">
+                <code>
+                  let myInt = 5; <br>
+                  console.log(myInt ++) // 5 <br> 
+                  console.log(++ myInt) // 7
+                </code>
+              </div>
+            </p>
+          </div>
+          <div class="part">
+            <h4>
+              赋值运算符
+            </h4>
+            <p>
+              <ul>
+                <li>
+                  = :将右边的值赋给左边的变量
+                </li>
+                <li>
+                  +=: 加法赋值
+                </li>
+                <li>
+                  -=: 减法赋值 
+                </li>
+                <li>
+                  *=: 乘法赋值
+                </li>
+                <li>
+                  /=: 除法赋值
+                </li>
+                <li>
+                  &lt;&lt;=: 左移位运算符
+                </li>
+                <li>
+                  &gt;&gt;=: 右移位运算符
+                </li>
+                <li>
+                  &=： 按位与赋值
+                </li>
+                <li>
+                  ^=: 按位异或赋值
+                </li>
+                <li>
+                  |=： 按位或赋值
+                </li>
+              </ul>
+            </p>
+          </div>
+          <div class="part">
+            <h4>
+              比较运算符
+            </h4>
+            <p> 
+              <ul>
+                <li>
+                  ===  严格等于，比较值和数据类型
+                </li>
+                <li>
+                  == 等于，只比较值
+                </li>
+                <li>
+                  !==  严格不等于，比较值和数据类型
+                </li>
+                <li>  
+                  != 不等于，只比较值
+                </li>
+                <li>
+                  > &lt; >= &lt;=  大于 小于 大于等于 小于等于
+                </li>
+              </ul>
+            </p>
+            <p>
+              下面是一个通过if语句和比较运算符实现的简单例子
+            </p>
+            <div class="lizi">
+              <div class="out">
+                <button>
+                  Start machine
+                </button>
+                <p>
+
+                </p>
+              </div>
+            </div>
+            <p>
+              通过if控制语句和对button.textContent的内容比较进行控制
+            </p>
+          </div>
+        </article>
+        <article>
+          <h3>
+            <a name="3">
+              3.逻辑运算符
+            </a>
+            
+          </h3>
+          <p>
+            包括<strong>位逻辑运算符、移位运算符（这二者又称为位运算符）、逻辑运算符</strong>
+            <ul>
+              <li>
+                位逻辑运算符：
+                <ul>
+                  <li>
+                    &: 位与 4 & 5 == 4  ;  100 & 101 = 100  
+                  </li>
+                  <li>
+                    |： 位或 13 | 7 == 15 ;  1101 | 0111 = 1111    
+                  </li>
+                  <li>
+                    ^: 异或  13 ^ 7 == 10  ; 1101 ^ 0111 = 1010
+                  </li>
+                  <li>
+                    ~: 位非  ~13 == -14  ;  ~0000……1101 = ~1111……0010
+                  </li>
+                </ul>
+
+              </li>
+              <li>
+                移位运算符:
+                <ul>
+                  <li>
+                    &lt;&lt; 左移；左移指定位数，右边补0； 9&lt;&lt;2 == 36 
+                  </li>
+                  <li>
+                    &gt;&gt; 右移；带符号右移指定位数，左边补位为符号位； -9 >> 2 == -3 ； 1111……0111 >> 2 == 1111……1101
+                  </li>
+
+                  <li>
+                    &gt;&gt;&gt; 右移:不带符号右移指定位数，左边补位0； -1 >>> 1 == 2147483647; 1111……1111 >>> 1 == 0111……1111  
+                  </li>
+                </ul>
+              </li>
+              <li>
+                逻辑运算符：
+                <ul>
+                  <li>
+                    &&： 逻辑与；表达式两端都为true才是true
+                  </li>
+                  <li>
+                    ||:逻辑或；一个为true就是true
+                  </li>
+                  <li>
+                    !: 逻辑非；将true和false反转
+                  </li>
+                </ul>
+                &nbsp;关于flase值，可以被转为flase的值有<span>null</span>、<span>0</span>、<span>NaN</span>、
+                <span>''</span>和<span>undefined</span>
+              </li>
+            </ul>
+          </p>
+          
+        </article>
+        <article>
+          <h3>
+            <a name="4">
+              4.其他运算符
+            </a>
+            
+          </h3>
+          <p> 
+            <ul>
+              <li>
+                <strong>
+                  （条件）三元运算符
+                </strong>
+                <div class="pre">
+                  <code>
+                    条件?:值1:值2 <br>
+                    var status = (age >= 18)? 'adult':'minor';
+                  </code>
+                </div>
+              </li>
+              <li>
+                <strong>
+                  逗号运算符
+                </strong>
+                利用逗号同时对表达式求值返回。如用逗号操作符同时改变两个变量的值：
+                <div class="pre">
+                  <code>
+                    var x = [0,1,2,3,4,5]; <br>
+                    var a = [x, x, x, x ,x]; <br>
+                    for (var i = 0, j = 5; i &lt;= j; i++, j--)
+                      console.log(a[i][j])
+                  </code>
+                </div>
+              </li>
+              <li>
+                <strong>
+                  一元操作符
+                </strong>
+                操作一个操作数：
+                <ul>
+                  <li>
+                    <span>delete</span>:
+                    删除一个对象属性或者一个数值中的某个键值,注意删除数组某一个值时，值变为undefined，但是数组元素仍然存在
+                    <div class="pre">
+                      <code>
+                        delete objectName.property;<br>
+                        delete objectName[index];<br>
+
+                        
+                        deletex = 42;<br>
+                        let deletey = 43;<br>
+                        var deletez = 43;<br>
+                        var deletearr = [2, 5, 6, 7];<br>
+
+                        console.log(delete deletex); // true<br>
+                        console.log(delete deletey); // false<br>
+                        console.log(delete deletez); // false<br>
+                        delete deletearr[2]; <br>
+                        console.log(deletearr[2]); //undefined
+                      </code>
+                    </div>
+                  </li>
+                  <li>
+                    <span>typeof</span>
+                    :使用方式 typeof operand;  或 typeof (operand);返回关键字数据类型
+                  </li>
+                  <li>
+                    
+                    <span>
+                      void
+                    </span>
+                    : 使用方式 void expression; 或 void(expression);表明一个表达式没有返回值。
+                    expression是javaSciript表达式
+                    <ul>
+                      <li>
+                        创建一个超链接，使用void指明没有返回链接，点击时不会有任何效果：
+                        <div class="pre">
+                          <code>
+                            &lt;a href="javascript:void(0)">点击这里什么都不发生&lt;/a>
+                          </code>
+                        </div>
+                        <div class="lizi">
+                          <div class="out">
+                            <a href="javascript:void(0)">点击这里什么都不会发生</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        创建一个超链接，使void中的表达式执行具体操作，但是不会返回链接，如执行提交表单的操作：
+                        <div class="pre">
+                          <code>
+                            &lt;a href="javascript:void(document.form.submit())">点击提交表单&lt;/a>
+                          </code>
+                        </div>
+                        <div class="lizi">
+                          <div class="out">
+                            <a href="javascript:void(document.form.submit())">点击提交表单</a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>关系操作符</strong>
+                <ul>
+                  <li>
+                    <span>in</span>操作符：指定<strong>属性</strong>确实存在所指定对象就会返回true
+                    <ul>
+                      <li>
+                        对于数组，可以使用索引 in arr;表明数组中是否有该索引值，不能使用值进行;<br>
+                        <div class="pre">
+                          <code>
+                            var trees = new Array('redwood', 'bay','cedar');<br>
+                            0 in trees; // true <br>
+                            'bay' in trees; // false，无法使用值进行判断 <br>
+                            'length' in trees; // true length是数组的一个属性
+                          </code>
+                        </div>
+                      </li>
+                      <li>
+                        对于预定义的对象，可以对对象中存在的属性进行判断
+                        <div class="pre">
+                          <code>
+                            'PI' in Math; // true
+                          </code>
+                        </div>
+                      </li>
+                      <li>
+                        对于自定义对象，可以对自己定义的属性进行判断
+                        <div class="pre">
+                          <code>
+                            var myBike = {make:'lucs', model:'a5', year:2015};<br>
+                            'model' in myBike; // true
+                          </code>
+                        </div>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                  <li>
+                    <span>
+                      instanceof
+                    </span>
+                    判断对象是所指的类型，返回<span>true</span>;形式如下：
+                    <div class="pre">
+                      <code>
+                        objectNmae instanceof objectType; // 返回布尔值
+                      </code>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </p>
+        </article>
+      </main>
+    </div>
+    <footer>
+      <div>© 2021 mangwu, Inc. 
+        <a href="https://github.com/mangwu">
+          <img src="../../src/images/pinned-octocat.svg" alt="链接" width="20px" height="20px"></a>
+      </div>
+    </footer>
+  </body>
+
+</html>

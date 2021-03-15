@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="mangwu">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../../src/styles/base-style.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="shortcut icon" href="../../src/images/pinned-octocat.svg">
+    <script src="scripts/main.js" async></script>
+    <title>
+      条件语句和循环语句
+    </title>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>
+          创建JS代码块
+        </h1>
+        <nav> 
+          <ul>
+            <li>
+              <a href="#1">条件语句</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      
+    </header>
+    <div class="content">
+      <aside>
+        <div>
+          <img src="../../src/images/65123727_3.webp" alt="头像">
+        </div>
+        <div>
+          JS代码块之条件语句和循环语句
+        </div>
+        <div>
+          作者：mangwu
+        </div>
+      </aside>
+      <main>
+        <article>
+          <h2>
+            <a name="1">
+              1.条件语句
+            </a>
+          </h2>
+          <p>
+            条件语句结构允许JS在代码执行时做出执行选择，从而获得不同结果
+          </p>
+          <div class="part">
+            <h3>
+              if……else语句
+            </h3>
+            <p>
+              最常见的条件语句，其代码块结构如下：
+              <div class="pre">
+                <code>
+                  if (condition) {
+                    <br>&nbsp;code to run if condition is true <br>
+                  } else {
+                    <br>&nbsp;run some other code instead <br>
+                  }
+                </code>
+              </div>
+              <div class="lizi">
+                <div class="outif">
+                  <label for="shopping-check">做家务会得零花钱，你做吗？</label>
+                  <input type="checkbox" id="shopping-check">
+                  <p>
+
+                  </p>
+                </div>
+              </div>
+            </p>
+          </div>
+          <div class="part">
+            <h3>else if语句</h3>
+            <p>
+              如果不止两个选择可以使用else if连接更多的选择
+              <div class="lizi">
+                <div class="outelseif">
+                  <label for="weather">今天天气怎么样？：</label>
+                  <select name="weather" id="weather">
+                    <option value="">--Make a choice--</option>
+                    <option value="sunny">晴朗</option>
+                    <option value="rainy">雨天</option>
+                    <option value="snowing">雪天</option>
+                    <option value="overcast">大雾</option>
+                  </select>
+                  <p>
+
+                  </p>
+                </div>
+              </div>
+            </p>
+          </div>
+          <div class="part">
+            <h3>if if else  else</h3>
+            <p>
+              嵌套，在if语句块中嵌套另一个if……else语句是完全可行的
+            </p>
+          </div>
+          <div class="part">
+            <h3>switch语句</h3>
+            <p>
+              当选择过多时，可以使用switch语句替代if……else条件语句，注意不要忘记写break!,因为switch会依次判断执行
+              其代码结构如下：
+              <div class="pre">
+                <code>
+                  switch (expression) { <br>
+                    &nbsp;case choice1: <br>
+                    &nbsp;&nbsp;run this code; <br>
+                    &nbsp;&nbsp;break <br><br>
+
+                    &nbsp;case choice2: <br>
+                    &nbsp;&nbsp;run this code; <br>
+                    &nbsp;&nbsp;break <br>
+
+                     // 许多cases <br>
+                    default: <br>
+                    &nbsp;没有一个case符合情况时，运行<br>
+                  }
+                </code>
+              </div>
+              <div class="lizi">
+                <div class="outswitch">
+                  <label for="weather">今天天气怎么样？：</label>
+                  <select name="weather" id="weather">
+                    <option value="">--Make a choice--</option>
+                    <option value="sunny">晴朗</option>
+                    <option value="rainy">雨天</option>
+                    <option value="snowing">雪天</option>
+                    <option value="overcast">大雾</option>
+                  </select>
+                  <p>
+                    使用switch语句完成
+                  </p>
+                </div>
+              </div>
+            </p>
+          </div>
+          <div class="part">
+            <h3>
+              三元运算符
+            </h3>
+            <p>
+              使用三元运算符可以实现简单的两个选择项，例如黑白主题选择；三元运算符格式：
+              <div class="pre">
+                <code>
+                  (expression) ? true code : fasle code;
+                </code>
+              </div>
+              <div class="lizi">
+                <div class="outthree">
+                  <label for="theme">更换主题：</label>
+                  <select name="theme" id="theme">
+                    <option value="white">白色</option>
+                    <option value="black">黑色</option>
+                  </select>
+                </div>
+              </div>
+            </p>
+          </div>
+
+        </article>
+        <article>
+          <h2>
+            <a name="2">
+              2.日历
+            </a>
+          </h2>
+          <p>
+            <div class="lizi">
+              <div class="rili">
+                <label for="rili">选择月份:</label>
+                <select name="rili" id="rili">
+                  <option value="January">January</option>
+                  <option value="February">February</option>
+                  <option value="March">March</option>
+                  <option value="April">April</option>
+                  <option value="May">May</option>
+                  <option value="June">June</option>
+                  <option value="July">July</option>
+                  <option value="August">August</option>
+                  <option value="September">September</option>
+                  <option value="October">October</option>
+                  <option value="November">November</option>
+                  <option value="December">December</option>
+                </select>
+                <h1></h1>
+                <ul>
+
+                </ul>
+              </div>
+            </div>
+          </p>
+        </article>
+        <article>
+          <h2>
+            <a name="3">
+              循环
+            </a>
+          </h2>
+          <p>
+            一个循环需要的条件：
+            <ul>
+              <li>
+                <strong>一个开始条件</strong>：开始条件被初始化为一个特定值，值满足条件就开始循环，循环的起点
+              </li>
+              <li>
+                <strong>一个结束条件</strong>：循环停止的标准-通常为计数器达到一定值
+              </li>
+              <li>
+                <strong>一个迭代器</strong>：通常在每个连续循环上递增少量的计数器，直到达到结束条件
+              </li>
+            </ul>
+            <div class="lizi">
+              <div class="canvasfor">
+                <p>
+                  画布例子，循环100次创造100个圆:<button>update</button>
+                </p>
+                <canvas>
+                  
+                </canvas>
+
+              </div>
+              
+            </div>
+          </p>
+        </article>
+      </main>
+    </div>
+    <footer>
+      <div>© 2021 mangwu, Inc.
+        <a href="https://github.com/mangwu">
+          <img src="../../src/images/pinned-octocat.svg" alt="链接" width="20px" height="20px"></a>
+      </div>
+    </footer>
+    
+  </body>
+
+</html>

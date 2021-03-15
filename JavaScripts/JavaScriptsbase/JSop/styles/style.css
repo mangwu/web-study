@@ -1,0 +1,35 @@
+.lizi {
+  width: 95%;
+  margin: 1em auto;
+  border: 2px solid rgb(14, 247, 169);
+  padding: 0.5em;
+}
+
+.lizi .out {
+  text-align: center;
+  line-height: 1.7;
+  
+}
+
+.lizi .out button {
+  padding: 0.8em;
+  border: 1px solid rgb(250, 97, 250);
+  background-color: rgb(252, 192, 252);
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 1em;
+}
+
+.lizi .out button:hover {
+  background-color: rgb(247, 170, 247);
+}
+
+.lizi .out button:focus {
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid rgb(99, 6, 99);
+}
+
+.lizi .out button:active {
+  color: white;
+}

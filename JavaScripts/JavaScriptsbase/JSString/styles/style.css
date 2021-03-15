@@ -1,0 +1,30 @@
+.table {
+  width: 100%;
+  border: 1px solid white;
+  text-align: left;
+}
+.table caption {
+  font-size: 1.3em;
+  margin-top: 1em;
+  font-weight: bold;
+  caption-side: bottom;
+  text-align: center;
+  text-indent: 0;
+}
+.table td, .table th {
+  width: 50%;
+  text-indent: 0.3em;
+  padding: 0.5em;
+  line-height: 1.5;
+  background-color: rgb(164, 255, 225);
+  border-radius: 2px;
+}
+
+.lizi {
+  border: 2px solid aqua;
+  border-radius: 5px;
+  width: 98%;
+  margin: 0.5em auto;
+  padding: 1em;
+  text-align: center;
+}

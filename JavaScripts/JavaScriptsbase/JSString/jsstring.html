@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="mangwu">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../../src/styles/base-style.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="shortcut icon" href="../../src/images/pinned-octocat.svg">
+    <script src="scripts/main.js" async></script>
+    <title>
+      JS中的字符串😀
+    </title>
+
+  </head>
+  <body>
+    <header>
+      <div>
+        <h2>
+          JS文本处理
+        </h2>
+        <nav>
+          <ul>
+            <li>
+              <a href="#1">字符串</a>
+            </li>
+            <li>
+              <a href="#2">连接字符串</a>
+            </li>
+            <li>
+              <a href="#3">字符串方法</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="content">
+      <aside>
+        <div>
+          <img src="../../src/images/65123727_3.webp" alt="头像">
+        </div>
+        <div>
+          Author: mangwu
+        </div>
+        <div>
+          Introduce: 字符串处理
+        </div>
+      </aside>
+      <main>
+        <article>
+          <h3>
+            <a name="1">
+              1.字符串
+            </a>
+          </h3>
+          <p>
+            创建一个字符串如下：
+            <div class="pre">
+              <code>
+                let string = '创建的字符串内容';
+              </code>
+            </div>
+          </p>
+          <div class="part">
+            <h4>
+              单引号和双引号
+            </h4>
+            <p>
+              根据个人喜好使用单或双引号。可以在单引号中使用双引号，也可以在双引号中使用单引号，但不能使用同一种(除非使用转义字符)
+              <div class="pre">
+                <code>
+                  let string1 = "I'm Alice";
+                  <br>let string2 = 'He said:"howdy"'
+                </code>
+              </div>
+            </p>
+          </div>
+          <div class="part">
+            <h4>
+              转义字符
+            </h4>
+            <p>
+              使用<span>\</span>来转义特殊符号为文本，如在带引号字符串中使用<span>\'</span>来使这个单引号没有结束意义，
+              变成纯文本。下面是转义字符表：
+              <table class="table">
+                <caption>
+                  转义字符表
+                </caption>
+                <thead>
+                    <tr>
+                      <th>Code</th>
+                      <th>Output</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      \0
+                    </td>
+                    <td>
+                      空字符
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      \'
+                    </td>
+                    <td>
+                      单引号
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      \"
+                    </td>
+                    <td>
+                      双引号
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      \\
+                    </td>
+                    <td>
+                      反斜杠
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      \n
+                    </td>
+                    <td>
+                      换行
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      \r
+                    </td>
+                    <td>
+                      回车
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      \v
+                    </td>
+                    <td>
+                      垂直制表符
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      \t
+                    </td>
+                    <td>
+                      水平制表符
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      \b
+                    </td>
+                    <td>
+                      退格
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      \f
+                    </td>
+                    <td>
+                      换页
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      \uXXX
+                    </td>
+                    <td>
+                      unicode码
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+              <div>
+                
+              </div>
+            </p>
+          </div>
+        </article>
+        <article>
+          <h3>
+            <a name="2">
+              2.连接字符串
+            </a>
+          </h3>
+          <p>
+            使用+符号连接字符串
+            <ul>
+              <li>
+                纯字符串连接：
+                <div class="pre">
+                  <code>
+                    let string = 'a' + 'b'; //'ab'
+                  </code>
+                </div>
+              </li>
+              <li>
+                变量串联：
+                <div class="pre">
+                  <code>
+                    let name = prompt('input name');<br>
+                    alert('hello' + name + 'nice to meet you')
+                  </code>
+                </div>
+              </li>
+              <li>
+                字符串和数字连接:可以直接使用+号连接，返回字符串：
+                <div class="pre">
+                  <code>
+                    let name = 'mangwu' + 2000; // output 'mangwu2000' 
+                  </code>
+                </div>
+              </li>
+              <li>
+                字符串与数字转换: <span class="property">Number()</span>和<span class="value">toString()</span>
+                <div class="pre">
+                  <code>
+                    let string = '123';<br>
+                    string = Number(string); // 123 <br>
+                    let mynum = 123;<br>
+                    mynum = mynum.toString(); // '123' 
+                  </code>
+                </div>
+              </li>
+            </ul>
+          </p>
+        </article>
+        <article>
+          <h3>
+            <a name="3">
+              3.字符串方法
+            </a>
+          </h3>
+          <p>
+            把字符串当作对象；javascript中的一切都是对象；对变量赋值字符串相当于变量<strong>成为了字符串的一个实例</strong>
+          </p>
+          <div class="part">
+            <h4>字符串长度</h4>
+            <p>
+              <span class="property">length</span>属性，使用句点法查看;如<span>string.length;</span>
+              <div class="lizi">
+                <div class="len">
+                  <input type="text">
+                  <input type="submit" value="查看长度">
+                </div>
+              </div>
+            </p>
+          </div>
+          <div class="part">
+            <h4>
+              检索特定字符串字符
+            </h4>
+            <p>
+              使用方括号返回字符串中的任意字符,索引从0开始
+              <div class="pre">
+                <code>
+                  let string = 'abcde';<br>
+                  <br>console.log(string[2]) // 'c'
+                </code>
+              </div>
+            </p>
+          </div>
+          <div class="part">
+            <h4>
+              查找子字符串
+            </h4>
+            <p>
+              <span class="value">indexof()</span>方法，使用字符串句点调用方法，需要一个字符串作为参数，
+              返回值为子字符串在父字符串的开始索引,没有就返回-1.
+              <div class="pre">
+                <code>
+                  let string = 'abcdefg';
+                  <br>string.indexOf('def'); // 返回值3
+                </code>
+              </div>
+            </p>
+          </div>
+          <div class="part">
+            <h4>
+              切片
+            </h4>
+            <p>
+              <span class='value'>
+                slice()
+              </span>方法，第一个参数为字符串切割开始索引，第二个参数为字符串切割结束索引，可以省略，默认为父字符串末尾。
+              可以通过查找字符串和切割方法切割出想要的字符串。
+              <div class="pre">
+                <code>
+                  let string = 'abcdefg';
+                  let stringcut = string.slice(2, 5);
+                </code>
+              </div>
+            </p>
+          </div>
+          <div class="part">
+            <h4>
+              切换大小写
+            </h4>
+            <p>
+              <span>toLowerCase()</span>和<span>toUpperCase()</span>将所有字符串转换成小写或大写。
+              <div class="pre">
+                <code>
+                  let Data = 'I am Alice';<br>
+                  Data.toLowerCase(); // i am alice<br>
+                  Data.toUpperCase(); // I AM ALICE
+                </code>
+              </div>
+            </p>
+          </div>
+          <div class="part">
+            <h4>
+              替换字符某一部分
+            </h4>
+            <p>
+              <span>repalce()</span>方法，将字符串中的一个子字符串替换成另一个字符串。
+              第一个参数为要被替换的子字符串，第二个为换上的字符串。
+              <div class="pre">
+                <code>
+                  let string = 'abcdefg';<br>
+                  string.replace('cd', 'CD');
+                </code>
+              </div>
+            </p>
+          </div>
+        </article>
+      </main>
+    </div>
+  </body>
+
+</html>

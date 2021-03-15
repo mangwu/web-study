@@ -1,0 +1,50 @@
+.lizi {
+  border: 3px solid rgb(71, 214, 214);
+  width: 98%;
+  margin: 1em auto;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+.lizi .out {
+  min-height: 50px;
+}
+
+.lizi .out div,
+.lizi .out p{
+  width: 75%;
+  margin: 0.5em auto;
+  line-height: 1.7;
+}
+
+.lizi .out div .randomize {
+  background-color: rgb(176, 193, 250);
+  padding: 0.5em;
+  font-weight: bold;
+  border: 2px solid rgb(77, 115, 240);
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.lizi .out p {
+  background: #FFC125;
+  color: #5E2612;
+  padding: 10px;
+  visibility: hidden;
+  border-radius: 5px;
+}
+
+.lizi .out div input[type='text'] {
+  padding: 3px;
+  width: 150px;
+  border: #FFC125 2px solid;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px #fad372;
+}
+
+.lizi .out div input[type='text']:focus {
+  outline: none;
+  border: #f71818 2px solid;
+  box-shadow: 1px 1px 5px #f56a6a;
+}
