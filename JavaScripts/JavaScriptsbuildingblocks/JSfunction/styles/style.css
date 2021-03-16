@@ -1,0 +1,52 @@
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+  font-family: Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', "kaiti", sans-serif;
+}
+
+.msgBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* 移动一个一半自身的长宽 */
+  transform: translate(-50%,-50%);
+  min-width: 200px;
+  max-width: 300px;
+  font-size: 1.6rem;
+  border-radius: 5px;
+  text-align: left;
+  padding: 1rem;
+}
+
+.msgBox p {
+  line-height: 1.5;
+  text-indent: 1.0rem;
+  padding: 0.5rem 50px;
+  color: rgb(0, 0, 0);
+  background-position: 15px center;
+  background-size: 2.3rem 2.3rem;
+  background-repeat: no-repeat;
+}
+
+.msgBox button {
+  background: none;
+  border: none;
+  border-radius: 3px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 1.1rem;
+  color: #999;
+}
+
+body button {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgb(247, 66, 0);
+  background-color: rgb(248, 147, 110);
+  padding: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}

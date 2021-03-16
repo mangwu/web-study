@@ -1,0 +1,15 @@
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+  font-family: Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', "kaiti", sans-serif;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+  font-family: inherit;
+}
+
+input {
+  font-size: 2em;
+  margin: 10px 1px 0;
+}

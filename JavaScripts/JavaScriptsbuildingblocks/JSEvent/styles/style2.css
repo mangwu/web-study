@@ -1,0 +1,23 @@
+body div {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 480px;
+  height: 300px;
+  background-color: #eee;
+  padding: 30px;
+}
+
+.hidden {
+  left: -30%;
+}
+
+div video {
+  display: block;
+  width: 400px;
+  margin: 40px auto;
+}
+
+.showing {
+  left: 50%;
+}

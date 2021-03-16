@@ -254,12 +254,48 @@ const maxSubmit = document.querySelector('.lizi .intsquare input[type="submit"')
 const intoutput = document.querySelector('.intsquare p');
 
 maxSubmit.onclick = function() {
+  intoutput.textContent = '输出:';
   var maxnum = maxNumber.value;
-  for (var i = 1; i < maxnum; i++) {
+  for (var i = 1; i <= maxnum; i++) {
     var sqRoot = Math.sqrt(i);
     if (Math.floor(sqRoot) !== sqRoot) {
       continue;
     }
     intoutput.textContent += i + ' ';
   }
+}
+
+// 分隔打印
+const inputwhile = document.querySelector('.swhile input[type="text"]');
+const submitwhile = document.querySelector('.swhile input[type="submit"]');
+const pwhile = document.querySelector('.lizi .swhile p');
+
+submitwhile.addEventListener('click', splitSWhile);
+
+function splitSWhile() {
+  var iwhile = 0;
+  let inputwhiles = inputwhile.value;
+  inputwhile.value = '';
+  inputwhile.focus();
+  if (inputwhiles == '') {
+    alert('请输入字符串');
+  } else if (inputwhiles.length == 1) {
+    var whileinfo = inputwhiles + '.';
+  } else {
+    var whileinfo = '';
+    while (iwhile < inputwhiles.length) {
+      if (iwhile == (inputwhiles.length - 1)) {
+        whileinfo = whileinfo.slice(0, whileinfo.length - 2);
+        whileinfo += ' and ' + inputwhiles[iwhile] + '.'
+      } else {
+        whileinfo += inputwhiles[iwhile] + ', '
+      }
+      iwhile++;
+    }
+    
+  }
+  console.log(whileinfo);
+  pwhile.textContent = whileinfo;
+
+
 }
