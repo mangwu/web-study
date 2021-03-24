@@ -90,7 +90,138 @@ DOM:
 
 #### 获得元素引用
 
-```
+```js
 var link = document.querySelector('a');
+// 一个HTMLAnchorElement对象
+var para = document.querySelectorALL('p');
+// 获得多个元素引用
 ```
 
+#### 使用父接口中的属性和方法
+
+直接父接口HTMLElement
+
+和表示所有节点的Node接口
+
+```js
+link.textContent = 'some modification'
+// node接口中的属性
+```
+
+#### 使用本接口中的可用属性
+
+HTMLAnchorElement.href属性
+
+```js
+link.href = 'http://example.com'
+```
+
+#### 创建节点
+
+```js
+var par = document.createElement('p');
+para.textContent = '132asx'
+```
+
+使用document对象的createElement方法创建节点
+
+##### 添加节点
+
++ 在body中添加
+
+  ```js
+  document.body.appendChild(par);
+  ```
+
++ 在指定元素节点内添加
+
+  ```js
+  var sect = document.querySelector('body section');
+  sect.appendChild(par);
+  ```
+
++ appendChild()方法是Node对象的中定义的方法
+
++ 添加文本节点
+
+  ```js
+  var text = doucment.createTextNode('文本内容');
+  para.appendChild(text);
+  ```
+
+  + 文本节点是对象，可以通过textContent改变文本内容
+  + 文本节点只能绑定到一个元素节点上，其他节点再次绑定，会将前一个绑定过的元素解绑
+
++ 节点复制，节点引用只能添加一次（唯一副本），用Node.cloneNode()方法来添加多个节点
+
+  ```js
+  document.body.appendChild(para.cloneNode(1));
+  ```
+
+  
+
+##### 移动和删除元素
+
++ 将元素节点或文本节点移到父元素底部
+
+  ```js
+  sect.appendChild(para);
+  ```
+
++ 删除子节点
+
+  ```js
+  document.body.removeChild(sect);
+  ```
+
++ 删除自身,通过parentNode属性操作
+
+  ```js
+  para.parentNode.removerChild(para);
+  ```
+
+  
+
+##### 操作样式
+
++ 获得CSSStyleSheet数组
+
+  ```js
+  document.styleSheets;
+  // 绑定到文档的所有样式表序列
+  ```
+
++ 通过HTMLElement.style属性来添加内联样式
+
+  ```js
+  para.style.color = 'blue';
+  para.style.padding = '10px';
+  para.style.backgroundColor = 'blue';
+  // 小驼峰命名
+  ```
+
++ 操作文档样式的另一种方法
+
+  + 利用Element.setAttribute()方法
+
+    + 第一个参数，元素属性，如class
+    + 第二个参数，属性值，如为元素取类名
+
+  + 在CSS文件中提前写好对应元素的样式
+
+    ```js
+    <style>
+    .highlight {
+    	color: blue;
+        ……
+    }
+    </style>
+    para.setAttribute('class', 'highlight');
+    
+    ```
+
+    
+
+## Window对象
+
+确保程序和它所在窗口视图一样大

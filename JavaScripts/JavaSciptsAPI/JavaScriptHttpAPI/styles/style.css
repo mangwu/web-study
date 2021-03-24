@@ -1,0 +1,31 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: "微软雅黑", sans-serif;
+}
+
+body {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.XML {
+  border: 2px solid black;
+  width: 50%;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.XML h1 {
+  text-align: center;
+}
+.XML label {
+  margin-left: 3em;
+}
+.XML select {
+  width: 50%;
+  margin-left: 3em;
+}
+.XML pre {
+  margin-left: 3em;
+}
