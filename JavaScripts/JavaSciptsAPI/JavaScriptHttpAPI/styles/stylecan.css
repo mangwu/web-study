@@ -1,0 +1,123 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: '微软雅黑',sans-serif;
+}
+
+*, *::after, *::before {
+  box-sizing: initial;
+}
+
+body {
+  background: yellow;
+  margin: 0;
+}
+
+body .wrapper {
+  width: 800px;
+  margin: 0 auto;
+  border: 5px solid black;
+}
+
+body header {
+  text-align: center;
+  font-family: fantasy;
+  font-size: 1.5em;
+  word-spacing: 5px;
+  letter-spacing: 2px;
+}
+
+.wrapper .content {
+  border-top: 5px solid black;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.content .aside {
+  grid-column: 1;
+  min-height: 300px;
+  border-right: 5px solid black;
+  padding: 1em;
+}
+
+.content .thing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column: 2/4;
+  min-height: 300px;
+}
+
+footer {
+  border-top: 5px solid black;
+  min-height: 50px;
+}
+section {
+  grid-column: 1;
+  padding: 1em;
+}
+section img {
+  width: 240px;
+  display: block;
+  margin: 0 auto;
+}
+
+.aside label {
+  display: block;
+  font-family: inherit;
+} 
+
+.aside select {
+  display: block;
+  width: 80%;
+  margin: 0.4em 0;
+  margin-bottom: 1.2em;
+  padding: 0.2em;
+}
+
+.aside input {
+  display: block;
+  width: 80%;
+  margin: 0.7em 0;
+  padding: 0.2em;
+  background-color: rgba(27, 27, 27,0.8);
+  border-radius: 5px;
+  color: yellow;
+}
+
+.aside input[type="submit"] {
+  border-radius: 20px;
+  box-shadow: 3px 3px 5px rgba(27, 27, 27,0.8);
+  cursor: pointer;
+}
+
+section h2, 
+section p {
+  position: absolute;
+  background-color: black;
+  color: yellow;
+  width: 240px;
+  margin: 0;
+} 
+
+section h2 {
+  text-align: right;
+}
+
+section p {
+  color: yellow;
+  background: black;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  box-shadow: 2px 2px 1px yellow;
+  position: absolute;
+  margin-top: 130px;
+  margin-left: 190px;
+}
+
+footer {
+  padding: 1em;
+
+}
