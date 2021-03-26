@@ -23,6 +23,20 @@ function fetchJson(url) {
     }
   });
 }
+// 获取图片资源
+function fetchImage(url) {
+  fetch(url).then((response) => {
+    if (response.ok) {
+      response.blob();
+    }
+  })
+  .then((imasrc) => {
+    return imasrc;
+  })
+  .catch((e) => {
+    console.log(e.message);
+  })
+}
 // 添加商品
 function addCan(i, count) {
   var counts;
@@ -57,8 +71,15 @@ function addCan(i, count) {
   // 设置属性
   h2.textContent = classname;
   section.setAttribute('class', classname);
-  para.textContent = price;
-  image.src = 'image/' + imagesrc;
+  para.textContent = '$' + price;
+  var imgsrc = 'image/' + imagesrc;
+  console.log(imgsrc);
+  fetch(imgsrc).then((response) => {
+    response.blob().then((blob)=>{
+      var objectURL = URL.createObjectURL(blob);
+      image.src = objectURL;
+    })
+  });
   // 设置布局
   section.style.gridColumn = counts % 2 + 1;
   displayCan.appendChild(section);

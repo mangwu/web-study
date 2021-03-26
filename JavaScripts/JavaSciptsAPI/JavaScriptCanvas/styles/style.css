@@ -1,0 +1,19 @@
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+  font-family: '微软雅黑', sans-serif;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+  font-family: inherit;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+.myCanvas {
+  /* border: 2px solid aqua; */
+}
