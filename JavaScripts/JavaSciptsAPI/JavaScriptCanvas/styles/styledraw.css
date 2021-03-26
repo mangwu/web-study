@@ -1,0 +1,36 @@
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+  font-family: '微软雅黑', sans-serif;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+  font-family: inherit;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: #ccc;
+}
+
+.colorPicker {
+  width: 200px;
+  height: 100px;
+  background-color: #ccc;
+  padding: 10px;
+}
+
+.colorPicker input[type='color'],
+button {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.colorPicker input[type='range'] {
+  width: 80%;
+  display: inline-block;
+  margin-left: 6px;
+}

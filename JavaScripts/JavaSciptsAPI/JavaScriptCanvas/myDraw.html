@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/styledraw.css">
+  <script src="scripts/mydarw.js" async></script>
+  <title>canvas</title>
+</head>
+<body>
+  <div class="colorPicker">
+    <input type="color" aria-label="select pen color">
+    <input type="range" aria-label="select pen size"  min='1' max='50' value="30">
+    <span class='output'>30</span>
+    <button>清除画布</button>
+  </div>
+  <canvas class='myCanvas'>
+    <p>
+      浏览器不支持画布
+    </p>
+  </canvas>
+</body>
+</html>
