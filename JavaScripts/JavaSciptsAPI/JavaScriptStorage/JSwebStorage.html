@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>web storage</title>
+</head>
+<body>
+  <h1>web storgae 例子</h1>
+  <div class='form'>
+    <label for="name">名称:</label>
+    <input type="text" class="name"><br>
+    <label for="name">邮箱:</label>
+    <input type="email" class="email"><br>
+    <input type="submit" value="storage测试">
+  </div>
+  <script>
+    var btnSubmit = document.querySelector('input[type="submit"]');
+    var nameText = document.querySelector('input[type="text"]');
+    var emailText = document.querySelector('input[type="email"]');
+    var para = document.createElement('p');
+    btnSubmit.onclick = function() {
+      if (nameValue != '') {
+        var nameValue = nameText.value;
+        var emailValue = emailText.value;
+        localStorage.setItem('name', nameValue);
+        localStorage.setItem('email', emailValue);
+        para.textContent = '欢迎' + localStorage.name; 
+        nameText.value = '';
+        emailText.value = '';
+        nameText.focus();
+      } else {
+        alert('请输入名字');
+      }
+    }
+    function welcomeP() {
+      if(localStorage.name) {
+        para.textContent = '欢迎' + localStorage.name; 
+        document.body.appendChild(para);
+      }
+    }
+    window.onload = welcomeP;
+  </script>
+</body>
+</html>
