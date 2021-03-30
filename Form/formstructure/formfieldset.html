@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表单部件域</title>
+</head>
+<body>
+  <form action="/handling-page" method="post">
+    <fieldset>
+      <legend>
+        可乐杯选择
+      </legend>
+      <p>
+        <input type="radio" name="size" id="size_1" value="small">
+        <label for="size_1">小杯</label>
+      </p>
+      <p>
+        <input type="radio" name="size" id="size_2" value="midium">
+        <label for="size_2">中杯</label>
+      </p>
+      <p>
+        <input type="radio" name="size" id="size_3" value="large">
+        <label for="size_3">大杯</label>
+      </p>
+    </fieldset>
+    <fieldset>
+      <legend>
+        可乐选择
+      </legend>
+      <p>
+        <input type="radio" name="coco" id="coco_1" value="baishi">
+        <label for="coco_1">百事可乐</label>
+      </p>
+      <p>
+        <input type="radio" name="coco" id="coco_2" value="kekou">
+        <label for="coco_2">可口可乐</label>
+      </p>
+    </fieldset>
+  </form>
+  <form>
+    <p>
+      <label for="taste_1">I like cherry</label>
+      <input type="checkbox" id="taste_1" name="taste_cherry" value="1">
+    </p>
+    <p>
+      <label for="taste_2">I like banana</label>
+      <input type="checkbox" id="taste_2" name="taste_banana" value="2">
+    </p>
+    <p>Required fields are followed by <abbr title="required">*</abbr>.</p>
+
+    <!--这样写：-->
+    <div>
+      <label for="username">Name:</label>
+      <input type="text" name="username">
+      <label for="username"><abbr title="required">*</abbr></label>
+    </div>
+
+    <!--但是这样写会更好：-->
+    <div>
+      <label for="username">
+        <span>Name:</span>
+        <input id="username" type="text" name="username">
+        <abbr title="required">*</abbr>
+      </label>
+    </div>
+
+    <!--但最好的可能是这样：-->
+    <div>
+      <label for="username">Name: <abbr title="required">*</abbr></label>
+      <input id="username" type="text" name="username">
+    </div>
+  </form>
+</body>
+</html>

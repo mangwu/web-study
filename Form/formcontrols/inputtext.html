@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>单行文本框</title>
+</head>
+<body>  
+  <form action="/handling-page" method="POST">
+    <div>
+      <label for="text">默认文本框：</label>
+      <input type="text" name="text" id="text">
+    </div>
+    <div>
+      <label for="email">电子邮件框：</label>
+      <input type="email" multiple id='email' name='email'>
+    </div>
+    <div>
+      <label for="psw">密码：</label>
+      <input type="password" name="password" id="psw">
+    </div>
+    <div>
+      <label for="search">搜索：</label>
+      <input type="search" name="search" id='search'>
+    </div>
+    <div>
+      <label for="phone">手机号码：</label>
+      <input type="tel" name="tel" id="phone">
+    </div>
+    <div>
+      <label for="url">网址：</label>
+      <input type="url" name="url" id="url">
+    </div>
+    <div >
+      <label for="textarea">文本框：</label>
+      <textarea style="vertical-align: top;" name="textarea" id="textarea" cols="30" rows="10" wrap="hard">input your text.</textarea>
+    </div>
+    <div>
+      <label for="slt">选择喜欢吃的：</label>
+      <select name="select" id="slt">
+        <optgroup label="蔬菜">
+          <option value="白菜">白菜</option>
+          <option value="萝卜">萝卜</option>
+          <option value="土豆">土豆</option>
+        </optgroup>
+        <optgroup label="水果">
+          <option value="苹果">苹果</option>
+          <option value="梨子" selected>梨子</option>
+          <option value="香蕉">香蕉</option>
+        </optgroup>
+      </select>
+    </div>
+    <div>
+      <label for="slt2">选择喜欢吃的：</label>
+      <select name="select2" id="slt2" multiple style="vertical-align: top;margin-top: 0.5em;">
+        <optgroup label="蔬菜">
+          <option value="白菜">白菜</option>
+          <option value="萝卜" selected>萝卜</option>
+          <option value="土豆">土豆</option>
+        </optgroup>
+        <optgroup label="水果">
+          <option value="苹果">苹果</option>
+          <option value="梨子" selected>梨子</option>
+          <option value="香蕉">香蕉</option>
+        </optgroup>
+      </select>
+    </div>
+    <div>
+      <label for="textlist">文本输入提示框：</label>
+      <input type="text" name="textlist" id="textlist" list='advice'>
+      <datalist id="advice">
+        <option value="abc"></option>
+        <option value="acc"></option>
+        <option value="bcc"></option>
+        <option value="cbc"></option>
+        <option value="dac"></option>
+        <option value="ecc"></option>
+        <option value="fcc"></option>
+      </datalist>
+    </div>
+    <div>
+      <button type="submit">提交</button>
+    </div>
+
+  </form>
+</body>
+</html>

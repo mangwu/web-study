@@ -239,3 +239,89 @@
 ## 离线文件存储
 
 + 每次加载网页都需要下载HTML,CSS和JavaScript文件
++ CacheAPI 和服务工作者能够很好处理这个问题
+
+#### 服务工作者
+
++ 一个JS文件
++ 访问时，对特定来源进行注册
+  + 特定来源即网站或某个域的网站的一部分
++ 注册后可以控制该来源的可用页面
++ 实现方式：
+  + 通过坐在在加载页面和网络之间
+  + 拦截针对该来源的网络请求
++ 用法：
+  + 拦截请求后可以做任何事情
+  + 将请求的网络响应保存
+  + 将保存的离线网络响应提供给客户端
+
+#### Cache API
+
++ 用于保存HTTP响应
++ 与服务器工作者一起工作的非常好
+
+#### service worker例子
+
++ 检查浏览器是否支持service worker
+
++ 注册一个service worker
+
+  ```js
+  // 注册服务工作到驻留源
+    navigator.serviceWorker
+    .register('/JavaSciptsAPI/JavaScriptStorage/scripts/sw.js')
+    .then(
+      function() {
+        console.log('服务工作者注册成功');
+      }
+    )
+  ```
+
++ 下次访问服务工作者控制页面时，将对该页面按照服务工作者
+
++ install会向服务工作者发起事件，可以在sw.js内编写代码响应安装
+
++ 在在install处理程序内部
+
+  + 在promise请求未完成之前不完成服务工作者的安装
+
+    ```js
+    self.addEventListener('install', function(e) {
+      e.waitUntil(
+        caches.open('video-store').then(function(cache) {
+          return cache.addAll([
+            '/JavaScripts/JavaSciptsAPI/JavaScriptStorage/',
+            '/JavaScripts/JavaSciptsAPI/JavaScriptStorage/JSServiceWork.html',
+            '/JavaScripts/JavaSciptsAPI/JavaScriptStorage/styles/style.css',
+            '/JavaScripts/JavaSciptsAPI/JavaScriptStorage/scripts/JSIDBServiceWorker.js'
+          ]);
+        })
+      );
+     });
+    ```
+
+  + 配合cache API添加缓存对象
+
+  + 之后完成安装服务工作者
+
++ 响应未来请求(网络请求)
+
+  + 添加全局侦听器
+  + 在fetch事件发生后，执行一些代码对url和响应进行截断
+  + 条件是服务器工作者注册的目录请求资产就会发生
+
+  + 记录url，使用respondWith()方法为请求提供自定义响应
+
+    ```js
+    self.addEventListener('fetch', function(e) {
+       console.log(e.request.url);
+       e.respondWith(
+         caches.match(e.request).then(function(response) {
+           return response || fetch(e.request);
+         })
+       );
+     });
+    ```
+
+    
+

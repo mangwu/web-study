@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/style2.css">
+  <title>支付表单</title>
+</head>
+<body>
+  <form action="/handling-page" method="POST">
+    <h1>支付单</h1>
+    <p>支付单相关信息</p>
+    <section class="info">
+      <h2>
+        联系信息（会员，登录等）
+      </h2>
+      <fieldset>
+        <legend>用户</legend>
+        <p>
+          <input type="radio" name="user" id="normal" value="J">
+          <label for="normal">普通用户</label>
+        </p>
+        <p>
+          <input type="radio" name="user" id="king" value="K">
+          <label for="king">男性会员</label>
+        </p>
+        <p>
+          <input type="radio" name="user" id="queen" value="Q">
+          <label for="queen">女性会员</label>
+        </p>
+      </fieldset>
+      <div class='user'>
+        <div>
+          <label for="name">用户名：</label>
+          <input type="text" name="user_name" id="name">  
+        </div>
+        <div>
+          <label for="email">电子邮件：</label>
+          <input type="email" name="user_email" id="email">  
+        </div>
+        <div>
+          <label for="pw">密码：</label>
+          <input type="password" name="user_password" id="pw">  
+        </div>
+      </div>
+      
+    </section>
+    <section class="card">
+      <h1>支付信息</h1>
+      <div>
+        <label for="cdType">支付方式：</label>
+        <select name="card_type" id="cdType">
+          <option value="Visa">Visa</option>
+          <option value="Mastercard">Mastercard</option>
+          <option value="Express">Exprss</option>
+        </select>
+      </div>
+      <div>
+        <label for="number">支付金额：</label>
+        <input type="number" name="payment" id="number">
+      </div>
+      <div>
+        <label for="date">支付日期：</label>
+        <input type="date" name="date" id="date">
+      </div>
+      <div class='button'>
+        <button type="submit" value="确认支付">确认支付</button>
+      </div>
+    </section>
+  </form>
+</body>
+</html>
