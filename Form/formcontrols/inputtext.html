@@ -79,8 +79,123 @@
         <option value="fcc"></option>
       </datalist>
     </div>
+    <!-- 兼容性考虑-->
+    <div>
+      <label for="textlist2">文本输入提示框：</label>
+      <input type="text" name="textlist2" id="textlist2" list='suggestion'>
+      <datalist id="suggestion">
+        <label for="suggestionS"></label>
+        <select name="suggestionS" id="suggestionS">
+          <option value="abc"></option>
+          <option value="acc"></option>
+          <option value="bcc"></option>
+          <option value="cbc"></option>
+          <option value="dac"></option>
+          <option value="ecc"></option>
+          <option value="fcc"></option>
+        </select>
+      </datalist>
+    </div>
+    <!-- 可选项-->
+    <fieldset>
+      <legend>复选框</legend>
+      <div>
+        <input type="checkbox" checked name="coco" id="coco1" value="baishi">
+        <label for="coco1">百事可乐</label>
+      </div>
+      <div>
+        <input type="checkbox" name="coco" id="coco2" value="on">
+        <label for="coco2">崂山可乐</label>
+      </div>
+      <div>
+        <input type="checkbox" name="coco" id="coco3" value="kekou">
+        <label for="coco3">可口可乐</label>
+      </div>
+    </fieldset>
+    <!-- 单选框 -->
+    <fieldset>
+      <legend>单选框</legend>
+      <ul style='list-style-type: none;'>
+        <li>
+          <input type="radio" name="gender" id="male" value="male" checked>
+          <label for="male">男</label>
+        </li>
+        <li>
+          <input type="radio" name="gender" id="female" value="female">
+          <label for="female">女</label>
+        </li>
+      </ul>
+    </fieldset>
+    <!--数字-->
+    <div> 
+      <label for="number">数字</label>
+      <input type="number" id='number' name='number' min='2' max='18' step="2">
+    </div>
+    <!-- 滑块 -->
+    <div>
+      <label for="range">滑块：</label>
+      <input type="range" name="range" id="range" min='0' max='500' step='10' value='50'>
+      <span class='rangeValue'></span>
+      <script>
+        let rangeInput = document.querySelector('input[type="range"]');
+        console.log(rangeInput);
+        let span = document.querySelector(".rangeValue");
+        span.textContent = rangeInput.value;
+        rangeInput.oninput = function() {
+          span.textContent = rangeInput.value;
+        }
+      </script>
+    </div>
+    <!-- 时间 -->
+    <div>
+      <label for="myDate">本地具体时间</label>
+      <input type="datetime-local" name="dt-l" id="myDate">
+    </div>
+    <div>
+      <label for="date">年月日时间</label>
+      <input type="date" name="dt" id="date">
+    </div>
+    <div>
+      <label for="time">时钟时间</label>
+      <input type="time" name="time" id="time">
+    </div>
+    <div>
+      <label for="week">周期时间</label>
+      <input type="week" name="week" id="week">
+    </div>
+    <div>
+      <label for="month">月份时间</label>
+      <input type="month" name="month" id="month">
+    </div>
+    <div>
+      <label for="color">拾色器：</label>
+      <input type="color" name="color" id='color' value="#cc22dd">
+    </div>
+    <div>
+      <label for="file">文件上传</label>
+      <input type="file" name="file" id="file" accept="image/*" multiple>
+    </div>
+    <div>
+      <input type="hidden" name="timestamp" id="timestamp" value="123456" >
+    </div>
+    <div>
+      <label for="progress">进度条：</label>
+      <progress max="100" value="65">
+        75/100
+      </progress>
+    </div>
+    <div>
+      <label for="meter">仪表：</label>
+      <meter min="0" max="100" value="67" low="33" high="66" optimum="20" id='meter'>75</meter>
+    </div>
+    <div>
+      <button type="reset" value='reset'>重置</button>
+    </div>
     <div>
       <button type="submit">提交</button>
+    </div>
+    <div>
+      <button type="button">button</button>
     </div>
 
   </form>

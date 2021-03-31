@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form>
+    <label for="test">测试</label>
+    <input type="text" name='test' id='test'>
+    <button type="button" onclick="sendData({test:'ok',user:'2'})">
+      点击我
+    </button>
+    <button type="button" onclick="sendData2({test:'ok',user:'2'})">
+      点击我
+    </button>
+    <script>
+      var btn = document.querySelector('button');
+      function sendData(data) {
+        var XHR = new XMLHttpRequest();
+        var urlEncodedData = '';
+        var urlEncodedDataPairs = [];
+        var name;
+
+        // 数据对象转化为URL编码的键值对数组
+        for (name in data) {
+          urlEncodedDataPairs.push(encodeURIComponent(name) + '=' + encodeURIComponent(data[name]));
+        }
+        // 配对合并 %20为空格对象
+        urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+')
+        console.log(urlEncodedData);
+        console.log(urlEncodedDataPairs);
+        XHR.addEventListener('load', function(event) {
+          alert('成功发送数据');
+        });
+        XHR.addEventListener('error', function(event) {
+          alert('出现问题了');
+        });
+        // 建立请求
+        XHR.open('POST', '../formbase/formfirst.html')
+        // 添加HTTP头
+        XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        // 发送数据
+        XHR.send(urlEncodedData);
+      }
+      function sendData2(data) {
+        var XHR = new XMLHttpRequest();
+        var FD = new FormData();
+
+        for (n in data) {
+          FD.append(n, data[n]);
+        }
+        console.log(FD.test)
+        console.log()
+        XHR.addEventListener('load', function(event) {
+          alert('成功发送数据');
+        });
+        XHR.addEventListener('error', function(event) {
+          alert('出现问题了');
+        });
+        // 建立请求
+        XHR.open('POST', '../formbase/formfirst.html')
+        // 添加HTTP头
+        XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        // 发送数据
+        XHR.send(FD);
+      }
+    </script>
+  </form>
+</body>
+</html>
