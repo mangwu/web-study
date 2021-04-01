@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>计数器</title>
+</head>
+<body>
+  <div id="app">
+    <h2>计数：{{counter}}</h2>
+<!--  这种方法直接使用v-on指令，指定click事件的操作为counter改变，
+    引用事件操作较少不具备普遍性，需要添加函数   
+    <button v-on:click='counter++'>增加</button>
+    <button v-on:click='counter--'>减少</button> -->
+    <button v-on:click="add">增加</button>
+    <button @click="sub">减少</button>
+    <!-- 语法糖 @是v-on的简写-->
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        counter: 0,
+      },
+      methods: {
+        add: function() {
+          // 当前对象(app)中的counter，如果直接使用counter，则表示全局变量中的counter
+          this.counter++;
+        },
+        sub: function() {
+          this.counter--;
+        }
+      },
+    })
+
+    // js原生方法：
+    // 1.元素引用
+    // 2.添加监听函数
+  </script>
+</body>
+</html>

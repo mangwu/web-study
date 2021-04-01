@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 
+      使用负责这个元素的vue实例中的数据
+    -->
+    <h2>
+      {{message}}
+    </h2>
+    <p>
+      {{name}}
+    </p>
+  </div>
+<!-- 引用vue -->
+<script src="../js/vue.js"></script>
+<!-- 使用vue中的定义过的对象 -->
+<script>
+  // function Vue() {
+  //   // vue.js中定义过的构造函数
+  // }
+  // Vue构造函数传入的参数是一个对象
+  // ES6使用let(变量)/const(常量)
+  const app = new Vue({
+    // 将元素传递给这个vue实例，让vue实例负责帮助管理这个元素
+    el: '#app',
+    // 定义数据,可供vue挂载的元素使用
+    data: {
+      // 编程范式：声明式
+      // 好处：1. 数据和界面完全分离
+      // 2. 不要修改HTML中的数据
+      // 3. 设置为服务器数据可以直接绑定使用
+      message: 'Hello, World',
+      name: 'mangwu'
+    }
+  });
+  // app对象可以有一个参数用于挂载元素
+
+  // js原生实现上述功能的方法：编制范式（命令式编程）
+  // 1.需要按步骤获取元素引用，
+  // 2.定义数据，
+  // 3.传递给元素引用的textContent或其他值
+  // 4.修改数据
+  // 5.重新将修改后的数据替换到div元素中
+</script>
+</body>
+</html>

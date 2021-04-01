@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>
+      {{message}}
+    </p>
+    <p>
+      {{movies}}
+    </p>
+    <!-- 蠢方法展示数据 -->
+    <ul>
+      <li>
+        {{movies[0]}}
+      </li>
+      <li>
+        {{movies[1]}}
+      </li>
+      <li>
+        {{movies[2]}}
+      </li>
+      <li>
+        {{movies[3]}}
+      </li>
+    </ul>
+    <!-- 实例会对挂载元素进行解析，v-for就是被vue实例解析的,用于遍历 -->
+    <ul>
+      <!-- v-for帮助遍历数组，且会帮助创建n个长度的li-->
+      <li v-for="item in movies">{{item}}</li>
+    </ul>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好',
+        movies: [
+          '海王',
+          '大话西游',
+          '少年派',
+          '盗梦空间',
+        ]
+      },
+      // 生命周期函数
+      beforeCreate: function() {
+
+      },
+      created: function() {
+        // 网络请求
+        console.log('created');
+      },
+      mounted: function() {
+        console.log('mounted');
+      }
+    });
+  </script>
+</body>
+</html>
