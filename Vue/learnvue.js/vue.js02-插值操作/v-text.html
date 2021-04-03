@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <h2>{{message}}</h2>
+    <!-- 和mustache类似，显示字符串，不会转义标签元素-->
+    <h2 v-text='message'></h2>
+    <!-- textContent中的内容会被覆盖 这其实就是重新渲染覆盖-->
+    <h2 v-text='message'>something</h2>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!'
+      }
+    });
+  </script>
+</body>
+</html>

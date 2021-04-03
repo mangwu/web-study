@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <!-- 使用数组语法绑定属性值 -->
+    <h2 class="title" v-bind:class="['active', 'line']">{{message}}</h2>
+    <!-- 使用数组语法动态绑定属性值，属性值由data传递 -->
+    <h2 :class='[h2active, h2line]'>{{message}}</h2>
+    <!-- 同样可以使用方法返回数组来绑定属性值 -->
+    <h2 :class='getClasses()'>{{message}}</h2>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello, vue!',
+        h2active: 'active',
+        h2line: 'line'   
+      },
+      methods: {
+        getClasses: function() {
+          return [
+            this.h2active,
+            this.h2line
+          ];
+        }
+      }
+    });
+  </script>
+</body>
+</html>

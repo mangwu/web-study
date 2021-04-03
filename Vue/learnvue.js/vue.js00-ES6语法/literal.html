@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 字面量,{}定义对象
+    let obj = {
+      name: 'mangwu',
+      run: function() {
+        console.log('runrunrun')
+      }
+    }
+    // ES5字面量使用外部变量或常量的写法
+    const i = 1;
+    const j = 2;
+    const k = 3;
+    let obj2 = {
+      i: i,
+      j: j,
+      k: k,
+      run: function() {
+
+      }
+    }
+    console.log(obj2)
+    // ES6字面量的增强写法
+    let obj3 = {
+      i,
+      j,
+      k,
+      run() {
+        
+      }
+    }
+
+    console.log(obj3)
+
+  </script>
+  
+
+</body>
+</html>

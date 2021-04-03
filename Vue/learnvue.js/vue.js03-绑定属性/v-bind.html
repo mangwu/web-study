@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <!-- 需要动态改变src内的数据 改变将url地址放入data里面 -->
+    <!-- 错误做法 不可使用mustache语法 <img src="{{imgURL}}" alt="imgURL"> -->
+    <!-- 使用v-bind指令 绑定属性-->
+    <!-- v-bind:将属性当成变量，在vue实例找对应的属性值替换 -->
+    <img v-bind:src="imgURL" alt="" width='400px'>
+    <a v-bind:href="linkURL" target="_blank">BV1hX4y137kU</a>
+    <!-- 语法糖 -->
+    <div>
+      语法糖：
+      <a :href="linkURL">BV1hX4y137kU</a>
+    </div>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        // 服务器传来数据
+        imgURL: 'https://img20.360buyimg.com/pop/s1180x940_jfs/t1/158116/38/16174/86409/6062f95bE3be58505/c4b5f65299d18840.jpg.webp',
+        linkURL: 'https://www.bilibili.com/video/BV1hX4y137kU'
+      }
+    });
+  </script>
+</body>
+</html>

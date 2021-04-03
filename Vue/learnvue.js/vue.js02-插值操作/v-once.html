@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <!-- v-once 能够让插值只渲染一次，后续更改不会使文档中的插值改变.v-once阻止了响应-->
+    <h2>{{message}}</h2>
+    <!-- v-once 是一个简单指令不需要传入表达式 -->
+    <h2 v-once>{{message}}</h2>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!'
+      }
+    });
+  </script>
+</body>
+</html>

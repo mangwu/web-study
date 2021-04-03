@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <!-- 对象绑定方式 -->
+    <!-- <h2 :style="{key(css的属性名): value(属性值)}">{{message}}</h2> -->
+    <!-- 50px必须加上单引号，否则被当成变量，解析的时候按照键值解析 -->
+    <h2 :style="{fonSize: '50px'}">{{message}}</h2>
+    <!-- 使用固定值对使用绑定样式没有意义，一般结合变量使用 -->
+    <h2 :style="{fontSize: finalSize + 'px', color: finalColor}">{{message}}</h2>
+    <!-- 抽取对象到方法中返回 -->
+    <h2 :style="getStyles()">{{message}}</h2>
+  </div>  
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        finalSize: 100,
+        finalColor: 'red'
+      },
+      methods: {
+        getStyles: function() {
+          return {
+            fontSize: this.finalSize + 'px',
+            color: this.finalColor
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

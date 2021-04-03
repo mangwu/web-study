@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id='app'>
+    <!-- v-cloak 斗篷指令 -->
+    <h2>{{message}}</h2>
+    <h2 v-cloak>{{message}}</h2>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    // 模拟阻塞时的指令解析
+    // 在vue解析前有v-cloak指令，
+    // 这个指令作为属性在style中被渲染成不可见，这样就不会露出未解析数据了
+    // vue解析后，识别v-cloak指令并删除之，元素中的数据已经被解析好，就可以显示了
+    setTimeout(function() {
+      const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!'
+      }
+    });
+    }, 1000);
+  </script>
+</body>
+</html>

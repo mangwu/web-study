@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <!-- 显示书的总价格 -->
+    <!-- 使用计算属性就比较好，而不是methods或者直接引用data数据 -->
+    <!-- 使用mustache和methods执行几次就计算几次，而计算属性不一样，所以使用计算属性性能更好 -->
+    
+    <h2>
+      总价格：{{books[0].price + books[1].price + books[2].price + books[3].price + books[4].price }}
+    </h2>
+    <h2>
+      总价格： {{totalPrice}} 
+    </h2>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        books: [
+          {
+            id: 110, 
+            name: 'Unix编程艺术',
+            price: 118
+          },
+          {
+            id: 111, 
+            name: '代码大全',
+            price: 108
+          },
+          {
+            id: 112, 
+            name: '深入理解计算机原理',
+            price: 78
+          },
+          {
+            id: 113, 
+            name: '现代操作系统',
+            price: 185
+          },
+          {
+            id: 114, 
+            name: 'IOS编程',
+            price: 57
+          }
+        ]
+      },
+      computed: {
+        totalPrice: function() {
+          let totalprice = 0;
+          // // ES6语法
+          // for (let book in this.books) {
+          //   // book为数组索引
+          //   console.log(book);
+          //   totalprice = totalprice + this.books[book].price;
+          // };
+          // return totalprice;
+
+          // ES6 语法
+          for (let book of this.books) {
+            totalprice += book.price;
+          }
+          return totalprice;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

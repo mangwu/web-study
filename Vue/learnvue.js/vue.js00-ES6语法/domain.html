@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>1</button>
+  <button>2</button>
+  <button>3</button>
+  <button>4</button>
+  <button>5</button>
+
+  <script>
+    // 1. 变量作用域： 变量在什么范围内是可用的
+    {
+      var name = 'why';
+      // 在此域中可使用
+      console.log(name);
+    }
+    // 在代码块外，var定义的变量也可以使用,这样容易引起混乱
+    console.log(name);
+    // 2. 没有块级作用域的问题 if块级
+    var func;
+    if (true) {
+      var variable = '被打印值';
+      // 打印variable
+      func =  function() {
+        console.log(variable);
+      }
+    }
+
+    // 如果以下为别人引用func的代码，别人也定义了一个variable，那么func结果会被改变
+    variable = 'why'
+    func();
+
+    // 3. for语句的块级作用域问题
+    // 因为异步，每个按钮中的i值是在for中定义的var i, i最终值为5所以也会打印成5
+    // var btns = document.querySelectorAll('button');
+    // for (var i=0; i < btns.length; i++) {
+    //   btns[i].addEventListener('click', function() {
+    //     console.log('第' + i + '个按钮');
+    //   })
+    // }
+    // 函数有作用域
+
+    // ES5for和if没有作用域概念，很多时候借用function的作用域解决问题
+    // 加入let，让for循环和if有作用域概念
+
+    // ES6
+    const btns = document.querySelectorAll('button');
+    for (let i in btns) {
+      if (i < 5) {
+        console.log(i);
+        btns[i].addEventListener('click', function() {
+        console.log('第' + ++i + '个按钮');
+        })
+      }
+      
+    }
+  </script>
+</body>
+</html>

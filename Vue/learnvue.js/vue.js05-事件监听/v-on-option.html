@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <!-- 事件定义时需要传入参数，不传入时的方法内的参数为undefined -->
+    <button @click='btn1Click()'>按钮1</button>
+    <!-- 不使用()且不传承，默认传递浏览器生成的事件参数 -->
+    <button @click='btn1Click'>按钮2</button>
+    <!-- 多个参数，需要自定义参数，也需要浏览器生成的event参数 使用$event即可-->
+    <button @click='btn2Click(123, $event)'>按钮3</button>
+
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!'
+      },
+      methods: {
+        btn1Click(e) {
+          console.log(e)
+        },
+        btn2Click(a, e) {
+          console.log(a, e);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

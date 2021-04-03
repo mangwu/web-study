@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <h1>
+      <!-- 插值语法： Mustache, 双大括号，可响应的-->
+      <!-- mustache不仅仅可以写变量，也可以写简单的表达式-->
+      {{message}},{{firstName + ' ' +  lastName}}.
+    </h1>
+    <h2>{{counter * 2}}</h2>
+  </div>
+  <script src='../vue.js01-简单了解/js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello, vue!',
+        firstName: 'Kobe',
+        lastName: 'brayant',
+        counter: 100
+      }
+    });
+  </script>
+</body>
+</html>

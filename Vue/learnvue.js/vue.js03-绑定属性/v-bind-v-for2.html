@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id='app'>
+    <ul>
+      <!-- 将类名active的键值设置为 当前项索引是否等于index 当前项索引默认为current = 0,第一项为红色 -->
+      <li v-for='(item, index) in movies' v-bind:class='{"active": current == index}' @click='clickChange(index)'>{{item}}</li>
+    </ul>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        movies: [
+          '海王',
+          '海尔兄弟',
+          '火影忍者',
+          '进击的巨人'
+        ],
+        current: 0,
+        isActive: true
+      },
+      methods: {
+        clickChange: function(index) {
+          this.current = index;
+
+          // console.log(e.target.index);
+          // // 移除active
+          // let list = document.querySelectorAll('li');
+          // for (let i = 0; i <  list.length; i++) {
+          //   list[i].removeAttribute('class');
+          //   console.log(list[i]);
+          // }
+          // e.target.setAttribute('class', 'active');
+        }
+      },
+      mounted: function() {
+        // let list1 = document.querySelector('li');
+        // list1.setAttribute('class', 'active');
+      }
+    });
+  </script>
+</body>
+</html>

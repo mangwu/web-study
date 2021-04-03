@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <h2>{{fullName2}}</h2>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        firstName: 'mang',
+        lastName: 'wu'
+      },
+      computed: {
+        // 简写
+        fullName: function() {
+          return this.firstName + ' ' + this.lastName;
+        },
+        // 完整的 fullName属性 一般只需要实现get方法
+        // 由于计算属性大多是只读的且只有get方法，故而一般简写为上面的
+        fullName2: {
+          set: function(newValue) {
+            // set方法一般不需要，称为只读属性
+            console.log('----' + newValue);
+            // newValue为使用fullName2属性时可以赋的值的传递变量
+            // 通过改变data中的属性值从而改变计算属性的相关值
+            let name = newValue.split(' ');
+            if (name[0]) {
+              this.firstName = name[0];
+            }
+            if (name[1]) {
+              this.lastName = name[1];
+            }
+            
+          },
+          get: function() {
+            // 返回属性值
+            return this.firstName + ' ' + this.lastName;
+          }
+
+        }
+      }
+    });
+  </script>
+</body>
+</html>

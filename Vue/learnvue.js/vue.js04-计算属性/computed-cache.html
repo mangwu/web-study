@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <h2>
+      <!-- 1. 直接引用data中属性然后拼接:不采用，语法过于繁琐 不要在HTML里写代码逻辑处理 -->
+      {{firstName + ' ' + lastName}}  
+    </h2>
+    <h2> 
+      <!-- 2. 使用方法调用 -->
+      {{getFullName()}}
+    </h2>
+    <h2> 
+      {{getFullName()}}
+    </h2>
+    <h2> 
+      {{getFullName()}}
+    </h2>
+    <h2> 
+      {{getFullName()}}
+    </h2>
+    
+
+    <h2>
+      <!-- 3. 使用计算属性 计算属性结果会被缓存，使用计算属性性能最好-->
+      {{fullName}}
+    </h2>
+    <h2>
+      {{fullName}}
+    </h2>
+    <h2>
+      {{fullName}}
+    </h2>
+    <h2>
+      {{fullName}}
+    </h2>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        firstName: 'mang',
+        lastName: 'wu'
+      },
+      methods: {
+        getFullName: function() {
+          // 方法调用四次，打印四次
+          console.log('getFullName');
+          return this.firstName + ' ' + this.lastName;
+        }
+      },
+      computed: {
+        fullName: function() {
+          // 只打印一次，因为如果发现代码中没有对属性值的修改，计算属性会被缓存，不会被重新计算
+          // 但是如果属性值有改变，那么再会被执行一次，但也仅执行一次，使用计算属性性能会很好
+          console.log('fullName');
+          return this.firstName + ' ' + this.lastName;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

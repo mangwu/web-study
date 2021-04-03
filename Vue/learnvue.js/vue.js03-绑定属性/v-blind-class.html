@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id='app'>
+    <!-- 动态绑定class属性 -->
+    <!-- 普通方式绑点class属性，对元素进行样式化 -->
+    <h2 class="active">{{message}}</h2>
+    <!--普通动态绑定类值 绑定的属性值为data中的字符串 -->
+    <h2 :class="h2class">{{message}}</h2>
+    <!-- 绑定class的属性值为对象  键为类名 键值为布尔值，表示键类名是否存在-->
+    <!-- <h2 :class="{key: boolean1, key2: boolean2, key3: boolean3">{{message}}</h2> -->
+    <h2 class="title" :class="{active: isActive, line: isLine}">在浏览器开发者工具中修改isActive或者isLine的值修改类值</h2>
+    <button @click="btnClick">点击变色</button>
+    <!-- 额外的class值会自动合并。定义一个button改变动态class中对象键值的真假以改变样式 -->
+
+    <!-- 使用如果class中的对象过于长，可以使用函数返回对象来代替 -->
+    <h2 :class="getClasses()">函数返回class的对象值</h2>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        // 动态元素类值
+        h2class: 'active',
+        // 对象键值
+        isActive: true,
+        isLine: true,
+      },
+      methods: {
+        btnClick: function() {
+          // if (this.isActive) {
+          //   this.isActive = false;
+          // } else {
+          //   this.isActive = true;
+          // }
+          this.isActive = !this.isActive;
+        },
+        getClasses: function() {
+          // 返回class的对象值
+          return {
+            active: this.isActive,
+            line: this.isLine
+          }
+          
+        }
+      }
+    });
+  </script>
+</body>
+</html>
