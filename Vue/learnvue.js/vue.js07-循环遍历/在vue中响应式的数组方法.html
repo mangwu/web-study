@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+<body>
+  <div id='app'>
+    <ul>
+      <li v-for='item in letters' :key='item.id'>{{item}}</li>
+    </ul>
+    <button @click='btnPush'>数组push一个值√</button>
+    <br>
+    <button @click='btnChange'>索引修改一个值×</button>
+    <br>
+    <button @click='btnPop'>删除最后一个值√</button>
+    <br>
+    <button @click='btnShift'>头部删除√</button>
+    <br>
+    <button @click='btnUnshift'>头部插入√</button>
+    <br>
+    <button @click='btnSplice'>splice方法√</button>
+    <br>
+    <button @click='btnSort'>sort方法排序√</button>
+    <br>
+    <button @click='btnReverse'>reverse方法反转√</button>
+    <br>
+    <button @click='btnVueSet'>Vue.set内部方法√</button>
+
+
+
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        letters: ['A', 'B', 'C', 'D', 'E']
+      },
+      methods: {
+        btnPush() {
+          // 1. push方法
+          let num = Math.floor(Math.random() * 100);
+          let k = this.letters[num % 5];
+          console.log(this.letters.push(num.toString()+k))
+        },
+        btnChange() {
+          // 2. 索引修改一个值 不是响应式的
+          console.log(this.letters[2] = 'F');
+        },
+        btnPop() {
+          // 3. pop删除最后一个值 是响应式的
+          console.log(this.letters.pop());
+        },
+        btnShift() {
+          // 4. shift头部删除 响应式的
+          console.log(this.letters.shift());
+        },
+        btnUnshift() {
+          // 5. unshfit 头部插入 响应式的
+          console.log(this.letters.unshift('G', 'H', 'I'));
+        },
+        btnSplice() {
+          // 6. splice可以传入多个参数 做到替换参元素/删除元素/插入元素
+          // 删除元素： splice(start, length) start为开始删除索引，length为删除个数，默认为开始到最后
+          // 替换元素：splice(start, length, ...num) start为开始替换索引，length为替换个数，
+          //          ...num为替换元素（数量可以和length不同）
+          // 插入元素：splice(start, 0, ...num) 插入...num元素
+          // 本质是：从开始处替换元素，如果替换元素没有但替换长度有，就删除。
+          //        替换元素有但替换长度为0，就插入
+          let num = ['remove', 'replace', 'insert'];
+          let randnum = Math.floor(Math.random() * 3);
+          console.log(num[randnum]);
+          if (num[randnum] == 'remove') {
+            // 删除元素
+            this.letters.splice(1, 3);
+          } else if(num[randnum] == 'replace') {
+            // 替换元素
+            this.letters.splice(1, 3, 'mang', 'wu');
+          } else {
+            // 插入元素 在索引元素上方插入
+            this.letters.splice(1, 0, 'mang', 'wu');
+          }
+        },
+        btnSort() {
+          this.letters.sort();
+        },
+        btnReverse() {
+          this.letters.reverse();
+        },
+        btnVueSet() {
+          // 9. Vue.set()方法
+          // 调用方法：Vue.set( target, key, value )
+          // target：要更改的数据源(可以是对象或者数组)
+          // key：要更改的具体数据
+          // value ：重新赋的值
+          console.log(Vue.set(this.letters, 2, 'F'));
+        }
+        
+      }
+    });
+  </script>
+</body>
+</html>

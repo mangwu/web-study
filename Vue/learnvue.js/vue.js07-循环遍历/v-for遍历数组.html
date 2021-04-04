@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <ul>
+      <!-- 1. 在遍历过程中没有使用索引值，普通遍历 -->
+      <li v-for='item in names'>{{item}}</li>
+    </ul>
+    <ul>
+      <!-- 2. 获取遍历过程中的下标值 -->
+      <!-- 这种(item, index)叫做元组 -->
+      <li v-for='(item, index) in names'>
+        {{++index + '.' + item}}
+      </li>
+    </ul>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        // 从后端穿过来的数组
+        names: [
+          'mangwu',
+          'zhangs',
+          'yici',
+          'aiii'
+        ]
+      }
+    });
+  </script>
+</body>
+</html>

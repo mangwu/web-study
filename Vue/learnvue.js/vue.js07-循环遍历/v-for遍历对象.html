@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <!-- 遍历对象 -->
+    <ul>
+      <!-- 1. 遍历对象过程直接拿到的是value值 -->
+      <li v-for='item in info'>
+        {{item}}
+      </li>
+    </ul>
+    <ul>
+      <!-- 2.key相当于index索引，所以使用元组时，其格式为(value, key) -->
+      <li v-for='(value, key) in info'>
+        {{key + '--' + value}}
+      </li>
+    </ul>
+    <ul>
+      <!-- 3. 对象本身是无效的，但是vue处理对象时会根据对象加入的属性顺序赋予对象一个索引，使用(value, key, index)获取索引 -->
+      <li v-for='(value, key, index) in info'>
+        {{++index + '.' + key + '--' + value}}
+      </li>
+    </ul>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        // 后端传来的info对象
+        info: {
+          name: 'mangwu',
+          age: 21,
+          height: 1.72
+        }
+      }
+    });
+  </script>
+</body>
+</html>

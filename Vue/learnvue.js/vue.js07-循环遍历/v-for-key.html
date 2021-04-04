@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- v-for配合key属性可以更好的复用元素 -->
+  <div id='app'>
+    <ul>
+      <!-- 绑定item可以让元素和属性值一一对应，
+        避免插入新值或改动letter时修改元素和值的绑定方式，增强复用 -->
+      <li v-for='item in letters' :key='item'>
+        {{item}}
+      </li>
+    </ul>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        letters: ['A', 'B', 'C', 'D', 'E']
+      }
+    });
+  </script>
+</body>
+</html>

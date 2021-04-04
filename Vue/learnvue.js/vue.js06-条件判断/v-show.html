@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <!-- 使用v-show决定元素是否显示 -->
+    <!-- 与v-if的区别在于，v-if为flase那么元素不被渲染，DOM中没有元素 -->
+    <!-- v-show为flase那么元素的display样式属性为none，DOM中有元素但是不被显示 -->
+    <!-- none和visibility: hidden不一样，hidden值是隐藏，但是还是占据位置，而none不占位置 -->
+
+    <!-- v-show和v-if的选择
+      1. 因为v-show渲染了元素，只是修改了样式，所以当隐藏和显示切换频繁时使用v-show比较好
+      2. 只有一次切换时，使用v-if。一般v-if用的比较多，因为一般只会决定一次一段DOM需不需要渲染
+    -->
+    <h2 v-show='isShow' id='a'>
+      {{message}}
+    </h2>
+    <h2 v-if='isShow' id='b'>
+      {{message}}
+    </h2>
+    <h2 style='visibility: hidden;'>
+      hidden
+    </h2>
+    <h2>
+      123
+    </h2>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        isShow: true
+      }
+    });
+  </script>
+</body>
+</html>

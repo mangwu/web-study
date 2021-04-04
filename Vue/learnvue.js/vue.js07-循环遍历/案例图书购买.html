@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html {
+      box-sizing: border-box;
+      font-family: '微软雅黑', sans-serif;
+    }
+    table {
+      padding: 1em;
+      border-collapse: collapse;
+      table-layout : fixed;
+      width: 660px;
+    }
+    tr,
+    td,
+    th {
+      line-height: 1.5;
+      letter-spacing: 2px;
+      border: 1px solid black;
+      padding: 2px 10px;
+    }
+    caption {
+      font-size: 2.5em;
+      margin-bottom: 15px;
+    }
+    th {
+      background-color: #eee;
+    }
+    thead th:nth-child(1) {
+      width: 5%;
+    }
+    thead th:nth-child(2) {
+      width: 30%;
+    }
+    thead th:nth-child(3) {
+      width: 20%;
+    }
+    thead th:nth-child(4) {
+      width: 17%;
+    }
+    thead th:nth-child(5) {
+      width: 15%;
+    }
+    thead th:nth-child(6) {
+      width: auto;
+    }
+    button {
+      display: inline-block;
+      padding: 2px 10px;
+      background-color: white;
+      border-radius: 5px;
+      border: #ddd 2px solid;
+      cursor: pointer;
+    }
+    button:focus {
+      outline: none;
+    }
+    button:hover {
+      background-color: #eee;
+    }
+    button:hover:disabled {
+      background-color: unset;
+    }
+    /* 红色 */
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id='app'>
+    <table v-if='hasBooks'>
+      <caption>
+        图书购物车
+      </caption>
+      <thead>
+        <tr>
+          <th></th>
+          <th>书籍名称</th>
+          <th>出版日期</th>
+          <th>价格</th>
+          <th>购买数量</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for='(book, index) in books' 
+          :class='{active: index==activebook}' 
+          @click='changeBook(index)'
+        >
+          <th>{{index + 1}}</th>
+          <td v-for='(item, key) in book' v-if='key!="num" && key!="price"'>{{item}}</td>
+          <td>
+            {{book.price | showPrice}}
+          </td>
+          <td>
+            <button @click='sub(index)' :disabled='book.num <=1'>-</button>{{book.num}}<button @click='add(index)'>+</button>
+          </td>
+          <td><button @click.stop='removeBook(index)'>移除</button></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="6">
+            总价：{{totalPrice | showPrice}}
+          </td>
+          
+        </tr>
+        
+      </tfoot>
+    </table>
+    <h2 v-else>购物车中没有图书！</h2>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        activebook: -1,
+        message:'Hello, vue!',
+        books: [
+          {name: '《算法导论》', date: '2006-9', price: 85, num: 1},
+          {name: '《UNIX艺术编程》', date: '2006-2', price: 59, num: 1},
+          {name: '《编程珠玑》', date: '2008-10', price: 39, num: 1},
+          {name: '《代码大全》', date: '2006-3', price: 128, num: 1}
+        ],
+        hasBooks: true,
+      },
+      computed: {
+        totalPrice() {
+          let totalprice = 0;
+          for (book of this.books) {
+            totalprice += book.num * book.price
+          }
+          return totalprice;
+        }
+      },
+      methods: {
+        add(index) {
+          this.books[index].num++;
+        },
+        sub(index) {
+          if (this.books[index].num > 1) {
+            this.books[index].num--;
+          }
+        },
+        removeBook(index) { 
+          this.books.splice(index, 1);
+          if (!this.books.length) {
+            this.hasBooks = false;
+          }
+        },
+        // 改变图书
+        changeBook(index) {
+          this.activebook = index;
+        }
+      },
+      // 过滤器 ：将需要处理的参数传入过滤器中进行处理然后返回过滤好的结果
+      // 与计算属性的区别在于过滤器可以传入参数而计算属性不行
+      filters: {
+        showPrice(price) {
+          // toFixed(n)固定n位小数
+          return '￥' + price.toFixed(2);
+        }
+      }
+      
+    });
+  </script>
+</body>
+</html>

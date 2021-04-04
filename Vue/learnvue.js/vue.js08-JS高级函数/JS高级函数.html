@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <h1>
+      {{totalPrice}}
+    </h1>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        books: [
+          {name: '《算法导论》', date: '2006-9', price: 85, num: 1},
+          {name: '《UNIX艺术编程》', date: '2006-2', price: 59, num: 1},
+          {name: '《编程珠玑》', date: '2008-10', price: 39, num: 1},
+          {name: '《代码大全》', date: '2006-3', price: 128, num: 1}
+        ],
+      },
+      computed: {
+        totalPrice() {
+          let totalprice = 0;
+          // // 1. 使用 for in
+          // for (let i in this.books) {
+          //   // i也是索引
+          //   totalprice += this.books[i].price
+          
+          // }
+          // // 2. for of
+          for (let book of this.books) {
+            totalprice += book.price * book.num;
+          }
+          // 3. 高阶函数 filter过滤函数
+          //  filter传入一个回调函数
+          //  filter函数自动遍历数组，将数组项传递给回调函数处理
+          //  回调函数必须返回一个布尔值
+          //  返回true时，filter函数将数组项加入一个新代码
+          //  返回false时，filter函数遗弃数组项
+          //  filter函数最终返回一个新数组
+          const nums = [20, 15, 88, 150, 400, 24, 157];
+          let newNums = nums.filter((n) => {
+            return n < 100;
+          })
+          console.log(newNums);
+          
+          return totalprice;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id='app' v-cloak>
+    <form action="baidu">
+      <!-- 修改登录方式 -->
+
+      <!-- 在使用切换时会出现一个问题：输入值后切换，输入值被保存到另一个输入框内 -->
+      <!-- 值被保存的底层原理是
+        1. vue渲染DOM到浏览器之前，会把元素DOM抽象成虚拟DOM
+        2. 虚拟DOM(virtual dom)会被放入内存里,vdom是真实DOM的一种映射
+        3. 将VDOM渲染到浏览器
+        4. 出于性能考虑，vue会将VDOM的一些元素进行复用然后渲染到DOM
+
+        email和name不会同时出现在界面里，虚拟DOM会复用label和input
+        在切换时，会对复用的label和input的属性进行层级对比以修改，value值已被存储进行了复用
+      -->
+
+      <!-- 如何解决复用：
+        使用key属性对可能被复用的元素进行标识
+      -->
+      <div v-if='isUser'>
+        <label for="email">email:</label>
+        <input type="email" name="user_email" id="email" key='user_email'>
+        <button @click.prevent='changeLoginF' >切换登录方式</button>
+      </div>
+      <div v-else>
+        <label for="name">name:</label>
+        <input type="text" name="user_name" id="name" key='user_name'>
+        <button @click.prevent='changeLoginF'>切换登录方式</button>
+      </div>
+    </form>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        isUser: true  
+      },
+      methods: {
+        changeLoginF() {
+          this.isUser = !this.isUser;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

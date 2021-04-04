@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <!-- 1. .stop修饰符使用 -->
+    <!-- 事件冒泡：点击按钮后事件点击事件向上冒泡，检查元素是否有事件绑定，执行两个方法 -->
+    <div @click='divClick'>
+      div
+      <button @click='btnClick'>按钮</button>
+      <!-- 阻止元素的冒泡在事件后添加.stop  -->
+      <button @click.stop='btnClick'>按钮</button>
+    </div>
+    <!-- 2. .prevent修饰符使用 -->
+    <form action="baidu">
+      <label for="text">text</label>
+      <input type="text" value="text" name='text' id='text'>
+      <!-- 默认事件，提交表单 -->
+      <button type='submit'>提交</button>
+      <!-- 监听按钮，阻止默认提交，自定义提交方法 -->
+      <button type='submit' @click.prevent='btnSubmit'>自定义提交</button>
+    </form>
+    <!-- 3. 监听键帽使用 -->
+    <!-- 使用修饰符只监听某一类按键 -->
+    <input type="text" name="key" id="key" @keyup.enter='keyUp'>
+    <!-- 4.监听自定义组件 -->
+    <!-- 使用.native修饰符激活自定义组件监听 -->
+    <!-- 需要注册自定义组件才可用 -->
+    <!-- <cpn @click.native='clickCpn'>cpn组件</cpn> -->
+    <!-- 5. .once修饰符监听事件只能触发一次 后续触发不调用监听事件方法 -->
+    <button @click.once='btnOnce'>按钮once</button>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!'
+      },
+      methods: {
+        divClick() {
+          console.log('divClick');
+        },
+        btnClick() {
+          console.log('btnClick');
+        },
+        btnSubmit() {
+          console.log("自定义提交");
+        },
+        keyUp(e) {
+          console.log(e.target.value);
+        },
+        clickCpn(e) {
+          console.log(e);
+        },
+        btnOnce(e) {
+          console.log(e);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

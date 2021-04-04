@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+    button {
+      position: absolute;
+      top: 15%;
+      left: 2%;
+    }
+  </style>
+</head>
+<body>
+  <div id='app' v-cloak>
+    <h2 v-if='isShow'>{{message}}</h2>
+    <h2 v-else>isShow为false时，显示我</h2>
+    <button @click='isShow = !isShow'>显示/隐藏</button>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        isShow: true,
+      }
+    });
+  </script>
+</body>
+</html>
