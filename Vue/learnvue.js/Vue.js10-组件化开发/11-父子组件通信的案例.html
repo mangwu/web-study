@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <cpn :c-num1='num1' :c-num2='num2' @cpn-input1-change='cpnInput1Change' @cpn-input2-change='cpnInput2Change'>
+      
+    </cpn>
+    
+    
+
+  </div>
+  <template id='cpn'>
+    <div>
+      <!-- v-model不建议绑定props中的属性值， -->
+      <!-- 因为props值由父组件值确定，如果父组件修改组件值，用户也修改就会乱套 -->
+      <div>props: {{cNum1}}</div>
+      <div>dNumber1: {{dNumber1}} {{typeof dNumber1}}</div>
+      <!-- 使用data或者computed属性进行返回对应属性值 -->
+      <input type="text" v-model.number='dNumber1' @input='inputChange1(dNumber1)'>
+      <div>props: {{cNum2}}</div>
+      <div>dNumber2: {{dNumber2}} {{typeof dNumber2}}</div>
+      <input type="text" v-model.number='dNumber2' @input='inputChange2(dNumber2)'>
+
+    </div>
+    
+  </template>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        num1: 1,
+        num2: 2,
+      },
+      methods: {
+        cpnInput1Change(item) {
+          this.num1 = item;
+        },
+        cpnInput2Change(item) {
+          this.num2 = item;
+        }
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          data() {
+            return {
+              title: 'Hello, Vue',
+              dNumber1: this.cNum1,
+              dNumber2: this.cNum2
+            }
+          },
+          props: {
+            cNum1: {
+              type: Number,
+              default: 0,
+            },
+            cNum2: {
+              type: Number,
+              default: 0,
+            }
+          },
+          methods: {
+            inputChange1(item) {
+              // 发送事件
+              this.$emit('cpn-input1-change', item);
+              // 修改number
+              this.dNumber2 = this.dNumber1 * 100;
+              // props没改动，因为只是修改了dNumber2的值，不影响dN2对应的props
+              // 发送改动事件
+              this.$emit('cpn-input2-change', this.dNumber2)
+            },
+            inputChange2(item) {
+              // 发送事件
+              this.$emit('cpn-input2-change', item);
+
+              // 保持倍率关系
+              // 修改number
+              this.dNumber1 = this.dNumber2 / 100;
+              // props没改动，因为只是修改了dNumber2的值，不影响dN2对应的props
+              // 发送改动事件
+              this.$emit('cpn-input1-change', this.dNumber1)
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

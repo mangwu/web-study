@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    1. 项目组长 
+        + 做一些公共事情 main.js
+    2. 程序员小明
+        + 做模块a aaa.js  定义了flag = true
+        + 做模块m mmm.js  引用aaa.js中的flag
+    3. 程序员小红
+        + 做模块b bbb.js 定义了flag = false
+
+    这个时候就需要在HTML中引用这三个js,这个时候就可能出现问题:
+    (1) 命名相同的全局变量会产生冲突
+        如果引入顺序为aaa.js bbb.js mmm.js那么在mmm.js中的使用的flag值可能有偏差
+    (2) js文件的依赖问题,引用顺序会影响代码执行顺序,依赖顺序几乎是强制性的
+
+    解决方式:使用闭包,在闭包中自己的变量只能自己使用
+    闭包的问题:解决命名冲突,但是没有代码复用性的问题,无法使用闭包中的函数和对象
+
+    解决方式二:使用模块化,每个闭包返回一个对象模块,使用模块中定义好的属性和方法,命名不同的模块名即可
+
+    解决方式三:随着前端框架发展,已经有人设计出了模块化框架和规范来了
+    
+   -->
+   <script src="aaa.js"></script>
+   <script src="mmm.js"></script>
+</body>
+</html>

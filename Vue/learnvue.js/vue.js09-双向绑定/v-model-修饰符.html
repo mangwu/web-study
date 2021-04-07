@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <!-- 1.lazy修饰符 双向绑定的更新频率很高，使用lazy修饰符懒加载 -->
+    <!-- 在回车时绑定，或在聚焦丢失时绑定 -->
+    <input type="text" name="text" id="text" v-model.lazy='message'>
+    <h3>{{message}}</h3>
+
+    <!-- 2.number修饰符 双向绑定的数据在不加修饰的情况下， -->
+    <!-- v-model的特性是每次更新后都将绑定的数据变成string类型 -->
+    <!-- 使用number修饰符，将每次更新的数据变成number类型 -->
+    <input type="number" name="number" id="age" v-model='age'>
+    <h3>{{age}}-{{typeof age}}</h3>
+    <input type="number" name="number" id="age" v-model.number='age'>
+    <br><br>
+    <!-- 3.trim拨除两边的空格,在更新时有效 -->
+    <!-- 中间的空格无法去除 -->
+    <label for="space">祛除空格</label>
+    <input type="text" name="withoutspace" id="space" v-model.trim='name'>
+    <h3>
+      {{name}}
+    </h3>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        age: 0,
+        name: ' mangwu  ',
+      }
+    });
+  </script>
+</body>
+</html>

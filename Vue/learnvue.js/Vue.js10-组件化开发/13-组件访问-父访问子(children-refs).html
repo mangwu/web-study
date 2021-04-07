@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <cpn>
+    </cpn>
+    <!-- 通过使用ref属性让每个cpn组件有各自的ref值，在父组件中使用$refs就会有对应的键值对象 -->
+    <cpn ref='needed'>
+    </cpn>
+    <cpn>
+    </cpn>
+    <button @click='btnClick'>点击打印子组件中的数据</button>
+  </div>
+  <template id='cpn'>
+    <div>
+      <h2>{{title}}</h2>
+    </div>
+  </template>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!'
+      },
+      methods: {
+        btnClick() {
+          // 访问子组件VueComponent类，打印的是一个数组，数组里是子组件
+          console.log(this.$children)
+          // 调用showMessage方法
+          this.$children[0].showMessage();
+          // 调用子组件中的属性
+          console.log(this.$children[0].title);
+          // 遍历子组件数组
+          // for (let c of this.$children) {
+          //   console.log(c.cData);
+          // }
+          // 通过$children不是很好，因为需要通过索引去获得一个组件，如果需求变化，子组件的索引是会变的
+
+          // 使用refs 默认是空属性,如果给组件添加了引用ref就会显示引用的名称（键）和对应的组件（值)
+          console.log(this.$refs);
+          console.log(this.$refs.needed);
+        }
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          data() {
+            return {
+              title: '我是组件标题',
+              cData: ['子组件的', '一些', '数据'],
+            }
+          },
+          // 子组件的方法
+          methods: {
+            showMessage() {
+              let obj = {
+                title: this.title,
+                cData: this.cData
+              }
+              console.log(obj);
+            }
+          }
+        }
+        
+      }
+    });
+  </script>
+</body>
+</html>

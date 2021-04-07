@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <cpn>
+
+    </cpn>
+  </div>
+  <template id='cpn'>
+    <div>
+      <h2>{{title}}</h2>
+      <!-- 在子组件中访问父组件，需要在子组件中的事件触发 -->
+      <button @click='btnClick'>点击获取父组件相关信息</button>
+      <ccpn></ccpn>
+    </div>
+  </template>
+  <template id='ccpn'>
+    <div>
+      <h2>{{title}}</h2>
+      <!-- 在子组件中访问父组件，需要在子组件中的事件触发 -->
+      <button @click='btnClick'>点击获取父组件相关信息</button>
+    </div>
+  </template>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!'
+      },
+      
+      components: {
+        cpn: {
+          template: '#cpn',
+          data() {
+            return {
+              title: '我是组件标题',
+              cData: ['子组件的', '一些', '数据'],
+            }
+          },
+          // 子组件的方法
+          methods: {
+            showMessage() {
+              let obj = {
+                title: this.title,
+                cData: this.cData
+              }
+              console.log(obj);
+            },
+            // 访问父组件的方法
+            btnClick() {
+              // 1.访问父组件$parent 打印处父组件，父组件为Vue，因为父组件就是Vue实例
+              console.log(this.$parent);
+              // 2.访问父组件中的数据
+              console.log(this.$parent.message);
+            }
+          },
+          // Vue实例子组件的子组件
+          components: {
+            ccpn: {
+              template: '#ccpn',
+              data() {
+                return {
+                  title: '我是Vue实例子组件的子组件',
+                }
+              },
+              methods: {
+                btnClick() {
+                  // 1.访问父组件$parent 打印处父组件，父组件为Vue，因为父组件就是Vue实例
+                  console.log(this.$parent);
+                  // 2.访问父组件中的数据
+                  console.log(this.$parent.cData);
+                  // 3.访问父组件的父组件(Vue实例)中的数据
+                  console.log(this.$parent.$parent.message);
+                  // 开发里面不建议使用：
+                  // 组件需要有复用性，
+                  // 如果和父组件之间的耦合度过高，在别处使用时
+                  // 如果父组件不支持子组件的一些数据和操作，那么就会产生问题
+
+                  // 4.直接访问根组件:
+                  console.log(this.$root);
+                }
+              }
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <cpn2></cpn2>
+    <cpn1></cpn1>
+
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    // 1.创建两个组件
+    // 子组件
+    const cpnC1 = Vue.extend({
+      template: `
+        <div>
+          <h2>我是标题1</h2>
+          <p>我是内容,哈哈哈</p>
+        </div>
+      `,
+      
+    });
+    // 父组件 ->template会被render()渲染的
+    const cpnC2 = Vue.extend({
+      template: `
+        <div>
+          <h2>我是标题2</h2>
+          <p>我是内容,呵呵呵</p>
+          <cpn1></cpn1>
+        </div>
+      `,
+      // 注册子组件组件
+      // vue在解析cpn2时就会得到一个已经编译好的cpn2，
+      // cpn2中tenplate的cpn1是直接被替换成了cpn1中的tenplate内容的
+      // 所以对vue实例，如果没有注册cpn1，它是不知道cpn1的
+      components: {
+        cpn1: cpnC1
+      }
+      
+    });
+    // vue实例也可以看作一个组件，是所有组件的父组件，顶层组件root
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!'
+      },
+      // 局部组件
+      components: {
+        // cpn1在cpn2中注册了
+        cpn2: cpnC2,
+        // cpn1只在cpn2中有作用，在root里是找不到cpn1的，如果要使用cpn1需要在此注册
+        cpn1: cpnC1,
+      }
+    });
+  </script>
+</body>
+</html>

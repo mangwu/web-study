@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <!-- 全局组件 -->
+    <cpn></cpn>
+    <cpn></cpn>
+    <cpn></cpn>
+    
+  </div>
+  <div id='app2'>
+    <h1>以下是另一个app2使用组件</h1>
+    <!-- 局部组件无法使用 -->
+    <cpn></cpn>
+    <cpn></cpn>
+    <cpn></cpn>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    // 1.组件构造器
+    const cpnC = Vue.extend({
+      template: `
+        <div>
+          <h2>我是标题</h2>
+          <p>我是内容</p>
+        </div>
+      `
+    })
+    // 2.注册组件（基本使用里构造的就是全局组件)
+    // Vue.component('cpn', cpnC);
+    // 3.使用组件(全局组件可以在另一个app中使用)
+
+    // 注册局部属性：在一个Vue实例里注册
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!'
+      },
+
+      // 注册组件
+      components: {
+        // cpn:组件标签名, cpnC是组件构造器实例
+        cpn: cpnC,
+      }
+    });
+
+    // 另一个app
+    const app2 = new Vue({
+      el: '#app2',
+      data: {
+        message:'Hello, vue!'
+      }
+    });
+    
+  </script>
+</body>
+</html>

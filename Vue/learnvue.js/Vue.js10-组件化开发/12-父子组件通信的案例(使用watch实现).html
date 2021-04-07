@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- watch属性能够自动监听属性值然后做出一些操作 -->
+  <div id='app'>
+    <!-- 监听子组件发送的事件 -->
+    <cpn :c-num1='num1' :c-num2='num2' @cpn-dn1-change='cpnDn1Change' @cpn-dn2-change='cpnDn2Change'>
+
+    </cpn>
+  </div>
+  <!-- 子模版 -->
+  <template id='cpn'>
+    <div>
+      <h2>
+        props: {{cNum1}}
+      </h2>
+      <h2>
+        dnumber1: {{dNumber1}} {{typeof dNumber1}}
+      </h2>
+      <input type="number" v-model.number='dNumber1'>
+      <br>
+      <h2>
+        props: {{cNum2}}
+      </h2>
+      <h2>
+        dnumber1: {{dNumber2}} {{typeof dNumber2}}
+      </h2>
+      <input type="number" v-model.number='dNumber2'>
+      <br>
+      
+    </div>
+  </template>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        num1: 1,
+        num2: 2,
+      },
+      methods: {
+        cpnDn1Change(value) {
+          this.num1 = value;
+        },
+        cpnDn2Change(value) {
+          this.num2 = value;
+        },
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          data() {
+            return {
+              dNumber1: this.cNum1,
+              dNumber2: this.cNum2,
+            }
+          },
+          props: {
+            cNum1: {
+              type: Number,
+              default: 0
+            },
+            cNum2: {
+              type: Number,
+              default: 0
+            }
+          },
+          // 监听data中的数据与事件监听方法不同的是@input中值不由用户改变可能无法察觉到数据改变了
+          watch: {
+            dNumber1(newValue, oldValue) {
+              console.log(newValue, oldValue);
+              // 固定两个数的关系
+              this.dNumber2 = this.dNumber1 * 100
+              // 发送事件给父组件，改变父组件的值(不用另一个值的，因为watch中的是实时监控的)
+              this.$emit('cpn-dn1-change', newValue)
+            },
+            dNumber2(newValue, oldValue) {
+              console.log(newValue, oldValue)
+              // 固定两个数的关系
+              this.dNumber1 = this.dNumber2 / 100
+              // 发送事件给父组件，改变父组件的值
+              this.$emit('cpn-dn2-change', newValue)
+            },
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

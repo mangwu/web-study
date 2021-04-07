@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <!-- 在用的标签上传递父组件的值 -->
+    <!-- 属性值不能使用驼峰标示
+      如果组件中的props内使用了驼峰标识符，需要将数据使用-进行分隔 -->
+    <cpn  :cmessage='message' :cmovies='movies' :cinfo='info' :user-Hoppies='hoppies' >
+
+    </cpn>
+  </div>
+  <template id='cpn1'>
+     <div><!-- 组件模板必须包含一个根 -->
+      我是组件
+      <h2>{{title}}</h2>
+      <p>{{cmessage}}</p>
+      <ul>
+        <li v-for='item in cmovies'>{{item}}</li>
+      </ul>
+      <div>
+        <p v-for='(value, key) in cinfo'>
+          {{key}}:{{value}}
+        </p>
+      </div>
+      <div>
+        <p>userHoppies:</p>
+        <ul>
+          <!-- 在实际使用驼峰属性时仍然使用驼峰，只是传递时使用-隔开这是HTML的问题 -->
+          <li v-for='hp in userHoppies'>
+            {{hp}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </template>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        movies: ['海王', '大话西游', '月光宝盒', '黑客帝国'],
+        info: {
+          name: 'mangwu',
+          age: 18,
+          height: 188,
+        },
+        hoppies: ['sporting', 'skiing', 'ping pong'],
+      },
+      components: {
+        cpn: {
+          template: '#cpn1',
+          data() {
+            return {
+              title: '我是标题',
+            }
+          },
+          props: {
+            cmessage: {
+              type: String,
+              default: 'Hello, Vue',
+            },
+            cmovies: {
+              type: Array,
+              default() {
+                return []
+              }
+            },
+            cinfo: {
+              type: Object,
+              default() {
+                return {}
+              }
+            },
+            userHoppies: {
+              type: Array,
+              default() {
+                return []
+              }
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

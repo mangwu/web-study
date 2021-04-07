@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <!-- 多选框可以选择多个也可以选择单个 -->
+    <form action="baidu">
+      <fieldset>
+        <legend>单选协议</legend>
+        <input type="checkbox" name="" id="protocol" v-model='isAgree'>
+        <label for="protocol">同意协议</label>
+      </fieldset>
+      <!-- 未同意就不可点击下一步 -->
+      <button :disabled='!isAgree' type="submit" @click.prevent='nextHanlder'>下一步</button>
+    </form>
+    <h2>你的选择{{isAgree}}</h2>
+
+    <!-- 多选框 -->
+    <form action="baidu">
+      <fieldset>
+        <!-- 将选择项的value收集起来 -->
+        <legend>多选框</legend>
+        <input type="checkbox" name="user_like" id="hp1" value="篮球" v-model='hobbies'>
+        <label for="hp1">篮球</label>
+        <input type="checkbox" name="user_like" id="hp2" value="乒乓球" v-model='hobbies'>
+        <label for="hp2">乒乓球</label>
+        <input type="checkbox" name="user_like" id="hp3" value="足球" v-model='hobbies'>
+        <label for="hp3">足球</label>
+        <input type="checkbox" name="user_like" id="hp4" value="羽毛球" v-model='hobbies'>
+        <label for="hp4">羽毛球</label>
+      </fieldset>
+    </form>
+    <h2>
+      你的爱好是:
+      <ul>
+        <li v-for='hb in hobbies'>{{hb}}</li>
+      </ul>
+    </h2>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        isAgree: false,
+        // 数组类型收集多选项
+        hobbies: []
+      },
+      methods: {
+        nextHanlder() {
+          console.log('next')
+        }
+      }
+    });
+  </script>
+</body>
+</html>

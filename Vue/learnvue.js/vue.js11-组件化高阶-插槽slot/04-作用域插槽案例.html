@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <cpn>
+      <!-- 默认插槽内容 -->
+    </cpn>
+    <cpn>
+      <!-- 当数据过多时,我们需要以另一种方式展示插槽内容但是一个个改变又太麻烦 -->
+      <!-- 方法是在父组件中使用子组件时,在子组件的textContent中拿到子组件的数据(不是在template编写时拿) -->
+      <!-- 作用域插槽就是做这个事情的 ,如果直接使用v-for是去实例里查找的 -->
+      <!-- <span v-for='item in pLanguages'>{{item}}</span> -->
+      <template slot-scope="slot" slot='slot1'> <!-- 引用插槽对象 -->
+        <!-- 2.5以上的模板可以不用template 来使用slot中的data-->
+        <span v-for='item in slot.data'>{{item}}-</span>
+        
+      </template>
+    </cpn>
+    <cpn>
+      <template slot-scope='slot' slot='slot1'>
+        <span>{{slot.data.join('+')}}</span>
+      </template>
+    </cpn>
+  </div>
+  <template id='cpn'>
+    <div>
+      <!-- 在插槽内绑定本组件的数据就可以在实例中使用 -->
+      <slot :data='pLanguages' name='slot1'>
+        <ul>
+          <li v-for='item in pLanguages'>{{item}}</li>
+        </ul>
+      </slot>
+      
+    </div>
+  </template>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!'
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          data() {
+            return {
+              pLanguages: ['JavaScript', 'C++', 'Java', 'C#', 'Python', 'Go', 'Swift']
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

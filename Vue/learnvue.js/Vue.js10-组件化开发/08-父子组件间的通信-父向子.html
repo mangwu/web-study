@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <!-- 使用v-bind:绑定属性，属性值为父元素data中的属性值，属性是子属性中自定义的元素属性 -->
+    <!-- 不使用v-bind得到的仅是字符串 -->
+    <cpn :cmovies='movies'> <!--:cmessage='message'--><!--不绑定cmessage就是默认值-->
+
+    </cpn>
+  </div>
+  <template id="cpn">
+    <div>
+      <ul>
+        <li v-for='item in cmovies'>{{item}}</li>
+      </ul>
+      <h2>{{cmessage}}</h2>
+    </div>
+  </template>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        // 传递给子组件的信息
+        movies: ['海王', '海贼王', '海尔兄弟']
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          // 父组件传递子组件信息使用props,其中的属性使用数据绑定到cpn元素属性中即可使用
+          // props: [
+          //   'cmovies',
+          //   'cmessage'
+          // ],
+          // 使用对象来接收传递的参数,对象可以指定接收数据的类型，且不用写引号
+          props: {
+            // cmovies: Array,
+            // 支持印证的类型:
+            // 
+            // 可以提供默认值和其他限制
+            cmessage: {
+              type: String,
+              // 默认值，可以是一个返回type类型的方法
+              default: 'Hello, Vue!!!',
+              // required 布尔值，表示这个值是否是必须传递的
+              // required: true, //必须传递的值
+            },
+            cmovies : {
+              type: Array,
+              // 在高版本Vue中，使用default设定默认值，如果type为数组或者对象，必须使用函数返回对应类型值
+              default: function() {
+                return []
+              },
+              // 自定义赢证函数 返回布尔值
+              validator(value) {
+
+              }
+            }
+          },
+        }
+      }
+    });
+  </script>
+</body>
+</html>

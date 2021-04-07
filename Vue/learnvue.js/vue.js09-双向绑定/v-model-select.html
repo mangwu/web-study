@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <!-- select 1. 选择一个 -->
+    <form action="baidu" method="POST">
+      <select name="like" id="select1" v-model='select'  @input='cateVertify'>
+        <optgroup label="水果" value='水果'>
+          <option value="苹果">苹果</option>
+          <option value="橘子">橘子</option>
+          <option value="香蕉">香蕉</option>
+          <option value="菠萝">菠萝</option>
+          <option value="西瓜">西瓜</option>
+        </optgroup>
+        <optgroup label="蔬菜" value='蔬菜'>
+          <option value="胡萝卜">胡萝卜</option>
+          <option value="白菜">白菜</option>
+          <option value="洋葱">洋葱</option>
+          <option value="大蒜">大蒜</option>
+        </optgroup>
+      </select>
+      <h2>您的选择：{{select}}</h2>
+      <br><br>
+      <select name="like" id="selects" v-model='selects' multiple>
+        <optgroup label="水果" value='水果'>
+          <option value="苹果">苹果</option>
+          <option value="橘子">橘子</option>
+          <option value="香蕉">香蕉</option>
+          <option value="菠萝">菠萝</option>
+          <option value="西瓜">西瓜</option>
+        </optgroup>
+        <optgroup label="蔬菜" value='蔬菜'>
+          <option value="胡萝卜">胡萝卜</option>
+          <option value="白菜">白菜</option>
+          <option value="洋葱">洋葱</option>
+          <option value="大蒜">大蒜</option>
+        </optgroup>
+      </select>
+      <h2>您的选择：
+        <ul>
+          <li v-for='s in selects'>{{s}}</li>
+        </ul>
+      </h2>
+    </form>
+    
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        select: '西瓜',
+        selects: []
+      },
+      methods: {
+        cateVertify(e) {
+          console.log(e);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

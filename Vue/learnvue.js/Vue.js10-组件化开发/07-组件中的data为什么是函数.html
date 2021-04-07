@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <!-- 使用组件，其实就是创建了一个组件实例 -->
+    <!-- 每个组件实例有自己的独立空间，每个使用的组件中的data都是各自的 -->
+    <!-- 这也是把data设置为函数的原因，这样每个组件实例在获得data时，
+         是一个实时返回的一个对象，不是同一个data对象 
+    -->
+    <cpnc></cpnc>
+    <cpnc></cpnc>
+
+  </div>
+  <template id='cpncounter'>
+    <div>
+      <!-- 我是组件 -->
+      <h2>当前计数:{{counter}}</h2>
+      <button @click='add'>+</button>
+      <button @click='sub'>-</button>
+    </div>
+  </template>
+  <script src='../js/vue.js'></script>
+  <script>
+    // 1.注册组件
+    Vue.component('cpnc', {
+      template: '#cpncounter',
+      data() {
+        return {
+          counter: 0,
+        }
+      },
+      methods: {
+        add() {
+          this.counter ++;
+        },
+        sub() {
+          this.counter --;
+        }
+      }
+    })
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!'
+      }
+    });
+  </script>
+</body>
+</html>

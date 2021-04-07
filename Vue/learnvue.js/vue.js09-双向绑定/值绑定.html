@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <!-- 使用值绑定将value值绑定到一个数组，不要在多选项中手写 -->
+    <form action="baidu">
+      <fieldset>
+        <!-- 将选择项的value收集起来 -->
+        <legend>多选框</legend>
+        <!-- <input type="checkbox" name="user_like" id="hp1" value="篮球" v-model='hobbies'>
+        <label for="hp1">篮球</label>
+        <input type="checkbox" name="user_like" id="hp2" value="乒乓球" v-model='hobbies'>
+        <label for="hp2">乒乓球</label>
+        <input type="checkbox" name="user_like" id="hp3" value="足球" v-model='hobbies'>
+        <label for="hp3">足球</label>
+        <input type="checkbox" name="user_like" id="hp4" value="羽毛球" v-model='hobbies'>
+        <label for="hp4">羽毛球</label> -->
+        <label v-for='(item, index) in originHobbies' :for="'hp' + index" >
+          <input type="checkbox" name="user_like" :id="'hp' + index" :value='item' v-model='hobbies'>
+          {{item}}
+        </label>
+      </fieldset>
+      <h2>你的爱好:
+        <ul>
+          <li v-for='item in hobbies' :key='item'>{{item}}</li>
+        </ul>
+      </h2>
+    </form>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        // 选中项
+        hobbies: [],
+        originHobbies: ['篮球','足球', '羽毛球', '台球', '高尔夫球', '铅球']
+      }
+    });
+  </script>
+</body>
+</html>

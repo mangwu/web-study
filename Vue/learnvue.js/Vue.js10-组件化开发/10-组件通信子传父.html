@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 子传父需要使用事件 -->
+  <!-- 一般子组件产生了一些事件是必须让父组件知道的 -->
+  <div id='app'>
+    <!-- 父组件在cpn中设置事件监听器 -->
+    <!-- 然后设置一个处理子组件事件的方法，通常有cpn标示，标示处理子组件中的事件 -->
+    <!-- 注意这里也不能写驼峰 -->
+    <!-- 省略传入参数默认将子组件传递给父组件的对象作为参数传递 -->
+    <cpn @item-click='cpnClick'>
+    </cpn>
+    <div>
+      <p>
+        <ul v-for='(item, index) in display' v-if='currentIndex == index'>
+          <li v-for='product in item.content'>
+            {{product}}
+          </li>
+        </ul>
+      </p>
+    </div>
+  </div>
+
+  <!-- 模板 -->
+  <template id='cpn'>
+    <div>
+      <h2>{{title}}</h2>
+      <button v-for='(item, index) in categories'
+              @click='btnClick(index)'
+      >
+        {{item.name}}
+      </button>
+    </div>
+  </template>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!',
+        display: [
+          {
+            name: '热门推荐',
+            content: ['手机', '羽裳', '磷酸钙', '书本','磁控管']
+          },
+          {
+            name: '手机数码',
+            content: ['小米手机', '华为Mate40', '苹果XS', 'oppo reno','vivo X50', '三星']
+          },
+          {
+            name: '家用电器',
+            content: ['松下', '海尔', '格力', '美的','奥克斯']
+          },
+          {
+            name: '电脑办公',
+            content: ['联想', 'dell', '华为笔记本', '苹果笔记本','华硕']
+          }
+        ],
+        currentIndex: 0,
+      },
+      // 注册子组件
+      components: {
+        cpn: {
+          template: '#cpn',
+          data() {
+            return {
+              title: '组件标题',
+              categories: [
+                {id: 'awijcal', name: '热门推荐'},
+                {id: 'bbivacl', name: '手机数码'},
+                {id: 'ciaucka', name: '家用电器'},
+                {id: 'diuvhab', name: '电脑办公'},
+
+              ],
+            }
+          },
+          methods: {
+            btnClick(index) {
+              // 把点击事件的信息传递给父组件
+              // console.log(this.categories[index])
+              // 自定义事件并发送,发送的事件名称和传递的参数
+              this.$emit('item-click', index)
+            }
+          }
+        }
+      },
+      methods: {
+        cpnClick(item) {
+          console.log(item)
+          this.currentIndex = item
+        }
+      }
+    });
+  </script>
+</body>
+</html>

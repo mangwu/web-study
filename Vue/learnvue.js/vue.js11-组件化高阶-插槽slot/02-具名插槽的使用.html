@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h4 {
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div id='app'>
+    <!-- 只想改变中间的插槽 -->
+    <cpn>
+      <!-- 如果使用这种方法，如果插槽没有名字，内部全是按钮 -->
+      <!-- <button>按钮</button> -->
+
+      <!-- 为插槽定义名称后，使用slot属性指明要替换的插槽 -->
+      <h4 slot='center'>将中间的插槽替换成标题</h4>
+    </cpn>
+
+
+
+  </div>
+  <template id='cpn'>
+
+    <div>
+      <!-- 一个组件中可以有多个插槽 -->
+      <!-- 给插槽起名字可以避免直接替换，只有当指定要替换的插槽时才会替换 -->
+      <slot name='left'>
+        <span>左边的插槽</span>
+      </slot>
+      <slot name='center'>
+        <span>中间的插槽</span>
+      </slot>
+      <slot name='right'>
+        <!-- 可以在插槽里显示默认值，如果没有在cpn标签中使用其他元素，就会使用 -->
+        <button>右边的插槽</button>
+      </slot>
+      <p>
+        下方时没名字的插槽,会被没有指定名字的新内容替换(slot没有指定)默认替换,
+      </p>
+      <slot>
+        被替换的
+      </slot>
+    </div>
+  </template>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello, vue!'
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          data() {
+            return {
+              content: '我是组件内容，哈哈哈'
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

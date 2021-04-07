@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 组件化的好处之一：对代码进行复用,可以在多个界面使用
+  <my-cpn>
+    <h2>我是标题</h2>
+    <p>我是内容————————</p>
+    <p>我是内容————————</p>
+  </my-cpn> -->
+  <div id='app'>
+    <!-- 下面的代码如果是一个需要使用多次的代码，就可以对它进行组件化 -->
+    <my-cpn></my-cpn>
+    <my-cpn></my-cpn>
+    <my-cpn></my-cpn>
+    <my-cpn></my-cpn>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    //ES6可以使用``定义字符串,可以直接换行使用
+    const str = `
+      字符串
+    `;
+    // 1.创建一个组件构造器对象 这种方式是本质方式，最新语法可以简写
+    // extend()传入参数对象
+    const myCpnConstructor = Vue.extend({
+      // 给组件构造器一个模板，该模板就是要显示的HTML代码
+      template: `
+        <div>
+          <h2>我是标题</h2>
+          <p>我是内容————————</p>
+          <p>我是内容————————</p>
+        </div>
+      `
+    });
+    // 2. 注册组件
+    // 传入两个参数：组件标签名(string), 组件构造器
+    Vue.component('my-cpn', myCpnConstructor)
+    // 3.使用组件（在app实例绑定的元素内使用）
+
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!'
+      }
+    });
+  </script>
+</body>
+</html>

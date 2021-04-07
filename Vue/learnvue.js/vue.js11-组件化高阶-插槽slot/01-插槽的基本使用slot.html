@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <!-- 第一个要有button 第二个要有span 第三个需要p-->
+    <cpn>
+      <button>按钮</button>
+    </cpn>
+    <cpn>
+      <span>span</span>
+    </cpn>
+    <cpn>
+      <p>
+        根据插槽显示东西
+      </p>
+    </cpn>
+    <!-- 默认值 -->
+    <cpn></cpn>
+    <cpn></cpn>
+    <!-- 有多个值时直接全部写入插槽中 -->
+    <cpn>
+      <p>p元素</p>
+      <h2>h2元素</h2>
+    </cpn>
+
+
+
+  </div>
+  <template id='cpn'>
+    <!-- 这样封装的组件不具备扩展性 -->
+    <div>
+      <h2>我是组件</h2>
+      <p>
+        {{content}}
+      </p>
+      <!-- 在这里，我们希望这个组件第一次使用时需要一个button，其他组件实例有各自需求 -->
+      <!-- 使用插槽，slot让这里的元素具有可变性，这样就提高了组件的可扩展性 -->
+      <!-- 在实际开发中，导航栏会有很多类似的东西，可以使用插槽对导航栏组件进行封装 -->
+      <slot>
+        <!-- 可以在插槽里显示默认值，如果没有在cpn标签中使用其他元素，就会使用 -->
+        <button>按钮</button>
+      </slot>
+    </div>
+  </template>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'Hello, vue!'
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          data() {
+            return {
+              content: '我是组件内容，哈哈哈'
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

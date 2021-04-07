@@ -50,8 +50,43 @@
             return n < 100;
           })
           console.log(newNums);
-          
-          return totalprice;
+          // 4. map函数 映射
+          // map函数也传入一个回调函数
+          // map函数自动遍历数组，将数组项传递给回调函数处理
+          // 回调函数返回值位数组项处理后的值
+          // map函数将回调函数返回的每个处理后的数值加入到一个新数组中
+          // map函数最终返回一个新数组
+          let new2Nums = newNums.map((n) => {
+            return n * 2;
+          })
+          console.log(new2Nums);
+          // 5. reduce函数
+          // reduce对数组中的内容进行汇总（将数组内容减少为一个值）
+          // 传入参数可以为一个回调函数或者加上一个初始数值
+          // 回调函数需要两个参数，preValue是上一次回调函数返回的值，和n传入的数组项值
+          // 回调函数的第一个preValue是传入reduce的第二个参数，即初始数值
+          // 回调函数的第二个参数n为每个数组项值
+          // 将前一个返回值和数组项值进行处理
+          // 最终reduce函数返回最后一次回调函数返回的值
+          let resultNum = new2Nums.reduce((preValue, n) => {
+            return preValue + n;
+          }, 0);
+          // 第一次:  preValue: 0  n: 40
+          // 第二次:  preValue:40  n: 30
+          // 第三次:  preValue:70  n: 176
+          // 第四次:  preValue:246 n: 48
+          // 最终结果: 294
+          console.log(resultNum);
+
+          // 6. 链式编程(函数式编程)
+          // 上述的高阶函数都会返回值，将返回值再次使用高阶函数就可以实现链式调用
+          let resultNum2 = nums.filter((n)=>n<100).map((n)=>n*2).reduce((preValue,n)=>preValue + n, 0);
+          console.log(resultNum2);
+
+          // 7. 使用reduce获取书价
+          let totalprice2 = this.books.reduce((pre, b)=>pre+ b.price * b.num, 0);
+          console.log(totalprice2);
+          return totalprice2;
         }
       }
     });
