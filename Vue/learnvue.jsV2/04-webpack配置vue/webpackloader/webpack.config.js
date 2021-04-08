@@ -1,11 +1,13 @@
-
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   mode: 'development',
   entry: __dirname + '/src/main.js',
   output: {
     path: __dirname + '/dist/',
     filename: 'bundle.js',
-    publicPath: 'dist/'
+    // publicPath: 'dist/'
   },
   module: {
     rules: [
@@ -49,12 +51,26 @@ module.exports = {
           }
         }
       },
+      {
+        test: /\.vue$/i,
+        use: {
+          loader: 'vue-loader',
+        },
+      },
       
     ],
   },
+  plugins: [
+    new VueLoaderPlugin(),
+    new webpack.BannerPlugin('最终版权归mangwu所有'),
+    new HtmlWebpackPlugin({
+      template: 'index.html',
+    })
+  ],
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js', 
-    }
+    },
+    extensions: ['.js', '.css', '.vue'],
   }
 }
