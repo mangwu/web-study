@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  // 当函数作为另一个函数的参数时使用箭头函数比较好 例如
+  // setTimeout(() => console.log(this), 1000);
+  // this就是当前页面window
+
+
+  const obj = {
+    // 在对象中一般写这种函数而不是箭头函数
+    aaa() {
+      // 回调函数默认传递一个window对象
+      setTimeout(function() {
+        console.log(this);
+        // 打印window
+      });
+      // 在函数里用this就是当前对象
+      console.log(this)// 这个this就是箭头函数中的this
+      // 箭头函数中的this一层层向外查找直到有this定义
+      setTimeout(() => console.log(this), 40) // 打印obj对象
+    }
+  }
+
+  obj.aaa();
+
+  // 箭头函数的this引用的时最近作用域中的this
+  </script>
+</body>
+</html>

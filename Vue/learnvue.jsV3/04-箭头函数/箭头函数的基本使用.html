@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 箭头函数：定义函数的一种方式
+    // 1. 定义函数方式
+    const a = function() {
+      console.log('a');
+    }
+
+    // 2. 字面量中定义函数
+    const obj = {
+      bbb() {
+        console.log('bbb')
+      }
+    }
+    // 3. ES6 中的箭头函数
+    // (参数列表) => { }
+    const c = () => {
+      console.log('c')
+    }
+
+    // 3.1.1 箭头函数的参数
+    const sum = (num1, num2) => {
+      return num1 + num2
+    }
+    // 3.1.2 一个参数 可以省略括号
+    const power = num => {
+      return num * num
+    }
+
+    // 3.2.1 箭头函数中多行代码
+    const d = () => {
+      console.log('d');
+      console.log('e');
+    }
+    // 3.2.2 箭头函数中只有一行代码
+    const mul = (num1, num2) => num1 * num2
+    // return被省略了
+    console.log(mul(20, 30));
+    // 如果执行的一行代码没有返回值也可以这样写，返回结果为undefined
+
+  </script>
+</body>
+</html>
