@@ -56,7 +56,7 @@ const router = new VueRouter({
           component: () => import('../components/HomeCpn/Message')
         }
       ]
-    },
+    },	
     {
       path: '/about',
       // 路由懒加载
