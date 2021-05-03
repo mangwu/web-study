@@ -16,7 +16,7 @@ export default {
 </script>
 <style>
 /* 导入公共样式 */
-@import './assets/css/base.css';
+@import 'assets/css/base.css';
 
 
 </style>

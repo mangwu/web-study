@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    // 需要同时进行多次异步请求，且依赖需要两个请求的结果
+    // all()传入可迭代对象iterrator
+    Promise.all([
+      new Promise((resolve, reject) => {
+        // 模拟异步请求
+        setTimeout(() => {
+          console.log('Promise1 完成请求');
+          resolve('data1')
+        }, 1000)
+      }),
+      new Promise((resolve, reject) => {
+        // 模拟异步请求
+        setTimeout(() => {
+          console.log('Promise2 完成请求');
+          resolve('data2')
+        }, 2000)
+      }),
+      new Promise((resolve, reject) => {
+        // 模拟异步请求
+        setTimeout(() => {
+          console.log('Promise3 完成请求');
+          resolve('data3')
+        }, 1500)
+      }),
+    ]).then(results => {
+      // results为数组，只有全部请求完成才会执行下面的操作
+      console.log('第一个请求结果' + results[0]);
+      console.log('第二个请求结果' + results[1]);
+      console.log('第三个请求结果' + results[2]);
+    })
+
+  </script>
+</body>
+</html>

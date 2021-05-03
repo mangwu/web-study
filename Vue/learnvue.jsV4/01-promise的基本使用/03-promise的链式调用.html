@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 对以下异步代码进行wrapper(包装)
+    // 网络请求 data -> 自己进行结果处理 ->拼接2，传给下一步(变为了data2)
+    // 处理 data2 -> 自己处理 -> 拼接3，传给下一步（变为data23)
+    // 处理 data23 -> 自己处理 -> 拼接4，传给下一步(变为data234)
+
+    new Promise((resolve, reject) => {
+      // 模拟网络请求
+      setTimeout(() => {
+        resolve('aaa')
+      }, 1000)
+    }).then(res => {
+      // 第一个异步请求（网络请求）的结果处理
+      // 
+      console.log(res + '正在被处理');
+      console.log('_________完成第一层处理代码__________');
+
+      // 第二次异步处理 reject可选 但是是同步操作
+      return new Promise((resolve) => {
+        resolve(res + '2')
+      }) 
+    }).then(res => {
+      console.log(res + '正在被处理');
+      console.log('_________完成第二层层处理代码__________');
+      // 第三次异步处理 reject可选 一种简写 
+      return Promise.resolve(res + '3')
+    }).then((res) => {
+      console.log(res + '正在被处理');
+      console.log('_________完成第三层层处理代码__________');
+
+      // 第四次异步处理 reject可选 内部进行promise包装 
+      return res + '4'
+    }).then((res) => {
+      console.log(res + '正在被处理');
+      console.log('_________完成第四层层处理代码__________');
+    })
+
+    // 简写：
+    let result = new Promise(resolve => {
+      setTimeout(() => {
+        resolve('2data')
+      }, 2000)
+    })
+    .then((res) => res + '2')
+    .then((res) => res + '3')
+    .then(res => {
+      // res = res + '4' 出错
+      // return Promise.reject('err message')
+      throw 'err message'
+      return res + '4'
+    }).catch(err => {
+      console.log(err);
+    })
+    console.log(result);
+  </script>
+</body>
+</html>

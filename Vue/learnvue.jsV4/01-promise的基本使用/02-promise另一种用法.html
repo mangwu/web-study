@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    new Promise((resovle, reject) => {
+      setTimeout(() => {
+        // resovle('data')
+        reject('err message')
+      }, 1000)
+    })
+    .then(data => {
+      // resovle时执行这个
+      console.log(data);
+    }, err => {
+      // reject时执行这个(不使用catch)
+      console.log(err);
+    })
+  </script>
+</body>
+</html>

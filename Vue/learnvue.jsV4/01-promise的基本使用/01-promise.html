@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    // javascripts是单线程的，按顺序的
+
+    // 开发中进行网络请求等异步操作，这样可以避免阻塞
+    // 以前使用ajax进行网络请求会造成回调地狱，它的逻辑是这样的
+    // 1. 使用ajax(url, callback) 传入url和回调函数
+    // 2. 服务器返回数据后，回调函数执行获得数据
+    // 3. 如果这个数据不是最终数据，而是包含了下一个数据请求的url
+    // 4. 在回调函数中再次使用ajax请求，那么就实现了回调嵌套
+    // 5. 回调函数嵌套过多就会造成回调地狱
+
+    // Promise用以解决回调地狱的问题
+
+    // 使用setTiemout()的异步操作
+    // setTimeout(() => {
+    //   console.log('Hello,World');
+    // }, 1000)
+
+    // 把异步操作进行promise的封装
+    // 传入函数(resolve, reject) resolve和reject作为参数本身也是函数
+    // new Promise((resolve, reject) => {
+    //   // 封装异步操作
+    //   setTimeout(() => {
+    //     console.log('Hello,World');
+    //     console.log('Hello,World');
+    //     console.log('Hello,World');
+    //     console.log('Hello,World');
+    //     console.log('Hello,World');
+    //     // 回调地狱
+    //     setTimeout(() => {
+    //       console.log('Hello,vue');
+    //       console.log('Hello,vue');
+    //       console.log('Hello,vue');
+    //       console.log('Hello,vue');
+    //       console.log('Hello,vue');
+
+    //     }, 1000)
+    //   }, 1000)
+    // })
+    // 封装方式：
+    new Promise((resolve, reject) => {
+      // 将异步操作中的代码进行Promise异步调用
+      setTimeout(() => {
+        // 将异步的操作放入.then()中
+        resolve()
+      }, 2000)
+    }).then(() => {
+      // 处理异步操作中的非异步代码
+      console.log('Hello,World');
+      console.log('Hello,World');
+      console.log('Hello,World');
+      console.log('Hello,World');
+      console.log('Hello,World');
+      // 返回一个promise以完成嵌套在异步操作中的异步操作
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          let data = 'data'
+          // 成功的时候调用resolve
+          // resolve(data)
+          // 失败调用reject()，不会进入下一条.then(),直接进入.catch()
+          reject('err message')
+        }, 2000)
+      })
+    }).then((data) => {
+      console.log(data)
+      console.log('Hello,vue');
+      console.log('Hello,vue');
+      console.log('Hello,vue');
+      console.log('Hello,vue');
+      console.log('Hello,vue');
+    }).catch(err => {
+      //err 为reject传入的
+      console.log(err);
+    })
+
+    // 1. 将异步操作放入promise内
+    // 2. 将非异步操作放入.then()内
+    // 3. promise和.then()链式调用
+
+    // 什么情况用promise
+    // 有异步操作对进行封装
+    // new -> 构造函数(1. 保存状态信息 2. 执行传入的函数，即执行传入Promise的箭头函数)
+
+  </script>
+</body>
+
+</html>
