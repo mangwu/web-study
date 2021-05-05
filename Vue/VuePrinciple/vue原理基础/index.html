@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    {{message}}
+  </div>
+  <script>
+    // 简单实现数据的单向绑定
+    class Vue {
+      constructor(options) {
+        // 1. 保存数据
+        this.$options = options
+        this.$data = options.$data
+        this.$el = options.el
+
+        // 2. 将data添加到响应式系统
+        new Observer(this.$data)
+
+        // 3. 代理this.$data的数据
+        Object.keys(this.$data).forEach(key => {
+          this._proxy(key)
+        })
+
+        // 4. 处理el
+        new Compiler(this.$el, this)
+
+      }
+
+      _proxy(key) {
+        Object.defineProperty(this, key, {
+          configurable: true,
+          enumerable: true,
+          set(newValue) {
+            this.$data[key] = newValue
+          },
+          get() {
+            return this.$data[key]
+          }
+        })
+      }
+
+    }
+
+
+    class Observer {
+      constructor(data) {
+        this.data = data
+
+        // 绑定响应式,
+        Object.keys(data).forEach(key => {
+          this.defineReactive(this.data, key, data[key])
+        })
+      }
+
+      defineReactive(data, key, val) {
+        // 新建发布者
+        const dep = new Dep()
+        // 封装数据劫持
+        Object.defineProperty(data, key, {
+          enumerable: true,
+          configurable: true,
+
+          // 获取响应式数据
+          get() {
+            // target为订阅者
+            if (Dep.target) {
+              // 添加订阅者
+              dep.addSub(Dep.target)
+            }
+            return val
+          },
+          set(newValue) {
+            if (newValue === val) {
+              return
+            }
+            val = newValue
+            // 通知订阅者变化
+            dep.notify()
+          }
+        })
+      }
+    }
+
+    // 发布者
+    class Dep {
+      constructor() {
+        this.subs = []
+      }
+      addSub(sub) {
+        this.subs.push(sub)
+      }
+      notify() {
+        // 遍历更新订阅者
+        this.subs.forEach(sub => {
+          sub.update()
+        })
+      }
+    }
+
+    // watcher
+    class Watcher {
+      constructor(node, name, vm) {
+        this.node = node
+        this.name = name
+        this.vm = vm
+
+        // target为watcher
+        Deg.target = this;
+        this.update();
+        Dep.target = null;
+      }
+      update() {
+        this.node.nodeValue = this.vm[this.name]
+      }
+    }
+
+    // 匹配mustache语法
+    const reg = /\{\{(.*)\}\}/
+
+    // compiler
+    class Compiler {
+      // el: #app , vm:this Vue实例
+      constructor(el, vm) {
+        this.el = document.querySelector(el)
+        this.vm = vm
+        // 片段
+        this.frag = this._createFragment()
+        this.el.appendChild(this.frag)
+
+      }
+
+      _createFragment() {
+        // 这个加入到el中
+        const frag = document.createDocumentFragment()
+
+        let child;
+        // 遍历每个child节点
+        while (child = this.el.firstChild) {
+          // 解析每个节点，解析mustache语法
+          this._compile(child)
+          frag.appendChild(child)
+        }
+        return frag
+      }
+
+      _compile(node) {
+        if (node.nodeType === 1) { // 标签节点
+          const attrs = node.attributes
+          if (attrs.hasOwnProperty('v-model')) {
+            const name = attrs['v-model'].nodeValue
+            node.addEventListener('input', e=> {
+              this.vm[name] = e.target.value
+            })
+          }
+        }
+        if (node.nodeType === 3) { //文本节点
+          console.log(reg.test(node.nodeValue));
+          if (reg.test(node.nodeValue)) {
+            const name = RegExp.$1.trim()
+            console.log(name);
+            new Watcher(node, name, this.vm)
+          }
+        }
+      }
+    }
+  </script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'mangwu',
+        age: 18
+      }
+    })
+  </script>
+</body>
+
+</html>
