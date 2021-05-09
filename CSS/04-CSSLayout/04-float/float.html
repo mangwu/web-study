@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../src/styles/base-style.css" />
+    <link rel="shortcut icon" href="../../src/images/pinned-octocat.svg" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>浮动</title>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h2>浮动</h2>
+        <nav>
+          <ul>
+            <li><a href="#1">例子</a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="content">
+      <aside>
+        <div>
+          <img src="../../src/images/65123727_3.webp" alt="" srcset="">
+        </div>
+        <div>
+          Author: mangwu
+        </div>
+        <div>
+          Introduce: JavaScript中的数字和操作符
+        </div>
+      </aside>
+      <main>
+        <article>
+          <h3>
+            <a name="1">1.浮动例子</a>
+          </h3>
+          <p>
+            <strong>浮动可以用来实现信息的横向排列，他是传统的布局方法</strong>
+          </p>
+          <div class="lizi">
+            <div id="lizi1">
+              <h1>Simple float example</h1>
+
+              <img src="https://mdn.mozillademos.org/files/13340/butterfly.jpg" alt="A pretty butterfly with red, white, and brown coloring, sitting on a large leaf">
+
+              <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.</p>
+            </div>
+          </div>
+          <p>
+            可以看到图片嵌入到文字中了，因为图片使用了浮动属性，且设置为了left。其工作方式如下：
+            <ul>
+              <li>脱离正常的文档布局流</li>
+              <li>吸附到父容器（#lizi）的左边（float: left）</li>
+              <li>正常布局流中位于该浮动元素之下的内容会围绕着浮动元素填满右测空间</li>
+              <li>
+                浮动内容仍然遵循盒子模型的规则，如外边距和边界
+              </li>
+            </ul>
+          </p>
+          <p>
+    
+          </p>
+        </article>
+        <article>
+          <h3>
+            2.首字下沉
+          </h3>
+          <p>
+            对文本进行处理时可以对其首字母进行下沉处理。使用float就会很有用。
+          </p>
+          <div class="lizi">
+            <div id="lizi2">
+              <p>This is my very important paragraph.
+                I am a distinguished gentleman of such renown that my paragraph
+                needs to be styled in a manner befitting my majesty. Bow before
+               my splendour, dear students, and go forth and learn CSS!</p>
+            </div>
+          </div>
+        </article>
+        <article>
+          <h3>
+            3.多列浮动布局
+          </h3>
+          <p>
+            浮动常常用来创建多个列布局，这种布局方式会有副作用。
+          </p>
+          <div class="part">
+            <h4>
+              两列布局
+            </h4>
+            <p>
+              两列布局将内容分为两列，利用float的left和right属性值设置左右，给不同的列分配不同的宽度。
+            </p>
+            <div class="lizi">
+              <div id="lizi3">
+                <h1>2 column layout example</h1>
+                <div>
+                  <h2>First column</h2>
+                  <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et.</p>
+                </div>
+
+                <div>
+                  <h2>Second column</h2>
+                  <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus tristique elit dolor, sed pretium </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="part">
+            <h4>三列布局</h4>
+            <p>
+              两列布局中的的两列通过设置float和width很好的做到了两列，第三列可以添加到二者中间，也使用left属性值
+              只不过要用外边距让其和左边的第一列保持一定距离。这个外边距也是计算在width内的（不能超过100%)
+            </p>
+            <div class='lizi'>
+              <div id="lizi4">
+                <h1>3 column layout example</h1>
+                <div>
+                  <h2>First column</h2>
+                  <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus Curabitur vehicula tellus neque, ac ornare ex malesuada et.</p>
+                </div>
+
+                <div>
+                  <h2>Second column</h2>
+                  <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis eslorem. Vivamus tristique elit dolor, sed pretium </p>
+                </div>
+                <div>
+                  <h2>Third column</h2>
+                  <p>Nam consequat scelerisque mattis. Duis pulvinar dapibus magna, eget congue purus mollis sit amet.</p>
+                </div>
+                <footer>
+                  <p>&copy;2016 your imagination. This isn't really copyright, this is a mockery of the very concept. Use as you wish.</p>
+                </footer>
+              </div>
+            </div>
+            <p>
+              如果修改第二列的float值为right，那么第二列就会在最右边，因为div2的float声明比顺序比div3高就会先
+              依附在右边。
+            </p>
+            
+          </div>
+          
+
+        </article>
+        <article>
+          <h3>4.浮动的问题</h3>
+          <p>
+            在上述的例子中加入一个footer，可以看到它在最短的列开始，在最长的列右边进行环绕输出。因为float会是三个div元素不在静态文档流内，所以可以看到<strong>给footer添加的样式也是部分覆盖了float元素的</strong>.
+          </p>
+          <div class="part">
+            <h4>清除浮动：clear</h4>
+            <p>
+              使用clear属性可以清除浮动：
+              <ul>
+                <li>
+                  clear属性意味着此处停止浮动：此元素和后面的元素不再浮动
+                </li>
+                <li>
+                  不再浮动就相当于不在依赖上面的浮动元素调整自身的位置
+                </li>
+                <li>
+                  属性值<span>left</span>:停止左浮动
+                </li>
+                <li>
+                  属性值<span>right</span>:停止右浮动
+                </li>
+                <li>
+                  属性值<span>both</span>:停止如何活动的左右浮动
+                </li>
+              </ul>
+            </p>
+            <div class='lizi'>
+              <div id="lizi5">
+                <h1>3 column layout example</h1>
+                <div>
+                  <h2>First column</h2>
+                  <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus Curabitur vehicula tellus neque, ac ornare ex malesuada et.</p>
+                </div>
+
+                <div>
+                  <h2>Second column</h2>
+                  <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis eslorem. Vivamus tristique elit dolor, sed pretium </p>
+                </div>
+                <div>
+                  <h2>Third column</h2>
+                  <p>Nam consequat scelerisque mattis. Duis pulvinar dapibus magna, eget congue purus mollis sit amet.</p>
+                </div>
+                <footer>
+                  <p>&copy;2016 your imagination. This isn't really copyright, this is a mockery of the very concept. Use as you wish.</p>
+                </footer>
+              </div>
+            </div>
+          </div>
+          <div class="part">
+            <h4>浮动元素高度</h4>
+            <p>
+              在footer元素css中加入<span>margin-top: 50%</span>不会起效果，因为浮动元素处于正常文档布局流之外，有一些特殊行为
+              <ul>
+                <li>
+                  只要有元素声明是浮动的，那么父元素内的其他元素都会依附于浮动元素（clear解决这个问题）
+                </li>
+                <li>
+                  父元素不会计算浮动元素占用的有效高度（0），如果一个父元素中只有浮动元素，那么设置边框会看见它没有包裹住浮动元素
+                </li>
+                <li>
+                  非浮动元素的外边距不能用于和浮动元素创建空间
+                </li>
+                <li><a href="https://css-tricks.com/all-about-floats/">其他问题</a></li>
+              </ul>
+            </p>
+            <p>
+              解决方法：在想要清除浮动位置额外添加一个看不见的div.clearfix 设置<span>clear:both</span> 即可
+              
+              
+            </p>
+            <div class='lizi'>
+              <div id="lizi6">
+                <h1>3 column layout example</h1>
+                <div>
+                  <h2>First column</h2>
+                  <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus Curabitur vehicula tellus neque, ac ornare ex malesuada et.</p>
+                </div>
+
+                <div>
+                  <h2>Second column</h2>
+                  <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis eslorem. Vivamus tristique elit dolor, sed pretium </p>
+                </div>
+                <div>
+                  <h2>Third column</h2>
+                  <p>Nam consequat scelerisque mattis. Duis pulvinar dapibus magna, eget congue purus mollis sit amet.</p>
+                </div>
+                <div class="clearfix">
+
+                </div>
+                <footer>
+                  <p>&copy;2016 your imagination. This isn't really copyright, this is a mockery of the very concept. Use as you wish.</p>
+                </footer>
+              </div>
+            </div>
+          </div>
+          <div class="part">
+            <h4>记得清除浮动</h4>
+          </div>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
