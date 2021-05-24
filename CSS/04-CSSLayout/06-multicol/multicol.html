@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../src/styles/base-style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="../../src/images/pinned-octocat.svg" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <div>
+      <h2>多列布局</h2>
+      <nav>
+        <ul>
+          <li>
+            <a href="#1">例子</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="content">
+    <aside>
+      <div>
+        <img src="../../src/images/65123727_3.webp" alt="" srcset="">
+      </div>
+      <div>
+        author: mangwu
+      </div>
+      <div>
+        多列布局
+      </div>
+    </aside>
+    <main>
+      <article>
+        <h3>
+          <a name="1">例子</a>
+        </h3>
+        <p>
+          <span>column-count</span>能够使容器创建指定数量的列，且各个列的宽度是弹性的。
+          <div class="pre">
+            <div class="code">
+              .column-count {
+                column-count: 3;
+              }
+            </div>
+          </div>
+        </p>
+        <div class="lizi">
+          <div class="column-count">
+            <h1>Simple multicol example</h1>
+
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate.
+            Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.
+            Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse
+            ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit
+            quam nec lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.</p>
+
+            <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus tristique
+            elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus sed lobortis finibus. Vivamus eu urna eget velit
+            cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque penatibus et magnis
+            dis parturient montes, nascetur ridiculus mus.</p>
+          </div>
+        </div>
+        <div class="part">
+          <h4>
+            column-width
+          </h4>
+          <p>
+            <span>column-width</span>设置列宽度，按照设置的列宽度尽可能多的创建列，然后剩余空间会被列平方：
+          <strong>无法期望宽度正好是设置的列宽度，除非容器宽度正好整除指定宽度</strong>
+          <div class="pre">
+            <div class="code">
+              .column-width {
+                column-width: 200px;
+              }
+            </div>
+          </div>
+          </p>
+          <div class="lizi">
+            <div class="column-width">
+              <h1>Simple multicol example</h1>
+  
+              <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate.
+              Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.
+              Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse
+              ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit
+              quam nec lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.</p>
+  
+              <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus tristique
+              elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus sed lobortis finibus. Vivamus eu urna eget velit
+              cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque penatibus et magnis
+              dis parturient montes, nascetur ridiculus mus.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a name="2">2.列样式</a>
+        </h3>
+        <p>
+          列样式在容器中统一改变,无法给单独的列创造样式
+          <ul>
+            <li>
+              <span>column-gap</span>: 改变列间间距
+            </li>
+            <li>
+              <span>column-rule</span>: 加入分割线，输入值和border类似，分割线不占用宽度
+            </li>
+          </ul>
+          <div class="pre">
+            <div class="code">
+              .column-style {<br>
+                &nbsp;&nbsp;column-gap: 20px;<br>
+                &nbsp;&nbsp;column-rule: 5px dotted dodgerblue;<br>
+              }
+            </div>
+          </div>
+        </p>
+
+        <div class="lizi">
+          <div class="column-count column-style">
+            <h1>Simple multicol example</h1>
+
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate.
+            Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.
+            Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse
+            ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit
+            quam nec lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.</p>
+
+            <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus tristique
+            elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus sed lobortis finibus. Vivamus eu urna eget velit
+            cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque penatibus et magnis
+            dis parturient montes, nascetur ridiculus mus.</p>
+          </div>
+        </div>
+      </article>
+      <article>
+        <h3><a name="3">3.列与内容折断</a></h3>
+        <p>
+          在换列是，由于内容的连续性，内容会被拆成碎裂放入列中，如下：
+          <div class="lizi">
+            <div class="column-count column-style">
+              <h1>Simple multicol example</h1>
+  
+              <p class="noavoid"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu  cursus viverra quis vestibulum selacinia</p>
+  
+              
+              <p class="noavoid">
+                natoque penatibus et magnis
+              dis parturient montes, nascetur ridiculus mus., posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante ipit vel. Mauri
+              </p>
+              <p class="noavoid">
+                semper consectetur eget aliquam lorem. Vivamus tristique
+              elit dolor, sed pretium metus susc
+              </p>
+              <p class='noavoid'>
+                velit
+                cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis
+              </p>
+              <p class="noavoid">
+                bendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante ipit vel. Mauris ultricies lectus
+              </p>
+              <p class="noavoid">Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante ipit vel. Mauris ultricies lectus sed lobortis finibus. Vivamus eu urna eget </p>
+            </div>
+          </div>
+        </p>
+        <p>
+          解决方法：使用属性<span>break-inside</span>
+          <div class="pre">
+            <div class="code">
+              break-inside: avoid;
+            </div>
+          </div>
+        </p>
+        <p>
+          为了浏览兼容性更高，可以使用<span>page-break-inside</span>
+          <div class="pre">
+            <div class="code">
+              page-break-inside: avoid;
+            </div>
+          </div>
+        </p>
+        <div class="lizi">
+          <div class="column-count column-style">
+            <h1>Simple multicol example</h1>
+
+            <p class="card"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu  cursus viverra quis vestibulum selacinia</p>
+
+            
+            <p class="card">
+              natoque penatibus et magnis
+            dis parturient montes, nascetur ridiculus mus., posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante ipit vel. Mauri
+            </p>
+            <p class="card">
+              semper consectetur eget aliquam lorem. Vivamus tristique
+            elit dolor, sed pretium metus susc
+            </p>
+            <p class='card'>
+              velit
+              cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis
+            </p>
+            <p class="card">
+              bendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante ipit vel. Mauris ultricies lectus
+            </p>
+            <p class="card">Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante ipit vel. Mauris ultricies lectus sed lobortis finibus. Vivamus eu urna eget </p>
+          </div>
+        </div>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

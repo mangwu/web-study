@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script src="../src/underscore-min.js"></script>
+  <script>
+    // Object.keys
+    let obj = {
+      a: 1,
+      b: 2,
+      c: 3,
+    };
+    let log = _.bind(console.log, console);
+    log("Object中的keys函数", Object.keys(obj));
+
+    // keys/allKeys
+    let obj2 = Object.create(obj);
+    obj2.d = 2;
+    log("underscore obj的keys:", _.keys(obj));
+    log("underscore obj2的keys", _.keys(obj2));
+    log(
+      "underscore obj2的allKeys:(obj2只有一个d属性，其余从obj继承)",
+      _.allKeys(obj2)
+    );
+
+    // values
+    log("Objcet类中的values方法:", Object.values(obj));
+    log("underscore中的values方法:", _.values(obj));
+
+    // mapObject
+    log(
+      "mapObject in underscore:",
+      _.mapObject(obj, (v, k) => {
+        return k + "=" + v;
+      })
+    );
+
+    // invert
+    log("invert in underscore for obj:", _.invert(obj));
+
+    // extend/extendOwn
+    let b;
+    console.log(
+      "extend in underscore for obj:",
+      b = _.extend(obj, { a: "a", name: "bob" }, { b: "b", score: 85 })
+    );
+    log('原来的obj会改变：', obj)
+    b.a = "a2"
+    b.score = 98   
+    console.log('extend返回的对象b改变属性值一样会改变原obj的属性值：', obj);
+    log('这说明extend返回的就是原obj对象，b和obj存储同一引用')
+  
+    //clone
+    let c;
+    obj.arr = [1, 2, 3]
+    log('clone in underscore:', c = _.clone(obj))
+    log('clone 函数是浅复制，修改复制值得属性值，源对象属性值也会改变')
+    c.arr[0] = 5
+    log(c)
+    log('修改浅复制对象的有关数组属性值后得obj:', obj)
+
+    //isEqual
+    let obja = {
+      'a': 5,
+      'b': [1, 2, 3]
+    }
+    let objb = {
+      'a': 5,
+      'b': [1, 2, 3]
+    }
+    log('== 和 === 对obja和objb的比较：', obja == objb, obja === objb)
+    log('isEqual对obja和objb的比较：', _.isEqual(obja, objb))
+    
+    
+  </script>
+</html>

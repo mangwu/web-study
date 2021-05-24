@@ -1,5 +1,5 @@
 {
-  "include": [
+  "exclude": [
     "./Vue/learnvue.jsV3/*",
   ]
 }

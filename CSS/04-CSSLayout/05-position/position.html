@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../src/styles/base-style.css">
+  <link rel="shortcut icon" href="../../src/images/pinned-octocat.svg" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h2>
+        浮动
+      </h2>
+      <nav>
+        <ul>
+          <li><a href="#1">文档流</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="content">
+    <aside>
+      <div>
+        <img src="../../src/images/65123727_3.webp" alt="" srcset="">
+      </div>
+    </aside>
+    <main>
+      <article>
+        <h3><a name="1">1.文档流</a></h3>
+        <p>组成文档流的布局是单个元素。单个元素中有块级元素和内联元素：块级元素宽度是父元素100%且与其他元素换行，内联元素宽高与内容一致，不能设置起宽高除非设置起display为块级元素</p>
+        <p>
+          以上述两种元素组成的元素类大致是<strong>正常布局流</strong>：块级元素在视口正常垂直布局，内联元素相邻或者被块级元素包裹，当内联元素内容过多就会换行。且这种正常布局流的外间距是可以折叠的：块级元素之间两个外边距取大的而非相加
+        </p>
+      </article>
+      <article>
+        <h3><a name="2">2.定位介绍</a></h3>
+        <p>
+          定位的想法是：<strong>允许覆盖上面的正常布局流行为</strong>。‘覆盖’的含义是多层的，它可以表示非静态定位的元素是不在正常布局流中的，也可以表示它的位置不受正常布局的限制。总之，定位能够帮助你创建‘浮动’在指定位置或者停留在视口内的相同位置的功能，它很强大。
+        </p>
+        <div class="part">
+          <h4>静态定位</h4>
+          <p>
+            静态定位没什么特别的：<span>position:static;</span>
+            <ul>
+              <li>
+                每个元素默认定位行为,相当于正常文档流的定位方式
+              </li>
+              <li>
+                不能作为其他元素的定位父元素
+              </li>
+            </ul>
+          </p>
+        </div>
+        <div class="part">
+          <h4>相对定位</h4>
+          <p>
+            相对定位：相对定位的元素可以根据其在正常文档流中的位置进行调整。其有如下特定：
+            <ul>
+              <li>
+                占据在正常文档流中，其他元素不能占据其原始位置
+              </li>
+              <li>
+                相对于原始位置利用top,left等属性进行位置移动
+              </li>
+              <li>
+                移动时不受其他元素限制也不会影响其他元素位置，可以与其他元素重叠
+              </li>
+            </ul>
+          </p>
+          <div class="lizi">
+            <div id="relative">
+              <div>
+                <h2>相对定位</h2>
+                <p>
+                  I am a basic block level element. My adjacent block level elements sit on new lines below me.
+                </p>
+                <p>
+                  By default we span 100% of the width of our parent element, and our are as tall as our child content. Our total width and height is our content + padding + border width/height.
+                </p>
+                <p>
+                  We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our margins, not both.
+                </p>
+              </div>
+            </div>
+          </div>
+          <p>
+            蓝色部分为相对定位，其他两段为静态定位。相对定位不设置top属性等值，它看起来和静态定位是一样的，因为它没有脱离静态正常文档流。关于四种移位属性：
+            <ul>
+              <li>
+                <span>top</span>:相对于静态位置向y轴正方向移动距离
+
+              </li>
+              <li>
+                <span>bottom</span>:相对于静态位置向y轴负方向移动距离
+                
+              </li>
+              <li>
+                <span>left</span>:相对于静态位置向x轴正方向移动距离
+                
+              </li>
+              <li>
+                <span>right</span>:相对于静态位置向x轴负方向移动距离
+                
+              </li>
+            </ul>
+          </p>
+        </div>
+        <div class="part">
+          <h4>绝对定位</h4>
+          <p>
+            绝对定位声明方式:
+            <div class="pre">
+              <div class="code">
+                position: absolute;
+              </div>
+            </div>
+          </p>
+          <p>
+            绝对定位有如下特定：
+            <ul>
+              <li>
+                绝对定位和相对定位不同，它不在正常文档流中，所以文档流中没有它的间隙了
+              </li>
+              <li>
+                绝对定位的元素在自己的层级内独立，用于创建不干扰页面其他元素的位置的隔离UI功能
+              </li>
+              <li>
+                绝对定位元素位置定位相对于第一个非静态定位的父元素
+              </li>
+            </ul>
+          </p>
+          <div class="lizi">
+            <div id="absolute">
+              <div>
+                <h2>相对定位</h2>
+                <p>
+                  I am a basic block level element. My adjacent block level elements sit on new lines below me.
+                </p>
+                <p>
+                  By default we span 100% of the width of our parent element, and our are as tall as our child content. Our total width and height is our content + padding + border width/height.
+                </p>
+                <p>
+                  We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our margins, not both.
+                </p>
+              </div>
+            </div>
+          </div>
+          <br>
+          <p>
+            蓝色为绝对定位元素，其相对于父元素（绿色边框.lizi relative)进行定位。它的宽度默认是父元素的100%，因为父元素设置了padding，它独立一层，不受padding影响，所以其他元素比它短。父元素不计算它的高度，且没有留给他在正常文档流中的位置，可见<strong>绝对定位不在正常文档流中，独立于在一层，但是以第一个非静态的父元素定位</strong>
+          </p>
+        </div>
+        <div class="part">
+          <h4>定位上下文</h4>
+          <p>
+            定位上下文即是绝对定位等元素的定位参考。定位上下文有如下设置：
+            <ul>
+              <li>如果绝对定位父元素全是默认定位（static），那么它的定位上下文就是<strong>初始容器块</strong></li>
+              <li>初始容器块：大小和浏览器视口一样，html元素也被包含在其中</li>
+              <li>
+                父元素中第一个设置为相对定位的元素会成为绝对定位元素的定位参考
+              </li>
+            </ul>
+          </p>
+        </div>
+      </article>
+      <article>
+        <h3>
+          <a name="3">3.z-index</a>
+        </h3>
+        <p>
+          z-index用于元素折叠时的元素上下位置关系。默认情况下在HTML源代码中顺序靠后的元素将‘赢得’前面定位的元素。如下
+        </p>
+        <div class="lizi">
+          <div id="absolute2">
+            <div>
+              <h2>相对定位</h2>
+              <p>
+                By default we span 100% of the width of our parent element, and our are as tall as our child content. Our total width and height is our content + padding + border width/height.
+              </p>
+              <p>
+                I am a basic block level element. My adjacent block level elements sit on new lines below me.
+              </p>
+              <p>
+                We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our margins, not both.
+              </p>
+            </div>
+          </div>
+        </div>
+        <p>
+          <span>z-index</span>:设置z轴值，它能影响定位元素位于该轴上的位置。默认情况下为auto，也就是0。可以设置负数值，可能会被被‘隐藏’到父元素之后。值越大层级越高。
+        </p>
+      </article>
+      <article>
+        <h3><a name="4">4.固定定位</a></h3>
+        <p>
+          固定定位代码如下：
+          <div class="pre">
+            <div class="code">
+              position: fixed;
+            </div>
+          </div>
+          <ul>
+            <li>
+              固定定位工作方式和绝对定位一样
+            </li>
+            <li>
+              固定定位唯一不同点在于：<strong>固定定位的定位参考是相对于浏览器视口本身的，它不随滚动条滚动而滚动</strong>
+            </li>
+          </ul>
+        </p>
+        <div class="lizi">
+          <div class="fixed">
+            <h2>I am fiexed</h2>
+            <ol>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li> 
+              <li></li>
+            </ol>
+          </div>
+        </div>
+        <p>
+          上面的例子只是使用sticky模仿了fixed的操作，将例子看作一个HTML文档而不是被HTML中的一个内容，那么fixed就会有上面的效果。但是sticky会占用文档流位置，而fixed不会。
+        </p>
+      </article>
+      <article>
+        <h3>5.粘性定位</h3>
+        <p>
+          sticky:相对位置和固定位置的混合体，允许定位元素像相对定位一样定位，但是滚动到某个位置就会变为固定位置了。
+        </p>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

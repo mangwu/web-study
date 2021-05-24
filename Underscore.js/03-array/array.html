@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script src="../src/underscore-min.js"></script>
+<script>
+  let arr = [1, 5, 8, 6, 7]
+  // flatten
+  console.log('flatten for array:', _.flatten([1, [1, [1, [1, 2], 2], 2]]));
+  
+  // zip / unzip
+  let arr2;
+  console.log('zip for array:', arr2 = _.zip(arr, ['a', 'b', 'c', 'd'], ['A', 'B', 'C', 'D', 'E']));
+  console.log('unzip for arry:', _.unzip(arr2));
+
+  // object
+  console.log('object for arrays', _.object(arr, arr2));
+
+  //range
+  console.log('range to array:', _.range(10, 0, -1));
+
+  // uniq
+  let arr3 = ['apple', 'Apple', 'APPLE', 'king', 'KING','HEIGHT', 'width', 'height']
+  console.log('uniq to array:', _.uniq(arr3, false, x => {
+    return x.toLowerCase()
+  }));
+
+</script>
+</html>

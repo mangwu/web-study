@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script src="../src/underscore-min.js"></script>
+  <script>
+    // chain
+    let obj = {
+      a: 2,
+      c: 3,
+      d: 4,
+      e: 5,
+      f: 6,
+    };
+
+    let sum = _.chain(obj)
+      .map((x) => x ** 2)
+      .filter((x) => x < 18)
+      .reduce((preValue, value) => preValue + value, 0)
+      .value()
+    let log = _.bind(console.log, console)
+    log('sum of obj use chain:', sum)
+  </script>
+</html>

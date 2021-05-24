@@ -1,0 +1,33 @@
+.lizi {
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid aqua;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-size: 1.3rem;
+}
+
+.column-count {
+  column-count: 3;
+}
+
+.column-width {
+  column-width: 200px;
+}
+
+.column-style {
+  column-gap: 20px;
+  column-rule: 5px dotted dodgerblue;
+}
+
+.card, .noavoid {
+  /* break-inside: avoid; */
+  border: 5px solid rgb(3, 135, 216);
+  background-color: rgb(179, 231, 248);
+  border-radius: 3px;
+}
+
+.card {
+  break-inside: avoid;
+
+}

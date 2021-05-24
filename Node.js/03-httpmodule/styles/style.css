@@ -1,0 +1,116 @@
+html {
+  box-sizing: border-box;
+  font-family: fangsong, serif;
+  font-size: 10px;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* GENERAL STYLING || */
+
+body {
+  width: 78%;
+  margin: 0 auto;
+  font-size: 2.6em;
+}
+
+p {
+  text-indent: 1.2em;
+}
+
+article {
+  width: 96%;
+  margin: 1em auto;
+  border-bottom: 5px solid black;
+}
+
+span {
+  background-color: #eeeeee;
+  color: blue;
+}
+/* UTILETIES 实用类 || */
+
+/* SITWIDE 布局 || */
+
+header {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border: 5px solid rgba(33, 33, 33, 0.8);
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px rgba(33, 33, 33, 0.8);
+}
+
+main {
+  width: 100%;
+  margin: 1em auto;
+  padding: 2em;
+  border: 5px solid rgba(33, 33, 33, 0.8);
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px rgba(33, 33, 33, 0.8);
+}
+
+/* STROE PAGES 特定类 || */
+
+.part {
+  margin-top: 1em;
+  border-top: 3px dashed gold;
+}
+.lizi {
+  width: 88%;
+  margin: 1em auto;
+  border: 2px solid aqua;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.lizi.spacing {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+}
+
+.spacing h2 {
+  font-size: 3.2rem;
+}
+
+.spacing p,
+.spacing li,
+.spacing dd,
+.spacing dt {
+  line-height: 1.5;
+}
+
+.spacing dt {
+  font-weight: bold;
+}
+
+.spacing dd {
+  margin-bottom: 1em;
+}
+
+.style-type ol {
+  list-style-type: upper-roman;
+}
+
+.style-image ul {
+  list-style-type: none;
+}
+
+.style-image ul li {
+  list-style-image: url(../images/star.svg);
+  padding-left: 2rem;
+}
+
+.background ul {
+  list-style-type: none;
+}
+
+.background ul li {
+  background-image: url(../images/star.svg);
+  background-position: 0 0;
+  background-size: 1.6rem 1.6rem;
+  background-repeat: no-repeat;
+  padding-left: 2rem;
+}

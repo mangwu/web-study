@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>collection</title>
+</head>
+<body>
+  
+</body>
+<script src="../src/underscore-min.js"></script>
+<script>
+  let obj = {
+    'a': 5,
+    'b': 6,
+    'c': 7,
+    'd': 15,
+    'e': 14,
+  }
+  let arr = [1, 5, 8, 6, 7]
+  // map /filter
+  let mapobj = _.map(obj, (v, k) => k + '=' + v)
+  let maparr = _.map(arr, v => v * 5)
+  console.log('mapobj:', mapobj);
+  console.log('maparr:', maparr);
+
+  let filterobj = _.filter(obj, (v, k) => v > 8 || k == 'a')
+  let filterarr = _.filter(arr, v => v > 5)
+  console.log('filterobj:', filterobj);
+  console.log('filterarr:', filterarr);
+
+  let mapobjectobj = _.mapObject(obj, (v, k) => k + '=' + v)
+  let mapobjectarr = _.mapObject(arr, (v, k) => 'arr[' + k + ']=' + v)
+
+  console.log('mapobjectobj:', mapobjectobj);
+  console.log('mapobjectarr:', mapobjectarr);
+
+  // every some
+  console.log('obj everyone isLowerCase?:', _.every({'age': 18, 'name': 'Bob', 'uni': 'whu'}, (v, k) => {
+    v = v + ''
+    k = k + ''
+    return k.toLowerCase() === k && v.toLowerCase() === v;
+  }));
+  console.log('obj someone isLowerCase?:', _.some({'age': 18, 'name': 'Bob', 'uni': 'whu'}, (v, k) => {
+    v = v + ''
+    k = k + ''
+    return v.toLowerCase() === v && k.toLowerCase() === k;
+  }));
+
+  // max / min
+  console.log("obj's max is:", _.max({'age': 18, 'name': 'Box', 'uni': 40}));
+  console.log("arr's max is:", _.max([1, 5, 8, 25, 'a']));
+
+  // groupBy
+  let obj2 = {
+    'a': 2,
+    'b': 5.6,
+    'c': [2, 5, 7],
+    'd': 'dog',
+    'e': Math.PI,
+    'f': obj,
+    'g': [5, Math.PI],
+    'h': 'egg',
+    
+  }
+  let groupByType = _.groupBy(obj2, value=> {
+    if (typeof(value) === 'string') {
+      return 'string'
+    }
+    if (typeof(value) === 'number') {
+      return 'number'
+    }
+    if (value instanceof Array) {
+      return 'array'
+    }
+    if (value instanceof Object) {
+      return 'object'
+    } else {
+      return 'none'
+    }
+    
+  })
+  console.log('groupByType obj2:', groupByType);
+
+  // shuffle / sample
+  console.log('shuffle of obj:', _.shuffle(obj));
+  console.log('sample of obj:', _.sample(obj, 2));
+
+  
+  
+</script>
+</html>

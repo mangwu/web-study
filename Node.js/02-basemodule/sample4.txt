@@ -1,0 +1,4 @@
+06-pipe.js new thing
+添加新东西
+third para
+06-pipe.js 展示文件信息

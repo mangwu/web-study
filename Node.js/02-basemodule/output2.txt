@@ -1,0 +1,5 @@
+06-pipe.js new thing
+添加新东西
+third para
+06-pipe.js 展示文件信息设置管道不自动关闭写入文件流，继续写入数据
+使用buffer写入二机制数据

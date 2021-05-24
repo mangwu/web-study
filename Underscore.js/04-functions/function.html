@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script src="../src/underscore-min.js"></script>
+<script>
+  // bind
+  let a = 'hello'
+  let func =  a.split
+  func = _.bind(func, a, '')
+  console.log('a execute func:', func());
+
+  // partial
+  let parF = _.partial(Math.pow, 2)
+  console.log('2 ** 3:', parF(3));
+
+  // memoize
+  function factorial(n) {
+    // console.log(`start calculate ${n}!`);
+
+    if (n === 1) {
+      console.log(`start calculate ${n}!: return 1`)
+      return n
+    } 
+    console.log(`start calculate ${n}!: ${n}! = ${n} * ${n-1}!`)
+    return n * factorial(n - 1)
+  }
+  function factorial(n) {
+    // console.log(`start calculate ${n}!`);
+
+    if (n === 1) {
+      console.log(`start calculate ${n}!: return 1`)
+      return n
+    } 
+    console.log(`start calculate ${n}!: ${n}! = ${n} * ${n-1}!`)
+    return n * factorialM(n - 1)
+  }
+  let factorialM = _.memoize(factorial)
+  console.log('factorialM(10):', factorialM(10));
+  console.log('factorialM(9):', factorialM(9));
+
+  // once
+  let oncefunc = _.once(function() {
+    alert('按钮绑定的方法只能执行一次');
+  })
+
+  let btn = document.createElement('button')
+  btn.textContent = 'execute once'
+  btn.addEventListener('click', oncefunc)
+  document.body.appendChild(btn)
+
+  // delay
+  let log = _.bind(console.log, console)
+  _.delay(log, 3000, 'Hello, ', 'underscore!')
+
+  
+
+</script>
+</html>

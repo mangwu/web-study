@@ -1,0 +1,83 @@
+.lizi {
+  border: 1px solid rgb(0, 255, 136);
+  border-radius: 5px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 5px 20px;
+  position: relative;
+  font-size: 1.4rem;
+}
+
+#relative p {
+  border: 1px solid aqua;
+  background-color: rgb(12, 197, 135);
+  padding: 2px 5px;
+  color: white;
+  border-radius: 8px;
+}
+
+#relative p:nth-of-type(2) {
+  background-color: rgb(54, 11, 245);
+  position: relative;
+  top: 17px;
+  left: 20px;
+}
+
+#absolute p {
+  border: 1px solid aqua;
+  background-color: rgb(12, 197, 135);
+  padding: 2px 5px;
+  color: white;
+  border-radius: 8px;
+}
+
+#absolute p:nth-of-type(2) {
+  background-color: rgb(54, 11, 245);
+  position: absolute;
+  top: 150px;
+  left: 0px;
+}
+
+#absolute2 p {
+  border: 1px solid aqua;
+  background-color: rgb(12, 197, 135);
+  padding: 2px 5px;
+  color: white;
+  border-radius: 8px;
+}
+
+#absolute2 p:nth-of-type(2) {
+  background-color: rgb(54, 11, 245);
+  position: absolute;
+  top: 28px;
+  left: 10px;
+  z-index: 2;
+}
+
+#absolute2 p:nth-of-type(1) {
+  background-color: lime;
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  z-index: 2;
+}
+
+.fixed {
+  height: 150px;
+  overflow: scroll;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.fixed h2 {
+  position: sticky;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  background-color: white;
+}
+
+
+
+
+
